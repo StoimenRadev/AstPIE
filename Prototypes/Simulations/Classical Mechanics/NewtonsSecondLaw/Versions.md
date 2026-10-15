@@ -56,3 +56,21 @@ An improved Octave prototype of the Newton's Second Law simulation that records 
 
 ### Purpose:
 This version expands the core simulation by recording the object's motion and the net force acting on it at every timestep. The stored history allows the results to be examined throughout the simulation, providing the foundation for future experiments, visualization, and numerical validation.
+
+### v1.3 — Force and Acceleration Experiments
+
+An extended Octave prototype of the Newton's Second Law simulation that tests the relationship between net force, mass, and acceleration through controlled experiments.
+
+### Implemented:
+* Experiments investigating the relationship between net force and acceleration while keeping mass constant
+* Experiments investigating the relationship between mass and acceleration while keeping net force constant
+* Experiments investigating how the direction of the net force determines the direction of acceleration
+* Experiments with balanced forces to verify that zero net force produces zero acceleration
+* Tests demonstrating that zero net force does not necessarily mean zero velocity
+* Verification that doubling the net force doubles the acceleration when mass remains constant
+* Verification that increasing mass reduces acceleration when the net force remains constant
+* Tests of positive and negative force components in two-dimensional motion
+* Comparison of simulation outputs across different experimental conditions
+
+### Purpose:
+This version uses controlled experiments to verify the relationships described by Newton's Second Law. By varying net force, mass, and force direction independently, the prototype demonstrates how these quantities affect acceleration and motion. It also reinforces the distinction between net force and velocity, establishing a foundation for more advanced physical experiments and numerical validation.
