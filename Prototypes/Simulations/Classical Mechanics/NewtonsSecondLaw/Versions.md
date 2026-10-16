@@ -117,3 +117,26 @@ An extended Octave prototype of the Newton's Second Law simulation that compares
 
 ### Purpose:
 This version introduces analytical validation to evaluate the accuracy of the numerical integration method used in the simulation. By comparing the semi-implicit Euler results with the analytical solution, the prototype demonstrates how numerical errors develop over time and how they affect the calculated motion. The comparison graphs and error measurements make it possible to investigate the effects of timestep size on numerical accuracy.
+
+### v1.6 — Testing and Validation
+
+An extended testing phase for the Newton's Second Law simulation that verifies the correctness of the numerical integration, analytical calculations, error analysis, input validation, and graphical outputs introduced in the previous versions.
+
+### Implemented:
+* Testing of numerical position and velocity results against analytical solutions for constant acceleration
+* Verification of final position, velocity, speed, and acceleration under known force conditions
+* Testing of numerical error reduction when decreasing the timestep
+* Verification of motion under zero net force, confirming constant velocity and uniform motion
+* Testing of two-dimensional motion with nonzero force components along both spatial axes
+* Testing of negative acceleration and deceleration scenarios
+* Verification of position and velocity error calculations at every timestep
+* Validation of final and maximum numerical error values
+* Verification that numerical and analytical trajectories and time-dependent graphs use consistent simulation data
+* Validation of time-history table dimensions, column ordering, and correspondence with calculated results
+* Testing of force vectors, velocity vectors, labels, legends, axis labels, and graph titles
+* Testing of invalid inputs, including nonpositive mass, nonpositive timestep, nonpositive total simulation time, incorrectly sized position or velocity vectors, and incorrectly sized force vectors
+* Verification that the total simulation time is an integer multiple of the timestep and that the time array reaches the intended final time
+* Comparison of expected and actual results across multiple test cases to identify calculation or implementation errors
+
+### Purpose:
+This version verifies that the numerical and analytical calculations introduced in the previous versions behave as expected under different initial conditions and force configurations. By testing known physical scenarios, the simulation's calculations can be checked against independently determined expected results. Timestep refinement tests demonstrate how the accuracy of semi-implicit Euler integration changes with timestep size, while input validation tests help prevent invalid parameters from producing misleading results. Graphical and time-history checks ensure that the displayed information remains consistent with the underlying calculations.
