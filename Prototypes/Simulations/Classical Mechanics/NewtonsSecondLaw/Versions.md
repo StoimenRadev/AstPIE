@@ -74,3 +74,24 @@ An extended Octave prototype of the Newton's Second Law simulation that tests th
 
 ### Purpose:
 This version uses controlled experiments to verify the relationships described by Newton's Second Law. By varying net force, mass, and force direction independently, the prototype demonstrates how these quantities affect acceleration and motion. It also reinforces the distinction between net force and velocity, establishing a foundation for more advanced physical experiments and numerical validation.
+
+### v1.4 — Visualization and Graphs
+
+An extended Octave prototype of the Newton's Second Law simulation that visualizes the object's trajectory, position and velocity over time, and the force vectors acting on the object.
+
+### Implemented:
+* Two-dimensional trajectory visualization using the object's recorded position history
+* Markers identifying the initial and final positions
+* Visualization of the first applied force vector
+* Visualization of the second applied force vector
+* Visualization of the net force vector
+* Visualization of the final velocity vector
+* Labels displaying the applied forces, net force, acceleration, and final velocity
+* Position-versus-time graph showing both spatial components
+* Velocity-versus-time graph showing both velocity components
+* Grid lines, axis labels, titles, and legends for the graphs
+* Verification that the generated time array reaches the intended total simulation time
+* Integration of visualizations with the existing time-history data and simulation results
+
+### Purpose:
+This version extends the numerical prototype with graphical representations of the object's motion and the forces acting on it. The trajectory illustrates the object's path in two dimensions, while the position-versus-time and velocity-versus-time graphs show how its motion evolves throughout the simulation. Force and velocity vectors provide a visual representation of their directions and relationships.
