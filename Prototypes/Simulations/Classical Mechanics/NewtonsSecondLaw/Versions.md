@@ -95,3 +95,25 @@ An extended Octave prototype of the Newton's Second Law simulation that visualiz
 
 ### Purpose:
 This version extends the numerical prototype with graphical representations of the object's motion and the forces acting on it. The trajectory illustrates the object's path in two dimensions, while the position-versus-time and velocity-versus-time graphs show how its motion evolves throughout the simulation. Force and velocity vectors provide a visual representation of their directions and relationships.
+
+### v1.5 — Analytical Validation and Numerical Error Analysis
+
+An extended Octave prototype of the Newton's Second Law simulation that compares the numerical solution obtained using semi-implicit Euler integration with an analytical solution for motion under constant acceleration.
+
+### Implemented:
+* Analytical position calculations for every timestep using the initial position, initial velocity, and constant acceleration
+* Analytical velocity calculations for every timestep
+* Analytical speed calculations based on the analytical velocity components
+* Calculation of absolute position error between the numerical and analytical solutions at every timestep
+* Calculation of absolute velocity error between the numerical and analytical solutions at every timestep
+* Comparison of final numerical and analytical positions and velocities
+* Visualization of the numerical and analytical trajectories on the same graph
+* Position-versus-time graph comparing numerical and analytical position components
+* Velocity-versus-time graph comparing numerical and analytical velocity components
+* Position-error-versus-time graph showing the evolution of positional error
+* Velocity-error-versus-time graph showing the evolution of velocity error
+* Expanded time-history table containing numerical and analytical positions, velocities, and their corresponding error magnitudes
+* Integration of analytical calculations and error analysis with the existing simulation results and visualizations
+
+### Purpose:
+This version introduces analytical validation to evaluate the accuracy of the numerical integration method used in the simulation. By comparing the semi-implicit Euler results with the analytical solution, the prototype demonstrates how numerical errors develop over time and how they affect the calculated motion. The comparison graphs and error measurements make it possible to investigate the effects of timestep size on numerical accuracy.
