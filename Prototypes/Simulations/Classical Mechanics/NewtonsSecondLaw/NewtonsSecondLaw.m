@@ -40,7 +40,10 @@ if abs(T/dt - round(T/dt)) > 1e-10
     error("Total simulation time must be an integer multiple of the time step!");
 end
 
-time = 0:dt:T; %time array
+time = 0:dt:T; % time array
+if abs(time(end) - T) > 1e-10
+    error("Final simulation time does not match T (total time)!");
+end
 
 % Storing arrays
 position = zeros(length(time), 2);
@@ -78,6 +81,85 @@ end
 % Calculating speed from the components of the velocity
 speed_initial = speed(1);
 speed_final = speed(end);
+
+% Positon visualization
+plot(position(:, 1), position(:, 2));
+hold on;
+plot(x_initial(1), x_initial(2), "o"); % initial point
+plot(x_final(1), x_final(2), "o"); % terminal point
+
+% Force vectors
+quiver(x_final(1), x_final(2), F1(1), F1(2), 0, 'r', 'linewidth', 1.5); % force 1
+quiver(x_final(1), x_final(2), F2(1), F2(2), 0, 'b', 'linewidth', 1.5); % force 2
+quiver(x_final(1), x_final(2), Fnet(1), Fnet(2), 0, 'g', 'linewidth', 2); % net force
+
+quiver(x_final(1), x_final(2), v_final(1), v_final(2), 0, 'y', 'linewidth', 2); % velocity
+
+% Force 1 label
+angle_1 = atan2(F1(2), F1(1)) * 180/pi;
+if angle_1 > 90
+    angle_1 = angle_1 - 180;
+elseif angle_1 < -90
+end
+text(x_final(1) + F1(1)/2, x_final(2) + F1(2)/2, "\n‎\nForce 1", "Rotation", angle_1, "HorizontalAlignment", "center", "VerticalAlignment", "middle");
+
+% Force 2 label
+angle_2 = atan2(F2(2), F2(1)) * 180/pi;
+if angle_2 > 90
+    angle_2 = angle_2 - 180;
+elseif angle_2 < -90
+end
+text(x_final(1) + F2(1)/2, x_final(2) + F2(2)/2, "\n‎\nForce 2", "Rotation", angle_2, "HorizontalAlignment", "center", "VerticalAlignment", "middle");
+
+% Net force label
+angle_3 = atan2(Fnet(2), Fnet(1)) * 180/pi;
+if angle_3 > 90
+    angle_3 = angle_3 - 180;
+elseif angle_3 < -90
+    angle_3 = angle_3 + 180;
+end
+
+net_force_and_acceleration_text = sprintf("Net Force: [%.3f, %.3f] N\nAcceleration: [%.3f, %.3f] m/s^2", Fnet(1), Fnet(2), a(1), a(2));
+
+text(x_final(1) + Fnet(1)/2, x_final(2) + Fnet(2)/2, net_force_and_acceleration_text, "Rotation", angle_3, "HorizontalAlignment", "center", "VerticalAlignment", "middle");
+
+% Velocity label
+angle_4 = atan2(v_final(2), v_final(1)) * 180/pi;
+
+if angle_4 > 90
+    angle_4 = angle_4 - 180;
+elseif angle_4 < -90
+    angle_4 = angle_4 + 180;
+end
+
+velocity_text = sprintf("\n‎\nFinal Velocity: [%.3f, %.3f] m/s", v_final(1), v_final(2));
+
+text(x_final(1) + v_final(1)/2, x_final(2) + v_final(2)/2, velocity_text, "Rotation", angle_4, "HorizontalAlignment", "center", "VerticalAlignment", "middle");
+grid on;
+ylabel("y position (m)");
+title("Object Trajectory");
+
+% Position vs time graph
+figure;
+plot(time, position(:, 1));
+hold on;
+plot(time, position(:, 2));
+title("Position vs. Time");
+xlabel("Time (s)");
+ylabel("Position (m)");
+legend("x position", "y position");
+grid on;
+
+% Velocity vs time graph
+figure;
+plot(time, velocity(:, 1));
+hold on;
+plot(time, velocity(:, 2));
+title("Velocity vs. Time");
+xlabel("Time (s)");
+ylabel("Velocity (m/s)");
+legend("x velocity", "y velocity");
+grid on;
 
 % Display final results
 fprintf("\nSimulation results\n\n");
