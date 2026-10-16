@@ -250,7 +250,7 @@ fprintf("Acceleration: [%.6f, %.6f] m/s^2\n", a(1), a(2));
 
 fprintf("\nFinal numerical state\n");
 fprintf("Final numerical position: [%.6f, %.6f] m\n", x_final(1), x_final(2));
-fprintf("Final numerical: [%.6f, %.6f] m/s\n", v_final(1), v_final(2));
+fprintf("Final numerical velocity: [%.6f, %.6f] m/s\n", v_final(1), v_final(2));
 fprintf("Final numerical speed: %.6f m/s\n", speed_final);
 
 fprintf("\nAnalytical solution\n");
