@@ -140,3 +140,28 @@ An extended testing phase for the Newton's Second Law simulation that verifies t
 
 ### Purpose:
 This version verifies that the numerical and analytical calculations introduced in the previous versions behave as expected under different initial conditions and force configurations. By testing known physical scenarios, the simulation's calculations can be checked against independently determined expected results. Timestep refinement tests demonstrate how the accuracy of semi-implicit Euler integration changes with timestep size, while input validation tests help prevent invalid parameters from producing misleading results. Graphical and time-history checks ensure that the displayed information remains consistent with the underlying calculations.
+
+### v1.7 — Core Version Complete
+
+A refactored and consolidated Octave prototype of the Newton's Second Law simulation that combines numerical integration, analytical validation, error analysis, graphical visualization, and simulation result reporting into a clearly organized implementation.
+
+### Implemented:
+* Organized the source code into clearly defined sections covering input parameters, simulation settings, force calculations, numerical integration, analytical validation, visualization, and results
+* Improved code readability through consistent section headings, comments, and formatting
+* Preserved input validation for mass, initial position, initial velocity, applied forces, timestep, and total simulation time
+* Implemented two-dimensional motion calculations using semi-implicit Euler integration
+* Stored position, velocity, acceleration, speed, and net force at every timestep
+* Calculated analytical position, velocity, and speed for constant acceleration
+* Calculated position and velocity error magnitudes between numerical and analytical solutions
+* Visualized numerical and analytical trajectories, including initial and final positions
+* Displayed applied force vectors, net force, final velocity, and associated labels
+* Generated numerical-versus-analytical position-time and velocity-time graphs
+* Generated position-error-versus-time and velocity-error-versus-time graphs
+* Displayed initial conditions, applied forces, net force, acceleration, final numerical state, and final analytical state
+* Reported final and maximum position and velocity errors
+* Displayed simulation information, including total simulation time, timestep, and number of integration steps
+* Combined numerical results, analytical results, and error magnitudes into a comprehensive time-history table
+* Preserved the existing calculations, validation conditions, plotting behaviour, and numerical output while improving source-code organization
+
+### Purpose:
+This version establishes the core Newton's Second Law simulation as a consolidated and readable prototype. It brings together the functionality developed throughout the preceding versions, from basic motion calculations to analytical validation, graphical representations, and numerical error analysis. The refactoring improves the maintainability of the source code and makes its individual stages easier to understand, inspect, and test without intentionally changing the underlying calculations or program behaviour.
