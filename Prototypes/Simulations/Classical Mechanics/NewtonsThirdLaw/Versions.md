@@ -17,3 +17,24 @@ The first working Octave prototype of the Newton's Third Law simulation.
 
 ### Purpose:
 This version establishes the core physics and simulation structure for a two-body Newton's Third Law model. It verifies that the interaction forces are equal in magnitude and opposite in direction, calculates the resulting accelerations, and simulates both bodies' motion over time.
+
+### v1.1 — User Inputs and Simulation Results
+
+An improved version of the Newton's Third Law simulation that introduces user-configurable parameters and organized simulation output.
+
+### Implemented:
+* User input for the number of bodies, restricted to exactly two for the current force model
+* User-configurable masses for both bodies
+* User-configurable initial positions and velocities in 2D
+* User-configurable interaction forces for both bodies
+* Newton's Third Law verification to check that the forces are equal in magnitude and opposite in direction
+* Basic validation for positive masses, timestep, and simulation duration
+* Configurable simulation timestep and total simulation time
+* Net force and acceleration calculations for each body
+* Velocity and position updates using semi-implicit Euler integration
+* Storage of position, velocity, and acceleration throughout the simulation
+* Organized output displaying the simulation setup, initial conditions, and final results at the end of execution
+* Basic error handling for invalid parameters and force pairs
+
+### Purpose:
+This version transforms the v1.0 prototype into an interactive simulation that accepts user-defined parameters instead of relying on hardcoded values. It establishes basic input validation, verifies Newton's Third Law for the specified force pair, and presents the simulation configuration and final numerical results in a clear structure.
