@@ -38,3 +38,21 @@ An improved version of the Newton's Third Law simulation that introduces user-co
 
 ### Purpose:
 This version transforms the v1.0 prototype into an interactive simulation that accepts user-defined parameters instead of relying on hardcoded values. It establishes basic input validation, verifies Newton's Third Law for the specified force pair, and presents the simulation configuration and final numerical results in a clear structure.
+
+### v1.2 — Time History and Simulation Data
+
+Expanded the Newton's Third Law simulation to store and display the evolution of each body's physical state throughout the simulation.
+
+### Implemented:
+* Time-history storage for position, velocity, acceleration, and net force
+* Storage of speed at every time point
+* Preallocation of simulation data arrays for efficient storage 
+* Recording of initial conditions and subsequent simulation states 
+* Generation of a time array based on the configured time step and total simulation time
+* Separate time-history tables for each body
+* Organized output of time, position, velocity, speed, acceleration, and net force
+* Final simulation results extracted from the stored time-history data
+* Verification of numerical results against analytical constant-acceleration equations
+
+### Purpose:
+To extend the simulation beyond calculating only the final state by preserving the physical state of each body at every time point. This enables analysis of motion throughout the simulation, supports future visualization and plotting features, and provides a foundation for numerical accuracy testing and validation.
