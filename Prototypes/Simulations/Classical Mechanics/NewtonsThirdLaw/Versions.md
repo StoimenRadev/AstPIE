@@ -89,3 +89,29 @@ Adds visual representations of the bodies, interaction forces, and resulting mot
 
 ### Purpose:
 This version adds visual representations to make the simulation's physics and resulting motion easier to understand. It allows the user to observe the bodies' initial positions, compare their interaction forces, and analyze how their positions, velocities, and accelerations change over time.
+
+### v1.5 — Analytical Validation and Numerical Error Analysis
+
+This version extends the Newton's Third Law simulation with analytical calculations and numerical error analysis to evaluate the accuracy of the simulation results.
+
+### Implemented:
+* Analytical position and velocity calculations for both bodies using constant-acceleration equations
+* Comparison of numerical and analytical position and velocity result
+* Calculation of position and velocity error magnitudes at every time step
+* Display of final numerical and analytical results
+* Validation of Newton's Third Law using the force-pair residual
+* Comparison of position errors for two time-step sizes, dt and dt/2
+* Visualization of numerical and analytical trajectories
+* Position-versus-time and velocity-versus-time graphs with analytical reference curves
+* Position-error and velocity-error graphs
+* Extended time-history output containing numerical results, analytical results, and error magnitudes
+* Automatic validation output for Newton's Third Law and time-step comparison
+
+### Limitations:
+* The analytical comparison assumes constant masses and constant applied forces.
+* The simulation uses semi-implicit Euler integration, which introduces position error for constant acceleration, while velocity should remain accurate up to floating-point precision.
+* The time-step comparison calculates the expected numerical position for each time step analytically rather than running a second simulation.
+* This version supports exactly two bodies and does not yet validate general variable-force scenarios.
+
+### Purpose:
+To verify the accuracy of the simulation by comparing its numerical results with analytical solutions, measuring numerical errors, and examining how the time-step size affects the calculated motion.

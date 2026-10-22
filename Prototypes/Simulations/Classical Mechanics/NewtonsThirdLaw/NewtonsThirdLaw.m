@@ -322,6 +322,7 @@ for j = 1:n
     fprintf("\nBody %d\n", j);
     fprintf("Position error with dt = %.3f s: %.3g m\n", dt, error_dt);
     fprintf("Position error with dt = %.3f s: %.3g m\n", dt_half, error_half);
+end
 
 % Time history
 for j = 1:n
@@ -331,4 +332,3 @@ for j = 1:n
     disp("t, x, y, vx, vy, speed, ax, ay, Fx_net, Fy_net, x_analytical, y_analytical, vx_analytical, vy_analytical, analytical_speed, position_error, velocity_error");
     disp(results);
 end
-
