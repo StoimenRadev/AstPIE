@@ -70,3 +70,22 @@ Extend the simulation to calculate each body's net force and acceleration indepe
 * Prepare the simulation for systematic physical and numerical validation
 
 ### Purpose: Improve the simulation's physical model and make it capable of demonstrating how mass and net force affect the motion of each body while preserving Newton's Third Law.
+
+### v1.4 — Visualization and Graphs
+
+Adds visual representations of the bodies, interaction forces, and resulting motion to the Newton's Third Law simulation.
+
+### Implemented:
+* Visualization of both bodies at their initial positions in a 2D coordinate system
+* Display of interaction-force vectors with correct directions
+* Visual distinction between the forces acting on each body using different colors
+* Adjustable visual scaling of force vectors for clearer presentation
+* Position-versus-time graphs for the x- and y-coordinates of both bodies
+* Velocity-versus-time graphs for the x- and y-components of both bodies
+* Acceleration-versus-time graphs for the x- and y-components of both bodies
+* Clear graph titles, axis labels, legends, and grid lines
+* Consistent SI units across the visualizations
+* Validation of plotted results against the simulation's numerical output
+
+### Purpose:
+This version adds visual representations to make the simulation's physics and resulting motion easier to understand. It allows the user to observe the bodies' initial positions, compare their interaction forces, and analyze how their positions, velocities, and accelerations change over time.
