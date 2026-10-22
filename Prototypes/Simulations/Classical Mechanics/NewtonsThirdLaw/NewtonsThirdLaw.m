@@ -109,6 +109,107 @@ for i = 2:num_steps
 
 end
 
+figure;
+hold on;
+
+% Display body 1
+plot(x_initial(1, 1), x_initial(1, 2), 'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r');
+
+% Display body 2
+plot(x_initial(2, 1), x_initial(2, 2), 'bo', 'MarkerSize', 5, 'MarkerFaceColor', 'b');
+
+% Label the bodies
+text(x_initial(1, 1), x_initial(1, 2), ' Body 1');
+text(x_initial(2, 1), x_initial(2, 2), ' Body 2');
+
+% Display interaction-force vectors
+force_scale = 0.2;
+quiver(x_initial(1, 1), x_initial(1, 2), force_scale * F1(1), force_scale + F1(2), 0, 'r', 'LineWidth', 1.5);
+quiver(x_initial(2, 1), x_initial(2, 2), force_scale * F2(1), force_scale * F2(2), 0, 'b', 'LineWidth', 1.5);
+
+% Label force vectors at their midpoints
+text(x_initial(1, 1) + F1(1)/2,  x_initial(1, 2) + F1(2)/2, 'Force on Body 1');
+text(x_initial(2, 1) + F2(1)/2,  x_initial(2, 2) + F2(2)/2, 'Force on Body 2');
+
+% Configure the figure
+xlabel('Position x (m)');
+ylabel('Position y (m)');
+title('Positions and Interaction Forces');
+
+legend('Body 1', 'Body 2', 'Force on Body 1', 'Force on Body 2');
+grid on;
+axis equal;
+hold off;
+
+% Visualization: Position vs Time
+figure;
+subplot(2, 1, 1); % X-position vs time
+plot(time, position(:, 1, 1), 'r-', 'LineWidth', 1.5);
+hold on;
+plot(time, position(:, 2, 1), 'b-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('X-position (m)');
+title('X-position vs Time');
+legend('Body 1', 'Body 2');
+grid on;
+hold off;
+subplot(2, 1, 2); % Y-position vs time
+plot(time, position(:, 1, 2), 'r-', 'LineWidth', 1.5);
+hold on;
+plot(time, position(:, 2, 2), 'b-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('Y-position (m)');
+title('Y-position vs Time');
+legend('Body 1', 'Body 2');
+grid on;
+hold off;
+
+% Visualization: Velocity vs Time
+figure;
+subplot(2, 1, 1); % X-velocity vs time
+plot(time, velocity(:, 1, 1), 'r-', 'LineWidth', 1.5);
+hold on;
+plot(time, velocity(:, 2, 1), 'b-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('X-velocity (m/s)');
+title('X-velocity vs Time');
+legend('Body 1', 'Body 2');
+grid on;
+hold off;
+subplot(2, 1, 2); % Y-velocity vs time
+plot(time, velocity(:, 1, 2), 'r-', 'LineWidth', 1.5);
+hold on;
+plot(time, velocity(:, 2, 2), 'b-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('Y-velocity (m/s)');
+title('Y-velocity vs Time');
+legend('Body 1', 'Body 2');
+grid on;
+hold off;
+
+% Visualization: Acceleration vs Time
+figure;
+subplot(2, 1, 1); % X-acceleration vs time
+plot(time, acceleration(:, 1, 1), 'r-', 'LineWidth', 1.5);
+hold on;
+plot(time, acceleration(:, 2, 1), 'b-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('X-acceleration (m/s^2)');
+title('X-acceleration vs Time');
+legend('Body 1', 'Body 2');
+grid on;
+hold off;
+subplot(2, 1, 2); % Y-acceleration vs time
+plot(time, acceleration(:, 1, 2), 'r-', 'LineWidth', 1.5);
+hold on;
+plot(time, acceleration(:, 2, 2), 'b-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('Y-acceleration (m/s^2)');
+title('Y-acceleration vs Time');
+legend('Body 1', 'Body 2');
+grid on;
+hold off;
+
 fprintf("\nSimulation results\n");
 
 % Simulation setup
