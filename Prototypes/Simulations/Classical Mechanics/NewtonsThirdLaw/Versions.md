@@ -56,3 +56,17 @@ Expanded the Newton's Third Law simulation to store and display the evolution of
 
 ### Purpose:
 To extend the simulation beyond calculating only the final state by preserving the physical state of each body at every time point. This enables analysis of motion throughout the simulation, supports future visualization and plotting features, and provides a foundation for numerical accuracy testing and validation.
+
+### v1.3 — Independent Net Force and Acceleration Calculation
+
+Extend the simulation to calculate each body's net force and acceleration independently, accounting for interaction forces and additional external forces.
+
+### Implemented:
+* Separate interaction forces from net forces
+* Calculate each body's net force from all applied forces
+* Calculate acceleration independently using each body's mass
+* Support different masses and initial velocities
+* Store and display interaction forces, external forces, net forces, and accelerations separately
+* Prepare the simulation for systematic physical and numerical validation
+
+### Purpose: Improve the simulation's physical model and make it capable of demonstrating how mass and net force affect the motion of each body while preserving Newton's Third Law.
