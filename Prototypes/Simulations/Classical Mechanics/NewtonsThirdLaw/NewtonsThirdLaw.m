@@ -4,8 +4,8 @@ close all;
 
 % Parameters
 n = input("Enter number of bodies: ");
-if n < 2
-    error("There should be at least 2 bodies!");
+if ~isscalar(n) || ~isfinite(n) || n ~= 2 || n ~= fix(n)
+    error("This version requires exactly 2 bodies.");
 end
 
 mass = zeros(n, 1);
@@ -38,13 +38,17 @@ v_initial = v;
 dt = input("Enter the time step (s): ");
 T = input("Enter the total simulation time (s): ");
 
-if dt <= 0 || T <= 0
-    error("Time step and simulation time must be positive!");
+if ~isscalar(dt) || ~isfinite(dt) || dt <= 0 || ~isscalar(T) || ~isfinite(T) || T <= 0
+    error("Time step and simulation time must be positive finite numbers.");
 end
 
-if mod(T, dt) > 1e-10
-    error("Simulation time must be divisible by the time step!");
+if abs(T / dt - round(T / dt)) > 1e-10
+    error("Total simulation time must be an integer multiple of the time step.");
 end
+
+% Create time array
+time = 0:dt:T;
+time(end) = T;
 
 % Input interaction forces
 F1 = input("Enter the force on body 1 [Fx, Fy] (N): ");
@@ -63,20 +67,24 @@ Fnet(2, :) = F2;
 % Calculate acceleration
 a = Fnet ./ mass;
 
-% Create time array
-time = 0:dt:T;
+num_steps = length(time);
 
 % Store simulation data
-position = zeros(length(time), n, 2);
-velocity = zeros(length(time), n, 2);
-acceleration = zeros(length(time), n, 2);
+position = zeros(num_steps, n, 2);
+velocity = zeros(num_steps, n, 2);
+acceleration = zeros(num_steps, n, 2);
+force = zeros(num_steps, n, 2);
+speed = zeros(num_steps, n);
+
+speed(1, :) = sqrt(sum(v.^2, 2));
 
 position(1, :, :) = x;
 velocity(1, :, :) = v;
 acceleration(1, :, :) = a;
+force(1, :, :) = Fnet;
 
 % Simulation loop
-for i = 2:length(time)
+for i = 2:num_steps
 
     % Update velocity
     v_final = v + a * dt;
@@ -92,6 +100,9 @@ for i = 2:length(time)
     position(i, :, :) = x;
     velocity(i, :, :) = v;
     acceleration(i, :, :) = a;
+    force(i, :, :) = Fnet;
+
+    speed(i, :) = sqrt(sum(v.^2, 2));
 
 end
 
@@ -102,7 +113,10 @@ fprintf("\nSimulation Setup\n");
 fprintf("Number of bodies: %d\n", n);
 fprintf("Time step (s): %.3f\n", dt);
 fprintf("Total simulation time (s): %.3f\n", T);
+fprintf("Number of time points: %d\n", num_steps);
+fprintf("Number of simulation steps: %d\n", num_steps - 1);
 
+% Interaction forces
 fprintf("\nInteraction forces:\n");
 fprintf("Force on body 1 (N): [%.3f, %.3f]\n", F1(1), F1(2));
 fprintf("Force on body 2 (N): [%.3f, %.3f]\n", F2(1), F2(2));
@@ -113,19 +127,40 @@ fprintf("\nInitial Conditions\n");
 
 for j = 1:n
     fprintf("\nBody %d\n", j);
-    fprintf("Mass (kg): %.3f\n", mass(j));
-    fprintf("Initial position (m): [%.3f, %.3f]\n", x_initial(j, 1), x_initial(j, 2));
-    fprintf("Initial velocity (m/s): [%.3f, %.3f]\n", v_initial(j, 1), v_initial(j, 2));
+    fprintf("Mass: %.4f kg\n", mass(j));
+    fprintf("Initial position: [%.4f, %.4f] m\n", x_initial(j, 1), x_initial(j, 2));
+    fprintf("Initial velocity: [%.4f, %.4f] m/s\n", v_initial(j, 1), v_initial(j, 2));
+    fprintf("Initial speed: %.4f m/s\n", speed(1, j));
 end
 
 % Final results
 fprintf("\nFinal Simulation Results\n");
 
 for j = 1:n
+    final_position = squeeze(position(end, j, :));
+    final_velocity = squeeze(velocity(end, j, :));
+    final_acceleration = squeeze(acceleration(end, j, :));
+    final_force = squeeze(force(end, j, :));
+
     fprintf("\nBody %d\n", j);
-    fprintf("Mass (kg): %.3f\n", mass(j));
-    fprintf("Final position (m): [%.3f, %.3f]\n", x(j, 1), x(j, 2));
-    fprintf("Final velocity (m/s): [%.3f, %.3f]\n", v(j, 1), v(j, 2));
-    fprintf("Acceleration (m/s^2): [%.3f, %.3f]\n", a(j, 1), a(j, 2));
-    fprintf("Net force (N): [%.3f, %.3f]\n", Fnet(j, 1), Fnet(j, 2));
+    fprintf("Final position: [%.3f, %.3f] m\n",  final_position(1), final_position(2));
+    fprintf("Final velocity: [%.3f, %.3f] m/s\n", final_velocity(1), final_velocity(2));
+    fprintf("Final speed: %.3f m/s\n", speed(end, j));
+    fprintf("Acceleration: [%.3f, %.3f] m/s^2\n", final_acceleration(1), final_acceleration(2));
+    fprintf("Net force: [%.3f, %.3f] N\n", final_force(1), final_force(2));
+end
+
+%  Time history
+for j = 1:n
+    fprintf("\nTime History %d \n", j);
+
+    body_position = [position(:, j, 1), position(:, j, 2)];
+    body_velocity = [velocity(:, j, 1), velocity(:, j, 2)];
+    body_acceleration = [acceleration(:, j, 1), acceleration(:, j, 2)];
+    body_force = [force(:, j, 1), force(:, j, 2)];
+
+    results = [time(:), body_position, body_velocity, speed(:, j), body_acceleration, body_force];
+
+    disp("Columns: t, x, y, vx, vy, speed, ax, ay, Fx_net, Fy_net");
+    disp(results);
 end
