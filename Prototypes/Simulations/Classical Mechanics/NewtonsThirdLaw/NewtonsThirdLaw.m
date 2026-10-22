@@ -59,10 +59,13 @@ if any(F2 != -F1)
     error("Newton's Third Law test failed: forces are not equal and opposite!");
 end
 
+Fext1 = input("Enter additional external force on body 1 [Fx, Fy] (N): ");
+Fext2 = input("Enter additional external force on body 2 [Fx, Fy] (N): ");
+
 % Calculate net force
 Fnet = zeros(n, 2);
-Fnet(1, :) = F1;
-Fnet(2, :) = F2;
+Fnet(1, :) = F1 + Fext1;
+Fnet(2, :) = F2 + Fext2;
 
 % Calculate acceleration
 a = Fnet ./ mass;
