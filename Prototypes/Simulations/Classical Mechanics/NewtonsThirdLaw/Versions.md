@@ -115,3 +115,26 @@ This version extends the Newton's Third Law simulation with analytical calculati
 
 ### Purpose:
 To verify the accuracy of the simulation by comparing its numerical results with analytical solutions, measuring numerical errors, and examining how the time-step size affects the calculated motion.
+
+### v1.6 — Improved Numerical Integration
+
+Improves the numerical integration of the Newton's Third Law simulation by implementing velocity Verlet and comparing its results with semi-implicit Euler and the analytical solution for constant acceleration.
+
+### Implemented:
+* Implemented the velocity Verlet integration method for calculating positions and velocities.
+* Updated positions using the previous velocity and acceleration.
+* Updated velocities using the average of the previous and new accelerations.
+* Added a separate semi-implicit Euler simulation for comparison.
+* Stored position and velocity histories for both numerical methods at every time step.
+* Calculated position and velocity errors for both methods against the analytical solution.
+* Added trajectory comparisons between semi-implicit Euler, velocity Verlet, and the analytical solution.
+* Added position-versus-time and velocity-versus-time graphs comparing all three approaches.
+* Added error-versus-time graphs for both numerical methods.
+* Compared the final results of semi-implicit Euler and velocity Verlet using the original time step.
+* Added a second velocity Verlet calculation using half the original time step to examine timestep sensitivity.
+* Preserved Newton's Third Law validation, simulation results, and time-history output.
+* Tested the implementation using known masses, initial conditions, interaction forces, and external forces.
+* Verified that velocity Verlet reproduces the analytical results to floating-point precision for constant acceleration.
+
+### Purpose:
+To improve the accuracy and evaluation of numerical integration by comparing different methods against a known analytical solution. This version demonstrates the position error introduced by semi-implicit Euler and the accuracy of velocity Verlet under constant-acceleration conditions.
