@@ -138,3 +138,22 @@ Improves the numerical integration of the Newton's Third Law simulation by imple
 
 ### Purpose:
 To improve the accuracy and evaluation of numerical integration by comparing different methods against a known analytical solution. This version demonstrates the position error introduced by semi-implicit Euler and the accuracy of velocity Verlet under constant-acceleration conditions.
+
+### v1.7 — Testing and Validation
+
+Completes the core Newton's Third Law simulation by testing input validation, physical correctness, numerical accuracy, time-history data, and graphical outputs.
+
+###Implemented:
+* Validation of the number of bodies, masses, initial positions, initial velocities, time step, and total simulation time
+* Validation of interaction and external force vectors
+* Verification that interaction forces satisfy Newton's Third Law:
+   F12 + F21 = 0
+* Testing of different masses, initial positions, initial velocities, force directions, and external forces
+* Comparison of Velocity Verlet results with analytical solutions for constant acceleration
+* Comparison of Velocity Verlet and semi-implicit Euler integration methods
+* Evaluation of numerical errors and the effect of changing the time step
+* Verification of time-history arrays, numerical summaries, and graphical outputs
+* Regression testing to confirm that existing functionality continues to work correctly
+
+### Purpose:
+To verify that the simulation produces physically correct and numerically reliable results, rejects invalid inputs, and maintains consistent outputs across different test scenarios.
