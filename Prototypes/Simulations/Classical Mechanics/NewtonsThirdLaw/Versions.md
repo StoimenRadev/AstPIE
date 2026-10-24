@@ -157,3 +157,22 @@ Completes the core Newton's Third Law simulation by testing input validation, ph
 
 ### Purpose:
 To verify that the simulation produces physically correct and numerically reliable results, rejects invalid inputs, and maintains consistent outputs across different test scenarios.
+
+### v1.8 — Core Version Complete
+
+Consolidates the validated Newton's Third Law simulation into a stable, usable, and documented core release.
+
+### Implemented:
+* Integrated all completed features from v1.0–v1.7
+* Refactored input handling to validate initial positions and velocities before assigning them to simulation arrays
+* Organized the code into clear sections while preserving existing comments and program structure
+* Finalized input validation, simulation execution, and numerical output
+* Retained Velocity Verlet as the primary integration method and semi-implicit Euler for comparison
+* Finalized force visualization, trajectories, position and velocity graphs, and numerical error plots
+* Finalized analytical comparisons, time-step comparisons, and time-history output
+* Preserved three-decimal-place formatting for the relevant numerical results
+* Completed the README and technical documentation covering the physical model, equations, assumptions, limitations, and validation approach
+* Prepared the codebase for future extensions without unnecessarily complicating the core implementation
+
+### Purpose:
+To establish a reliable, stable, and documented baseline for the Newton's Third Law simulation, providing a foundation for future extensions such as momentum, impulse, and additional physical analyses.
