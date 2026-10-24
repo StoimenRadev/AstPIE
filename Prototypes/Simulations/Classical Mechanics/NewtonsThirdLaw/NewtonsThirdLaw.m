@@ -49,8 +49,8 @@ time(end) = T;
 num_steps = length(time);
 
 % Interaction forces
-F1 = input("Enter force on body 1 [Fx Fy] (N): ");
-F2 = input("Enter force on body 2 [Fx Fy] (N): ");
+F1 = input("Enter interaction force on body 1 [Fx Fy] (N): ");
+F2 = input("Enter interaction force on body 2 [Fx Fy] (N): ");
 
 if ~isnumeric(F1) || numel(F1) ~= 2 || ~isreal(F1) || any(~isfinite(F1(:))) || ~isnumeric(F2) || numel(F2) ~= 2 ||  ~isreal(F2) || any(~isfinite(F2(:)))
     error("Each interaction force must contain two finite real components!");
