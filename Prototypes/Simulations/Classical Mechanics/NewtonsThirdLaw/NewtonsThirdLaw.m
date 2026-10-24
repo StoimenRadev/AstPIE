@@ -16,16 +16,21 @@ v = zeros(n, 2);
 % Initial conditions
 for i = 1:n
     mass(i) = input(sprintf("Enter mass of body %d (kg): ", i));
-    x(i, :) = input(sprintf("Enter initial position of body %d [x y] (m): ", i));
-    v(i, :) = input(sprintf("Enter initial velocity of body %d [vx vy] (m/s): ", i));
 
-    if ~isscalar(mass(i)) || ~isfinite(mass(i)) || mass(i) <= 0
+    if ~isscalar(mass(i)) || ~isreal(mass(i)) || ~isfinite(mass(i)) || mass(i) <= 0
         error("Mass must be a positive finite number!");
     end
 
-    if numel(x(i, :)) ~= 2 || any(~isfinite(x(i, :))) || numel(v(i, :)) ~= 2 || any(~isfinite(v(i, :)))
+    position_input = input(sprintf("Enter initial position of body %d [x y] (m): ", i));
+    velocity_input = input(sprintf("Enter initial velocity of body %d [vx vy] (m/s): ", i));
+
+    if ~isnumeric(position_input) || ~isreal(position_input) || numel(position_input) ~= 2 || any(~isfinite(position_input(:))) || ...
+       ~isnumeric(velocity_input) || ~isreal(velocity_input) || numel(velocity_input) ~= 2 || any(~isfinite(velocity_input(:)))
         error("Position and velocity must contain two finite components!");
     end
+
+    x(i, :) = position_input(:)';
+    v(i, :) = velocity_input(:)';
 end
 
 % Save initial values
@@ -191,26 +196,18 @@ for i = 1:num_steps
         velocity_error_x = velocity(i, j, 1) - analytical_velocity(i, j, 1);
         velocity_error_y = velocity(i, j, 2) - analytical_velocity(i, j, 2);
 
-        position_error(i, j) = sqrt( ...
-            position_error_x^2 + position_error_y^2);
+        position_error(i, j) = sqrt( position_error_x^2 + position_error_y^2);
 
         velocity_error(i, j) = sqrt(velocity_error_x^2 + velocity_error_y^2);
     end
 end
 
 % Final values
-x_final = zeros(n, 2);
-v_final = zeros(n, 2);
-analytical_position_final = zeros(n, 2);
-analytical_velocity_final = zeros(n, 2);
+x_final = reshape(position(end, :, :), n, 2);
+v_final = reshape(velocity(end, :, :), n, 2);
 
-for j = 1:n
-    x_final(j, :) = position(end, j, :);
-    v_final(j, :) = velocity(end, j, :);
-
-    analytical_position_final(j, :) = analytical_position(end, j, :);
-    analytical_velocity_final(j, :) = analytical_velocity(end, j, :);
-end
+analytical_position_final = reshape(analytical_position(end, :, :), n, 2);
+analytical_velocity_final = reshape(analytical_velocity(end, :, :), n, 2);
 
 speed_initial = speed(1, :);
 speed_final = speed(end, :);
@@ -387,7 +384,7 @@ fprintf("\nBody Results - Velocity  Verlet\n");
 
 for j = 1:n
     fprintf("\nBody %d\n", j);
-    fprintf("Mass: %.6f kg\n", mass(j));
+    fprintf("Mass: %.3f kg\n", mass(j));
     fprintf("Initial position: [%.3f, %.3f] m\n", x_initial(j, 1), x_initial(j, 2));
     fprintf("Initial velocity: [%.3f, %.3f] m/s\n", v_initial(j, 1), v_initial(j, 2));
     fprintf("Initial speed: %.3f m/s\n", speed_initial(j));
@@ -459,16 +456,16 @@ for j = 1:n
      error_verlet_half = sqrt((x_verlet_half(j, 1) - analytical_x)^2 + (x_verlet_half(j, 2) - analytical_y)^2);
 
     fprintf("\nBody %d\n", j);
-    fprintf("Analytical final position: [%.6f, %.6f] m\n", analytical_x, analytical_y);
-    fprintf("Semi-implicit Euler final position: [%.6f, %.6f] m\n", x_euler(j, 1), x_euler(j, 2));
-    fprintf("Velocity Verlet final position: [%.6f, %.6f] m\n", x_verlet(j, 1), x_verlet(j, 2));
-    fprintf("Velocity Verlet final position with dt/2: [%.6f, %.6f] m\n", x_verlet_half(j, 1), x_verlet_half(j, 2));
-    fprintf("Semi-implicit Euler final velocity: [%.6f, %.6f] m/s\n", v_euler(j, 1), v_euler(j, 2));
-    fprintf("Velocity Verlet final velocity: [%.6f, %.6f] m/s\n", v_verlet(j, 1), v_verlet(j, 2));
-    fprintf("Velocity Verlet final velocity with dt/2: [%.6f, %.6f] m/s\n",  v_verlet_half(j, 1), v_verlet_half(j, 2));
-    fprintf("Semi-implicit Euler position error (dt = %.6g s): %.6g m\n", dt, error_euler);
-    fprintf("Velocity Verlet position error (dt = %.6g s): %.6g m\n", dt, error_verlet);
-    fprintf("Velocity Verlet position error (dt = %.6g s): %.6g m\n", dt_half, error_verlet_half);
+    fprintf("Analytical final position: [%.3f, %.3f] m\n", analytical_x, analytical_y);
+    fprintf("Semi-implicit Euler final position: [%.3f, %.3f] m\n", x_euler(j, 1), x_euler(j, 2));
+    fprintf("Velocity Verlet final position: [%.3f, %.3f] m\n", x_verlet(j, 1), x_verlet(j, 2));
+    fprintf("Velocity Verlet final position with dt/2: [%.3f, %.3f] m\n", x_verlet_half(j, 1), x_verlet_half(j, 2));
+    fprintf("Semi-implicit Euler final velocity: [%.3f, %.3f] m/s\n", v_euler(j, 1), v_euler(j, 2));
+    fprintf("Velocity Verlet final velocity: [%.3f, %.3f] m/s\n", v_verlet(j, 1), v_verlet(j, 2));
+    fprintf("Velocity Verlet final velocity with dt/2: [%.3f, %.3f] m/s\n",  v_verlet_half(j, 1), v_verlet_half(j, 2));
+    fprintf("Semi-implicit Euler position error (dt = %.3g s): %.3g m\n", dt, error_euler);
+    fprintf("Velocity Verlet position error (dt = %.3g s): %.3g m\n", dt, error_verlet);
+    fprintf("Velocity Verlet position error (dt = %.3g s): %.3g m\n", dt_half, error_verlet_half);
 
 end
 
