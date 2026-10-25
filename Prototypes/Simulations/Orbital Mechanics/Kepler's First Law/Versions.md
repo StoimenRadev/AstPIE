@@ -51,3 +51,36 @@ Makes the core orbital simulation configurable by accepting user-defined physica
 
 ### Purpose:
 To make the orbital simulation configurable and suitable for repeatable experiments with different stars, planets, initial positions, initial velocities, time steps, and simulation durations.
+
+### v1.2 — Orbital Geometry and Theoretical Ellipse
+
+Extends the configurable orbital simulation by calculating the theoretical orbital geometry from the initial conditions and gravitational parameters, generating an analytical ellipse, and plotting it alongside the numerically calculated trajectory for comparison.
+
+### Implemented:
+* Calculated the initial orbital radius from the planet's initial position vector.
+* Calculated the squared magnitude of the planet's initial velocity.
+* Calculated the specific orbital energy from the initial position, velocity, and gravitational parameter.
+* Added validation to reject initial conditions that do not describe a bound elliptical orbit.
+* Calculated the specific angular momentum from the initial position and velocity vectors.
+* Added validation to reject radial trajectories with zero specific angular momentum.
+* Calculated the orbital eccentricity using the specific orbital energy and specific angular momentum.
+* Added validation to ensure that the calculated eccentricity is finite and within the valid range for an elliptical orbit.
+* Calculated the eccentricity vector to determine the orientation of the orbital ellipse.
+* Calculated the perihelion angle from the eccentricity vector, with a defined orientation for circular orbits.
+* Calculated the semimajor axis using the specific orbital energy.
+* Calculated the semiminor axis from the semimajor axis and eccentricity.
+* Calculated the focal distance from the semimajor axis and eccentricity.
+* Calculated the perihelion and aphelion distances.
+* Generated theoretical ellipse coordinates using the parametric equations of an ellipse.
+* Shifted the ellipse coordinates so that the central star is located at one of the ellipse's foci.
+* Rotated the theoretical ellipse according to the calculated perihelion angle.
+* Extended the orbital plot to display the numerical trajectory and theoretical ellipse together.
+* Distinguished the numerical trajectory, theoretical ellipse, central star, initial position, and final position using separate plot styles and markers.
+* Added plot labels, a title, a legend, and a grid, with equal scaling of the coordinate axes to preserve the ellipse's geometric proportions.
+* Added validation for invalid orbital conditions and numerical values encountered during the calculation of orbital geometry.
+* Prepared the prototype for experiments involving nearly circular, moderately eccentric, and highly eccentric bound orbits.
+* Preserved the semi-implicit Euler integration method from previous versions.
+* Established the theoretical ellipse as an analytical reference for comparing the numerical trajectory.
+
+### Purpose:
+To extend the numerical orbital simulation with analytical orbital geometry based on Kepler's First Law. This version enables the calculation and visualisation of elliptical orbital parameters and allows the numerical trajectory to be compared with the theoretically predicted orbit under the same initial conditions. It also establishes a foundation for further experiments involving orbital eccentricity, orientation, and numerical accuracy.
