@@ -57,7 +57,7 @@ if ~isfinite(mu_star) || mu_star <= 0
 end
 
 % 10. Display simulation parameters
-fprintf("\nSIMULATION PARAMETERS \n");
+fprintf("\nSimulation Parameters \n");
 fprintf("Star mass: %.3e kg\n", star_mass);
 fprintf("Planet mass: %.3e kg\n", planet_mass);
 fprintf("Gravitational parameter: %.3e m^3/s^2\n", mu_star);
@@ -75,6 +75,81 @@ v_planet = v0_planet;
 
 planet_positions = zeros(num_steps + 1, 2);
 planet_positions(1, :) = r_planet;
+
+% Calculate initial distance and speed
+r0 = sqrt(r0_planet(1)^2 + r0_planet(2)^2);
+v0_squared = v0_planet(1)^2 + v0_planet(2)^2;
+if r0 == 0
+    error("Initial position cannot be at the star.");
+end
+
+% Calculate specific orbital energy
+specific_energy = v0_squared / 2 - mu_star / r0;
+%
+if specific_energy >= 0
+    error("Initial conditions do not describe a bound elliptical orbit.");
+end
+
+% Calculate specific angular momentum (2D)
+specific_angular_momentum = r0_planet(1) * v0_planet(2) - r0_planet(2) * v0_planet(1);
+if specific_angular_momentum == 0
+    error("Initial conditions describe a radial trajectory, not a regular ellipse.");
+end
+
+
+% Calculate eccentricity
+eccentricity = sqrt(1 + (2 * specific_energy * specific_angular_momentum^2) / mu_star^2);
+if eccentricity < 0 && eccentricity > -1e-12
+    eccentricity = 0;
+end
+
+if ~isfinite(eccentricity) || eccentricity < 0 || eccentricity >= 1
+    error("The calculated orbital eccentricity is invalid for an ellipse.");
+end
+
+% Calculate the eccentricity vector
+% Calculate the dot product of initial position and velocity
+position_velocity_dot = r0_planet(1) * v0_planet(1) + r0_planet(2) * v0_planet(2);
+
+% Calculate the X component of the eccentricity vector
+eccentricity_x = ((v0_squared - mu_star / r0) * r0_planet(1) - position_velocity_dot * v0_planet(1)) / mu_star;
+
+% Calculate the Y component of the eccentricity vector
+eccentricity_y = ((v0_squared - mu_star / r0) * r0_planet(2) - position_velocity_dot * v0_planet(2)) / mu_star;
+
+% Calculate the direction of perihelion
+if eccentricity < 1e-10
+    perihelion_angle = 0; % Orientation is arbitrary for a circular orbit
+else
+    perihelion_angle = atan2(eccentricity_y, eccentricity_x);
+end
+
+% Calculate semimajor axis
+semi_major_axis = -mu_star / (2 * specific_energy);
+
+% Calculate semiminor axis
+semi_minor_axis = semi_major_axis * sqrt(1 - eccentricity^2);
+
+% Calculate focal distance from the ellipse centre
+focal_distance = semi_major_axis * eccentricity;
+
+% Calculate perihelion distance (closest point to the star)
+perihelion_distance = semi_major_axis * (1 - eccentricity);
+
+% Calculate aphelion distance (farthest point from the star)
+aphelion_distance = semi_major_axis * (1 + eccentricity);
+
+% Generate parameter angles for the theoretical ellipse
+E = linspace(0, 2*pi, 361);
+
+% Calculate theoretical ellipse coordinates in its local frame
+x_ellipse_local = semi_major_axis * cos(E) - focal_distance;
+y_ellipse_local = semi_minor_axis * sin(E);
+
+% Rotate the theoretical ellipse to match the orbital orientation
+x_ellipse = x_ellipse_local * cos(perihelion_angle)  - y_ellipse_local * sin(perihelion_angle);
+
+y_ellipse = x_ellipse_local * sin(perihelion_angle)  + y_ellipse_local * cos(perihelion_angle);
 
 % Numerical integration using semi-implicit Euler
 for i = 1:num_steps
@@ -100,24 +175,43 @@ for i = 1:num_steps
 
 end
 
-fprintf("\nINITIAL STATE \n");
+fprintf("\nInitial State \n");
 fprintf("Position X: %.3e m\n", r0_planet(1));
 fprintf("Position Y: %.3e m\n", r0_planet(2));
 fprintf("Velocity X: %.3f m/s\n", v0_planet(1));
 fprintf("Velocity Y: %.3f m/s\n", v0_planet(2));
 
-fprintf("\nFINAL STATE \n");
+fprintf("\nFinal State \n");
 fprintf("Position X: %.3e m\n", r_planet(1));
 fprintf("Position Y: %.3e m\n", r_planet(2));
 fprintf("Velocity X: %.3f m/s\n", v_planet(1));
 fprintf("Velocity Y: %.3f m/s\n", v_planet(2));
 
+fprintf("\nOrbital Elements\n");
+fprintf("Specific orbital energy: %.3e m^2/s^2\n", specific_energy);
+fprintf("Specific angular momentum: %.3e m^2/s\n", specific_angular_momentum);
+fprintf("Semimajor axis: %.3e m\n", semi_major_axis);
+fprintf("Eccentricity: %.3f\n", eccentricity);
+
+fprintf("\nELLIPSE GEOMETRY\n");
+fprintf("Semimajor axis: %.3e m\n", semi_major_axis);
+fprintf("Semiminor axis: %.3e m\n", semi_minor_axis);
+fprintf("Focal distance: %.3e m\n", focal_distance);
+fprintf("Perihelion distance: %.3e m\n", perihelion_distance);
+fprintf("Aphelion distance: %.3e m\n", aphelion_distance);
+
+fprintf("Ellipse X range: %.3e to %.3e m\n", min(x_ellipse), max(x_ellipse));
+fprintf("Ellipse Y range: %.3e to %.3e m\n", min(y_ellipse), max(y_ellipse));
+
 figure;
 plot(planet_positions(:, 1), planet_positions(:, 2), 'b-');
 hold on;
 
+% Plot the theoretical ellipse
+plot(x_ellipse, y_ellipse, 'k--');
+
 plot(0, 0, 'yo', 'MarkerFaceColor', 'y', 'MarkerSize', 10);
-plot(r0_planet(1), r0_planet(2),  'go', 'MarkerFaceColor', 'g');
+plot(r0_planet(1), r0_planet(2), 'go', 'MarkerFaceColor', 'g');
 plot(r_planet(1), r_planet(2), 'ro', 'MarkerFaceColor', 'r');
 
 axis equal;
@@ -125,4 +219,5 @@ grid on;
 xlabel("X Position (m)");
 ylabel("Y Position (m)");
 title("Planet Orbit Around a Star");
-legend("Planet Trajectory", "Star (Focus)", "Starting Position", "Ending Position");
+
+legend("Numerical Trajectory", "Theoretical Ellipse",  "Star (Focus)", "Starting Position", "Ending Position");
