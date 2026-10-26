@@ -84,3 +84,42 @@ Extends the configurable orbital simulation by calculating the theoretical orbit
 
 ### Purpose:
 To extend the numerical orbital simulation with analytical orbital geometry based on Kepler's First Law. This version enables the calculation and visualisation of elliptical orbital parameters and allows the numerical trajectory to be compared with the theoretically predicted orbit under the same initial conditions. It also establishes a foundation for further experiments involving orbital eccentricity, orientation, and numerical accuracy.
+
+### v1.3 — Time History and Orbital Measurements
+
+Extends the orbital simulation by recording the planet’s position, velocity, and acceleration throughout the numerical integration, analysing its distance from the star and speed over time, identifying the closest and farthest observed approaches, and comparing the numerical trajectory with the analytically calculated elliptical orbit.
+
+###Implemented:
+* Preserved the user-defined physical parameters and initial conditions from v1.1.
+* Preserved input validation for masses, initial position, initial velocity, time step, and total simulation duration.
+* Added validation to ensure that the initial conditions produce a bound elliptical orbit.
+* Calculated the planet’s initial specific orbital energy.
+* Calculated the planet’s specific angular momentum.
+* Calculated the orbital eccentricity from the initial conditions.
+* Calculated the eccentricity vector to determine the orientation of the analytical ellipse.
+* Calculated the semi-major axis and semi-minor axis of the analytical ellipse.
+* Calculated the focal distance of the analytical ellipse.
+* Calculated the analytical perihelion and aphelion distances.
+* Generated the analytical elliptical orbit from its geometric parameters and orientation.
+* Created a time history containing every integration time point.
+* Stored the planet’s position at every integration step.
+* Stored the planet’s velocity at every integration step.
+* Stored the planet’s acceleration at every integration step.
+* Preserved the semi-implicit Euler integration method.
+* Added checks for invalid planetary positions and numerical values during integration.
+* Calculated the planet’s distance from the star at every recorded time point.
+* Calculated the planet’s speed at every recorded time point.
+* Identified the minimum and maximum observed star–planet distances during the simulated interval.
+* Recorded the times, positions, and velocities corresponding to the minimum and maximum observed distances.
+* Displayed the initial and final planetary positions and velocities.
+* Displayed the calculated orbital elements and analytical ellipse geometry.
+* Displayed the minimum and maximum observed distances and their corresponding times.
+* Updated the trajectory plot to compare the numerical trajectory with the analytical ellipse.
+* Marked the star, initial position, final position, closest observed approach, and farthest observed approach on the trajectory plot.
+* Added a distance-versus-time graph.
+* Added a speed-versus-time graph.
+* Distinguished the observed minimum and maximum distances over the simulated interval from the analytical perihelion and aphelion distances.
+* Documented the numerical integration method and its limitations, including the possibility of numerical errors causing the calculated trajectory to diverge from the analytical ellipse.
+
+### Purpose:
+To analyse the evolution of an orbit throughout a numerical simulation, examine how the planet’s distance and speed change over time, identify its closest and farthest observed approaches to the star, and compare the numerically calculated trajectory with the analytically determined elliptical orbit.
