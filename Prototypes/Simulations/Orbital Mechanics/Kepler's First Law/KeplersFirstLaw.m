@@ -263,10 +263,9 @@ fprintf("Velocity: [%.3f, %.3f] m/s\n", maximum_distance_velocity(1), maximum_di
 
 % Plot numerical trajectory and analytical ellipse
 figure;
-plot(planet_positions(:, 1), planet_positions(:, 2), 'b-');
+plot(planet_positions(:, 1), planet_positions(:, 2), 'b-', 'LineWidth', 1.5);
 hold on;
-
-plot(x_ellipse, y_ellipse, 'k--');
+plot(x_ellipse, y_ellipse, 'k--', 'LineWidth', 1.5);
 plot(0, 0, 'yo', 'MarkerFaceColor', 'y', 'MarkerSize', 10);
 plot(r0_planet(1), r0_planet(2), 'go', 'MarkerFaceColor', 'g');
 plot(planet_positions(end, 1), planet_positions(end, 2), 'ro', 'MarkerFaceColor', 'r');
@@ -275,26 +274,58 @@ plot(planet_positions(end, 1), planet_positions(end, 2), 'ro', 'MarkerFaceColor'
 plot(minimum_distance_position(1), minimum_distance_position(2), 'mo', 'MarkerFaceColor', 'm');
 plot(maximum_distance_position(1), maximum_distance_position(2), 'co', 'MarkerFaceColor', 'c');
 
+% Visualization
 axis equal;
 grid on;
 xlabel("X Position (m)");
 ylabel("Y Position (m)");
 title("Planet Orbit Around a Star");
-
 legend("Numerical Trajectory", "Analytical Ellipse", "Star (Focus)", "Starting Position", "Ending Position", "Minimum Observed Distance", "Maximum Observed Distance");
 
-% Plot distance over time
+# Position vs Time
 figure;
-plot(time_history, distance_history, 'b-');
+subplot(2, 1, 1); % X-position vs time
+plot(time_history, planet_positions(:, 1), 'r-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('X-position (m)');
+title('X-position vs Time');
+legend('Planet X-position');
 grid on;
-xlabel("Time (s)");
-ylabel("Distance from Star (m)");
-title("Planet-Star Distance Over Time");
+subplot(2, 1, 2); % Y-position vs time
+plot(time_history, planet_positions(:, 2), 'b-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('Y-position (m)');
+title('Y-position vs Time');
+legend('Planet Y-position');
+grid on;
 
-% Plot speed over time
+% Plot Distance Over Time
 figure;
-plot(time_history, speed_history, 'r-');
+plot(time_history, distance_history, 'b-', 'LineWidth', 1.5);
 grid on;
-xlabel("Time (s)");
-ylabel("Speed (m/s)");
-title("Planet Speed Over Time");
+xlabel('Time (s)');
+ylabel('Distance from Star (m)');
+title('Star-Planet Distance vs Time');
+legend('Star-Planet Distance');
+
+% Speed vs Time
+figure;
+plot(time_history, speed_history, 'r-', 'LineWidth', 1.5);
+xlabel('Time (s)');
+ylabel('Speed (m/s)');
+title('Planet Speed vs Time');
+legend('Planet Speed');
+grid on;
+
+% Display Analytical Orbital Parameters
+figure;
+axis off;
+
+text(0.1, 0.9, 'Analytical Orbital Parameters', 'FontSize', 14, 'FontWeight', 'bold');
+
+text(0.1, 0.78, sprintf('Orbital eccentricity: %.6f', eccentricity));
+text(0.1, 0.68, sprintf('Semi-major axis: %.3e m', semi_major_axis));
+text(0.1, 0.58, sprintf('Semi-minor axis: %.3e m', semi_minor_axis));
+text(0.1, 0.48, sprintf('Focal distance: %.3e m', focal_distance));
+text(0.1, 0.38, sprintf('Analytical perihelion distance: %.3e m', perihelion_distance));
+text(0.1, 0.28, sprintf('Analytical aphelion distance: %.3e m', aphelion_distance));
