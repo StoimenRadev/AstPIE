@@ -123,3 +123,27 @@ Extends the orbital simulation by recording the planet’s position, velocity, a
 
 ### Purpose:
 To analyse the evolution of an orbit throughout a numerical simulation, examine how the planet’s distance and speed change over time, identify its closest and farthest observed approaches to the star, and compare the numerically calculated trajectory with the analytically determined elliptical orbit.
+
+### v1.4 — Visualisation and Graphs
+
+Enhances the orbital simulation with scientific visualisations, analytical reference geometry, time-dependent graphs, and a display of the main analytical orbital parameters.
+
+### Implemented:
+* Updated the orbital trajectory plot to display the numerical trajectory calculated using the semi-implicit Euler method.
+* Added the analytical orbital ellipse as a separate reference curve calculated from the initial conditions and analytical orbital parameters.
+* Preserved equal horizontal and vertical scaling to ensure that the displayed orbital geometry is not distorted.
+* Displayed the central star at the origin, identifying its position as the orbital focus.
+* Marked the initial and final planetary positions on the trajectory plot.
+* Displayed the observed minimum- and maximum-distance positions along the numerical trajectory, where implemented.
+* Added a distance-versus-time graph showing the planet's distance from the central star throughout the simulation.
+* Added a speed-versus-time graph showing the magnitude of the planet's velocity throughout the simulation.
+* Added separate graphs for the planet's x- and y-coordinates as functions of time.
+* Added graph titles, axis labels, physical units, legends, and grid lines to improve readability.
+* Displayed the main analytical orbital parameters, including eccentricity, semi-major axis, semi-minor axis, focal distance, analytical perihelion distance, and analytical aphelion distance.
+* Used consistent physical units and scientific notation where appropriate to present numerical values clearly.
+* Preserved the distinction between the numerical integration results and analytical orbital calculations.
+* Kept the analytical ellipse independent of the numerical trajectory, allowing the numerical orbit to be compared against the analytical reference.
+* Used the same underlying simulation data for the numerical trajectory and time-dependent graphs.
+
+### Purpose:
+To make the orbital simulation easier to interpret, analyse, and validate by presenting the planet's motion through scientific graphs and comparing the numerical trajectory with the analytically calculated orbital geometry. The visualisations help demonstrate the relationship between orbital shape, distance, speed, and position over time.
