@@ -147,3 +147,31 @@ Enhances the orbital simulation with scientific visualisations, analytical refer
 
 ### Purpose:
 To make the orbital simulation easier to interpret, analyse, and validate by presenting the planet's motion through scientific graphs and comparing the numerical trajectory with the analytically calculated orbital geometry. The visualisations help demonstrate the relationship between orbital shape, distance, speed, and position over time.
+
+### v1.5 — Analytical Orbit Validation and Numerical Error
+
+Adds analytical orbital calculations and quantitative validation of the numerical trajectory against the independently calculated analytical ellipse. Compares the observed perihelion and aphelion distances with their analytical predictions and evaluates the geometric error introduced by numerical integration.
+
+### Implemented:
+* Calculated the initial specific orbital energy and specific angular momentum from the initial conditions.
+* Calculated the analytical orbital eccentricity.
+* Calculated the eccentricity vector to determine the orientation of the analytical orbit.
+* Calculated the analytical semimajor axis and semiminor axis.
+* Calculated the focal distance and analytical perihelion and aphelion distances.
+* Generated an analytical elliptical reference orbit independently of the numerical integration.
+* Increased the resolution of the analytical ellipse to 3,601 sampled points to improve the precision of geometric comparisons.
+* Compared the numerical trajectory with the analytical ellipse in the orbital trajectory plot.
+* Calculated the geometric distance between each numerical position and its nearest sampled point on the analytical ellipse.
+* Calculated and displayed the maximum and mean geometric distances between the numerical trajectory and the sampled analytical ellipse.
+* Identified the minimum and maximum star–planet distances observed during the numerical simulation.
+* Recorded the times, positions, and velocities associated with the observed minimum and maximum distances.
+* Compared the observed minimum distance with the analytical perihelion distance.
+* Compared the observed maximum distance with the analytical aphelion distance.
+* Calculated and displayed the absolute differences and percentage errors for the observed minimum and maximum distances relative to their analytical predictions.
+* Displayed the analytical orbital elements and ellipse geometry for inspection.
+* Preserved the numerical position, distance, and speed histories and their corresponding plots.
+* Established test cases for comparing numerical results at different integration time steps.
+* Documented the effects of numerical integration error, the limitations of the sampled analytical ellipse, and the importance of simulating long enough to capture the orbital extrema.
+
+### Purpose:
+To establish a quantitative method for validating the numerical trajectory against the analytical ellipse predicted by Kepler's First Law. This version provides measurable geometric differences between the numerical and analytical orbits, compares observed orbital extrema with analytical predictions, and establishes a basis for investigating how the integration time step affects numerical accuracy.
