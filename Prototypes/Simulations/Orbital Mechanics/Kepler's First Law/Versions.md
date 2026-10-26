@@ -175,3 +175,43 @@ Adds analytical orbital calculations and quantitative validation of the numerica
 
 ### Purpose:
 To establish a quantitative method for validating the numerical trajectory against the analytical ellipse predicted by Kepler's First Law. This version provides measurable geometric differences between the numerical and analytical orbits, compares observed orbital extrema with analytical predictions, and establishes a basis for investigating how the integration time step affects numerical accuracy.
+
+### v1.6 — Improved Numerical Integration and Method Comparison
+
+Improves the numerical accuracy of the orbital simulation by making Velocity Verlet the default integration method and comparing its results with semi-implicit Euler. Both methods calculate the planet's trajectory independently using the same initial conditions, gravitational parameter, time step, and simulation duration. The results are evaluated using orbital trajectories, physical quantities, conservation errors, and comparisons with the theoretical elliptical orbit.
+
+### Implemented:
+* Preserved the user-defined stellar mass and planetary mass inputs.
+* Preserved the user-defined initial position and velocity vectors.
+* Preserved the user-defined integration time step and total simulation duration.
+* Preserved input validation and checks for invalid numerical values during integration.
+* Preserved the analytical calculation of the orbital elements from the initial conditions.
+* Preserved the theoretical elliptical orbit as a reference for the numerical trajectories.
+* Implemented Velocity Verlet as the primary and default numerical integration method.
+* Preserved semi-implicit Euler as a separate numerical integration method for comparison.
+* Implemented Velocity Verlet position updates using the current position, velocity, and acceleration.
+* Implemented Velocity Verlet acceleration updates using the newly calculated position.
+* Implemented Velocity Verlet velocity updates using the average of the current and next accelerations.
+* Stored the planetary positions and velocities throughout the Velocity Verlet integration.
+* Stored the planetary positions and velocities throughout the semi-implicit Euler integration in separate arrays.
+* Calculated the planet's distance from the star at each time step for both methods.
+* Calculated the planet's speed at each time step for both methods.
+* Calculated the specific orbital energy throughout both numerical integrations.
+* Calculated the specific angular momentum throughout both numerical integrations.
+* Calculated the relative energy error for each method to evaluate the conservation of orbital energy.
+* Calculated the relative angular momentum error for each method to evaluate the conservation of angular momentum.
+* Compared the numerical trajectories produced by Velocity Verlet and semi-implicit Euler.
+* Calculated the difference between the planetary positions obtained using the two numerical methods at corresponding time steps.
+* Compared the numerical trajectories with the theoretical elliptical orbit.
+* Calculated the distance between the numerically calculated positions and the sampled theoretical ellipse.
+* Identified the minimum and maximum star–planet distances obtained using Velocity Verlet.
+* Displayed the initial and final positions and velocities for the numerical methods.
+* Displayed the calculated orbital elements, including specific orbital energy, specific angular momentum, eccentricity, semi-major axis, semi-minor axis, focal distance, perihelion distance, and aphelion distance.
+* Displayed numerical conservation errors and comparison results for both integration methods.
+* Added separate plots for the Velocity Verlet trajectory and theoretical ellipse, the trajectories of both numerical methods, position components, distance and speed over time, relative energy and angular momentum errors, distance from the theoretical ellipse, and the difference between the numerical trajectories.
+* Preserved the fixed central star at the origin and the assumption that the star remains stationary.
+* Documented the differences between numerical integration and analytical orbital calculations.
+* Preserved the limitations associated with finite time steps and the numerical approximation of the theoretical ellipse.
+
+### Purpose:
+To improve the reliability of the orbital simulation by introducing Velocity Verlet as the default numerical integration method and evaluating its behaviour against semi-implicit Euler. This version provides a more comprehensive basis for studying orbital motion, numerical accuracy, conservation of physical quantities, and deviations from the theoretically predicted elliptical orbit.
