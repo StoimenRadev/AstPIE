@@ -20,11 +20,11 @@ if ~isnumeric(planet_mass) || ~isreal(planet_mass) || ~isscalar(planet_mass) || 
     error("Planet mass must be a finite, positive scalar.");
 end
 
-if ~isnumeric(r0_planet) || ~isreal(r0_planet) || ~isvector(r0_planet) ||r0_planet <= 0 || numel(r0_planet) ~= 2 || any(~isfinite(r0_planet(:)))
+if ~isnumeric(r0_planet) || ~isreal(r0_planet) || ~isvector(r0_planet) || numel(r0_planet) ~= 2 || any(~isfinite(r0_planet(:)))
     error("Initial position must be a finite, real, two-component vector.");
 end
 
-if ~isnumeric(v0_planet) || ~isreal(v0_planet) || ~isvector(v0_planet) || r0_planet || numel(v0_planet) ~= 2 || any(~isfinite(v0_planet(:)))
+if ~isnumeric(v0_planet) || ~isreal(v0_planet) || ~isvector(v0_planet) || numel(v0_planet) ~= 2 || any(~isfinite(v0_planet(:)))
     error("Initial velocity must be a finite, real, two-component vector.");
 end
 
@@ -342,8 +342,8 @@ fprintf("Speed: %.3f m/s\n", speed_history(end));
 fprintf("\nAnalytical Orbital Elements\n");
 fprintf("Specific orbital energy: %.6e m^2/s^2\n", specific_energy);
 fprintf("Specific angular momentum: %.6e m^2/s\n", specific_angular_momentum);
-fprintf("Semimajor axis: %.6e m\n", semi_major_axis);
-fprintf("Semiminor axis: %.6e m\n", semi_minor_axis);
+fprintf("Semi-major axis: %.6e m\n", semi_major_axis);
+fprintf("Semi-minor axis: %.6e m\n", semi_minor_axis);
 fprintf("Eccentricity: %.8f\n", eccentricity);
 fprintf("Perihelion direction: %.6f degrees\n", perihelion_angle * 180 / pi);
 
@@ -417,24 +417,56 @@ ylabel("Y Position (m)");
 title("Velocity Verlet Orbit vs Analytical Ellipse");
 legend("Velocity Verlet Trajectory", "Analytical Ellipse", "Star (Focus)", "Starting Position", "Ending Position", "Observed Minimum Distance", "Observed Maximum Distance");
 
-% Plot Euler vs Velocity Verlet Trajectorie
+
+% Plot Numerical Trajectories - Zoomed View
 figure;
-plot(euler_planet_positions(:, 1), euler_planet_positions(:, 2), 'b-', 'LineWidth', 1.3);
+
+plot(euler_planet_positions(:, 1), euler_planet_positions(:, 2), 'b-', 'LineWidth', 1.5);
 hold on;
 
 plot(planet_positions(:, 1), planet_positions(:, 2), 'r-', 'LineWidth', 1.5);
 
-plot(x_ellipse, y_ellipse, 'k--', 'LineWidth', 1.5);
-plot(0, 0, 'yo', 'MarkerFaceColor', 'y', 'MarkerSize', 10);
+% Mark the initial and final positions
+plot(planet_positions(1, 1), planet_positions(1, 2), 'go', 'MarkerFaceColor', 'g', 'MarkerSize', 8);
+
+plot(planet_positions(end, 1), planet_positions(end, 2),'rs', 'MarkerFaceColor', 'r', 'MarkerSize', 8);
+
+% Calculate plotting limits from the numerical trajectories only
+all_positions = [euler_planet_positions; planet_positions];
+
+x_min = min(all_positions(:, 1));
+x_max = max(all_positions(:, 1));
+y_min = min(all_positions(:, 2));
+y_max = max(all_positions(:, 2));
+
+x_centre = (x_min + x_max) / 2;
+y_centre = (y_min + y_max) / 2;
+
+x_range = x_max - x_min;
+y_range = y_max - y_min;
+
+plot_range = max([x_range, y_range]);
+
+if plot_range == 0
+    plot_range = 1;
+end
+
+half_width = 0.6 * plot_range;
+
+xlim([x_centre - half_width, x_centre + half_width]);
+ylim([y_centre - half_width, y_centre + half_width]);
 
 axis equal;
 grid on;
+
 xlabel("X Position (m)");
 ylabel("Y Position (m)");
-title("Semi-Implicit Euler vs Velocity Verlet");
-legend("Semi-Implicit Euler", "Velocity Verlet", "Analytical Ellipse", "Star (Focus)");
+title("Numerical Trajectories - Zoomed View");
 
-% Plot Velocity Verlet position componentsPLOT VELOCITY VERLET POSITION COMPONENTS
+legend("Semi-Implicit Euler", "Velocity Verlet", "Starting Position", "Ending Position");
+
+
+% Plot Velocity Verlet position components
 figure;
 
 subplot(2, 1, 1);
