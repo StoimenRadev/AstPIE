@@ -20,11 +20,11 @@ if ~isnumeric(planet_mass) || ~isreal(planet_mass) || ~isscalar(planet_mass) || 
     error("Planet mass must be a finite, positive scalar.");
 end
 
-if ~isnumeric(r0_planet) || ~isreal(r0_planet) || ~isvector(r0_planet) || numel(r0_planet) ~= 2 || any(~isfinite(r0_planet(:)))
+if ~isnumeric(r0_planet) || ~isreal(r0_planet) || ~isvector(r0_planet) ||r0_planet <= 0 || numel(r0_planet) ~= 2 || any(~isfinite(r0_planet(:)))
     error("Initial position must be a finite, real, two-component vector.");
 end
 
-if ~isnumeric(v0_planet) || ~isreal(v0_planet) || ~isvector(v0_planet) || numel(v0_planet) ~= 2 || any(~isfinite(v0_planet(:)))
+if ~isnumeric(v0_planet) || ~isreal(v0_planet) || ~isvector(v0_planet) || r0_planet || numel(v0_planet) ~= 2 || any(~isfinite(v0_planet(:)))
     error("Initial velocity must be a finite, real, two-component vector.");
 end
 
@@ -325,6 +325,9 @@ fprintf("Distance from star: %.3e m\n", verlet_distance_history(end));
 fprintf("Speed: %.3f m/s\n", verlet_speed_history(end));
 fprintf("Specific orbital energy: %.6e m^2/s^2\n", verlet_specific_energy_history(end));
 fprintf("Specific angular momentum: %.6e m^2/s\n", verlet_specific_angular_momentum_history(end));
+fprintf("X-acceleration: %.6e m/s^2\n", planet_accelerations(1, 1));
+fprintf("Y-acceleration: %.6e m/s^2\n", planet_accelerations(1, 2));
+fprintf("Acceleration magnitude: %.6e m/s^2\n", sqrt(planet_accelerations(1, 1)^2 + planet_accelerations(1, 2)^2));
 
 % Display Final Euler state
 fprintf("\nFinal State (Semi- Implicit Eulet - Comparison)\n");
