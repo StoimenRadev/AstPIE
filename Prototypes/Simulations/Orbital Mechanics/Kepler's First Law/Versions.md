@@ -244,3 +244,35 @@ Establishes a repeatable testing and validation suite for the orbital simulation
 
 ### Purpose:
 To verify that the orbital simulation produces physically consistent results, calculates analytical orbital parameters correctly, handles invalid inputs safely, and maintains acceptable numerical accuracy under different test conditions.
+
+### v1.8 — Core Simulation Complete
+
+Consolidates the Kepler’s First Law orbital simulation into a complete, documented prototype by integrating analytical orbital calculations, numerical integration methods, validation checks, trajectory analysis, and visualisation tools.
+
+### Implemented:
+* Integrated the physical model, analytical orbital calculations, numerical integration methods, result analysis, and plotting features into the main simulation script.
+* Implemented the semi-implicit Euler method as a comparison method.
+* Implemented the Velocity Verlet method as the primary numerical integration method.
+* Calculated the gravitational parameter from the central star’s mass and the gravitational constant.
+* Calculated the initial and final planetary positions, velocities, speeds, and accelerations.
+* Calculated the specific orbital energy and specific angular momentum.
+* Calculated the orbital eccentricity and eccentricity vector from the initial conditions.
+* Calculated the semi-major axis, semi-minor axis, focal distance, perihelion distance, and aphelion distance for bound elliptical orbits.
+* Calculated the orientation of the analytical orbit from the eccentricity vector.
+* Generated an analytical ellipse for comparison with the numerically calculated trajectories.
+* Stored the planetary position, velocity, acceleration, distance, and speed throughout the simulation.
+* Calculated the numerical minimum and maximum distances from the star and compared them with the analytical perihelion and aphelion distances.
+* Analysed the conservation of specific orbital energy and specific angular momentum for both numerical integration methods.
+* Compared the positions calculated by the semi-implicit Euler and Velocity Verlet methods.
+* Calculated the geometric distance between numerical positions and the sampled analytical ellipse.
+* Added plots comparing the numerical trajectories with the analytical ellipse and with each other.
+* Added position-versus-time, distance-versus-time, and speed-versus-time plots.
+* Added plots showing relative energy error, relative angular momentum error, geometric distance to the analytical ellipse, and the position difference between the numerical methods.
+* Added a visual summary of the analytical orbital parameters.
+* Tested the simulation using a bound elliptical orbit with an eccentricity of approximately \(0.3\).
+* Verified that the numerical perihelion and aphelion distances closely match their analytical values for the tested orbit.
+* Compared the numerical energy errors of the two integration methods, with Velocity Verlet showing substantially better energy conservation in the tested case.
+* Documented the fixed-star approximation, supported orbital conditions, numerical integration methods, and limitations of the analytical-ellipse comparison.
+
+### Purpose:
+To establish a complete and reliable baseline for the orbital simulation, combining analytical orbital mechanics with numerical integration and visual analysis. This version provides the foundation for subsequent improvements to numerical accuracy, additional integration methods, and more advanced orbital simulations.
