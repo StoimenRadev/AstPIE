@@ -215,3 +215,32 @@ Improves the numerical accuracy of the orbital simulation by making Velocity Ver
 
 ### Purpose:
 To improve the reliability of the orbital simulation by introducing Velocity Verlet as the default numerical integration method and evaluating its behaviour against semi-implicit Euler. This version provides a more comprehensive basis for studying orbital motion, numerical accuracy, conservation of physical quantities, and deviations from the theoretically predicted elliptical orbit.
+
+### v1.7 — Testing and Validation Suite
+
+Establishes a repeatable testing and validation suite for the orbital simulation by checking physical calculations, analytical orbital parameters, numerical integration behaviour, input validation, and consistency of simulation outputs under controlled test conditions.
+
+### Implemented:
+* Defined standard test inputs using realistic stellar and planetary masses, the real gravitational constant, physically consistent initial conditions, and short simulation durations.
+* Added test cases for circular orbits with analytically predictable orbital parameters.
+* Added test cases for moderately eccentric elliptical orbits.
+* Added test cases for highly eccentric but gravitationally bound elliptical orbits.
+* Defined expected values for specific orbital energy, specific angular momentum, eccentricity, semi-major axis, semi-minor axis, focal distance, perihelion distance, and aphelion distance.
+* Added test cases for invalid stellar and planetary masses, including zero, negative values, non-finite values, and invalid input dimensions.
+* Added test cases for invalid time steps and simulation durations, including non-positive values, non-finite values, and durations that are not integer multiples of the time step.
+* Added test cases for invalid initial position and velocity vectors, including incorrect dimensions, non-finite components, and zero initial position.
+* Added test cases for zero initial velocity and radial trajectories that cannot be represented by the current elliptical-orbit model.
+* Added test cases for unbound trajectories that do not satisfy the model's bound-ellipse requirements.
+* Added short-duration simulation tests to verify that the model produces valid results even when the simulated trajectory covers only a small fraction of an orbit.
+* Added gravitational acceleration tests at different positions to verify the inverse-square dependence on the distance from the star.
+* Added analytical ellipse geometry tests to verify the relationship between the star's position, orbital focus, semi-major axis, semi-minor axis, eccentricity, and apsidal distances.
+* Defined independent reference values and comparison tolerances for analytical orbital parameters.
+* Added checks for the consistency of time-history outputs, including positions, velocities, accelerations, distances, speeds, specific orbital energy, and specific angular momentum.
+* Added numerical accuracy tests using different time steps while keeping the initial conditions and total simulation duration unchanged.
+* Defined expected behaviours for Velocity Verlet energy and angular momentum conservation and for the comparison between Velocity Verlet and semi-implicit Euler integration.
+* Established criteria for distinguishing expected physical behaviour from numerical integration errors.
+* Organised the tests around explicit input values, expected outputs, physical units, and validation criteria.
+* Preserved the fixed-star approximation, two-dimensional Newtonian gravitational model, and bound elliptical orbit restrictions of the existing implementation.
+
+### Purpose:
+To verify that the orbital simulation produces physically consistent results, calculates analytical orbital parameters correctly, handles invalid inputs safely, and maintains acceptable numerical accuracy under different test conditions.
