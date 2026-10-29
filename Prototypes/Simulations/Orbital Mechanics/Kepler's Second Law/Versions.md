@@ -65,3 +65,33 @@ Makes the core orbital simulation configurable by accepting user-defined physica
 
 ### Purpose:
 To make the orbital simulation configurable and suitable for repeatable experiments with different stellar masses, initial positions, initial velocities, time steps, and simulation durations. The version also establishes the numerical quantities and diagnostic outputs needed to investigate Kepler's Second Law, including the relationship between specific angular momentum and areal velocity.
+
+### v1.2 — Time History and Swept-Area Measurements
+
+Extends the orbital simulation by recording the complete history of the planet's motion, calculating approximate swept areas between consecutive positions, and comparing swept areas over equal-duration measurement intervals to investigate Kepler's Second Law.
+
+### Implemented:
+* Generated a time history containing the initial time and every subsequent integration time step.
+* Stored the planet's position, velocity, and acceleration at every recorded time step.
+* Calculated the planet's distance from the central star at every recorded time step.
+* Calculated the planet's speed at every recorded time step.
+* Calculated the specific angular momentum at every recorded time step.
+* Calculated the instantaneous areal velocity at every recorded time step using the relationship between specific angular momentum and areal velocity.
+* Added numerical checks to detect invalid positions, velocities, accelerations, and distances during integration.
+* Calculated the approximate swept area between consecutive recorded positions using the two-dimensional position-vector cross-product formula.
+* Stored the individual swept-area measurements for every integration step.
+* Created a swept-area history aligned with the recorded time history, with an initial value of zero.
+* Calculated the cumulative swept area throughout the simulation by summing the individual swept-area measurements.
+* Added user input for the duration of the swept-area measurement intervals.
+* Validated that the measurement interval is positive, finite, and an integer multiple of the integration time step.
+* Divided the simulation into successive measurement intervals, including a potentially shorter final interval.
+* Recorded the start time, end time, and actual duration of every measurement interval.
+* Calculated the total approximate swept area for each measurement interval by summing its individual integration-step areas.
+* Calculated the average areal velocity for each measurement interval by dividing its estimated swept area by its actual duration.
+* Displayed the complete time history, including position, velocity, speed, acceleration, distance, specific angular momentum, instantaneous areal velocity, swept area per step, and cumulative swept area.
+* Displayed a comparison table containing the start time, end time, duration, total swept area, and average areal velocity of each measurement interval.
+* Preserved the semi-implicit Euler integration method and the existing orbital trajectory visualization.
+* Distinguished the approximate triangular swept areas calculated from sampled positions from the exact continuous swept areas described by Kepler's Second Law.
+
+### Purpose:
+To extend the orbital simulation from tracking the planet's trajectory to quantitatively investigating Kepler's Second Law. The version establishes a complete numerical record of orbital motion, measures the approximate area swept during individual time steps, and aggregates these measurements over equal-duration intervals. This enables comparisons of swept areas and average areal velocities, while accounting for numerical integration error and the limitations of approximating continuous orbital motion using discrete position samples.
