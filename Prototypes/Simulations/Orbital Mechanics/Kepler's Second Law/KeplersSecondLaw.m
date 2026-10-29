@@ -155,6 +155,77 @@ interval_steps = round(interval_step_ratio);
 % Include the initial state at t = 0
 time_history = (0:num_steps)' * dt;
 
+% Analytical reference orbit
+mean_motion = sqrt(mu_star / semimajor_axis^3);
+
+if eccentricity > 1e-12
+    % Initial eccentric anomaly
+    cos_E0 = (1 - r0_distance / semimajor_axis) / eccentricity;
+    sin_E0 = (r0_planet(1) * v0_planet(1) + r0_planet(2) * v0_planet(2)) ...
+        / (eccentricity * sqrt(mu_star * semimajor_axis));
+
+    % Protect against small floating-point errors
+    cos_E0 = max(-1, min(1, cos_E0));
+    sin_E0 = max(-1, min(1, sin_E0));
+
+    E0 = atan2(sin_E0, cos_E0);
+
+    % Initial mean anomaly
+    M0 = E0 - eccentricity * sin(E0);
+end
+
+
+% Analytical position history
+analytical_positions = zeros(length(time_history), 2);
+
+if eccentricity > 1e-12
+
+    % Calculate analytical positions for an elliptical orbit
+    for i = 1:length(time_history)
+
+        % Mean anomaly at the current time
+        M = mod(M0 + mean_motion * time_history(i), 2 * pi);
+
+        % Solve Kepler's equation using bisection
+        E_low = 0;
+        E_high = 2 * pi;
+
+        for j = 1:60
+            E_mid = (E_low + E_high) / 2;
+            M_mid = E_mid - eccentricity * sin(E_mid);
+
+            if M_mid < M
+                E_low = E_mid;
+            else
+                E_high = E_mid;
+            end
+        end
+
+        E = (E_low + E_high) / 2;
+
+        % Position in the orbital coordinate system
+        x_local = semimajor_axis * (cos(E) - eccentricity);
+        y_local = semimajor_axis * sqrt(1 - eccentricity^2) * sin(E);
+
+        % Rotate into the global coordinate system
+        analytical_positions(i, 1) = x_local * cos(perihelion_angle) - y_local * sin(perihelion_angle);
+
+        analytical_positions(i, 2) = x_local * sin(perihelion_angle) + y_local * cos(perihelion_angle);
+    end
+else
+
+    % Analytical positions for a circular orbit
+    initial_angle = atan2(r0_planet(2), r0_planet(1));
+    rotation_direction = sign(h0);
+
+    for i = 1:length(time_history)
+        angle = initial_angle + rotation_direction * mean_motion * time_history(i);
+
+        analytical_positions(i, 1) = r0_distance * cos(angle);
+        analytical_positions(i, 2) = r0_distance * sin(angle);
+    end
+end
+
 % Initialize simulation and histories
 r_planet = r0_planet;
 v_planet = v0_planet;
@@ -280,6 +351,42 @@ for i = 1:num_intervals
 
 end
 
+
+% Numerical position errors
+position_error = zeros(length(time_history), 1);
+
+for i = 1:length(time_history)
+
+    % Difference between numerical and analytical coordinates
+    error_x = planet_positions(i, 1) - analytical_positions(i, 1);
+    error_y = planet_positions(i, 2) - analytical_positions(i, 2);
+
+    % Total position error (m)
+    position_error(i) = sqrt(error_x^2 + error_y^2);
+
+end
+
+% Initial position error
+initial_position_error = position_error(1);
+
+% Maximum and final position errors
+maximum_position_error = max(position_error);
+final_position_error = position_error(end);
+
+% Numerical perihelion and aphelion distances
+numerical_perihelion_distance = min(planet_distance);
+numerical_aphelion_distance = max(planet_distance);
+
+% Analytical versus numerical distance errors
+perihelion_distance_error = abs(numerical_perihelion_distance - perihelion_distance);
+aphelion_distance_error = abs(numerical_aphelion_distance - aphelion_distance);
+
+% Check whether the simulation captures the analytical extrema
+distance_tolerance = 1e-6 * semimajor_axis;
+perihelion_captured = abs(numerical_perihelion_distance - perihelion_distance) <= distance_tolerance;
+aphelion_captured = abs(numerical_aphelion_distance - aphelion_distance) <= distance_tolerance;
+
+
 % Display simulation setup
 fprintf('\nSimulation Setup\n');
 fprintf('Star mass: %.6e kg\n', star_mass);
@@ -320,6 +427,34 @@ fprintf("Semiminor axis: %.6e m\n", semiminor_axis);
 fprintf("Focal distance: %.6e m\n", focal_distance);
 fprintf("Perihelion distance: %.6e m\n", perihelion_distance);
 fprintf("Aphelion distance: %.6e m\n", aphelion_distance);
+
+% Display position error results
+fprintf("\nNumerical Position Error\n");
+fprintf("Initial position error: %.6e m\n", initial_position_error);
+fprintf("Final position error: %.6e m\n", final_position_error);
+fprintf("Maximum position error: %.6e m\n", maximum_position_error);
+
+% Display orbital distance validation
+fprintf("\nOrbital Distance Validation\n");
+fprintf("Analytical perihelion distance: %.6e m\n", perihelion_distance);
+fprintf("Numerical minimum distance: %.6e m\n", numerical_perihelion_distance);
+fprintf("Perihelion distance error: %.6e m\n", perihelion_distance_error);
+
+if perihelion_captured
+    fprintf("Perihelion: captured within the selected tolerance.\n");
+else
+    fprintf("Perihelion: not captured within the selected tolerance.\n");
+end
+
+fprintf("\nAnalytical aphelion distance: %.6e m\n", aphelion_distance);
+fprintf("Numerical maximum distance: %.6e m\n", numerical_aphelion_distance);
+fprintf("Aphelion distance error: %.6e m\n", aphelion_distance_error);
+
+if aphelion_captured
+    fprintf("Aphelion: captured within the selected tolerance.\n");
+else
+    fprintf("Aphelion: not captured within the selected tolerance.\n");
+end
 
 % Relative changes in angular momentum and areal velocity
 h_change = abs(specific_angular_momentum(end) - specific_angular_momentum(1)) / abs(specific_angular_momentum(1)) * 100;
@@ -417,6 +552,15 @@ legend('Planet Speed');
 grid on;
 
 
+% Plot numerical position error against time
+figure;
+plot(time_days, position_error / 1000, 'b-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Position Error (km)');
+title('Numerical Position Error vs Time');
+legend('Position Error');
+grid on;
+
 % Plot x and y coordinates against time
 figure;
 subplot(2, 1, 1);
@@ -432,7 +576,6 @@ ylabel('Y Position (AU)');
 title('Y Position vs Time');
 grid on;
 
-
 % Display main orbital parameters
 figure;
 axis off;
@@ -445,3 +588,101 @@ text(0.05, 0.32, sprintf('Perihelion distance: %.6e m', perihelion_distance), 'F
 text(0.05, 0.21, sprintf('Aphelion distance: %.6e m', aphelion_distance), 'FontSize', 11);
 text(0.05, 0.10, sprintf('Gravitational parameter: %.6e m^3/s^2', mu_star), 'FontSize', 11);
 title('Orbital Parameter Summary');
+
+
+% Timestep comparison
+comparison_timesteps = [7200, 3600, 1800, 900];
+
+comparison_max_errors = zeros(length(comparison_timesteps), 1);
+comparison_final_errors = zeros(length(comparison_timesteps), 1);
+
+fprintf("\nTimestep Comparison\n");
+
+for k = 1:length(comparison_timesteps)
+
+    comparison_dt = comparison_timesteps(k);
+    comparison_steps = round(T / comparison_dt);
+
+    % Initialize the numerical orbit
+    comparison_r = r0_planet;
+    comparison_v = v0_planet;
+
+    comparison_max_error = 0;
+    comparison_final_error = 0;
+
+    % Integrate using semi-implicit Euler
+    for i = 1:comparison_steps
+
+        comparison_distance = sqrt(comparison_r(1)^2 + comparison_r(2)^2);
+        comparison_acceleration = -(mu_star / comparison_distance^3) * comparison_r;
+
+        comparison_v = comparison_v + comparison_acceleration * comparison_dt;
+        comparison_r = comparison_r + comparison_v * comparison_dt;
+
+        % Analytical reference time
+        comparison_time = i * comparison_dt;
+
+        % Find the analytical reference position
+        if eccentricity > 1e-12
+
+            M = mod(M0 + mean_motion * comparison_time, 2 * pi);
+
+            E_low = 0;
+            E_high = 2 * pi;
+
+            for j = 1:60
+                E_mid = (E_low + E_high) / 2;
+                M_mid = E_mid - eccentricity * sin(E_mid);
+
+                if M_mid < M
+                    E_low = E_mid;
+                else
+                    E_high = E_mid;
+                end
+            end
+
+            E = (E_low + E_high) / 2;
+
+            x_local = semimajor_axis * (cos(E) - eccentricity);
+            y_local = semimajor_axis * sqrt(1 - eccentricity^2) * sin(E);
+
+            analytical_x = x_local * cos(perihelion_angle) - y_local * sin(perihelion_angle);
+
+            analytical_y = x_local * sin(perihelion_angle) + y_local * cos(perihelion_angle);
+
+        else
+
+            initial_angle = atan2(r0_planet(2), r0_planet(1));
+            rotation_direction = sign(h0);
+            angle = initial_angle + rotation_direction * mean_motion * comparison_time;
+
+            analytical_x = r0_distance * cos(angle);
+            analytical_y = r0_distance * sin(angle);
+
+        end
+
+        % Position error at the current time
+        comparison_error = sqrt((comparison_r(1) - analytical_x)^2 + (comparison_r(2) - analytical_y)^2);
+
+        comparison_max_error = max(comparison_max_error, comparison_error);
+        comparison_final_error = comparison_error;
+
+    end
+
+    comparison_max_errors(k) = comparison_max_error;
+    comparison_final_errors(k) = comparison_final_error;
+
+    fprintf("Timestep: %.0f s | Maximum error: %.6e m | Final error: %.6e m\n", comparison_dt, comparison_max_error, comparison_final_error);
+
+end
+
+% Plot timestep comparison
+figure;
+plot(comparison_timesteps, comparison_max_errors / 1000, 'bo-', 'LineWidth', 1.2, 'MarkerFaceColor', 'b');
+hold on;
+plot(comparison_timesteps, comparison_final_errors / 1000, 'rs-', 'LineWidth', 1.2, 'MarkerFaceColor', 'r');
+xlabel('Timestep (s)');
+ylabel('Position Error (km)');
+title('Position Error vs Timestep');
+legend('Blue: Maximum Position Error', 'Red: Final Position Error', 'Location', 'northoutside', 'Orientation', 'horizontal');
+grid on;
