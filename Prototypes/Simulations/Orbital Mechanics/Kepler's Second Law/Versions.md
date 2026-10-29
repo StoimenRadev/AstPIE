@@ -184,3 +184,33 @@ Validate the numerical orbit against an independently calculated analytical refe
 
 ###Purpose:
 Establish a quantitative validation process for the numerical orbit, measure position errors, and investigate how timestep size affects numerical accuracy.
+
+### v1.6 — Velocity Verlet Integration
+
+Extends the orbital simulation by implementing Velocity Verlet as the default numerical integration method while preserving semi-implicit Euler as a comparison method. Runs both methods under identical initial conditions and compares their orbital trajectories, position errors, and sensitivity to integration timestep size against the analytical orbital solution.
+
+### Implemented:
+* Implemented Velocity Verlet integration for the planet's gravitational motion around the central star.
+* Set Velocity Verlet as the primary integration method used by the simulation.
+* Stored the planet's position, velocity, and acceleration at every integration time step using the primary planet_positions, planet_velocities, and planet_accelerations variables.
+* Preserved the semi-implicit Euler integration method as a second numerical method for comparison.
+* Used separate euler_planet_positions, euler_planet_velocities, and euler_planet_accelerations variables to store the Euler integration history independently.
+* Applied the same gravitational acceleration model and initial orbital conditions to both numerical integration methods.
+* Calculated the numerical orbital trajectories independently for Velocity Verlet and semi-implicit Euler.
+* Preserved the analytical orbital calculations and the generated ellipse used as the reference solution.
+* Compared the numerical trajectories against the analytical orbital solution to evaluate position errors.
+* Calculated maximum and final position errors for the primary Velocity Verlet trajectory.
+* Calculated maximum and final position errors for the semi-implicit Euler trajectory.
+* Preserved the existing time-history measurements used to investigate Kepler's Second Law, including distance, speed, specific angular momentum, instantaneous areal velocity, swept area per integration step, and cumulative swept area.
+* Preserved the measurement-interval calculations, including the total swept area and average areal velocity for each interval.
+* Preserved the orbital trajectory visualization and the comparison with the analytical ellipse.
+* Added the numerical orbital trajectory of semi-implicit Euler to the visualization for direct comparison with Velocity Verlet.
+* Added a timestep comparison for both numerical integration methods using timestep candidates derived from the user-entered integration timestep.
+* Compared both methods using the same simulation duration and initial conditions for each valid comparison timestep.
+* Filtered out comparison timesteps that do not divide the total simulation duration into an integer number of integration steps.
+* Calculated the maximum and final position errors for both methods at each valid comparison timestep.
+* Added comparison plots to investigate how integration timestep size affects the numerical accuracy of both methods.
+* Preserved the distinction between the numerical approximation of orbital motion and the analytical reference solution.
+
+### Purpose:
+To extend the orbital simulation from using a single numerical integration method to comparing two methods under equivalent conditions. Velocity Verlet becomes the primary integration method, while semi-implicit Euler provides a reference for evaluating how numerical integration affects orbital trajectories and position errors. By testing multiple timestep sizes against the analytical orbital solution, this version establishes a basis for investigating numerical accuracy, timestep sensitivity, and the reliability of the swept-area measurements used to study Kepler's Second Law. The comparison does not assume that Velocity Verlet is exact or universally superior. Its performance must be evaluated using the actual numerical results, with particular attention to position errors and the behavior of the orbital quantities over the simulated duration.
