@@ -95,3 +95,41 @@ Extends the orbital simulation by recording the complete history of the planet's
 
 ### Purpose:
 To extend the orbital simulation from tracking the planet's trajectory to quantitatively investigating Kepler's Second Law. The version establishes a complete numerical record of orbital motion, measures the approximate area swept during individual time steps, and aggregates these measurements over equal-duration intervals. This enables comparisons of swept areas and average areal velocities, while accounting for numerical integration error and the limitations of approximating continuous orbital motion using discrete position samples.
+
+### v1.3 — Orbital Geometry and Analytical Ellipse
+
+Implements analytical orbital-element calculations and generates an analytical ellipse from the planet's initial position and velocity. This version overlays the analytical ellipse with the numerically calculated trajectory and visualises the star's position at the ellipse's focus, the geometric centre, and the major and minor axes.
+
+### Implemented:
+* Calculated the initial speed from the planet's initial velocity components.
+* Calculated the initial specific angular momentum from the planet's initial position and velocity vectors.
+* Calculated the initial specific orbital energy using the planet's initial speed, distance from the star, and gravitational parameter.
+* Calculated the semimajor axis from the specific orbital energy.
+* Calculated the orbital eccentricity from the specific orbital energy, specific angular momentum, and gravitational parameter.
+* Included numerical tolerance handling for small eccentricity-squared values to support nearly circular orbits.
+* Validated that the initial conditions describe a bound elliptical orbit.
+* Calculated the semiminor axis from the semimajor axis and eccentricity.
+* Calculated the focal distance from the semimajor axis and eccentricity.
+* Calculated the perihelion distance and aphelion distance from the semimajor axis and eccentricity.
+* Calculated the eccentricity vector from the initial position, initial velocity, and gravitational parameter.
+* Determined the orientation of the analytical ellipse using the direction of the eccentricity vector.
+* Used the initial position direction as a reference orientation when the orbit is circular and the eccentricity vector does not provide a defined perihelion direction.
+* Generated parameter values spanning a complete revolution to define the analytical ellipse.
+* Calculated the local coordinates of the ellipse using its semimajor and semiminor axes.
+* Rotated the ellipse coordinates to match the orientation determined from the initial conditions.
+* Translated the ellipse coordinates so that the central star is located at one of the ellipse's foci.
+* Plotted the numerically calculated planetary trajectory using semi-implicit Euler integration.
+* Plotted the analytically calculated ellipse alongside the numerical trajectory for visual comparison.
+* Plotted the central star at the origin and identified it as the focus of the analytical ellipse.
+* Calculated and plotted the geometric centre of the ellipse.
+* Plotted the major and minor axes to illustrate the ellipse's geometric dimensions and orientation.
+* Added coordinate-axis labels, a descriptive title, a legend, a grid, and equal scaling of the coordinate axes.
+* Displayed the specific orbital energy and specific angular momentum used to calculate the orbital elements.
+* Displayed the semimajor axis, eccentricity, semiminor axis, focal distance, perihelion distance, and aphelion distance in the Command Window.
+* Retained the numerical trajectory, velocity, acceleration, distance, speed, specific angular momentum, and areal-velocity histories from previous versions.
+* Retained swept-area calculations and equal-time interval comparisons to support the investigation of Kepler's Second Law.
+* Established a visual basis for comparing the analytical orbital geometry with the trajectory produced by numerical integration.
+* Identified that differences between the analytical ellipse and numerical trajectory can arise from the finite time step and the numerical integration method.
+
+### Purpose:
+To extend the Kepler's Second Law prototype with analytical orbital geometry and a reference ellipse derived from the initial conditions. This version connects the planet's initial position and velocity to the shape, dimensions, and orientation of its ideal elliptical orbit. By displaying the analytical ellipse alongside the numerically calculated trajectory, it provides a visual means of examining the accuracy of the numerical integration and understanding the geometry of elliptical orbits.
