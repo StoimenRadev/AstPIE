@@ -276,35 +276,3 @@ Consolidates the Kepler’s First Law orbital simulation into a complete, docume
 
 ### Purpose:
 To establish a complete and reliable baseline for the orbital simulation, combining analytical orbital mechanics with numerical integration and visual analysis. This version provides the foundation for subsequent improvements to numerical accuracy, additional integration methods, and more advanced orbital simulations.
-
-### v1.7 — Testing and Validation 
-
-Establishes a repeatable testing and validation suite for the orbital simulation's physical model, analytical calculations, orbital geometry, time-history measurements, and numerical integration behaviour. The suite covers circular and elliptical orbits, unbound trajectories, invalid inputs, independent reference values, and timestep convergence for Velocity Verlet and semi-implicit Euler.
-
-### Implemented:
-* Established a baseline input configuration for repeatable tests of the orbital simulation.
-* Defined separate numbered tests and lettered subtests, with each subtest specifying its inputs and expected results.
-* Tested circular orbital motion, including orbital parameters, radial stability, and swept-area measurements.
-* Tested a moderately eccentric elliptical orbit against independently calculated orbital parameters.
-* Tested a highly eccentric but gravitationally bound orbit and evaluated numerical stability.
-* Tested invalid star masses, integration timesteps, simulation durations, measurement intervals, and position and velocity vectors.
-* Tested zero initial velocity and verified the expected radial gravitational motion.
-* Tested unbound trajectories and checked their classification using specific orbital energy and eccentricity.
-* Tested simulations that end before completing a full orbital revolution.
-* Tested ellipse geometry formulas independently, including the semiminor axis, focal distance, periapsis distance, and apoapsis distance.
-* Tested gravitational acceleration at known positions, including its direction and inverse-square dependence on distance.
-* Compared calculated orbital parameters against independently calculated reference values.
-* Tested the dimensions of position, velocity, and acceleration histories for both numerical integration methods.
-* Tested initial and final simulation times, measurement-interval boundaries, and the preservation of initial conditions.
-* Tested the consistency of swept-area totals and average areal velocities calculated over measurement intervals.
-* Tested initial specific angular momentum and its relationship to instantaneous areal velocity.
-* Tested numerical convergence by comparing position errors for multiple timestep sizes.
-* Tested that Velocity Verlet and semi-implicit Euler use identical initial conditions and equivalent comparison settings.
-* Defined numerical tolerances for analytical calculations, geometric relationships, initial conditions, history dimensions, and numerical comparisons.
-* Distinguished expected physical behaviour, analytical reference values, floating-point precision, and numerical integration error.
-* Defined repeatability requirements so the suite can be rerun after code changes.
-* Established failure-reporting requirements that identify the relevant test and expected behaviour.
-* Identified energy-drift and angular-momentum-drift measurements as validation requirements, with implementation status to be verified before marking these tests complete.
-
-### Purpose:
-To prevent incorrect calculations, numerical instability, invalid inputs, and misleading visualizations from being mistaken for scientifically valid results. This version establishes a systematic way to verify the physical model and analytical calculations independently, evaluate the numerical behaviour of Velocity Verlet and semi-implicit Euler, and distinguish implementation defects from expected numerical error.

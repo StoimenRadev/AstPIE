@@ -214,3 +214,59 @@ Extends the orbital simulation by implementing Velocity Verlet as the default nu
 
 ### Purpose:
 To extend the orbital simulation from using a single numerical integration method to comparing two methods under equivalent conditions. Velocity Verlet becomes the primary integration method, while semi-implicit Euler provides a reference for evaluating how numerical integration affects orbital trajectories and position errors. By testing multiple timestep sizes against the analytical orbital solution, this version establishes a basis for investigating numerical accuracy, timestep sensitivity, and the reliability of the swept-area measurements used to study Kepler's Second Law. The comparison does not assume that Velocity Verlet is exact or universally superior. Its performance must be evaluated using the actual numerical results, with particular attention to position errors and the behavior of the orbital quantities over the simulated duration.
+
+### v1.7 — Testing and Validation 
+
+Establishes a repeatable testing and validation suite for the orbital simulation's physical model, analytical calculations, orbital geometry, time-history measurements, and numerical integration behaviour. The suite covers circular and elliptical orbits, unbound trajectories, invalid inputs, independent reference values, and timestep convergence for Velocity Verlet and semi-implicit Euler.
+
+### Implemented:
+* Established a baseline input configuration for repeatable tests of the orbital simulation.
+* Defined separate numbered tests and lettered subtests, with each subtest specifying its inputs and expected results.
+* Tested circular orbital motion, including orbital parameters, radial stability, and swept-area measurements.
+* Tested a moderately eccentric elliptical orbit against independently calculated orbital parameters.
+* Tested a highly eccentric but gravitationally bound orbit and evaluated numerical stability.
+* Tested invalid star masses, integration timesteps, simulation durations, measurement intervals, and position and velocity vectors.
+* Tested zero initial velocity and verified the expected radial gravitational motion.
+* Tested unbound trajectories and checked their classification using specific orbital energy and eccentricity.
+* Tested simulations that end before completing a full orbital revolution.
+* Tested ellipse geometry formulas independently, including the semiminor axis, focal distance, periapsis distance, and apoapsis distance.
+* Tested gravitational acceleration at known positions, including its direction and inverse-square dependence on distance.
+* Compared calculated orbital parameters against independently calculated reference values.
+* Tested the dimensions of position, velocity, and acceleration histories for both numerical integration methods.
+* Tested initial and final simulation times, measurement-interval boundaries, and the preservation of initial conditions.
+* Tested the consistency of swept-area totals and average areal velocities calculated over measurement intervals.
+* Tested initial specific angular momentum and its relationship to instantaneous areal velocity.
+* Tested numerical convergence by comparing position errors for multiple timestep sizes.
+* Tested that Velocity Verlet and semi-implicit Euler use identical initial conditions and equivalent comparison settings.
+* Defined numerical tolerances for analytical calculations, geometric relationships, initial conditions, history dimensions, and numerical comparisons.
+* Distinguished expected physical behaviour, analytical reference values, floating-point precision, and numerical integration error.
+* Defined repeatability requirements so the suite can be rerun after code changes.
+* Established failure-reporting requirements that identify the relevant test and expected behaviour.
+* Identified energy-drift and angular-momentum-drift measurements as validation requirements, with implementation status to be verified before marking these tests complete.
+
+### Purpose:
+To prevent incorrect calculations, numerical instability, invalid inputs, and misleading visualizations from being mistaken for scientifically valid results. This version establishes a systematic way to verify the physical model and analytical calculations independently, evaluate the numerical behaviour of Velocity Verlet and semi-implicit Euler, and distinguish implementation defects from expected numerical error.
+
+### v1.8 — Core Simulation Complete
+
+Consolidates the Kepler's Second Law prototype into a complete, documented orbital simulation using Velocity Verlet as the default numerical integration method and semi-implicit Euler for comparison.
+
+### Implemented:
+* Integrated the gravitational model, analytical orbital calculations, numerical integration, and visualisation into one coherent simulation.
+* Organised the simulation to calculate orbital positions, velocities, accelerations, and distances throughout the simulation.
+* Calculated the analytical orbital elements, including the semimajor axis, semiminor axis, eccentricity, focal distance, perihelion, and aphelion.
+* Generated an analytical reference trajectory for comparison with the numerically calculated trajectories.
+* Implemented Velocity Verlet as the default numerical integration method.
+* Retained semi-implicit Euler as a comparison method using the same initial conditions.
+* Calculated the specific angular momentum and areal velocity throughout the orbit.
+* Calculated the swept area over each time step and the cumulative swept area.
+* Compared swept areas and average areal velocities across equal time intervals to examine Kepler's Second Law.
+* Calculated numerical position errors relative to the analytical reference trajectory for both integration methods.
+* Compared the numerical methods' orbital trajectories, errors, and sensitivity to the integration time step.
+* Displayed the orbital trajectory, analytical reference ellipse, distance and speed histories, position errors, coordinate histories, and numerical comparison plots.
+* Added specific orbital energy diagnostics to evaluate energy conservation and numerical integration behaviour.
+* Organised the simulation outputs and plots for repeatable testing and validation.
+* Consolidated the completed calculations and visualisation into a single core simulation without unnecessary restructuring.
+
+### Purpose:
+To establish a complete and coherent Kepler's Second Law simulation for AstPIE. This version combines analytical orbital calculations, numerical integration, swept-area measurements, and comparisons between numerical methods to examine whether equal areas are swept in equal times.
