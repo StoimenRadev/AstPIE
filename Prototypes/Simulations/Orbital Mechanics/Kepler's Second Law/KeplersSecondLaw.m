@@ -36,12 +36,79 @@ if ~isfinite(r0_distance) || r0_distance == 0
     error("Initial position must be a finite, nonzero distance from the star.");
 end
 
+% Initial speed
+v0_speed = sqrt(v0_planet(1)^2 + v0_planet(2)^2);
+
 % Initial specific angular momentum (m^2/s)
 h0 = r0_planet(1) * v0_planet(2) - r0_planet(2) * v0_planet(1);
 
 if ~isfinite(h0) || h0 == 0
     error("Initial specific angular momentum must be finite and nonzero.");
 end
+
+% Analytical Orbital Elements
+% Initial specific orbital energy (J/kg)
+specific_energy = (v0_speed^2 / 2) - (mu_star / r0_distance);
+
+if specific_energy >= 0
+    error("The initial conditions do not describe a bound elliptical orbit.");
+end
+
+% Semimajor axis (m)
+semimajor_axis = -mu_star / (2 * specific_energy);
+
+% Eccentricity
+eccentricity_squared = 1 + (2 * specific_energy * h0^2) / mu_star^2;
+
+if abs(eccentricity_squared) < 1e-12
+    eccentricity_squared = 0;
+end
+
+if eccentricity_squared < 0 && eccentricity_squared > -1e-12
+    eccentricity_squared = 0;
+end
+
+if eccentricity_squared < 0 || eccentricity_squared >= 1
+    error("The initial conditions do not describe a valid elliptical orbit.");
+end
+
+eccentricity = sqrt(eccentricity_squared);
+
+% Semiminor axis (m)
+semiminor_axis = semimajor_axis * sqrt(1 - eccentricity^2);
+
+% Focal distance (m)
+focal_distance = semimajor_axis * eccentricity;
+
+% Perihalion and aphelion distances (m)
+perihelion_distance = semimajor_axis * (1 - eccentricity);
+aphelion_distance = semimajor_axis * (1 + eccentricity);
+
+% Eccentricity vector
+eccentricity_vector = (((v0_speed^2 - mu_star / r0_distance) * r0_planet)- (r0_planet(1) * v0_planet(1) + r0_planet(2) * v0_planet(2)) * v0_planet) / mu_star;
+
+% Orientation of the ellipse
+if eccentricity > 1e-12
+    perihelion_angle = atan2(eccentricity_vector(2), eccentricity_vector(1));
+else
+    % For a circular orbit, the perihelion direction is undefined.
+    perihelion_angle = atan2(r0_planet(2), r0_planet(1));
+end
+
+% Generate analytical ellipse
+ellipse_angle = linspace(0, 2 * pi, 1000);
+
+% Ellipse coordinates relative to its centre
+ellipse_x_local = semimajor_axis * cos(ellipse_angle);
+ellipse_y_local = semiminor_axis * sin(ellipse_angle);
+
+% Rotate the ellipse to match its orbital orientation
+ellipse_x_rotated = ellipse_x_local * cos(perihelion_angle) - ellipse_y_local * sin(perihelion_angle);
+ellipse_y_rotated = ellipse_x_local * sin(perihelion_angle) + ellipse_y_local * cos(perihelion_angle);
+
+% Place the ellipse so that the star is at its focus
+ellipse_x = ellipse_x_rotated - focal_distance * cos(perihelion_angle);
+ellipse_y = ellipse_y_rotated - focal_distance * sin(perihelion_angle);
 
 % Timestep and simulation duration
 dt = input("Enter the time step (s): ");
@@ -70,9 +137,9 @@ end
 actual_duration = num_steps * dt;
 
 % Measurement interval
-measurement_interval = input( "Enter the measurement interval (s): ");
+measurement_interval = input("Enter the measurement interval (s): ");
 
-if ~isnumeric(measurement_interval) || ~isreal(measurement_interval) || ~isscalar(measurement_interval) ||~isfinite(measurement_interval) || measurement_interval <= 0
+if ~isnumeric(measurement_interval) || ~isreal(measurement_interval) || ~isscalar(measurement_interval) || ~isfinite(measurement_interval) || measurement_interval <= 0
     error("Measurement interval must be a finite, positive scalar.");
 end
 
@@ -88,8 +155,7 @@ interval_steps = round(interval_step_ratio);
 % Include the initial state at t = 0
 time_history = (0:num_steps)' * dt;
 
-%% 5. Initialize simulation and histories
-
+% Initialize simulation and histories
 r_planet = r0_planet;
 v_planet = v0_planet;
 
@@ -172,7 +238,6 @@ specific_angular_momentum = planet_positions(:, 1) .* planet_velocities(:, 2) - 
 % Instantaneous areal velocity at every timestep (m^2/s)
 areal_velocity = specific_angular_momentum / 2;
 
-
 % Calculate swept-area history
 % Approximate area swept between consecutive positions (m^2)
 swept_area_steps = 0.5 * abs(planet_positions(1:end-1, 1) .* planet_positions(2:end, 2) - planet_positions(1:end-1, 2) .* planet_positions(2:end, 1));
@@ -231,7 +296,7 @@ fprintf('Initial velocity: [%.6e, %.6e] m/s\n', v0_planet(1), v0_planet(2));
 fprintf('Initial speed: %.6e m/s\n', planet_speed(1));
 fprintf('Initial distance: %.6e m\n', planet_distance(1));
 fprintf('Initial acceleration: [%.6e, %.6e] m/s^2\n', planet_accelerations(1, 1), planet_accelerations(1, 2));
-fprintf('Initial specific angular momentum: %.6e m^2/s\n', specific_angular_momentum(1));
+fprintf('Initial specific angular momentum: %.6e m^2/s\n', h0);
 fprintf('Initial areal velocity: %.6e m^2/s\n', areal_velocity(1));
 
 % Display final results
@@ -244,6 +309,17 @@ fprintf('Final distance: %.6e m\n', planet_distance(end));
 fprintf('Final acceleration: [%.6e, %.6e] m/s^2\n', planet_accelerations(end, 1), planet_accelerations(end, 2));
 fprintf('Final specific angular momentum: %.6e m^2/s\n', specific_angular_momentum(end));
 fprintf('Final areal velocity: %.6e m^2/s\n', areal_velocity(end));
+
+% Display Analytical Orbital Elements
+fprintf("\nAnalytical Orbital Elements\n");
+fprintf("Specific orbital energy: %.6e J/kg\n", specific_energy);
+fprintf("Specific angular momentum: %.6e m^2/s\n", h0);
+fprintf("Semimajor axis: %.6e m\n", semimajor_axis);
+fprintf("Eccentricity: %.8f\n", eccentricity);
+fprintf("Semiminor axis: %.6e m\n", semiminor_axis);
+fprintf("Focal distance: %.6e m\n", focal_distance);
+fprintf("Perihelion distance: %.6e m\n", perihelion_distance);
+fprintf("Aphelion distance: %.6e m\n", aphelion_distance);
 
 % Relative changes in angular momentum and areal velocity
 h_change = abs(specific_angular_momentum(end) - specific_angular_momentum(1)) / abs(specific_angular_momentum(1)) * 100;
@@ -271,10 +347,8 @@ results = [ ...
 disp(['Columns: time(s), x(m), y(m), vx(m/s), vy(m/s), ', 'speed(m/s), ax(m/s^2), ay(m/s^2), distance(m), ', 'specific_angular_momentum(m^2/s), areal_velocity(m^2/s), ', 'swept_area_this_step(m^2), cumulative_swept_area(m^2)']);
 disp(results);
 
-
 % Display equal-time interval comparison
 fprintf('\nEqual-Time Interval Comparison\n');
-
 interval_results = [ ...
     interval_start_time, ...
     interval_end_time, ...
@@ -286,14 +360,37 @@ disp(['Columns: start_time(s), end_time(s), duration(s), ', 'swept_area(m^2), av
 disp(interval_results);
 
 
-% Plot the orbit
+% Plot the numerical trajectory and analytical ellipse
 figure;
 plot(planet_positions(:, 1), planet_positions(:, 2), 'b-');
 hold on;
+plot(ellipse_x, ellipse_y, 'r--');
+
+% Plot the star at the focus
 plot(0, 0, 'yo', 'MarkerFaceColor', 'y', 'MarkerSize', 12);
+
+% Analytical ellipse centre
+ellipse_center_x = -focal_distance * cos(perihelion_angle);
+ellipse_center_y = -focal_distance * sin(perihelion_angle);
+plot(ellipse_center_x, ellipse_center_y, 'kx', 'MarkerSize', 10, 'LineWidth', 2);
+
+% Semimajor axis line
+plot([ellipse_center_x - semimajor_axis * cos(perihelion_angle), ...
+      ellipse_center_x + semimajor_axis * cos(perihelion_angle)], ...
+     [ellipse_center_y - semimajor_axis * sin(perihelion_angle), ...
+      ellipse_center_y + semimajor_axis * sin(perihelion_angle)], ...
+     'k:', 'LineWidth', 1.2);
+
+% Semiminor axis line
+plot([ellipse_center_x - semiminor_axis * sin(perihelion_angle), ...
+      ellipse_center_x + semiminor_axis * sin(perihelion_angle)], ...
+     [ellipse_center_y + semiminor_axis * cos(perihelion_angle), ...
+      ellipse_center_y - semiminor_axis * cos(perihelion_angle)], ...
+     'g:', 'LineWidth', 1.2);
+
 xlabel('X Position (m)');
 ylabel('Y Position (m)');
-title('Planet Orbit - Kepler''s Second Law');
-legend('Planet Trajectory', 'Star');
+title('Kepler''s First Law - Analytical and Numerical Orbits');
+legend('Numerical Trajectory', 'Analytical Ellipse', 'Star (Focus)', 'Ellipse Centre', 'Major Axis', 'Minor Axis');
 axis equal;
 grid on;
