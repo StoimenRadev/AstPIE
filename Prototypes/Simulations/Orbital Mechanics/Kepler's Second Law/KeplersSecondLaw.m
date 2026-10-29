@@ -394,3 +394,54 @@ title('Kepler''s First Law - Analytical and Numerical Orbits');
 legend('Numerical Trajectory', 'Analytical Ellipse', 'Star (Focus)', 'Ellipse Centre', 'Major Axis', 'Minor Axis');
 axis equal;
 grid on;
+
+
+% Plot star-planet distance against time
+figure;
+time_days = time_history / 86400;
+planet_distance_AU = planet_distance / 1.495978707e11;
+plot(time_days, planet_distance_AU, 'b-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Star-Planet Distance (AU)');
+title('Star-Planet Distance vs Time');
+legend('Planet Distance');
+grid on;
+
+% Plot speed against time
+figure;
+plot(time_days, planet_speed / 1000, 'r-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Speed (km/s)');
+title('Planet Speed vs Time');
+legend('Planet Speed');
+grid on;
+
+
+% Plot x and y coordinates against time
+figure;
+subplot(2, 1, 1);
+plot(time_days, planet_positions(:, 1) / 1.495978707e11, 'b-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('X Position (AU)');
+title('X Position vs Time');
+grid on;
+subplot(2, 1, 2);
+plot(time_days, planet_positions(:, 2) / 1.495978707e11, 'r-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Y Position (AU)');
+title('Y Position vs Time');
+grid on;
+
+
+% Display main orbital parameters
+figure;
+axis off;
+text(0.05, 0.90, 'Main Orbital Parameters', 'FontSize', 16, 'FontWeight', 'bold');
+text(0.05, 0.76, sprintf('Semimajor axis: %.6e m', semimajor_axis), 'FontSize', 11);
+text(0.05, 0.65, sprintf('Semiminor axis: %.6e m', semiminor_axis), 'FontSize', 11);
+text(0.05, 0.54, sprintf('Eccentricity: %.6f', eccentricity), 'FontSize', 11);
+text(0.05, 0.43, sprintf('Focal distance: %.6e m', focal_distance), 'FontSize', 11);
+text(0.05, 0.32, sprintf('Perihelion distance: %.6e m', perihelion_distance), 'FontSize', 11);
+text(0.05, 0.21, sprintf('Aphelion distance: %.6e m', aphelion_distance), 'FontSize', 11);
+text(0.05, 0.10, sprintf('Gravitational parameter: %.6e m^3/s^2', mu_star), 'FontSize', 11);
+title('Orbital Parameter Summary');
