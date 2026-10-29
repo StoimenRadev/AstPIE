@@ -165,3 +165,22 @@ Extends the orbital simulation with scientific graphs and a clearer visual prese
 
 ### Purpose:
 To make the orbital simulation easier to interpret and use as an educational tool by presenting its numerical results through scientific graphs and a graphical summary of the orbital parameters. This version allows the user to examine how star–planet distance, speed, and position coordinates change throughout an orbit, while comparing the numerically integrated trajectory with the analytical elliptical reference. The visualisations support the investigation of orbital geometry, perihelion and aphelion, and the relationship between orbital distance and speed.
+
+### v1.5 — Analytical Orbit Validation and Numerical Error
+
+Validate the numerical orbit against an independently calculated analytical reference and quantify the accuracy and limitations of numerical integration.
+
+### Implemented features:
+* Calculate analytical orbital parameters from the initial conditions.
+* Calculate analytical reference positions at every recorded simulation time using Kepler's equation.
+* Handle elliptical and circular orbits separately when calculating analytical reference positions.
+* Compare numerical and analytical positions at matching times.
+* Calculate and display initial, maximum, and final position errors.
+* Compare numerical periapsis and apoapsis distances against their analytical values.
+* Check whether the simulated trajectory captures the analytical periapsis and apoapsis within a selected tolerance.
+* Plot numerical position error against time.
+* Compare maximum and final position errors using different timestep sizes.
+* Investigate the effects of semi-implicit Euler integration on orbital accuracy.
+
+###Purpose:
+Establish a quantitative validation process for the numerical orbit, measure position errors, and investigate how timestep size affects numerical accuracy.
