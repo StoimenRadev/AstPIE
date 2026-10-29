@@ -133,3 +133,35 @@ Implements analytical orbital-element calculations and generates an analytical e
 
 ### Purpose:
 To extend the Kepler's Second Law prototype with analytical orbital geometry and a reference ellipse derived from the initial conditions. This version connects the planet's initial position and velocity to the shape, dimensions, and orientation of its ideal elliptical orbit. By displaying the analytical ellipse alongside the numerically calculated trajectory, it provides a visual means of examining the accuracy of the numerical integration and understanding the geometry of elliptical orbits.
+
+### v1.4 — Visualisation and Graphs
+
+Extends the orbital simulation with scientific graphs and a clearer visual presentation of the planet's motion. This version visualises the numerical trajectory alongside the analytical ellipse and displays the evolution of star–planet distance, speed, and position coordinates over time. It also provides a graphical summary of the main analytical orbital parameters.
+
+### Implemented:
+* Displayed the numerical orbital trajectory with equal horizontal and vertical axis scaling to preserve the geometric proportions of the orbit.
+* Displayed the central star at the origin and identified it as the focus of the analytical ellipse.
+* Displayed the analytical ellipse as a separate reference curve alongside the numerically calculated trajectory.
+* Marked the geometric centre of the analytical ellipse.
+* Displayed the major and minor axes to illustrate the ellipse's dimensions and orientation.
+* Added coordinate-axis labels, units, a descriptive title, a legend, and a grid to the orbital trajectory plot.
+* Calculated and displayed the star–planet distance against time using the recorded distance history.
+* Converted the distance from metres to astronomical units (AU) for more readable graph presentation.
+* Calculated and displayed the planet's speed against time using the recorded speed history.
+* Converted the speed from metres per second to kilometres per second for more readable graph presentation.
+* Displayed the planet's x-coordinate against time using the recorded position history.
+* Displayed the planet's y-coordinate against time using the recorded position history.
+* Converted the x- and y-coordinates from metres to astronomical units for graph presentation.
+* Used separate subplots to present the x- and y-coordinate histories within a single figure.
+* Added appropriate axis labels, units, titles, and grid lines to the distance, speed, and coordinate graphs.
+* Displayed the main analytical orbital parameters in a separate graphical summary.
+* Included the semimajor axis, semiminor axis, eccentricity, focal distance, perihelion distance, aphelion distance, and gravitational parameter in the graphical summary.
+* Used scientific notation and consistent physical units to present orbital parameters across the simulation's outputs.
+* Used the existing time history, distance history, speed history, and position history as the data sources for the corresponding graphs.
+* Preserved the existing semi-implicit Euler integration method and the calculations from previous versions.
+* Retained the swept-area measurements and equal-time interval comparisons introduced in v1.2.
+* Distinguished the numerical trajectory from the analytical reference ellipse to make their differences visually observable.
+* Preserved equal coordinate-axis scaling for the orbital trajectory rather than distorting the orbit to fit the plotting window.
+
+### Purpose:
+To make the orbital simulation easier to interpret and use as an educational tool by presenting its numerical results through scientific graphs and a graphical summary of the orbital parameters. This version allows the user to examine how star–planet distance, speed, and position coordinates change throughout an orbit, while comparing the numerically integrated trajectory with the analytical elliptical reference. The visualisations support the investigation of orbital geometry, perihelion and aphelion, and the relationship between orbital distance and speed.
