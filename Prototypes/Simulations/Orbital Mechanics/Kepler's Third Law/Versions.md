@@ -67,4 +67,40 @@ Transforms the fixed Kepler's Third Law calculation into a configurable Newtonia
 * Established the initial user-interaction and input-validation framework for future Kepler's Third Law developments.
 
 ### Purpose:
-To transform the fundamental Kepler's Third Law calculation into a configurable scientific tool that accepts user-defined physical parameters and produces corresponding orbital period results. This version introduces numerical input handling, validation of physical parameters, dynamic total mass calculation, and conversion of the orbital period into convenient time units. It also establishes the foundation for future versions that will introduce more advanced numerical validation, comparisons between orbital systems, additional calculations, and expanded scientific functionality.
+To transform the fundamental Kepler's Third Law calculation into a configurable scientific tool that accepts user-defined physical parameters and produces corresponding orbital period results. This version introduces numerical input handling, validation of physical parameters, dynamic total mass calculation, and conversion of the orbital period into convenient time units.
+
+### v1.2 — Three-Variable Kepler's Third Law Solver
+
+Extends the analytical Kepler's Third Law calculator by implementing all three rearrangements of the Newtonian two-body orbital period equation. The program calculates the orbital period, semi-major axis and total system mass using the same initial input parameters, without requiring the user to select a calculation mode.
+
+### Implemented:
+* Retained the user-defined central body's mass in kilograms.
+* Retained the user-defined orbiting body's mass in kilograms.
+* Retained the user-defined semi-major axis in metres.
+* Preserved input validation for positive, finite, real scalar values.
+* Defined the universal gravitational constant G in SI units.
+* Used GNU Octave's built-in mathematical constant pi.
+* Calculated the total system mass by adding the central body's mass and the orbiting body's mass.
+* Implemented the Newtonian two-body formulation of Kepler's Third Law to calculate the orbital period.
+* Rearranged Kepler's Third Law to calculate the semi-major axis from the total system mass and calculated orbital period.
+* Implemented the cube-root relationship required for the semi-major axis calculation.
+* Rearranged Kepler's Third Law to calculate the total system mass from the semi-major axis and calculated orbital period.
+* Stored the calculated orbital period in a dedicated variable.
+* Stored the calculated semi-major axis in a separate variable.
+* Stored the calculated total system mass in a separate variable.
+* Converted the calculated orbital period from seconds into days.
+* Converted the calculated orbital period into Julian years using 365.25 days per year.
+* Displayed the original input parameters in the Command Window.
+* Displayed the calculated total system mass.
+* Displayed the calculated orbital period in seconds, days and Julian years.
+* Displayed the recalculated semi-major axis in metres.
+* Displayed the recalculated total system mass in kilograms.
+* Used GNU Octave's fprintf() function to format the numerical output and display the appropriate units.
+* Used the same Newtonian two-body model for all three rearranged calculations.
+* Demonstrated that the calculated semi-major axis reproduces the original input semi-major axis within numerical precision.
+* Demonstrated that the calculated total system mass reproduces the original total system mass within numerical precision.
+* Maintained the distinction between analytical orbital calculations and time-stepped numerical orbital simulations.
+* Established the mathematical foundation for later numerical integration and analytical-versus-numerical comparisons.
+
+### Purpose
+To extend the fundamental Kepler's Third Law calculation into an analytical three-variable solver capable of calculating the orbital period, semi-major axis and total system mass. This version introduces the rearrangement of the original Newtonian two-body equation to solve for different unknown quantities while preserving the same physical model and SI-unit conventions.
