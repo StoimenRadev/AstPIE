@@ -269,3 +269,35 @@ Implements Velocity Verlet as the primary numerical integration method for calcu
 
 ### Purpose:
 To introduce numerical orbital motion through Velocity Verlet integration while retaining semi-implicit Euler as a comparison method. This version establishes Velocity Verlet as the primary integration method and allows both methods to be evaluated using identical initial conditions and timesteps. It also introduces separate numerical histories and conservation error calculations for orbital energy and angular momentum. The analytical Kepler's Third Law calculation remains independent of the numerical integration, creating the foundation for future comparisons between analytically calculated orbital periods and periods measured from numerically calculated trajectories.
+
+### v1.7 — Orbital Analysis and Graphical Visualisation
+
+Extends the existing Kepler's Third Law prototype with additional orbital analysis outputs, conservation measurements, complete time-history displays, and graphical comparisons between the analytical reference orbit and the two numerical integration methods.
+
+### Implemented:
+* Generated a time history in seconds and converted it into days for graphical analysis.
+* Calculated the specific orbital energy history for Velocity Verlet and Semi-Implicit Euler.
+* Calculated the specific angular momentum history for both numerical integration methods.
+* Implemented numerical orbital period measurement by accumulating angular progress until each numerical trajectory completes one full revolution.
+* Used interpolation between consecutive timesteps to estimate the time at which each numerical trajectory completes one full revolution.
+* Calculated the absolute, relative, and percentage orbital period errors for both numerical integration methods.
+* Calculated the initial, final, and maximum positional errors for both numerical integration methods.
+* Determined the minimum and maximum star–planet distances recorded during each numerical simulation.
+* Calculated the changes in specific orbital energy between the beginning and end of each numerical simulation.
+* Calculated the changes in specific angular momentum between the beginning and end of each numerical simulation.
+* Displayed the analytical and numerical orbital periods together with their corresponding errors.
+* Displayed the initial, final, and maximum positional errors for both integration methods.
+* Displayed the specific orbital energy and angular momentum conservation errors.
+* Displayed the final position, velocity, distance, and speed for both numerical integration methods.
+* Generated complete time-history tables for Velocity Verlet and Semi-Implicit Euler, including position, velocity, speed, acceleration, distance, specific orbital energy, and specific angular momentum.
+* Generated a graphical comparison of the analytical reference orbit and both numerical trajectories.
+* Generated a star–planet distance versus time graph comparing the analytical and numerical results.
+* Generated a specific orbital energy versus time graph to examine numerical energy conservation.
+* Generated a specific angular momentum conservation graph using relative changes from the initial specific angular momentum.
+* Generated a numerical positional error versus time graph comparing both integration methods.
+* Generated an orbital period comparison graph displaying the analytical period and measured numerical periods when both numerical methods complete a revolution.
+* Generated a main orbital parameters summary displaying the semi-major axis, eccentricity, orbital period, periapsis, apoapsis, and both body masses.
+* Adjusted the graphical plotting order to ensure that analytical reference curves remain visible when numerical trajectories overlap them.
+
+###Purpose:
+To expand the existing Kepler's Third Law prototype with comprehensive numerical results, conservation measurements, and graphical visualisation. This version makes it possible to examine the agreement between the analytical reference calculations and the numerical integration methods through orbital trajectories, orbital periods, positional errors, and conservation properties. It also provides a more complete presentation of simulation results through formatted output, time-history tables, and comparative graphs.
