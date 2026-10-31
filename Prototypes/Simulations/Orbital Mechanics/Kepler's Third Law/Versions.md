@@ -340,3 +340,43 @@ Establishes a systematic testing framework for the existing Kepler's Third Law p
 
 ## Purpose:
 To establish the reliability and numerical consistency of the existing Kepler's Third Law prototype through systematic testing and validation. This version verifies that the analytical calculations, Velocity Verlet and Semi-Implicit Euler integration methods, orbital measurements, input validation, stored data, and graphical outputs operate correctly across different physical conditions.
+
+### v1.9 — Core Simulation Complete
+
+Consolidates the analytical orbital calculations, numerical integration methods, orbital measurements, parameter experiments, graphical visualisation and validation into a unified GNU Octave prototype for Kepler's Third Law. This version focuses on organising the completed calculations, establishing reusable functions, documenting the physical model and preparing a stable, reproducible implementation for the AstPIE calculations repository.
+
+### Implemented:
+* Consolidated the analytical orbital calculations developed in previous versions into the complete prototype.
+* Integrated the calculation of specific orbital energy and specific angular momentum from the initial conditions.
+* Integrated the calculation of the semi-major axis, semi-minor axis, eccentricity, focal distance, periapsis distance and apoapsis distance.
+* Integrated the analytical calculation of the orbital period using the Newtonian two-body formulation of Kepler's Third Law.
+* Integrated the analytical calculation of circular and elliptical reference orbits.
+* Integrated the solution of Kepler's equation using the bisection method for elliptical reference orbits.
+* Integrated Velocity Verlet as the default numerical integration method.
+* Retained Semi-Implicit Euler as an alternative numerical integration method for comparison.
+* Consolidated the numerical position, velocity and acceleration calculations for both integration methods.
+* Integrated the recording of numerical position, velocity, acceleration, distance and speed histories.
+* Integrated the calculation of specific orbital energy and specific angular momentum histories.
+* Integrated numerical orbital-period measurement for both integration methods.
+* Integrated the interpolation of numerical orbital-period measurements between consecutive recorded timesteps.
+* Integrated absolute, relative and percentage orbital-period error calculations.
+* Integrated the comparison of numerical orbital positions against the analytical reference orbit.
+* Integrated initial, final and maximum numerical position-error calculations.
+* Integrated numerical periapsis and apoapsis distance measurements.
+* Integrated specific orbital energy and angular momentum conservation error calculations.
+* Consolidated the parameter experiments involving initial conditions, orbital eccentricity, total system mass, semi-major axis and timestep size.
+* Integrated the graphical comparison of analytical, Velocity Verlet and Semi-Implicit Euler orbital trajectories.
+* Integrated the visualisation of orbital distance, specific orbital energy, specific angular momentum, numerical position errors and orbital-period comparisons.
+* Integrated the graphical presentation of the main analytical orbital parameters.
+* Consolidated the formatted Command Window output for simulation inputs, initial conditions, analytical orbital parameters, numerical measurements, errors and final results.
+* Integrated the complete recorded time histories for both numerical integration methods.
+* Established a consistent distinction between analytical calculations and numerical integration results.
+* Organised the completed calculations into reusable functions where appropriate.
+* Established consistent variable naming conventions and SI units throughout the prototype.
+* Documented the Newtonian two-body physical model and the numerical integration methods.
+* Documented the assumptions and limitations of the computational model.
+* Retained the v1.8 testing and validation procedures to verify the consolidated implementation.
+* Prepared the completed GNU Octave prototype for reproducible calculations and future integration into the AstPIE calculations repository.
+
+### Purpose:
+To consolidate the analytical solver, numerical integration methods, orbital measurements, parameter experiments, graphical visualisation and validation into a complete Kepler's Third Law prototype. This version establishes Velocity Verlet as the default numerical integration method while retaining Semi-Implicit Euler for comparison. It also focuses on modular organisation, consistent calculations, scientific documentation and reproducibility.
