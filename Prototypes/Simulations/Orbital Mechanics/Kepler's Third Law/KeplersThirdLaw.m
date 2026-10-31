@@ -1,3 +1,4 @@
+
 clear;
 clc;
 close all;
@@ -237,8 +238,10 @@ initial_specific_energy = specific_orbital_energy_history(1);
 final_specific_energy = specific_orbital_energy_history(end);
 initial_specific_angular_momentum = specific_angular_momentum_history(1);
 final_specific_angular_momentum = specific_angular_momentum_history(end);
+
 energy_absolute_difference = abs(final_specific_energy - initial_specific_energy);
 angular_momentum_absolute_difference = abs(final_specific_angular_momentum - initial_specific_angular_momentum);
+
 angular_momentum_relative_error = angular_momentum_absolute_difference / abs(initial_specific_angular_momentum);
 angular_momentum_error_percentage = angular_momentum_relative_error * 100;
 
@@ -247,6 +250,52 @@ if initial_specific_energy ~= 0
 
     energy_relative_error = energy_absolute_difference / abs(initial_specific_energy);
     energy_error_percentage = energy_relative_error * 100;
+
+end
+
+% Kepler's Third Law Visualization
+if specific_orbital_energy < 0
+
+    % Number of generated semi-major-axis values
+    number_of_graph_points = 100;
+
+    % Generate semi-major-axis range
+    minimum_semi_major_axis = 0.5 * semi_major;
+    maximum_semi_major_axis = 2.0 * semi_major;
+    semi_major_axis_values = linspace( minimum_semi_major_axis, maximum_semi_major_axis, number_of_graph_points);
+
+    % Calculate orbital periods for generated semi-major-axis values
+    orbital_period_values = 2 * pi * sqrt(semi_major_axis_values.^3 / mu);
+
+    % Calculate squared orbital periods
+    squared_period_values = orbital_period_values.^2;
+
+    % Calculate cubed semi-major-axis values
+    cubed_semi_major_axis_values = semi_major_axis_values.^3;
+
+    % Calculate reference values
+    reference_semi_major_axis = semi_major;
+    reference_orbital_period = orbital_period;
+    reference_squared_period = orbital_period^2;
+    reference_cubed_semi_major_axis = semi_major^3;
+
+    % Check generated visualization values
+    if any(~isfinite(semi_major_axis_values)) || ...
+       any(~isfinite(orbital_period_values)) || ...
+       any(~isfinite(squared_period_values)) || ...
+       any(~isfinite(cubed_semi_major_axis_values))
+
+        error("The visualization generated invalid numerical values.");
+
+    end
+
+    % Store generated visualization data
+    visualization_results = [ ...
+        semi_major_axis_values(:), ...
+        orbital_period_values(:), ...
+        cubed_semi_major_axis_values(:), ...
+        squared_period_values(:) ...
+    ];
 
 end
 
@@ -303,7 +352,6 @@ end
 
 % Display Numerical Integration Parameters
 fprintf("\nNumerical Integration Parameters\n");
-
 fprintf("Integration method: Semi-implicit Euler\n");
 fprintf("Time step: %.6f s\n", dt);
 fprintf("Requested integration duration: %.6f s\n", T);
@@ -315,7 +363,6 @@ fprintf("Number of recorded states: %d\n", num_steps + 1);
 fprintf("\nFinal Numerical State\n");
 fprintf("Final position: [%.6e, %.6e] m\n", r_planet(1), r_planet(2));
 fprintf("Final velocity: [%.6e, %.6e] m/s\n", v_planet(1), v_planet(2));
-
 fprintf("Final distance: %.6e m\n", planet_distance(end));
 fprintf("Final speed: %.6e m/s\n", planet_speed(end));
 
@@ -369,3 +416,94 @@ title('Planetary Orbit');
 legend('Numerical Trajectory', 'Central Body', 'Initial Position', 'Final Position');
 axis equal;
 grid on;
+
+% Display Visualization Reference Case
+fprintf("\nKepler's Third Law Visualization\n");
+fprintf("Number of generated semi-major-axis values: %d\n", number_of_graph_points);
+fprintf("Minimum semi-major axis: %.6e m\n", minimum_semi_major_axis);
+fprintf("Maximum semi-major axis: %.6e m\n", maximum_semi_major_axis);
+
+fprintf("\nReference Case\n");
+fprintf("Reference semi-major axis: %.6e m\n", reference_semi_major_axis);
+fprintf("Reference orbital period: %.6e s\n", reference_orbital_period);
+fprintf("Reference cubed semi-major axis: %.6e m^3\n", reference_cubed_semi_major_axis);
+fprintf("Reference squared orbital period: %.6e s^2\n", reference_squared_period);
+
+% Display Generated Visualization Data
+fprintf("\nGenerated Visualization Data\n");
+fprintf(["Columns: semi_major_axis(m), orbital_period(s), ", "semi_major_axis_cubed(m^3), orbital_period_squared(s^2)\n"]);
+disp(visualization_results);
+
+% Plot Star–planet distance against time
+figure;
+plot(time_history / seconds_per_day, planet_distance / AU, 'b-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Star-Planet Distance (AU)');
+title('Star-Planet Distance vs Time');
+legend('Planet Distance');
+grid on;
+
+% Plot Planet speed against time
+figure;
+plot(time_history / seconds_per_day, planet_speed, 'r-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Planet Speed (m/s)');
+title('Planet Speed vs Time');
+legend('Planet Speed');
+grid on;
+
+% Plot X and Y (Position) coordinates against time
+figure;
+subplot(2, 1, 1);
+plot(time_history / seconds_per_day, planet_positions(:, 1) / AU, 'b-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('X-Position (AU)');
+title('X-Position vs Time');
+legend('X-Position');
+grid on;
+subplot(2, 1, 2);
+plot(time_history / seconds_per_day, planet_positions(:, 2) / AU, 'r-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Y-Position (AU)');
+title('Y-Position vs Time');
+legend('Y-Position');
+grid on;
+
+% Plot Orbital Period Against Semi-Major Axis
+figure;
+plot(semi_major_axis_values, orbital_period_values, 'b-', 'LineWidth', 1.5);
+hold on;
+plot(reference_semi_major_axis, reference_orbital_period, 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 8);
+xlabel('Semi-Major Axis (m)');
+ylabel('Orbital Period (s)');
+title('Kepler''s Third Law - Orbital Period vs Semi-Major Axis');
+legend('Calculated Orbital Periods', 'Reference Case', 'Location', 'northwest');
+grid on;
+
+% Plot Squared Orbital Period Against Cubed Semi-Major Axis
+figure;
+plot(cubed_semi_major_axis_values, squared_period_values, 'b-', 'LineWidth', 1.5);
+hold on;
+plot(reference_cubed_semi_major_axis, reference_squared_period, 'ro', 'MarkerFaceColor', 'r', 'MarkerSize', 8);
+xlabel('Semi-Major Axis Cubed (m^3)');
+ylabel('Orbital Period Squared (s^2)');
+title('Kepler''s Third Law - Squared Period vs Cubed Semi-Major Axis');
+legend('Calculated Orbital Values', 'Reference Case', 'Location', 'northwest');
+grid on;
+
+% Calculate Perihelion and Aphelion Distances
+perihelion_distance = semi_major * (1 - eccentricity);
+aphelion_distance = semi_major * (1 + eccentricity);
+
+% Display Main Orbital Parameters
+figure;
+axis off;
+text(0.05, 0.90, 'Main Orbital Parameters', 'FontSize', 16, 'FontWeight', 'bold');
+text(0.05, 0.78, sprintf('Semi-Major Axis: %.6e m', semi_major), 'FontSize', 11);
+text(0.05, 0.67, sprintf('Eccentricity: %.6f', eccentricity), 'FontSize', 11);
+text(0.05, 0.56, sprintf('Perihelion Distance: %.6e m', perihelion_distance), 'FontSize', 11);
+text(0.05, 0.45, sprintf('Aphelion Distance: %.6e m', aphelion_distance), 'FontSize', 11);
+text(0.05, 0.34, sprintf('Orbital Period: %.6e s', orbital_period), 'FontSize', 11);
+text(0.05, 0.23, sprintf('Orbital Period: %.6f days', period_days), 'FontSize', 11);
+text(0.05, 0.12, sprintf('Gravitational Parameter: %.6e m^3/s^2', mu),'FontSize', 11);
+title('Orbital Parameter Summary');
