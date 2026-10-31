@@ -1,4 +1,3 @@
-
 clear;
 clc;
 close all;
@@ -83,7 +82,7 @@ else
 
 end
 
-% Calculating Semi-major axis and Orbital period
+% Calculating Semi-major Axis and Orbital Period
 if specific_orbital_energy < 0
 
     semi_major = -mu / (2 * specific_orbital_energy);
@@ -114,102 +113,182 @@ end
 
 actual_duration = num_steps * dt;
 
-% Initialize Position and Velocity
+% Initialize Time History
+time_history = (0:num_steps)' * dt;
+
+% Initialize Velocity Verlet State
 r_planet = r0_planet;
 v_planet = v0_planet;
 
-time_history = (0:num_steps)' * dt;
+% Initialize Semi-Implicit Euler State
+euler_position = r0_planet;
+euler_velocity = v0_planet;
 
-% Initialize Time-History Arrays
+% Calculate Initial Acceleration
+initial_acceleration = -(mu / r0_distance^3) * r0_planet;
+
+% Initialize Velocity Verlet Time-History Arrays
 planet_positions = zeros(num_steps + 1, 2);
 planet_velocities = zeros(num_steps + 1, 2);
 planet_accelerations = zeros(num_steps + 1, 2);
 planet_speed = zeros(num_steps + 1, 1);
 planet_distance = zeros(num_steps + 1, 1);
+
 specific_orbital_energy_history = zeros(num_steps + 1, 1);
 specific_angular_momentum_history = zeros(num_steps + 1, 1);
 
-% Store Initial State
+% Initialize Semi-Implicit Euler Time-History Arrays
+euler_positions = zeros(num_steps + 1, 2);
+euler_velocities = zeros(num_steps + 1, 2);
+euler_accelerations = zeros(num_steps + 1, 2);
+euler_speed = zeros(num_steps + 1, 1);
+euler_distance = zeros(num_steps + 1, 1);
+
+euler_specific_orbital_energy_history = zeros(num_steps + 1, 1);
+euler_specific_angular_momentum_history = zeros(num_steps + 1, 1);
+
+% Store Initial Velocity Verlet State
 planet_positions(1, :) = r_planet;
 planet_velocities(1, :) = v_planet;
-planet_distance(1) = r0_distance;
+planet_accelerations(1, :) = initial_acceleration;
 planet_speed(1) = v0_speed;
-planet_accelerations(1, :) = -(mu / r0_distance^3) * r0_planet;
+planet_distance(1) = r0_distance;
+
 specific_orbital_energy_history(1) = specific_orbital_energy;
 specific_angular_momentum_history(1) = h0;
 
-% Semi-Implicit Euler Integration
+% Store Initial Semi-Implicit Euler State
+euler_positions(1, :) = euler_position;
+euler_velocities(1, :) = euler_velocity;
+euler_accelerations(1, :) = initial_acceleration;
+euler_speed(1) = v0_speed;
+euler_distance(1) = r0_distance;
+
+euler_specific_orbital_energy_history(1) = specific_orbital_energy;
+euler_specific_angular_momentum_history(1) = h0;
+
+% Velocity Verlet and Semi-Implicit Euler Integration
 for i = 1:num_steps
 
-    % Current distance from the central body
-    r_current = sqrt(r_planet(1)^2 + r_planet(2)^2);
+    % Velcoity verlet
 
-    if ~isfinite(r_current) || r_current == 0
-        error("The planet reached an invalid position during integration.");
+    % Calculate current acceleration
+    verlet_current_acceleration = planet_accelerations(i, :);
+
+    % Update position
+    verlet_new_position = r_planet + v_planet * dt + 0.5 * verlet_current_acceleration * dt^2;
+
+    if any(~isfinite(verlet_new_position))
+        error("Velocity Verlet produced invalid position values.");
     end
 
-    % Calculate gravitational acceleration
-    acceleration = -(mu / r_current^3) * r_planet;
+    % Calculate new distance
+    verlet_new_distance = sqrt(verlet_new_position(1)^2 + verlet_new_position(2)^2);
 
-    if any(~isfinite(acceleration))
-        error("The integration produced invalid acceleration values.");
+    if ~isfinite(verlet_new_distance) || verlet_new_distance == 0
+        error("Velocity Verlet reached an invalid position.");
     end
 
-    % Update velocity first
-    v_planet = v_planet + acceleration * dt;
+    % Calculate new acceleration
+    verlet_new_acceleration = -(mu / verlet_new_distance^3) * verlet_new_position;
 
-    % Update position using the updated velocity
-    r_planet = r_planet + v_planet * dt;
-
-    % Validate the updated state
-    if any(~isfinite(r_planet)) || any(~isfinite(v_planet))
-        error("The integration produced invalid position or velocity values.");
+    if any(~isfinite(verlet_new_acceleration))
+        error("Velocity Verlet produced invalid acceleration values.");
     end
 
-    % Calculate the new distance
-    r_new_distance = sqrt(r_planet(1)^2 + r_planet(2)^2);
+    % Update velocity
+    verlet_new_velocity = v_planet + 0.5 * (verlet_current_acceleration + verlet_new_acceleration) * dt;
 
-    if ~isfinite(r_new_distance) || r_new_distance == 0
-        error("The planet reached an invalid position at the central body.");
+    if any(~isfinite(verlet_new_velocity))
+        error("Velocity Verlet produced invalid velocity values.");
     end
 
-    % Calculate the new speed
-    new_speed = sqrt(v_planet(1)^2 + v_planet(2)^2);
-
-    % Calculate acceleration at the new position
-    new_acceleration = -(mu / r_new_distance^3) * r_planet;
-
-    if any(~isfinite(new_acceleration))
-        error("The integration produced invalid acceleration values.");
-    end
+    % Calculate new speed
+    verlet_new_speed = sqrt(verlet_new_velocity(1)^2 + verlet_new_velocity(2)^2);
 
     % Calculate specific orbital energy
-    new_specific_energy = (new_speed^2 / 2) - (mu / r_new_distance);
+    verlet_new_specific_energy = (verlet_new_speed^2 / 2) - (mu / verlet_new_distance);
 
     % Calculate specific angular momentum
-    new_h = r_planet(1) * v_planet(2) - r_planet(2) * v_planet(1);
+    verlet_new_h = verlet_new_position(1) * verlet_new_velocity(2) - verlet_new_position(2) * verlet_new_velocity(1);
 
-    % Store updated position
-    planet_positions(i + 1, :) = r_planet;
+    % Update Velocity Verlet State
+    r_planet = verlet_new_position;
+    v_planet = verlet_new_velocity;
 
-    % Store updated velocity
-    planet_velocities(i + 1, :) = v_planet;
+    % Store Velocity Verlet Results
+    planet_positions(i + 1, :) = verlet_new_position;
+    planet_velocities(i + 1, :) = verlet_new_velocity;
+    planet_accelerations(i + 1, :) = verlet_new_acceleration;
+    planet_speed(i + 1) = verlet_new_speed;
+    planet_distance(i + 1) = verlet_new_distance;
 
-    % Store updated acceleration
-    planet_accelerations(i + 1, :) = new_acceleration;
+    specific_orbital_energy_history(i + 1) = verlet_new_specific_energy;
+    specific_angular_momentum_history(i + 1) = verlet_new_h;
 
-    % Store speed and distance
-    planet_speed(i + 1) = new_speed;
-    planet_distance(i + 1) = r_new_distance;
 
-    % Store orbital quantities
-    specific_orbital_energy_history(i + 1) = new_specific_energy;
-    specific_angular_momentum_history(i + 1) = new_h;
+    % Semi-Implicit Euler
+
+    % Calculate current acceleration
+    euler_current_acceleration = euler_accelerations(i, :);
+
+    % Update velocity first
+    euler_new_velocity = euler_velocity + euler_current_acceleration * dt;
+
+    if any(~isfinite(euler_new_velocity))
+        error("Semi-implicit Euler produced invalid velocity values.");
+    end
+
+    % Update position using the updated velocity
+    euler_new_position = euler_position + euler_new_velocity * dt;
+
+    if any(~isfinite(euler_new_position))
+        error("Semi-implicit Euler produced invalid position values.");
+    end
+
+    % Calculate new distance
+    euler_new_distance = sqrt( ...
+        euler_new_position(1)^2 + euler_new_position(2)^2);
+
+    if ~isfinite(euler_new_distance) || euler_new_distance == 0
+        error("Semi-implicit Euler reached an invalid position.");
+    end
+
+    % Calculate new acceleration
+    euler_new_acceleration = ...
+        -(mu / euler_new_distance^3) * euler_new_position;
+
+    if any(~isfinite(euler_new_acceleration))
+        error("Semi-implicit Euler produced invalid acceleration values.");
+    end
+
+    % Calculate new speed
+    euler_new_speed = sqrt(euler_new_velocity(1)^2 + euler_new_velocity(2)^2);
+
+    % Calculate specific orbital energy
+    euler_new_specific_energy = (euler_new_speed^2 / 2) - (mu / euler_new_distance);
+
+    % Calculate specific angular momentum
+    euler_new_h = euler_new_position(1) * euler_new_velocity(2) - euler_new_position(2) * euler_new_velocity(1);
+
+    % Update Semi-Implicit Euler State
+    euler_position = euler_new_position;
+    euler_velocity = euler_new_velocity;
+
+    % Store Semi-Implicit Euler Results
+    euler_positions(i + 1, :) = euler_new_position;
+    euler_velocities(i + 1, :) = euler_new_velocity;
+    euler_accelerations(i + 1, :) = euler_new_acceleration;
+    euler_speed(i + 1) = euler_new_speed;
+    euler_distance(i + 1) = euler_new_distance;
+
+    euler_specific_orbital_energy_history(i + 1) = euler_new_specific_energy;
+    euler_specific_angular_momentum_history(i + 1) = euler_new_h;
 
 end
 
 % Analytical Validation
-% Theoretical Kepler's Third Law coefficient
+% Theoretical Kepler's Third Law Coefficient
 theoretical_coefficient = (4 * pi^2) / mu;
 
 if specific_orbital_energy < 0
@@ -233,19 +312,16 @@ if specific_orbital_energy < 0
 
 end
 
-% Numerical Conservation Analysis
+% Numerical Conservation Analysis - Velocity Verlet
 initial_specific_energy = specific_orbital_energy_history(1);
 final_specific_energy = specific_orbital_energy_history(end);
 initial_specific_angular_momentum = specific_angular_momentum_history(1);
 final_specific_angular_momentum = specific_angular_momentum_history(end);
-
 energy_absolute_difference = abs(final_specific_energy - initial_specific_energy);
 angular_momentum_absolute_difference = abs(final_specific_angular_momentum - initial_specific_angular_momentum);
-
 angular_momentum_relative_error = angular_momentum_absolute_difference / abs(initial_specific_angular_momentum);
 angular_momentum_error_percentage = angular_momentum_relative_error * 100;
 
-% Relative energy error is undefined when initial energy is zero
 if initial_specific_energy ~= 0
 
     energy_relative_error = energy_absolute_difference / abs(initial_specific_energy);
@@ -253,16 +329,32 @@ if initial_specific_energy ~= 0
 
 end
 
-% Kepler's Third Law Visualization
-if specific_orbital_energy < 0
+% Numerical Conservation Analysis - Semi-Implicit Euler
+euler_initial_specific_energy = euler_specific_orbital_energy_history(1);
+euler_final_specific_energy = euler_specific_orbital_energy_history(end);
+euler_initial_specific_angular_momentum = euler_specific_angular_momentum_history(1);
+euler_final_specific_angular_momentum = euler_specific_angular_momentum_history(end);
+euler_energy_absolute_difference = abs(euler_final_specific_energy - euler_initial_specific_energy);
+euler_angular_momentum_absolute_difference = abs(euler_final_specific_angular_momentum - euler_initial_specific_angular_momentum);
+euler_angular_momentum_relative_error = euler_angular_momentum_absolute_difference / abs(euler_initial_specific_angular_momentum);
+euler_angular_momentum_error_percentage = euler_angular_momentum_relative_error * 100;
 
+if euler_initial_specific_energy ~= 0
+
+    euler_energy_relative_error = euler_energy_absolute_difference / abs(euler_initial_specific_energy);
+    euler_energy_error_percentage = euler_energy_relative_error * 100;
+
+end
+
+    % Kepler's Third Law Visualization
     % Number of generated semi-major-axis values
     number_of_graph_points = 100;
 
     % Generate semi-major-axis range
     minimum_semi_major_axis = 0.5 * semi_major;
     maximum_semi_major_axis = 2.0 * semi_major;
-    semi_major_axis_values = linspace( minimum_semi_major_axis, maximum_semi_major_axis, number_of_graph_points);
+
+    semi_major_axis_values = linspace(minimum_semi_major_axis, maximum_semi_major_axis, number_of_graph_points);
 
     % Calculate orbital periods for generated semi-major-axis values
     orbital_period_values = 2 * pi * sqrt(semi_major_axis_values.^3 / mu);
@@ -296,8 +388,6 @@ if specific_orbital_energy < 0
         cubed_semi_major_axis_values(:), ...
         squared_period_values(:) ...
     ];
-
-end
 
 % Display Input Parameters
 fprintf("\nInput Parameters\n");
@@ -352,22 +442,30 @@ end
 
 % Display Numerical Integration Parameters
 fprintf("\nNumerical Integration Parameters\n");
-fprintf("Integration method: Semi-implicit Euler\n");
+fprintf("Primary integration method: Velocity Verlet\n");
+fprintf("Comparison integration method: Semi-implicit Euler\n");
 fprintf("Time step: %.6f s\n", dt);
 fprintf("Requested integration duration: %.6f s\n", T);
 fprintf("Actual integration duration: %.6f s\n", actual_duration);
 fprintf("Number of integration steps: %d\n", num_steps);
-fprintf("Number of recorded states: %d\n", num_steps + 1);
+fprintf("Number of recorded states per method: %d\n", num_steps + 1);
 
-% Display Final Numerical State
-fprintf("\nFinal Numerical State\n");
+% Display Final Velocity Verlet State
+fprintf("\nFinal Numerical State - Velocity Verlet\n");
 fprintf("Final position: [%.6e, %.6e] m\n", r_planet(1), r_planet(2));
 fprintf("Final velocity: [%.6e, %.6e] m/s\n", v_planet(1), v_planet(2));
 fprintf("Final distance: %.6e m\n", planet_distance(end));
 fprintf("Final speed: %.6e m/s\n", planet_speed(end));
 
-% Display Numerical Conservation Analysis
-fprintf("\nNumerical Conservation Analysis\n");
+% Display Final Semi-Implicit Euler State
+fprintf("\nFinal Numerical State - Semi-Implicit Euler\n");
+fprintf("Final position: [%.6e, %.6e] m\n", euler_position(1), euler_position(2));
+fprintf("Final velocity: [%.6e, %.6e] m/s\n", euler_velocity(1), euler_velocity(2));
+fprintf("Final distance: %.6e m\n", euler_distance(end));
+fprintf("Final speed: %.6e m/s\n", euler_speed(end));
+
+% Display Numerical Conservation Analysis - Velocity Verlet
+fprintf("\nNumerical Conservation Analysis - Velocity Verlet\n");
 fprintf("Initial specific orbital energy: %.6e m^2/s^2\n", initial_specific_energy);
 fprintf("Final specific orbital energy: %.6e m^2/s^2\n", final_specific_energy);
 fprintf("Absolute energy difference: %.6e m^2/s^2\n", energy_absolute_difference);
@@ -387,6 +485,28 @@ fprintf("Final specific angular momentum: %.6e m^2/s\n", final_specific_angular_
 fprintf("Absolute angular momentum difference: %.6e m^2/s\n", angular_momentum_absolute_difference);
 fprintf("Relative angular momentum error: %.6e %%\n", angular_momentum_error_percentage);
 
+% Display Numerical Conservation Analysis - Semi-Implicit Euler
+fprintf("\nNumerical Conservation Analysis - Semi-Implicit Euler\n");
+fprintf("Initial specific orbital energy: %.6e m^2/s^2\n", euler_initial_specific_energy);
+fprintf("Final specific orbital energy: %.6e m^2/s^2\n", euler_final_specific_energy);
+fprintf("Absolute energy difference: %.6e m^2/s^2\n", euler_energy_absolute_difference);
+
+if euler_initial_specific_energy ~= 0
+
+    fprintf("Relative energy error: %.6e %%\n", euler_energy_error_percentage);
+
+else
+
+    fprintf("Relative energy error: Undefined (initial energy is zero).\n");
+
+end
+
+fprintf("Initial specific angular momentum: %.6e m^2/s\n", euler_initial_specific_angular_momentum);
+fprintf("Final specific angular momentum: %.6e m^2/s\n", euler_final_specific_angular_momentum);
+fprintf("Absolute angular momentum difference: %.6e m^2/s\n", euler_angular_momentum_absolute_difference);
+fprintf("Relative angular momentum error: %.6e %%\n", euler_angular_momentum_error_percentage);
+
+% Store Velocity Verlet Results
 results = [ ...
     time_history, ...
     planet_positions, ...
@@ -398,12 +518,29 @@ results = [ ...
     specific_angular_momentum_history ...
 ];
 
-% Display Complete Time History
-fprintf("\nComplete Time History\n");
+% Store Semi-Implicit Euler Results
+euler_results = [ ...
+    time_history, ...
+    euler_positions, ...
+    euler_velocities, ...
+    euler_speed, ...
+    euler_accelerations, ...
+    euler_distance, ...
+    euler_specific_orbital_energy_history, ...
+    euler_specific_angular_momentum_history ...
+];
+
+% Display Complete Velocity Verlet Time History
+fprintf("\nComplete Time History - Velocity Verlet\n");
 fprintf(["Columns: time(s), x(m), y(m), vx(m/s), vy(m/s), ", "speed(m/s), ax(m/s^2), ay(m/s^2), distance(m), ", "specific_energy(m^2/s^2), specific_angular_momentum(m^2/s)\n"]);
 disp(results);
 
-% Plot Numerical Orbit
+% Display Complete Semi-Implicit Euler Time History
+fprintf("\nComplete Time History - Semi-Implicit Euler\n");
+fprintf(["Columns: time(s), x(m), y(m), vx(m/s), vy(m/s), ", "speed(m/s), ax(m/s^2), ay(m/s^2), distance(m), ", "specific_energy(m^2/s^2), specific_angular_momentum(m^2/s)\n"]);
+disp(euler_results);
+
+% Plot Numerical Orbit - Velocity Verlet
 figure;
 plot(planet_positions(:, 1), planet_positions(:, 2), 'b-');
 hold on;
@@ -412,12 +549,12 @@ plot(r0_planet(1), r0_planet(2), 'go', 'MarkerFaceColor', 'g');
 plot(r_planet(1), r_planet(2), 'ro', 'MarkerFaceColor', 'r');
 xlabel('X Position (m)');
 ylabel('Y Position (m)');
-title('Planetary Orbit');
-legend('Numerical Trajectory', 'Central Body', 'Initial Position', 'Final Position');
+title('Planetary Orbit - Velocity Verlet');
+legend('Velocity Verlet Trajectory', 'Central Body', 'Initial Position', 'Final Position');
 axis equal;
 grid on;
 
-% Display Visualization Reference Case
+% Display Visualization Reference Case and Plot Kepler's Third Law Graphs
 fprintf("\nKepler's Third Law Visualization\n");
 fprintf("Number of generated semi-major-axis values: %d\n", number_of_graph_points);
 fprintf("Minimum semi-major axis: %.6e m\n", minimum_semi_major_axis);
@@ -434,41 +571,6 @@ fprintf("\nGenerated Visualization Data\n");
 fprintf(["Columns: semi_major_axis(m), orbital_period(s), ", "semi_major_axis_cubed(m^3), orbital_period_squared(s^2)\n"]);
 disp(visualization_results);
 
-% Plot Star–planet distance against time
-figure;
-plot(time_history / seconds_per_day, planet_distance / AU, 'b-', 'LineWidth', 1.2);
-xlabel('Time (days)');
-ylabel('Star-Planet Distance (AU)');
-title('Star-Planet Distance vs Time');
-legend('Planet Distance');
-grid on;
-
-% Plot Planet speed against time
-figure;
-plot(time_history / seconds_per_day, planet_speed, 'r-', 'LineWidth', 1.2);
-xlabel('Time (days)');
-ylabel('Planet Speed (m/s)');
-title('Planet Speed vs Time');
-legend('Planet Speed');
-grid on;
-
-% Plot X and Y (Position) coordinates against time
-figure;
-subplot(2, 1, 1);
-plot(time_history / seconds_per_day, planet_positions(:, 1) / AU, 'b-', 'LineWidth', 1.2);
-xlabel('Time (days)');
-ylabel('X-Position (AU)');
-title('X-Position vs Time');
-legend('X-Position');
-grid on;
-subplot(2, 1, 2);
-plot(time_history / seconds_per_day, planet_positions(:, 2) / AU, 'r-', 'LineWidth', 1.2);
-xlabel('Time (days)');
-ylabel('Y-Position (AU)');
-title('Y-Position vs Time');
-legend('Y-Position');
-grid on;
-
 % Plot Orbital Period Against Semi-Major Axis
 figure;
 plot(semi_major_axis_values, orbital_period_values, 'b-', 'LineWidth', 1.5);
@@ -480,7 +582,7 @@ title('Kepler''s Third Law - Orbital Period vs Semi-Major Axis');
 legend('Calculated Orbital Periods', 'Reference Case', 'Location', 'northwest');
 grid on;
 
-% Plot Squared Orbital Period Against Cubed Semi-Major Axis
+% Plot Squared Orbital Period Against Cubed Semi-major axis
 figure;
 plot(cubed_semi_major_axis_values, squared_period_values, 'b-', 'LineWidth', 1.5);
 hold on;
@@ -505,5 +607,40 @@ text(0.05, 0.56, sprintf('Perihelion Distance: %.6e m', perihelion_distance), 'F
 text(0.05, 0.45, sprintf('Aphelion Distance: %.6e m', aphelion_distance), 'FontSize', 11);
 text(0.05, 0.34, sprintf('Orbital Period: %.6e s', orbital_period), 'FontSize', 11);
 text(0.05, 0.23, sprintf('Orbital Period: %.6f days', period_days), 'FontSize', 11);
-text(0.05, 0.12, sprintf('Gravitational Parameter: %.6e m^3/s^2', mu),'FontSize', 11);
+text(0.05, 0.12, sprintf('Gravitational Parameter: %.6e m^3/s^2', mu), 'FontSize', 11);
 title('Orbital Parameter Summary');
+
+% Plot Star-Planet Distance Against Time - Velocity Verlet
+figure;
+plot(time_history / seconds_per_day, planet_distance / AU, 'b-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Star-Planet Distance (AU)');
+title('Star-Planet Distance vs Time - Velocity Verlet');
+legend('Planet Distance');
+grid on;
+
+% Plot Planet Speed Against Time - Velocity Verlet
+figure;
+plot(time_history / seconds_per_day, planet_speed, 'r-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Planet Speed (m/s)');
+title('Planet Speed vs Time - Velocity Verlet');
+legend('Planet Speed');
+grid on;
+
+% Plot X and Y Position Coordinates Against Time - Velocity Verlet
+figure;
+subplot(2, 1, 1);
+plot(time_history / seconds_per_day, planet_positions(:, 1) / AU,  'b-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('X-Position (AU)');
+title('X-Position vs Time - Velocity Verlet');
+legend('X-Position');
+grid on;
+subplot(2, 1, 2);
+plot(time_history / seconds_per_day, planet_positions(:, 2) / AU, 'r-', 'LineWidth', 1.2);
+xlabel('Time (days)');
+ylabel('Y-Position (AU)');
+title('Y-Position vs Time - Velocity Verlet');
+legend('Y-Position');
+grid on;
