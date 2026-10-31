@@ -301,3 +301,42 @@ Extends the existing Kepler's Third Law prototype with additional orbital analys
 
 ###Purpose:
 To expand the existing Kepler's Third Law prototype with comprehensive numerical results, conservation measurements, and graphical visualisation. This version makes it possible to examine the agreement between the analytical reference calculations and the numerical integration methods through orbital trajectories, orbital periods, positional errors, and conservation properties. It also provides a more complete presentation of simulation results through formatted output, time-history tables, and comparative graphs.
+
+### v1.8 — Comprehensive Testing and Validation
+
+Establishes a systematic testing framework for the existing Kepler's Third Law prototype by validating its analytical calculations, numerical integration methods, orbital measurements, input handling, stored data, and graphical outputs against defined reference cases and expected results.
+
+### Implemented:
+* Established a baseline Earth–Sun test case using documented physical parameters and user-defined initial conditions.
+* Defined expected analytical reference values for the baseline test, including the gravitational parameter, specific orbital energy, specific angular momentum, semi-major axis, eccentricity, periapsis, apoapsis, and orbital period.
+* Tested the analytical orbital calculations against independently calculated reference values.
+* Tested Velocity Verlet integration against the baseline Earth–Sun reference orbit.
+* Tested Semi-Implicit Euler integration against the same reference orbit.
+* Tested the analytical and numerical calculations using circular initial conditions.
+* Tested the analytical and numerical calculations using elliptical initial conditions.
+* Tested different orbital eccentricities by changing the initial velocity while keeping the other baseline parameters constant.
+* Tested numerical integration using smaller, baseline, and larger timestep sizes.
+* Tested the effect of different total system masses on the calculated gravitational parameter and orbital period.
+* Tested the relationship between different semi-major axes and their corresponding orbital periods.
+* Tested numerical orbital period measurement for both integration methods.
+* Tested incomplete orbital trajectories to verify that orbital periods are not incorrectly reported when a complete revolution has not been recorded.
+* Tested input validation using invalid masses, initial position and velocity vectors, unbound orbital conditions, zero angular momentum, invalid timesteps, and invalid simulation durations.
+* Tested the calculations of absolute, relative, and percentage orbital period errors.
+* Tested positional error calculations against the analytical reference trajectory.
+* Tested specific orbital energy conservation measurements for both numerical integration methods.
+* Tested specific angular momentum conservation measurements for both numerical integration methods.
+* Verified the mathematical relationships used in the numerical error calculations.
+* Tested stored position, velocity, acceleration, distance, energy, angular momentum, and time histories for correct dimensions and indexing.
+* Verified that the initial and final recorded states correspond to the specified simulation conditions and duration.
+* Tested the dimensions and contents of the complete numerical time-history tables.
+* Tested the graphical consistency of the analytical and numerical orbital trajectories.
+* Tested the star–planet distance, specific orbital energy, specific angular momentum, and positional error graphs against their corresponding calculated data.
+* Tested the orbital period comparison graph and the main orbital parameter summary.
+* Established individual test cases using numbered identifiers, with lettered subtests where multiple variations belong to the same test.
+* Defined expected results and pass/fail criteria for the individual tests.
+* Established a test-recording procedure documenting inputs, expected outputs, actual results, numerical tolerances, outcomes, and observations.
+* Documented numerical limitations and discrepancies identified during testing.
+* Established repeatable test cases that can be executed again after subsequent code modifications.
+
+## Purpose:
+To establish the reliability and numerical consistency of the existing Kepler's Third Law prototype through systematic testing and validation. This version verifies that the analytical calculations, Velocity Verlet and Semi-Implicit Euler integration methods, orbital measurements, input validation, stored data, and graphical outputs operate correctly across different physical conditions.
