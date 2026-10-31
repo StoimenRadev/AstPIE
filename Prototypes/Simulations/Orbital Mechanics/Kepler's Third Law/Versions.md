@@ -232,3 +232,40 @@ Adds graphical representations of Kepler's Third Law and the numerical orbital e
 
 ### Purpose:
 To make Kepler's Third Law and its relationship with orbital geometry and orbital evolution visually understandable. This version introduces graphical comparisons of orbital period against semi-major axis and squared orbital period against cubed semi-major axis, allowing the predicted nonlinear and linear relationships to be examined. It also provides time-history graphs of planetary distance, speed and position, alongside a graphical summary of the main orbital parameters. The resulting visualizations make the calculated relationships and numerical results easier to inspect and interpret.
+
+### v1.6 — Velocity Verlet Integration
+
+Implements Velocity Verlet as the primary numerical integration method for calculating orbital motion in a Newtonian two-body system, while retaining semi-implicit Euler as a secondary comparison method. Both methods use identical initial conditions, gravitational parameters and timesteps, allowing their numerical results to be compared independently of the analytical Kepler's Third Law calculation.
+
+### Implemented:
+* Reused the existing gravitational acceleration model for calculating the relative motion of the two-body system.
+* Defined the gravitational parameter using the universal gravitational constant and the combined mass of the central and orbiting bodies.
+* Initialized the Velocity Verlet integration using the existing position and velocity variables.
+* Initialized the semi-implicit Euler integration using separate variables with the euler_ prefix.
+* Implemented the Velocity Verlet position update using the current position, velocity and acceleration.
+* Calculated the new gravitational acceleration at each updated position.
+* Implemented the Velocity Verlet velocity update using the average of the current and newly calculated accelerations.
+* Established Velocity Verlet as the primary numerical integration method.
+* Retained semi-implicit Euler as a secondary numerical integration method for comparison.
+* Implemented the semi-implicit Euler velocity update using the current acceleration.
+* Implemented the semi-implicit Euler position update using the newly calculated velocity.
+* Ensured that both integration methods use identical initial positions, initial velocities, gravitational parameters and timesteps.
+* Maintained separate position, velocity and acceleration histories for both integration methods.
+* Reused the existing planet_ variable naming convention for Velocity Verlet calculations.
+* Introduced the euler_ variable naming convention for semi-implicit Euler calculations.
+* Stored the calculated orbital speed and distance at every timestep for both methods.
+* Calculated and stored the specific orbital energy throughout both numerical integrations.
+* Calculated and stored the specific angular momentum throughout both numerical integrations.
+* Implemented numerical checks for finite position, velocity and acceleration values and nonzero orbital distances.
+* Calculated the initial and final specific orbital energy for both integration methods.
+* Calculated the initial and final specific angular momentum for both integration methods.
+* Calculated the absolute and relative conservation errors for specific orbital energy and specific angular momentum separately for each method.
+* Generated separate numerical results matrices containing the time history, position, velocity, speed, acceleration, distance, specific orbital energy and specific angular momentum for each integration method.
+* Retained the existing orbital trajectory and time-history visualizations using Velocity Verlet as the primary numerical method.
+* Displayed the numerical conservation results for both integration methods separately.
+* Preserved the analytical Kepler's Third Law orbital period calculation independently of the numerical integration methods.
+* Preserved the analytical orbital parameter calculations and Kepler's Third Law visualizations independently of the numerical integration methods.
+* Established a common computational framework for comparing numerical orbital integration methods under identical physical conditions.
+
+### Purpose:
+To introduce numerical orbital motion through Velocity Verlet integration while retaining semi-implicit Euler as a comparison method. This version establishes Velocity Verlet as the primary integration method and allows both methods to be evaluated using identical initial conditions and timesteps. It also introduces separate numerical histories and conservation error calculations for orbital energy and angular momentum. The analytical Kepler's Third Law calculation remains independent of the numerical integration, creating the foundation for future comparisons between analytically calculated orbital periods and periods measured from numerically calculated trajectories.
