@@ -2,9 +2,8 @@ clear;
 clc;
 close all;
 
-% Physical Constants
-G = 6.67430e-11;       % Gravitational constant (m^3 kg^-1 s^-2)
-AU = 149597870700;     % Astronomical unit (m)
+G = 6.67430e-11;
+AU = 149597870700;
 seconds_per_day = 86400;
 days_per_julian_year = 365.25;
 
@@ -32,7 +31,7 @@ if ~isnumeric(v0_planet) || ~isreal(v0_planet) || ~isvector(v0_planet) || numel(
     error("Initial velocity must be a finite, real, two-component vector.");
 end
 
-% Convert vectors into row vectors
+% Standardize vectors to row format
 r0_planet = r0_planet(:).';
 v0_planet = v0_planet(:).';
 
@@ -40,30 +39,29 @@ v0_planet = v0_planet(:).';
 r0_distance = sqrt(r0_planet(1)^2 + r0_planet(2)^2);
 v0_speed = sqrt(v0_planet(1)^2 + v0_planet(2)^2);
 
-if r0_distance == 0
-    error("Initial position must be away from the central body.");
+if ~isfinite(r0_distance) || r0_distance == 0
+    error("Initial position must be a finite, nonzero distance from the central body.");
 end
 
 total_mass = star_mass + planet_mass;
+mu = G * total_mass;
 
-mu = G * total_mass; % Gravitational parameter (m^3/s^2)
-
-% Calculating Specific energy
+% Calculating Initial Specific Orbital Energy
 specific_orbital_energy = (v0_speed^2 / 2) - (mu / r0_distance);
 
-% Calculating specific angular momentum
+% Calculating Initial Specific Angular Momentum
 h0 = r0_planet(1) * v0_planet(2) - r0_planet(2) * v0_planet(1);
+
+if ~isfinite(h0) || h0 == 0
+    error("Initial conditions must produce finite, nonzero specific angular momentum.");
+end
 
 h0_magnitude = abs(h0);
 
-if h0_magnitude == 0
-    error("Initial conditions must produce nonzero specific angular momentum.");
-end
-
-% Clculating eccentricity
+% Calculating Orbital Eccentricity
 eccentricity_squared = 1 + (2 * specific_orbital_energy * h0_magnitude^2) / mu^2;
 
-if eccentricity_squared < 0
+if ~isfinite(eccentricity_squared) || eccentricity_squared < 0
     error("Invalid orbital eccentricity calculation.");
 end
 
@@ -84,7 +82,7 @@ else
 
 end
 
-% Calculating Semi-major Axis and Orbital period
+% Calculating Semi-major axis and Orbital period
 if specific_orbital_energy < 0
 
     semi_major = -mu / (2 * specific_orbital_energy);
@@ -109,57 +107,150 @@ end
 
 num_steps = round(T / dt);
 
+if num_steps < 1
+    error("Integration duration must allow at least one integration step.");
+end
+
+actual_duration = num_steps * dt;
+
 % Initialize Position and Velocity
 r_planet = r0_planet;
 v_planet = v0_planet;
 
+time_history = (0:num_steps)' * dt;
+
+% Initialize Time-History Arrays
 planet_positions = zeros(num_steps + 1, 2);
 planet_velocities = zeros(num_steps + 1, 2);
-time_history = zeros(num_steps + 1, 1);
+planet_accelerations = zeros(num_steps + 1, 2);
+planet_speed = zeros(num_steps + 1, 1);
+planet_distance = zeros(num_steps + 1, 1);
+specific_orbital_energy_history = zeros(num_steps + 1, 1);
+specific_angular_momentum_history = zeros(num_steps + 1, 1);
 
+% Store Initial State
 planet_positions(1, :) = r_planet;
 planet_velocities(1, :) = v_planet;
+planet_distance(1) = r0_distance;
+planet_speed(1) = v0_speed;
+planet_accelerations(1, :) = -(mu / r0_distance^3) * r0_planet;
+specific_orbital_energy_history(1) = specific_orbital_energy;
+specific_angular_momentum_history(1) = h0;
 
 % Semi-Implicit Euler Integration
 for i = 1:num_steps
 
-    % Calculate the current time step
-    current_dt = dt;
+    % Current distance from the central body
+    r_current = sqrt(r_planet(1)^2 + r_planet(2)^2);
 
-    % Calculate the current distance
-    r_distance = sqrt(r_planet(1)^2 + r_planet(2)^2);
-
-    if r_distance == 0
-        error("Planet reached the central body's position during integration.");
+    if ~isfinite(r_current) || r_current == 0
+        error("The planet reached an invalid position during integration.");
     end
 
     % Calculate gravitational acceleration
-    acceleration = -(mu / r_distance^3) * r_planet;
+    acceleration = -(mu / r_current^3) * r_planet;
+
+    if any(~isfinite(acceleration))
+        error("The integration produced invalid acceleration values.");
+    end
 
     % Update velocity first
-    v_planet = v_planet + acceleration * current_dt;
+    v_planet = v_planet + acceleration * dt;
 
-    % Update position using the new velocity
-    r_planet = r_planet + v_planet * current_dt;
+    % Update position using the updated velocity
+    r_planet = r_planet + v_planet * dt;
 
-    % Store the updated state
+    % Validate the updated state
+    if any(~isfinite(r_planet)) || any(~isfinite(v_planet))
+        error("The integration produced invalid position or velocity values.");
+    end
+
+    % Calculate the new distance
+    r_new_distance = sqrt(r_planet(1)^2 + r_planet(2)^2);
+
+    if ~isfinite(r_new_distance) || r_new_distance == 0
+        error("The planet reached an invalid position at the central body.");
+    end
+
+    % Calculate the new speed
+    new_speed = sqrt(v_planet(1)^2 + v_planet(2)^2);
+
+    % Calculate acceleration at the new position
+    new_acceleration = -(mu / r_new_distance^3) * r_planet;
+
+    if any(~isfinite(new_acceleration))
+        error("The integration produced invalid acceleration values.");
+    end
+
+    % Calculate specific orbital energy
+    new_specific_energy = (new_speed^2 / 2) - (mu / r_new_distance);
+
+    % Calculate specific angular momentum
+    new_h = r_planet(1) * v_planet(2) - r_planet(2) * v_planet(1);
+
+    % Store updated position
     planet_positions(i + 1, :) = r_planet;
+
+    % Store updated velocity
     planet_velocities(i + 1, :) = v_planet;
 
-    % Store the current time
-    time_history(i + 1) = time_history(i) + current_dt;
+    % Store updated acceleration
+    planet_accelerations(i + 1, :) = new_acceleration;
+
+    % Store speed and distance
+    planet_speed(i + 1) = new_speed;
+    planet_distance(i + 1) = r_new_distance;
+
+    % Store orbital quantities
+    specific_orbital_energy_history(i + 1) = new_specific_energy;
+    specific_angular_momentum_history(i + 1) = new_h;
 
 end
 
-% Final State Calculations
-final_distance = sqrt(r_planet(1)^2 + r_planet(2)^2);
-final_speed = sqrt(v_planet(1)^2 + v_planet(2)^2);
-final_specific_energy = (final_speed^2 / 2) - (mu / final_distance);
-final_specific_angular_momentum = r_planet(1) * v_planet(2) - r_planet(2) * v_planet(1);
-energy_difference = final_specific_energy - specific_orbital_energy;
-angular_momentum_difference = final_specific_angular_momentum - h0;
+% Analytical Validation
+% Theoretical Kepler's Third Law coefficient
+theoretical_coefficient = (4 * pi^2) / mu;
 
-% Simulation results
+if specific_orbital_energy < 0
+
+    % Calculate coefficient from orbital period and semi-major axis
+    calculated_coefficient = orbital_period^2 / semi_major^3;
+
+    % Calculate the period using the theoretical coefficient
+    coefficient_period = sqrt(theoretical_coefficient * semi_major^3);
+
+    % Calculate the Kepler relationship residual
+    kepler_residual = orbital_period^2 - theoretical_coefficient * semi_major^3;
+
+    % Calculate coefficient errors
+    coefficient_absolute_error = abs(calculated_coefficient - theoretical_coefficient);
+    coefficient_relative_error = coefficient_absolute_error / abs(theoretical_coefficient);
+
+    % Calculate period residual errors
+    period_residual_absolute = abs(orbital_period - coefficient_period);
+    period_residual_relative = period_residual_absolute / abs(orbital_period);
+
+end
+
+% Numerical Conservation Analysis
+initial_specific_energy = specific_orbital_energy_history(1);
+final_specific_energy = specific_orbital_energy_history(end);
+initial_specific_angular_momentum = specific_angular_momentum_history(1);
+final_specific_angular_momentum = specific_angular_momentum_history(end);
+energy_absolute_difference = abs(final_specific_energy - initial_specific_energy);
+angular_momentum_absolute_difference = abs(final_specific_angular_momentum - initial_specific_angular_momentum);
+angular_momentum_relative_error = angular_momentum_absolute_difference / abs(initial_specific_angular_momentum);
+angular_momentum_error_percentage = angular_momentum_relative_error * 100;
+
+% Relative energy error is undefined when initial energy is zero
+if initial_specific_energy ~= 0
+
+    energy_relative_error = energy_absolute_difference / abs(initial_specific_energy);
+    energy_error_percentage = energy_relative_error * 100;
+
+end
+
+% Display Input Parameters
 fprintf("\nInput Parameters\n");
 fprintf("Central body mass: %.6e kg\n", star_mass);
 fprintf("Orbiting body mass: %.6e kg\n", planet_mass);
@@ -170,6 +261,7 @@ fprintf("Initial distance: %.6e m\n", r0_distance);
 fprintf("Initial speed: %.6e m/s\n", v0_speed);
 fprintf("Gravitational parameter: %.6e m^3/s^2\n", mu);
 
+% Display Analytical Orbital Elements
 fprintf("\nAnalytical Orbital Elements\n");
 fprintf("Specific orbital energy: %.6e m^2/s^2\n", specific_orbital_energy);
 fprintf("Specific angular momentum: %.6e m^2/s\n", h0_magnitude);
@@ -190,28 +282,81 @@ else
 
 end
 
+% Display Analytical Validation
+fprintf("\nAnalytical Validation\n");
+fprintf("Theoretical Kepler coefficient: %.12e s^2/m^3\n", theoretical_coefficient);
+
+if specific_orbital_energy < 0
+
+    fprintf("Calculated Kepler coefficient: %.12e s^2/m^3\n", calculated_coefficient);
+    fprintf("Kepler relationship residual: %.6e s^2\n", kepler_residual);
+    fprintf("Coefficient absolute error: %.6e s^2/m^3\n", coefficient_absolute_error);
+    fprintf("Coefficient relative error: %.6e %%\n", coefficient_relative_error * 100);
+    fprintf("Period residual absolute error: %.6e s\n", period_residual_absolute);
+    fprintf("Period residual relative error: %.6e %%\n", period_residual_relative * 100);
+
+else
+
+    fprintf("Kepler's Third Law period validation is not applicable to an unbound orbit.\n");
+
+end
+
+% Display Numerical Integration Parameters
 fprintf("\nNumerical Integration Parameters\n");
+
 fprintf("Integration method: Semi-implicit Euler\n");
 fprintf("Time step: %.6f s\n", dt);
 fprintf("Requested integration duration: %.6f s\n", T);
+fprintf("Actual integration duration: %.6f s\n", actual_duration);
 fprintf("Number of integration steps: %d\n", num_steps);
-fprintf("Actual integration duration: %.6f s\n", time_history(end));
+fprintf("Number of recorded states: %d\n", num_steps + 1);
 
+% Display Final Numerical State
 fprintf("\nFinal Numerical State\n");
 fprintf("Final position: [%.6e, %.6e] m\n", r_planet(1), r_planet(2));
 fprintf("Final velocity: [%.6e, %.6e] m/s\n", v_planet(1), v_planet(2));
-fprintf("Final distance: %.6e m\n", final_distance);
-fprintf("Final speed: %.6e m/s\n", final_speed);
 
-fprintf("\nNumerical Conservation Checks\n");
-fprintf("Initial specific orbital energy: %.6e m^2/s^2\n", specific_orbital_energy);
+fprintf("Final distance: %.6e m\n", planet_distance(end));
+fprintf("Final speed: %.6e m/s\n", planet_speed(end));
+
+% Display Numerical Conservation Analysis
+fprintf("\nNumerical Conservation Analysis\n");
+fprintf("Initial specific orbital energy: %.6e m^2/s^2\n", initial_specific_energy);
 fprintf("Final specific orbital energy: %.6e m^2/s^2\n", final_specific_energy);
-fprintf("Energy difference: %.6e m^2/s^2\n", energy_difference);
-fprintf("Initial specific angular momentum: %.6e m^2/s\n", h0);
-fprintf("Final specific angular momentum: %.6e m^2/s\n", final_specific_angular_momentum);
-fprintf("Angular momentum difference: %.6e m^2/s\n", angular_momentum_difference);
+fprintf("Absolute energy difference: %.6e m^2/s^2\n", energy_absolute_difference);
 
-% PLoting the orbit
+if initial_specific_energy ~= 0
+
+    fprintf("Relative energy error: %.6e %%\n", energy_error_percentage);
+
+else
+
+    fprintf("Relative energy error: Undefined (initial energy is zero).\n");
+
+end
+
+fprintf("Initial specific angular momentum: %.6e m^2/s\n", initial_specific_angular_momentum);
+fprintf("Final specific angular momentum: %.6e m^2/s\n", final_specific_angular_momentum);
+fprintf("Absolute angular momentum difference: %.6e m^2/s\n", angular_momentum_absolute_difference);
+fprintf("Relative angular momentum error: %.6e %%\n", angular_momentum_error_percentage);
+
+results = [ ...
+    time_history, ...
+    planet_positions, ...
+    planet_velocities, ...
+    planet_speed, ...
+    planet_accelerations, ...
+    planet_distance, ...
+    specific_orbital_energy_history, ...
+    specific_angular_momentum_history ...
+];
+
+% Display Complete Time History
+fprintf("\nComplete Time History\n");
+fprintf(["Columns: time(s), x(m), y(m), vx(m/s), vy(m/s), ", "speed(m/s), ax(m/s^2), ay(m/s^2), distance(m), ", "specific_energy(m^2/s^2), specific_angular_momentum(m^2/s)\n"]);
+disp(results);
+
+% Plot Numerical Orbit
 figure;
 plot(planet_positions(:, 1), planet_positions(:, 2), 'b-');
 hold on;
@@ -220,7 +365,7 @@ plot(r0_planet(1), r0_planet(2), 'go', 'MarkerFaceColor', 'g');
 plot(r_planet(1), r_planet(2), 'ro', 'MarkerFaceColor', 'r');
 xlabel('X Position (m)');
 ylabel('Y Position (m)');
-title('Planetary Orbit - Kepler''s Third Law');
+title('Planetary Orbit');
 legend('Numerical Trajectory', 'Central Body', 'Initial Position', 'Final Position');
 axis equal;
 grid on;
