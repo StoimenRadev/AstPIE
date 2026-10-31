@@ -167,3 +167,30 @@ Implements an initial-condition-based orbital calculation using the Newtonian tw
 
 ### Purpose:
 To extend the fundamental Kepler's Third Law calculation from a semi-major-axis-based input into an initial-condition-based orbital calculation. This version introduces the calculation of orbital elements directly from the initial relative position and velocity vectors, allowing the program to determine the eccentricity, semi-major axis and orbital period without requiring the user to provide the semi-major axis. It also introduces semi-implicit Euler integration to numerically calculate the orbital trajectory and examine the conservation of specific orbital energy and angular momentum.
+
+### v1.4 — Analytical Validation and Numerical Conservation Analysis
+
+Introduces analytical validation of Kepler's Third Law and numerical conservation analysis by checking the calculated orbital period relationship and evaluating the conservation of specific orbital energy and specific angular momentum during numerical integration.
+
+### Implemented:
+* Implemented the analytical Kepler coefficient using the gravitational parameter of the two-body system.
+* Calculated the orbital period from the analytical Kepler coefficient and the semi-major axis.
+* Calculated the residual between the original analytical orbital period and the period obtained from the coefficient formulation.
+* Calculated the absolute error between the calculated and analytical Kepler coefficients.
+* Calculated the relative error between the calculated and analytical Kepler coefficients.
+* Calculated the absolute and relative residuals between the two orbital period calculations.
+* Restricted orbital period validation to elliptical trajectories.
+* Initialized and stored the specific orbital energy at every numerical integration timestep.
+* Initialized and stored the specific angular momentum at every numerical integration timestep.
+* Compared the initial and final specific orbital energy to evaluate numerical energy conservation.
+* Compared the initial and final specific angular momentum to evaluate numerical angular momentum conservation.
+* Calculated the absolute differences in specific orbital energy and specific angular momentum.
+* Calculated the relative numerical errors in specific orbital energy and specific angular momentum.
+* Added the specific orbital energy and specific angular momentum to the complete numerical time-history table.
+* Displayed the analytical validation results in the Command Window.
+* Displayed the numerical conservation analysis in the Command Window.
+* Tested the implementation using an Earth-like elliptical orbit, a highly eccentric elliptical orbit, and a hyperbolic trajectory.
+* Verified that analytical period validation is not applied to unbound trajectories.
+
+### Purpose:
+To establish analytical validation and numerical conservation checks for the existing Kepler's Third Law implementation. This version evaluates the consistency of the analytical orbital period calculations and measures how well the numerical integration preserves specific orbital energy and specific angular momentum. It also verifies the behaviour of the calculations across different orbital configurations, improving the reliability and validation of the existing implementation without introducing additional orbital mechanics features.
