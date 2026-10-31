@@ -194,3 +194,41 @@ Introduces analytical validation of Kepler's Third Law and numerical conservatio
 
 ### Purpose:
 To establish analytical validation and numerical conservation checks for the existing Kepler's Third Law implementation. This version evaluates the consistency of the analytical orbital period calculations and measures how well the numerical integration preserves specific orbital energy and specific angular momentum. It also verifies the behaviour of the calculations across different orbital configurations, improving the reliability and validation of the existing implementation without introducing additional orbital mechanics features.
+
+### v1.5 — Visualization and Graphs
+
+Adds graphical representations of Kepler's Third Law and the numerical orbital evolution of the two-body system. Introduces time-history graphs and a graphical summary of the main orbital parameters, making the calculated orbital relationships and simulation results easier to interpret.
+
+### Implemented:
+* Generated a range of 100 semi-major-axis values for the selected two-body system.
+* Set the minimum semi-major axis to 0.5 times the reference semi-major axis.
+* Set the maximum semi-major axis to 2 times the reference semi-major axis.
+* Calculated the corresponding orbital periods for all generated semi-major-axis values using the Newtonian two-body formulation of Kepler's Third Law.
+* Calculated the squared orbital periods for the generated values.
+* Calculated the cubed semi-major-axis values for the generated values.
+* Stored the generated semi-major axes, orbital periods, cubed semi-major axes and squared orbital periods in a dedicated visualization results matrix.
+* Checked the generated visualization values for non-finite numerical results.
+* Stored the selected system's calculated semi-major axis and orbital period as reference values.
+* Calculated and stored the reference squared orbital period and cubed semi-major axis.
+* Displayed the visualization range and reference values in the Command Window.
+* Displayed the generated visualization data in a formatted results table.
+* Implemented a graph of orbital period against semi-major axis.
+* Added the selected system's reference case to the orbital period versus semi-major axis graph.
+* Implemented a graph of squared orbital period against cubed semi-major axis.
+* Added the selected system's reference case to the squared orbital period versus cubed semi-major axis graph.
+* Added descriptive graph titles, axis labels with SI units, legends and grid formatting.
+* Implemented a graph of star–planet distance against time using the numerical integration history.
+* Expressed the time axis in days and the distance axis in astronomical units (AU).
+* Implemented a graph of planetary speed against time using the numerical integration history.
+* Implemented separate subplots for the planet's X-position and Y-position against time.
+* Expressed the position coordinates in astronomical units (AU) and time in days.
+* Added descriptive titles, axis labels, legends and grid formatting to the time-history graphs.
+* Calculated the perihelion distance using the semi-major axis and orbital eccentricity.
+* Calculated the aphelion distance using the semi-major axis and orbital eccentricity.
+* Implemented a separate graphical summary window displaying the main orbital parameters.
+* Displayed the semi-major axis, eccentricity, perihelion distance, aphelion distance, orbital period in seconds, orbital period in days and gravitational parameter in the orbital parameter summary.
+* Restricted the orbital parameter summary and Kepler's Third Law visualizations to bound elliptical orbits.
+* Generated all graphs from calculated analytical values or stored numerical integration results rather than manually constructed curves.
+
+### Purpose:
+To make Kepler's Third Law and its relationship with orbital geometry and orbital evolution visually understandable. This version introduces graphical comparisons of orbital period against semi-major axis and squared orbital period against cubed semi-major axis, allowing the predicted nonlinear and linear relationships to be examined. It also provides time-history graphs of planetary distance, speed and position, alongside a graphical summary of the main orbital parameters. The resulting visualizations make the calculated relationships and numerical results easier to inspect and interpret.
