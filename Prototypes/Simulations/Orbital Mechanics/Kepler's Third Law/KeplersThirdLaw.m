@@ -472,6 +472,13 @@ fprintf("Initial distance: %.6e m\n", r0_distance);
 fprintf("Initial specific orbital energy: %.6e J/kg\n", specific_energy);
 fprintf("Initial specific angular momentum: %.6e m^2/s\n", h0);
 
+fprintf("\nAnalytical Solution\n");
+fprintf("Method: Newtonian two-body orbital mechanics\n");
+
+fprintf("\nNumerical Solutions\n");
+fprintf("Default method: %s\n", default_method);
+fprintf("Comparison method: Semi-Implicit Euler\n");
+
 % Display Analytical Orbital Parameters
 fprintf("\nAnalytical Orbital Parameters\n");
 fprintf("Semimajor axis: %.6e m\n", semimajor_axis);
