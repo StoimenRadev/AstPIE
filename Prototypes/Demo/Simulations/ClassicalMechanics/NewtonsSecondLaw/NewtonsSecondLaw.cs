@@ -95,6 +95,9 @@ public partial class NewtonsSecondLaw : Node2D
 	private float pixelsPerSpeed;
 	private float pixelsPerNewton;
 
+	// How far the user moved the view with the mouse (world pixels, + is right)
+	private float lookOffset;
+
 	public override void _Ready()
 	{
 		// Always write numbers as 0.5 and not 0,5
@@ -272,6 +275,18 @@ public partial class NewtonsSecondLaw : Node2D
 		if (ReadInputs())
 		{
 			Restart();
+			return;
+		}
+
+		// Some other value is still wrong, but the start position can already be shown
+		double x = ReadNumber(positionBox);
+		if (!double.IsNaN(x))
+		{
+			initialPosition = x;
+			positionA = x;
+			positionB = x;
+			ghostsA.Clear();
+			ghostsB.Clear();
 		}
 	}
 
@@ -423,6 +438,7 @@ public partial class NewtonsSecondLaw : Node2D
 		ghostsA.Add(positionA);
 		ghostsB.Add(positionB);
 		nextGhostTime = 1;
+		lookOffset = 0;
 
 		// Arrow scales. The forces are constant, so the fastest speed is at the start or at the end (v = v0 + a*T).
 		double fastestSpeed = Math.Abs(initialVelocity);
@@ -471,7 +487,7 @@ public partial class NewtonsSecondLaw : Node2D
 		boxA.Position = new Vector2((float)shownPositionA * PixelsPerMeter, -BoxASize / 2);
 		boxB.Position = new Vector2((float)shownPositionB * PixelsPerMeter, -BoxBSize / 2);
 
-		MoveCamera();
+		MoveCamera(delta);
 		UpdateResults();
 		FitPanel();
 		QueueRedraw();
@@ -496,28 +512,101 @@ public partial class NewtonsSecondLaw : Node2D
 		}
 	}
 
-	// The camera looks at the middle between the boxes and zooms out when they move apart
-	private void MoveCamera()
+	// The camera looks at the middle between the boxes and zooms out when they move apart.
+	// If they are too far apart even when zoomed out, it follows the faster box,
+	// so that box and its arrows never leave the screen.
+	private void MoveCamera(double delta)
 	{
+		// The free part of the screen (right of the panel), with a margin on both sides (screen pixels)
 		float screenWidth = GetViewportRect().Size.X;
-		float freeWidth = screenWidth - 300;
-		float panelShift = 0;
+		float margin = 90;
+		float freeLeft = margin;
 		if (scroll.Visible)
 		{
-			freeWidth = freeWidth - 380;
-			panelShift = -190;
+			freeLeft = panel.Position.X + panel.Size.X + margin;
 		}
+		float freeRight = screenWidth - margin;
+		float freeWidth = freeRight - freeLeft;
 
-		float gap = Math.Abs(boxA.Position.X - boxB.Position.X);
+		// How far a box and its arrows reach from the box centre (world pixels):
+		// the velocity arrow is at most 200 px long, plus its label
+		float reach = 250;
+
+		// With the panel open, zoom out so both boxes fit, but not further than 0.5.
+		// With the panel hidden, the zoom is normal (like at the start).
+		float span = Math.Abs(boxA.Position.X - boxB.Position.X) + 2 * reach;
 		float zoom = 1;
-		if (gap > freeWidth)
+		if (scroll.Visible && span > freeWidth)
 		{
-			zoom = Math.Max(freeWidth / gap, 0.3f);
+			zoom = Math.Max(freeWidth / span, 0.5f);
 		}
 
+		// The point of the world that is shown in the middle of the free part
+		float middle = (boxA.Position.X + boxB.Position.X) / 2;
+		float halfFreeWorld = freeWidth / zoom / 2;
+		if (span / 2 > halfFreeWorld)
+		{
+			// Too far apart: keep the faster box inside the free part
+			Sprite2D fastBox = boxA;
+			Sprite2D slowBox = boxB;
+			if (Math.Abs(velocityB) > Math.Abs(velocityA))
+			{
+				fastBox = boxB;
+				slowBox = boxA;
+			}
+
+			if (fastBox.Position.X > slowBox.Position.X)
+			{
+				middle = fastBox.Position.X + reach - halfFreeWorld;
+			}
+			else
+			{
+				middle = fastBox.Position.X - reach + halfFreeWorld;
+			}
+		}
+
+		// After Start the user can look around with the mouse: near the left edge of the free part the view
+		// moves left, near the right edge of the screen it moves right. The closer to the edge, the faster.
+		if (state == RunState.Setup)
+		{
+			lookOffset = 0;
+		}
+		else
+		{
+			Vector2 mouse = GetViewport().GetMousePosition();
+			float edgeZone = 220;
+			float fastestLook = 1500; // screen pixels per second, at the very edge
+			float zoneLeftEdge = freeLeft - margin;
+
+			if (mouse.X >= zoneLeftEdge && mouse.X < zoneLeftEdge + edgeZone)
+			{
+				float depth = (zoneLeftEdge + edgeZone - mouse.X) / edgeZone; // 0 at the start of the zone, 1 at the edge
+				lookOffset = lookOffset - fastestLook * depth * depth / zoom * (float)delta;
+			}
+			if (mouse.X > screenWidth - edgeZone && mouse.X <= screenWidth)
+			{
+				float depth = (mouse.X - (screenWidth - edgeZone)) / edgeZone;
+				lookOffset = lookOffset + fastestLook * depth * depth / zoom * (float)delta;
+			}
+		}
+
+		// Limits: the view can go left only until the left box is at the left border,
+		// and right only until the right box is at the right border (arrows included)
+		float leftBox = Math.Min(boxA.Position.X, boxB.Position.X) - reach;
+		float rightBox = Math.Max(boxA.Position.X, boxB.Position.X) + reach;
+		float leftLimit = leftBox + halfFreeWorld;
+		float rightLimit = rightBox - halfFreeWorld;
+		float lowest = Math.Min(leftLimit, rightLimit);
+		float highest = Math.Max(leftLimit, rightLimit);
+		float looked = Math.Clamp(middle + lookOffset, lowest, highest);
+		lookOffset = looked - middle;
+		middle = looked;
+
+		// Move the camera so that this point is in the middle of the free part
+		float freeCenter = (freeLeft + freeRight) / 2;
 		camera.Zoom = new Vector2(zoom, zoom);
-		camera.Position = new Vector2((boxA.Position.X + boxB.Position.X) / 2, -200);
-		camera.Offset = new Vector2(panelShift / zoom, 0);
+		camera.Offset = new Vector2(0, 0);
+		camera.Position = new Vector2(middle - (freeCenter - screenWidth / 2) / zoom, -200);
 	}
 
 	private void UpdateResults()

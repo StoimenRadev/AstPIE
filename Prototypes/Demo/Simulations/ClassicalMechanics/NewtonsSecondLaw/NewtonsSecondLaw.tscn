@@ -78,7 +78,7 @@ custom_minimum_size = Vector2(308, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
 theme_override_font_sizes/font_size = 13
-text = "No friction. Both boxes start together. Forces: + is right, - is left."
+text = "No friction. Both boxes start together. Forces: + is right, - is left. Move the mouse to the left or right edge to look around."
 autowrap_mode = 3
 
 [node name="StartHeading" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=374458]

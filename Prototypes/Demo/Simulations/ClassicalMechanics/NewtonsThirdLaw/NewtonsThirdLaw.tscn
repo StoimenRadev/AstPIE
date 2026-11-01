@@ -1,21 +1,566 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://7j81tw5r0ec8"]
 
-[node name="NewtonsThirdLaw" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://drl5dnrj5w4xu" path="res://ClassicalMechanics/NewtonsThirdLaw/NewtonsThirdLaw.cs" id="1_script"]
+[ext_resource type="PackedScene" path="res://Shared/Field/Field.tscn" id="2_field"]
+[ext_resource type="Texture2D" uid="uid://c3jhu3vej8jm7" path="res://Shared/Objects/box.svg" id="3_box_a"]
+[ext_resource type="Texture2D" uid="uid://bb6bj6xy1hvdi" path="res://Shared/Objects/box_b.svg" id="4_box_b"]
+[ext_resource type="Theme" uid="uid://bdiunifunas1x" path="res://Shared/Theme.tres" id="5_theme"]
+[ext_resource type="PackedScene" path="res://Shared/ForceRow.tscn" id="6_force"]
 
-[node name="Placeholder" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Newton's Third Law (placeholder, not built yet)"
-horizontal_alignment = 1
+[node name="NewtonsThirdLaw" type="Node2D" unique_id=1786617378]
+script = ExtResource("1_script")
+ForceRowScene = ExtResource("6_force")
+
+[node name="Field" parent="." unique_id=1191637018 instance=ExtResource("2_field")]
+
+[node name="BoxA" type="Sprite2D" parent="." unique_id=1731291281]
+unique_name_in_owner = true
+position = Vector2(-40, -40)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_box_a")
+
+[node name="BoxB" type="Sprite2D" parent="." unique_id=1004879103]
+unique_name_in_owner = true
+position = Vector2(40, -40)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_box_b")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1169597414]
+unique_name_in_owner = true
+position = Vector2(0, -200)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1577841428]
+
+[node name="Panel" type="PanelContainer" parent="UI" unique_id=21482580]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 356.0
+offset_bottom = 56.0
+theme = ExtResource("5_theme")
+
+[node name="Layout" type="VBoxContainer" parent="UI/Panel" unique_id=1962087558]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Header" type="HBoxContainer" parent="UI/Panel/Layout" unique_id=1534682031]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/Panel/Layout/Header" unique_id=162033303]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Newton's Third Law"
+
+[node name="HideButton" type="Button" parent="UI/Panel/Layout/Header" unique_id=1290624137]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hide"
+
+[node name="Scroll" type="ScrollContainer" parent="UI/Panel/Layout" unique_id=135125162]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="UI/Panel/Layout/Scroll" unique_id=75173318]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 12
+
+[node name="Content" type="VBoxContainer" parent="UI/Panel/Layout/Scroll/Margin" unique_id=2125467920]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="Note" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=2044950453]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+theme_override_font_sizes/font_size = 13
+text = "No friction. The boxes start touching and push each other apart with equal and opposite forces. They bounce off the walls and off each other. Forces: + is right, - is left."
+autowrap_mode = 3
+
+[node name="StartHeading" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=985784390]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.643, 0.255, 1)
+theme_override_font_sizes/font_size = 17
+text = "Start (both boxes)"
+
+[node name="PositionRow" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=1880389329]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content/PositionRow" unique_id=306550565]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Contact point (m)"
+
+[node name="PositionBox" type="LineEdit" parent="UI/Panel/Layout/Scroll/Margin/Content/PositionRow" unique_id=174290000]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="VelocityRow" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=1558010575]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content/VelocityRow" unique_id=1809575152]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Start velocity (m/s)"
+
+[node name="VelocityBox" type="LineEdit" parent="UI/Panel/Layout/Scroll/Margin/Content/VelocityRow" unique_id=401813094]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="PushHeading" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=1864310750]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.643, 0.255, 1)
+theme_override_font_sizes/font_size = 17
+text = "Push between the boxes"
+
+[node name="PushRow" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=1780095452]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content/PushRow" unique_id=37674557]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Push force (N)"
+
+[node name="PushBox" type="LineEdit" parent="UI/Panel/Layout/Scroll/Margin/Content/PushRow" unique_id=589684726]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="PushTimeRow" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=414164072]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content/PushTimeRow" unique_id=1711600663]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Push time (s)"
+
+[node name="PushTimeBox" type="LineEdit" parent="UI/Panel/Layout/Scroll/Margin/Content/PushTimeRow" unique_id=321626732]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="BoxAHeading" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=858230311]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.643, 0.255, 1)
+theme_override_font_sizes/font_size = 17
+text = "Box A (orange, left)"
+
+[node name="MassARow" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=797207868]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content/MassARow" unique_id=1152830464]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Mass (kg)"
+
+[node name="MassABox" type="LineEdit" parent="UI/Panel/Layout/Scroll/Margin/Content/MassARow" unique_id=562465575]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="ForceListA" type="VBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=237735398]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AddForceAButton" type="Button" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=1037275278]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add other force"
+
+[node name="BoxBHeading" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=796110119]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.447, 0.357, 1)
+theme_override_font_sizes/font_size = 17
+text = "Box B (red, right)"
+
+[node name="MassBRow" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=352981025]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content/MassBRow" unique_id=1059494002]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Mass (kg)"
+
+[node name="MassBBox" type="LineEdit" parent="UI/Panel/Layout/Scroll/Margin/Content/MassBRow" unique_id=1362135665]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="ForceListB" type="VBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=780193515]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AddForceBButton" type="Button" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=797420253]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add other force"
+
+[node name="SimulationHeading" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=1487252502]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.643, 0.255, 1)
+theme_override_font_sizes/font_size = 17
+text = "Simulation"
+
+[node name="TimeStepRow" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=391374371]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content/TimeStepRow" unique_id=64315276]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Time step dt (s)"
+
+[node name="TimeStepBox" type="LineEdit" parent="UI/Panel/Layout/Scroll/Margin/Content/TimeStepRow" unique_id=808884133]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="TotalTimeRow" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=969476820]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content/TotalTimeRow" unique_id=716317941]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Total time T (s)"
+
+[node name="TotalTimeBox" type="LineEdit" parent="UI/Panel/Layout/Scroll/Margin/Content/TotalTimeRow" unique_id=582309912]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="Buttons" type="HBoxContainer" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=2049509773]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StartButton" type="Button" parent="UI/Panel/Layout/Scroll/Margin/Content/Buttons" unique_id=1241686110]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start"
+
+[node name="PauseButton" type="Button" parent="UI/Panel/Layout/Scroll/Margin/Content/Buttons" unique_id=866813819]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pause"
+
+[node name="ResetButton" type="Button" parent="UI/Panel/Layout/Scroll/Margin/Content/Buttons" unique_id=700802935]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset"
+
+[node name="MessageLabel" type="Label" parent="UI/Panel/Layout/Scroll/Margin/Content" unique_id=277670912]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.447, 0.357, 1)
+autowrap_mode = 3
+
+[node name="ResultsSection" type="VBoxContainer" parent="UI/Panel/Layout" unique_id=1125804880]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ResultsHeading" type="Label" parent="UI/Panel/Layout/ResultsSection" unique_id=1540722274]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.643, 0.255, 1)
+theme_override_font_sizes/font_size = 17
+text = "Results"
+
+[node name="Results" type="GridContainer" parent="UI/Panel/Layout/ResultsSection" unique_id=53432721]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="HeaderName" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1615445358]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+
+[node name="HeaderA" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=87842521]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.851, 0.643, 0.255, 1)
+text = "Box A"
+horizontal_alignment = 2
+
+[node name="HeaderB" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1681318425]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.851, 0.447, 0.357, 1)
+text = "Box B"
+horizontal_alignment = 2
+
+[node name="PushName" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=58938567]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Push from the other"
+
+[node name="PushAValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1251022486]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="PushBValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=712503459]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="HitName" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1515568405]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Last hit (kick)"
+
+[node name="HitAValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=133725516]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="HitBValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=985090602]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="OtherName" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=2110508156]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Other forces"
+
+[node name="OtherAValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=447269723]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="OtherBValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1220181809]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="NetForceName" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1001356631]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Net force"
+
+[node name="NetForceAValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=603695300]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="NetForceBValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=2088192924]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="AccelerationName" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=527147071]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Acceleration"
+
+[node name="AccelerationAValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=2029993428]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="AccelerationBValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1819828074]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="VelocityName" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=2113627560]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Velocity"
+
+[node name="VelocityAValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=634160406]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="VelocityBValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1257712494]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="PositionName" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=498362787]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Position"
+
+[node name="PositionAValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=435964532]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="PositionBValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Results" unique_id=1883403575]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="Separator" type="HSeparator" parent="UI/Panel/Layout/ResultsSection" unique_id=1447955977]
+layout_mode = 2
+
+[node name="Shared" type="GridContainer" parent="UI/Panel/Layout/ResultsSection" unique_id=561211434]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="PairName" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=17378855]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Push forces added up"
+
+[node name="PairValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=1311137805]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0 N"
+horizontal_alignment = 2
+
+[node name="MomentumName" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=1107484334]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Total momentum"
+
+[node name="MomentumValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=1821688337]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0 kg·m/s"
+horizontal_alignment = 2
+
+[node name="EnergyName" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=1780563900]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Kinetic energy"
+
+[node name="EnergyValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=778756037]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0 J"
+horizontal_alignment = 2
+
+[node name="BouncesName" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=535574055]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Bounces (walls / boxes)"
+
+[node name="BouncesValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=1653155297]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0 / 0"
+horizontal_alignment = 2
+
+[node name="TimeName" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=1471081369]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Time"
+
+[node name="TimeValue" type="Label" parent="UI/Panel/Layout/ResultsSection/Shared" unique_id=901328863]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 1)
+text = "0 s"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="UI/Panel/Layout/Header/HideButton" to="." method="OnHidePressed"]
+[connection signal="text_changed" from="UI/Panel/Layout/Scroll/Margin/Content/PositionRow/PositionBox" to="." method="OnInputChanged"]
+[connection signal="text_changed" from="UI/Panel/Layout/Scroll/Margin/Content/VelocityRow/VelocityBox" to="." method="OnInputChanged"]
+[connection signal="text_changed" from="UI/Panel/Layout/Scroll/Margin/Content/PushRow/PushBox" to="." method="OnInputChanged"]
+[connection signal="text_changed" from="UI/Panel/Layout/Scroll/Margin/Content/PushTimeRow/PushTimeBox" to="." method="OnInputChanged"]
+[connection signal="text_changed" from="UI/Panel/Layout/Scroll/Margin/Content/MassARow/MassABox" to="." method="OnInputChanged"]
+[connection signal="pressed" from="UI/Panel/Layout/Scroll/Margin/Content/AddForceAButton" to="." method="OnAddForceAPressed"]
+[connection signal="text_changed" from="UI/Panel/Layout/Scroll/Margin/Content/MassBRow/MassBBox" to="." method="OnInputChanged"]
+[connection signal="pressed" from="UI/Panel/Layout/Scroll/Margin/Content/AddForceBButton" to="." method="OnAddForceBPressed"]
+[connection signal="text_changed" from="UI/Panel/Layout/Scroll/Margin/Content/TimeStepRow/TimeStepBox" to="." method="OnInputChanged"]
+[connection signal="text_changed" from="UI/Panel/Layout/Scroll/Margin/Content/TotalTimeRow/TotalTimeBox" to="." method="OnInputChanged"]
+[connection signal="pressed" from="UI/Panel/Layout/Scroll/Margin/Content/Buttons/StartButton" to="." method="OnStartPressed"]
+[connection signal="pressed" from="UI/Panel/Layout/Scroll/Margin/Content/Buttons/PauseButton" to="." method="OnPausePressed"]
+[connection signal="pressed" from="UI/Panel/Layout/Scroll/Margin/Content/Buttons/ResetButton" to="." method="OnResetPressed"]
