@@ -1,0 +1,17 @@
+# Godot
+.godot/
+
+# .NET build output
+bin/
+obj/
+*.user
+.vs/
+
+# Web builds and exported Godot content
+publish/
+*.pck
+
+# Node (Frontend)
+node_modules/
+dist/
+.astro/

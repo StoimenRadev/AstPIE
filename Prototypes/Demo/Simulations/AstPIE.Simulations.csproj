@@ -1,0 +1,18 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+        <IsTrimmable>true</IsTrimmable>
+        <VerifyReferenceTrimCompatibility>true</VerifyReferenceTrimCompatibility>
+        <!-- 2dog.godotsharp generates TwoDogWebBoot (the web hosts' plugins initializer) only with unsafe code -->
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <!-- Keep the nested browser host out of the game's compile/content globs (its .gdignore hides it
+             from the Godot editor) -->
+        <DefaultItemExcludes>$(DefaultItemExcludes);AstPIE.Simulations.web/**</DefaultItemExcludes>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="2dog.godotsharp" Version="$(TwoDogVersion)" />
+        <PackageReference Include="2dog.godotsharp.editor" Version="$(TwoDogVersion)"
+                          Condition="'$(Configuration)' == 'Debug' Or '$(Configuration)' == 'Editor'" />
+    </ItemGroup>
+</Project>

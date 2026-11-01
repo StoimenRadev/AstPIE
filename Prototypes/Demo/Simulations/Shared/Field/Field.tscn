@@ -1,0 +1,64 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://Shared/Field/sky.svg" id="1_sky"]
+[ext_resource type="Texture2D" path="res://Shared/Field/mountains.svg" id="2_mountains"]
+[ext_resource type="Texture2D" path="res://Shared/Field/hills.svg" id="3_hills"]
+[ext_resource type="Texture2D" path="res://Shared/Field/trees.svg" id="4_trees"]
+[ext_resource type="Texture2D" path="res://Shared/Field/ground.svg" id="5_ground"]
+
+[node name="Field" type="Node2D"]
+
+[node name="SkyLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Sky" type="TextureRect" parent="SkyLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sky")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Mountains" type="Parallax2D" parent="."]
+z_index = -5
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(1600, 0)
+repeat_times = 3
+
+[node name="Sprite" type="Sprite2D" parent="Mountains"]
+position = Vector2(0, -420)
+texture = ExtResource("2_mountains")
+centered = false
+
+[node name="Hills" type="Parallax2D" parent="."]
+z_index = -4
+scroll_scale = Vector2(0.3, 1)
+repeat_size = Vector2(1400, 0)
+repeat_times = 3
+
+[node name="Sprite" type="Sprite2D" parent="Hills"]
+position = Vector2(0, -200)
+texture = ExtResource("3_hills")
+centered = false
+
+[node name="Trees" type="Parallax2D" parent="."]
+z_index = -3
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(1200, 0)
+repeat_times = 3
+
+[node name="Sprite" type="Sprite2D" parent="Trees"]
+position = Vector2(0, -236)
+texture = ExtResource("4_trees")
+centered = false
+
+[node name="Ground" type="Parallax2D" parent="."]
+z_index = -2
+repeat_size = Vector2(800, 0)
+repeat_times = 3
+
+[node name="Sprite" type="Sprite2D" parent="Ground"]
+texture = ExtResource("5_ground")
+centered = false

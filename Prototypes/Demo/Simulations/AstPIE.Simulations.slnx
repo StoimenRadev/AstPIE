@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Editor" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="AstPIE.Simulations.csproj" />
+  <Project Path="AstPIE.Simulations.web/AstPIE.Simulations.web.csproj">
+    <BuildType Solution="Editor|*" Project="Debug" />
+    <Build Project="false" />
+  </Project>
+</Solution>
