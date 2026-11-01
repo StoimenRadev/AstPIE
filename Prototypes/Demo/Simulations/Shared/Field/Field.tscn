@@ -25,7 +25,7 @@ stretch_mode = 6
 z_index = -5
 scroll_scale = Vector2(0.1, 1)
 repeat_size = Vector2(1600, 0)
-repeat_times = 3
+repeat_times = 12
 
 [node name="Sprite" type="Sprite2D" parent="Mountains"]
 position = Vector2(0, -420)
@@ -36,7 +36,7 @@ centered = false
 z_index = -4
 scroll_scale = Vector2(0.3, 1)
 repeat_size = Vector2(1400, 0)
-repeat_times = 3
+repeat_times = 12
 
 [node name="Sprite" type="Sprite2D" parent="Hills"]
 position = Vector2(0, -200)
@@ -47,7 +47,7 @@ centered = false
 z_index = -3
 scroll_scale = Vector2(0.6, 1)
 repeat_size = Vector2(1200, 0)
-repeat_times = 3
+repeat_times = 12
 
 [node name="Sprite" type="Sprite2D" parent="Trees"]
 position = Vector2(0, -236)
@@ -57,7 +57,7 @@ centered = false
 [node name="Ground" type="Parallax2D" parent="."]
 z_index = -2
 repeat_size = Vector2(800, 0)
-repeat_times = 3
+repeat_times = 12
 
 [node name="Sprite" type="Sprite2D" parent="Ground"]
 texture = ExtResource("5_ground")

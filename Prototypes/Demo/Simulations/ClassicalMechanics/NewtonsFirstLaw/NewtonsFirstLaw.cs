@@ -224,6 +224,16 @@ public partial class NewtonsFirstLaw : Node2D
 		if (ReadInputs())
 		{
 			Restart();
+			return;
+		}
+
+		// Some other value is still wrong, but the start position can already be shown
+		double x = ReadNumber(positionBox);
+		if (!double.IsNaN(x))
+		{
+			initialPosition = x;
+			position = x;
+			ghostPositions.Clear();
 		}
 	}
 
