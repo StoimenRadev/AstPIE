@@ -1,0 +1,118 @@
+---
+// The list of one table: /admin/topics, /admin/entries...
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { ADMIN_COOKIE, adminRequest, readKey } from '../../../lib/admin/client';
+import { findTable } from '../../../lib/admin/config';
+import { displayValue, loadChoices } from '../../../lib/admin/forms';
+
+const table = findTable(String(Astro.params.table));
+if (table === null)
+{
+	return Astro.rewrite('/404');
+}
+
+const key = readKey(Astro.cookies);
+const answer = await adminRequest(key, 'GET', '/' + table.key, null);
+if (answer.status === 401)
+{
+	Astro.cookies.delete(ADMIN_COOKIE, { path: '/admin' });
+	return Astro.redirect('/admin/login');
+}
+
+let rows: any[] = [];
+if (answer.ok)
+{
+	rows = answer.data;
+}
+
+const columns = [];
+for (const name of table.listColumns)
+{
+	const f = table.fields.find((x) => x.name === name);
+	if (f !== undefined)
+	{
+		columns.push(f);
+	}
+}
+const choices = await loadChoices(key, columns);
+---
+
+<AdminLayout title={table.title} showMenu={true}>
+	<div class="top">
+		<h1>{table.title}</h1>
+		<a class="button" href={'/admin/' + table.key + '/new'}>New {table.singular}</a>
+	</div>
+
+	{!answer.ok && <p class="error">{answer.message}</p>}
+	{answer.ok && rows.length === 0 && <p>Nothing here yet.</p>}
+
+	{rows.length > 0 && (
+		<div class="scroll">
+			<table>
+				<thead>
+					<tr>
+						{columns.map((c) => <th>{c.label}</th>)}
+					</tr>
+				</thead>
+				<tbody>
+					{rows.map((row) => (
+						<tr>
+							{columns.map((c, index) => (
+								<td>
+									{index === 0 && <a href={'/admin/' + table.key + '/' + row.id}>{displayValue(c, row[c.name], choices)}</a>}
+									{index !== 0 && displayValue(c, row[c.name], choices)}
+								</td>
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	)}
+</AdminLayout>
+
+<style>
+	.top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-3);
+	}
+
+	.button {
+		padding: var(--space-2) var(--space-3);
+		border-radius: 0.375rem;
+		background: var(--art-ink);
+		color: var(--art-cream);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.scroll {
+		overflow-x: auto;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	th,
+	td {
+		padding: var(--space-2);
+		border-bottom: 1px solid var(--color-border);
+		text-align: left;
+		vertical-align: top;
+	}
+
+	th {
+		color: var(--color-muted);
+		font-weight: 600;
+		font-size: 0.875rem;
+	}
+
+	.error {
+		color: #b91c1c;
+	}
+</style>

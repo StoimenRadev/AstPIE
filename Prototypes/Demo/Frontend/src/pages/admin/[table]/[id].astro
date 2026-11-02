@@ -1,0 +1,290 @@
+---
+// Create (/admin/topics/new) or edit (/admin/topics/5) one row, and delete it.
+// An entry's page also lists its chapters, people and media.
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import FieldInput from '../../../components/admin/FieldInput.astro';
+import { ADMIN_COOKIE, adminRequest, readKey } from '../../../lib/admin/client';
+import { findTable } from '../../../lib/admin/config';
+import type { TableConfig } from '../../../lib/admin/config';
+import { displayValue, loadChoices, readForm, safeBackLink } from '../../../lib/admin/forms';
+import type { Choice } from '../../../lib/admin/forms';
+
+const table = findTable(String(Astro.params.table));
+if (table === null)
+{
+	return Astro.rewrite('/404');
+}
+
+const id = String(Astro.params.id);
+const isNew = id === 'new';
+const key = readKey(Astro.cookies);
+const listLink = '/admin/' + table.key;
+// After saving or deleting, go back here (for example to the entry a chapter belongs to)
+const back = safeBackLink(Astro.url.searchParams.get('back'), listLink);
+
+let values: Record<string, unknown> = {};
+let fieldErrors: Record<string, string> = {};
+let message = '';
+
+function goToLogin()
+{
+	Astro.cookies.delete(ADMIN_COOKIE, { path: '/admin' });
+	return Astro.redirect('/admin/login');
+}
+
+// ---------- Saving and deleting ----------
+
+if (Astro.request.method === 'POST')
+{
+	const form = await Astro.request.formData();
+
+	if (form.get('_action') === 'delete')
+	{
+		const answer = await adminRequest(key, 'DELETE', '/' + table.key + '/' + id, null);
+		if (answer.status === 401)
+		{
+			return goToLogin();
+		}
+		if (answer.ok)
+		{
+			return Astro.redirect(back);
+		}
+		message = answer.message;
+	}
+	else
+	{
+		const sent = await readForm(key, table, form);
+		values = sent.values;
+		fieldErrors = sent.fieldErrors;
+
+		if (Object.keys(fieldErrors).length > 0)
+		{
+			message = 'Some fields need fixing.';
+		}
+		else
+		{
+			let answer;
+			if (isNew)
+			{
+				answer = await adminRequest(key, 'POST', '/' + table.key, sent.body);
+			}
+			else
+			{
+				answer = await adminRequest(key, 'PUT', '/' + table.key + '/' + id, sent.body);
+			}
+			if (answer.status === 401)
+			{
+				return goToLogin();
+			}
+			if (answer.ok)
+			{
+				// A new entry opens its own page, so chapters, people and media can be added next
+				if (isNew && table.children.length > 0)
+				{
+					return Astro.redirect(listLink + '/' + answer.data.id);
+				}
+				return Astro.redirect(back);
+			}
+			message = answer.message;
+			fieldErrors = answer.fieldErrors;
+		}
+	}
+}
+
+// ---------- The values to show ----------
+
+// Nothing typed yet (first visit, or a delete that was refused): load the saved values
+if (Object.keys(values).length === 0)
+{
+	if (isNew)
+	{
+		// A new chapter, person link or media item can arrive with its entry already chosen
+		if (table.parentField !== '')
+		{
+			const parentId = Astro.url.searchParams.get(table.parentField);
+			if (parentId !== null)
+			{
+				values[table.parentField] = parentId;
+			}
+		}
+	}
+	else
+	{
+		const answer = await adminRequest(key, 'GET', '/' + table.key + '/' + id, null);
+		if (answer.status === 401)
+		{
+			return goToLogin();
+		}
+		if (answer.status === 404)
+		{
+			return Astro.rewrite('/404');
+		}
+		values = answer.data;
+	}
+}
+
+const choices = await loadChoices(key, table.fields);
+
+let heading = 'New ' + table.singular;
+if (!isNew)
+{
+	heading = String(values[table.labelField]);
+}
+
+// ---------- Chapters, people and media of an entry ----------
+
+interface ChildSection
+{
+	table: TableConfig;
+	rows: any[];
+	choices: Record<string, Choice[]>;
+}
+
+const childSections: ChildSection[] = [];
+if (!isNew)
+{
+	for (const childKey of table.children)
+	{
+		const child = findTable(childKey);
+		if (child !== null)
+		{
+			const answer = await adminRequest(key, 'GET', '/' + child.key + '?' + child.parentField + '=' + id, null);
+			let rows: any[] = [];
+			if (answer.ok)
+			{
+				rows = answer.data;
+			}
+			childSections.push({ table: child, rows: rows, choices: await loadChoices(key, child.fields) });
+		}
+	}
+}
+
+const here = listLink + '/' + id;
+---
+
+<AdminLayout title={heading} showMenu={true}>
+	<p class="back"><a href={back}>← Back</a></p>
+	<h1>{heading}</h1>
+
+	{message !== '' && <p class="message">{message}</p>}
+
+	<form method="post" enctype="multipart/form-data" class="edit">
+		{table.fields.map((f) => (
+			<FieldInput
+				field={f}
+				value={values[f.name]}
+				error={fieldErrors[f.name] || ''}
+				choices={choices[f.refTable] || []}
+				locked={!isNew && f.lockedOnEdit}
+			/>
+		))}
+		<button type="submit" class="save">Save</button>
+	</form>
+
+	{childSections.map((section) => (
+		<section class="children">
+			<div class="children-top">
+				<h2>{section.table.title}</h2>
+				<a href={'/admin/' + section.table.key + '/new?' + section.table.parentField + '=' + id + '&back=' + encodeURIComponent(here)}>
+					Add {section.table.singular}
+				</a>
+			</div>
+			{section.rows.length === 0 && <p class="none">None yet.</p>}
+			{section.rows.length > 0 && (
+				<ul>
+					{section.rows.map((row) => (
+						<li>
+							<a href={'/admin/' + section.table.key + '/' + row.id + '?back=' + encodeURIComponent(here)}>
+								{section.table.listColumns
+									.filter((name) => name !== section.table.parentField)
+									.map((name) => {
+										const f = section.table.fields.find((x) => x.name === name);
+										if (f === undefined)
+										{
+											return '';
+										}
+										return displayValue(f, row[name], section.choices);
+									})
+									.join(' · ')}
+							</a>
+						</li>
+					))}
+				</ul>
+			)}
+		</section>
+	))}
+
+	{!isNew && (
+		<form method="post" class="delete" onsubmit="return confirm('Delete this for good?');">
+			<input type="hidden" name="_action" value="delete" />
+			<button type="submit">Delete this {table.singular}</button>
+		</form>
+	)}
+</AdminLayout>
+
+<style>
+	.back {
+		margin: 0;
+		font-size: 0.875rem;
+	}
+
+	.message {
+		padding: var(--space-2) var(--space-3);
+		border-radius: 0.375rem;
+		background: #fee2e2;
+		color: #991b1b;
+	}
+
+	.edit {
+		margin-top: var(--space-4);
+	}
+
+	.save {
+		padding: var(--space-2) var(--space-5);
+		border: 0;
+		border-radius: 0.375rem;
+		background: var(--art-ink);
+		color: var(--art-cream);
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.children {
+		margin-top: var(--space-5);
+		padding-top: var(--space-3);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.children-top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: var(--space-3);
+	}
+
+	.children h2 {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+
+	.none {
+		color: var(--color-muted);
+	}
+
+	.delete {
+		margin-top: var(--space-5);
+		padding-top: var(--space-3);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.delete button {
+		padding: var(--space-2) var(--space-3);
+		border: 1px solid #b91c1c;
+		border-radius: 0.375rem;
+		background: transparent;
+		color: #b91c1c;
+		font: inherit;
+		cursor: pointer;
+	}
+</style>

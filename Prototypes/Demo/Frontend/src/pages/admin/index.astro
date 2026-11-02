@@ -1,0 +1,67 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { ADMIN_COOKIE, adminRequest, readKey } from '../../lib/admin/client';
+import { TABLES } from '../../lib/admin/config';
+
+const key = readKey(Astro.cookies);
+
+// How many rows each table has
+const counts = [];
+for (const table of TABLES)
+{
+	const answer = await adminRequest(key, 'GET', '/' + table.key, null);
+	if (answer.status === 401)
+	{
+		Astro.cookies.delete(ADMIN_COOKIE, { path: '/admin' });
+		return Astro.redirect('/admin/login');
+	}
+	let count = 0;
+	if (answer.ok)
+	{
+		count = answer.data.length;
+	}
+	counts.push({ key: table.key, title: table.title, count: count });
+}
+---
+
+<AdminLayout title="Dashboard" showMenu={true}>
+	<h1>Admin</h1>
+	<p>Add and change the content of the site. Unpublished items are visible here, but not on the site.</p>
+
+	<div class="tiles">
+		{counts.map((item) => (
+			<a class="tile" href={'/admin/' + item.key}>
+				<span class="count">{item.count}</span>
+				<span>{item.title}</span>
+			</a>
+		))}
+	</div>
+</AdminLayout>
+
+<style>
+	.tiles {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+		gap: var(--space-3);
+		margin-top: var(--space-4);
+	}
+
+	.tile {
+		display: flex;
+		flex-direction: column;
+		padding: var(--space-3);
+		border: 1px solid var(--color-border);
+		border-radius: 0.5rem;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.tile:hover {
+		background: var(--color-surface);
+	}
+
+	.count {
+		font-size: 2rem;
+		font-weight: 700;
+	}
+</style>

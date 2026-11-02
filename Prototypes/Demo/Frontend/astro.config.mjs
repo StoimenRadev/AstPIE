@@ -18,7 +18,7 @@ export default defineConfig({
   env: {
     schema: {
       // Address of the ASP.NET Core API. Set it in .env (see .env.example).
-      API_URL: envField.string({ context: 'server', access: 'public', default: 'http://localhost:5080' })
+      API_URL: envField.string({ context: 'server', access: 'secret', default: 'http://localhost:5080' })
     }
   }
 });

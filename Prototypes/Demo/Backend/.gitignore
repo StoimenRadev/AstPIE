@@ -483,3 +483,6 @@ $RECYCLE.BIN/
 
 # Local settings with passwords (never commit)
 appsettings.Local.json
+
+# Files uploaded through the admin page (content, not code)
+AstPIE.Api/wwwroot/uploads/

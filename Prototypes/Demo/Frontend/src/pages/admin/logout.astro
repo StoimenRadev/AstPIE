@@ -1,0 +1,10 @@
+---
+import { ADMIN_COOKIE } from '../../lib/admin/client';
+
+// POST /admin/logout: forget the key and go back to the login page
+if (Astro.request.method === 'POST')
+{
+	Astro.cookies.delete(ADMIN_COOKIE, { path: '/admin' });
+}
+return Astro.redirect('/admin/login');
+---

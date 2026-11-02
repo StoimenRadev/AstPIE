@@ -1,0 +1,132 @@
+---
+// Layout of the admin pages: not in the site menu, and search engines are told to skip it
+import { TABLES } from '../lib/admin/config';
+import '../styles/global.css';
+
+interface Props
+{
+	title: string;
+	// false on the login page
+	showMenu: boolean;
+}
+
+const { title, showMenu } = Astro.props;
+const path = Astro.url.pathname;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>{title + ' | AstPIE admin'}</title>
+	</head>
+	<body>
+		<header class="admin-header">
+			<div class="container bar">
+				<a class="logo" href="/admin">AstPIE admin</a>
+				{showMenu && (
+					<form method="post" action="/admin/logout">
+						<a href="/" target="_blank">View site</a>
+						<button type="submit">Log out</button>
+					</form>
+				)}
+			</div>
+		</header>
+
+		<div class="container layout">
+			{showMenu && (
+				<nav class="menu">
+					{TABLES.map((table) => (
+						<a href={'/admin/' + table.key} class:list={{ active: path.startsWith('/admin/' + table.key) }}>{table.title}</a>
+					))}
+				</nav>
+			)}
+			<main>
+				<slot />
+			</main>
+		</div>
+	</body>
+</html>
+
+<style>
+	.admin-header {
+		background: var(--art-ink);
+		color: var(--art-cream);
+	}
+
+	.bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-3);
+		padding-top: var(--space-3);
+		padding-bottom: var(--space-3);
+	}
+
+	.admin-header a {
+		color: var(--art-cream);
+	}
+
+	.logo {
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.admin-header form {
+		display: flex;
+		align-items: center;
+		gap: var(--space-3);
+	}
+
+	.admin-header button {
+		padding: var(--space-1) var(--space-3);
+		border: 1px solid var(--art-cream);
+		border-radius: 0.375rem;
+		background: transparent;
+		color: var(--art-cream);
+		font: inherit;
+		cursor: pointer;
+	}
+
+	.layout {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-5);
+		padding-top: var(--space-4);
+		padding-bottom: var(--space-5);
+	}
+
+	.menu {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+		min-width: 11rem;
+	}
+
+	.menu a {
+		padding: var(--space-1) var(--space-2);
+		border-radius: 0.25rem;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.menu a:hover,
+	.menu a.active {
+		background: var(--color-surface);
+		font-weight: 600;
+	}
+
+	main {
+		flex: 1;
+		min-width: 0;
+	}
+
+	@media (max-width: 767px) {
+		.menu {
+			flex-direction: row;
+			flex-wrap: wrap;
+			min-width: 0;
+		}
+	}
+</style>
