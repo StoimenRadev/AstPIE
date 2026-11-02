@@ -4,6 +4,9 @@
     <BuildType Name="Editor" />
     <BuildType Name="Release" />
   </Configurations>
+  <Project Path="../Backend/AstPIE.Api/AstPIE.Api.csproj">
+    <BuildType Solution="Editor|*" Project="Debug" />
+  </Project>
   <Project Path="AstPIE.Simulations.csproj" />
   <Project Path="AstPIE.Simulations.web/AstPIE.Simulations.web.csproj">
     <BuildType Solution="Editor|*" Project="Debug" />

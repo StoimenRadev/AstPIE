@@ -1,10 +1,11 @@
 {
   "folders": [
     { "path": "Frontend" },
+    { "path": "Backend" },
     { "path": "Simulations" }
   ],
   "settings": {
-    "dotnet.defaultSolution": "Simulations/AstPIE.Simulations.slnx"
+    "dotnet.defaultSolution": "AstPIE.slnx"
   },
   "extensions": {
     "recommendations": [
@@ -23,6 +24,19 @@
         "request": "launch",
         "command": "npm run dev",
         "cwd": "${workspaceFolder:Frontend}"
+      },
+      {
+        "name": "Backend",
+        "type": "dotnet",
+        "request": "launch",
+        "projectPath": "${workspaceFolder:Backend}/AstPIE.Api/AstPIE.Api.csproj"
+      }
+    ],
+    "compounds": [
+      {
+        "name": "Full site",
+        "configurations": ["Backend", "Frontend"],
+        "stopAll": true
       }
     ]
   }

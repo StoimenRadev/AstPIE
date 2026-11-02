@@ -1,0 +1,14 @@
+# Test calls. In VS Code, click "Send Request" above a call (needs the API running).
+@api = http://localhost:5080
+
+### All topics
+GET {{api}}/api/topics
+Accept: application/json
+
+### One topic with its simulations
+GET {{api}}/api/topics/newtons-first-law
+Accept: application/json
+
+### A topic that does not exist (404)
+GET {{api}}/api/topics/nope
+Accept: application/json

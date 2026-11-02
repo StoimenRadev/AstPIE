@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Backend/">
+    <Project Path="Backend/AstPIE.Api/AstPIE.Api.csproj" />
+  </Folder>
+  <Folder Name="/Simulations/">
+    <Project Path="Simulations/AstPIE.Simulations.csproj" />
+  </Folder>
+</Solution>
