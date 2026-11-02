@@ -1,9 +1,16 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import EntryList from '../../../components/EntryList.astro';
 import { t } from '../../../i18n/t';
+import { getEntries } from '../../../lib/api';
+
+const missions = await getEntries('Mission');
 ---
 
 <BaseLayout title={t('missions.title')}>
 	<h1>{t('missions.title')}</h1>
 	<p>{t('missions.description')}</p>
+
+	{missions.length === 0 && <p>{t('missions.empty')}</p>}
+	<EntryList entries={missions} basePath="/explore/missions" />
 </BaseLayout>

@@ -1,0 +1,70 @@
+---
+// Cards for a list of missions or mysteries
+import EntryBadge from './EntryBadge.astro';
+import { formatYears } from '../lib/format';
+import type { EntryListItem } from '../lib/api';
+
+interface Props
+{
+	entries: EntryListItem[];
+	// For example "/explore/missions"
+	basePath: string;
+}
+
+const { entries, basePath } = Astro.props;
+---
+
+<div class="cards">
+	{entries.map((entry) => (
+		<a class="card" href={basePath + '/' + entry.slug}>
+			<h2>{entry.title}</h2>
+			<p class="meta">
+				<span>{formatYears(entry.startDate, entry.endDate, entry.missionOutcome === 'Ongoing')}</span>
+				{entry.agency !== null && <span>{entry.agency}</span>}
+				<EntryBadge missionOutcome={entry.missionOutcome} evidenceStatus={entry.evidenceStatus} />
+			</p>
+			<p class="summary">{entry.summary}</p>
+		</a>
+	))}
+</div>
+
+<style>
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+		gap: var(--space-3);
+		margin-top: var(--space-4);
+	}
+
+	.card {
+		display: block;
+		padding: var(--space-4);
+		border: 1px solid var(--color-border);
+		border-radius: 0.5rem;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.card:hover {
+		background: var(--color-surface);
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--space-2);
+		margin: var(--space-2) 0;
+		color: var(--color-muted);
+		font-size: 0.875rem;
+	}
+
+	.summary {
+		margin: 0;
+	}
+</style>

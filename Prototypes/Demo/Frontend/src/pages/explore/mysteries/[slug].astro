@@ -1,12 +1,17 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { t } from '../../../i18n/t';
+import EntryPage from '../../../components/EntryPage.astro';
+import { getEntry } from '../../../lib/api';
 
-// The real title comes from the API in commit 6.
-const slug = String(Astro.params.slug);
+const entry = await getEntry(String(Astro.params.slug));
+
+// A mission opened under /mysteries is the wrong address: show the 404 page
+if (entry === null || entry.kind !== 'Mystery')
+{
+	return Astro.rewrite('/404');
+}
 ---
 
-<BaseLayout title={slug}>
-	<h1>{slug}</h1>
-	<p>{t('mysteries.entryPlaceholder')}</p>
+<BaseLayout title={entry.title}>
+	<EntryPage entry={entry} basePath="/explore/mysteries" />
 </BaseLayout>
