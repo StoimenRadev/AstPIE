@@ -12,3 +12,39 @@ Accept: application/json
 ### A topic that does not exist (404)
 GET {{api}}/api/topics/nope
 Accept: application/json
+
+### All missions
+GET {{api}}/api/entries?kind=Mission
+Accept: application/json
+
+### All mysteries
+GET {{api}}/api/entries?kind=Mystery
+Accept: application/json
+
+### One entry with chapters and people
+GET {{api}}/api/entries/apollo-11
+Accept: application/json
+
+### One person (the id comes from an entry's people list)
+GET {{api}}/api/people/1
+Accept: application/json
+
+### Catalogue: search ignores capital letters
+GET {{api}}/api/catalogue?search=SGR&page=1&pageSize=12
+Accept: application/json
+
+### Catalogue: filters
+GET {{api}}/api/catalogue?type=BlackHole&constellation=sagittarius&minDistance=1000&maxDistance=30000
+Accept: application/json
+
+### Catalogue: a wrong page gives 400
+GET {{api}}/api/catalogue?page=0
+Accept: application/json
+
+### Catalogue: values for the filter dropdowns
+GET {{api}}/api/catalogue/filters
+Accept: application/json
+
+### One catalogue object
+GET {{api}}/api/catalogue/sagittarius-a-star
+Accept: application/json

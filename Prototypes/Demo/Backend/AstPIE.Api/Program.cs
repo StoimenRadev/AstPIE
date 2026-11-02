@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AstPIE.Api.Data;
 
@@ -9,11 +11,12 @@ builder.Configuration.AddJsonFile("appsettings.Local.json", true);
 
 builder.Services.AddDbContext<AppDbContext>(ConfigureDatabase);
 builder.Services.AddControllers();
+builder.Services.Configure<JsonOptions>(ConfigureJson);
 builder.Services.AddOpenApi();
 
 WebApplication app = builder.Build();
 
-// Fill an empty database with the first topics
+// Fill empty tables with the first content
 using (IServiceScope scope = app.Services.CreateScope())
 {
 	AppDbContext db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
@@ -34,4 +37,10 @@ void ConfigureDatabase(DbContextOptionsBuilder options)
 {
 	options.UseNpgsql(builder.Configuration.GetConnectionString("AstPIE"));
 	options.UseSnakeCaseNamingConvention();
+}
+
+// Enums are sent and read as text ("Mission"), not numbers
+void ConfigureJson(JsonOptions options)
+{
+	options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 }

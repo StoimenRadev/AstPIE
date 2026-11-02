@@ -10,17 +10,28 @@ namespace AstPIE.Api.Data
 		private const string SimulationsUrl = "http://localhost:8081/";
 		private const string SourceUrl = "https://github.com/StoimenRadev/AstPIE/tree/prototypes/Prototypes/Demo/Simulations/ClassicalMechanics/";
 
+		// Each part only fills its own tables, and only when they are empty
 		public static void Run(AppDbContext db)
 		{
-			if (db.Topics.Any())
+			if (!db.Topics.Any())
 			{
-				return;
+				db.Topics.Add(FirstLaw());
+				db.Topics.Add(SecondLaw());
+				db.Topics.Add(ThirdLaw());
+				db.SaveChanges();
 			}
 
-			db.Topics.Add(FirstLaw());
-			db.Topics.Add(SecondLaw());
-			db.Topics.Add(ThirdLaw());
-			db.SaveChanges();
+			if (!db.Entries.Any())
+			{
+				ExploreSeedData.AddEntries(db);
+				db.SaveChanges();
+			}
+
+			if (!db.CatalogueObjects.Any())
+			{
+				ExploreSeedData.AddCatalogue(db);
+				db.SaveChanges();
+			}
 		}
 
 		private static Topic FirstLaw()

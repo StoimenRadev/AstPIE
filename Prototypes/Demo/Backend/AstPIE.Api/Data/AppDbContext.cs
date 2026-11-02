@@ -15,12 +15,23 @@ namespace AstPIE.Api.Data
 
 		public DbSet<Topic> Topics { get; set; }
 		public DbSet<Simulation> Simulations { get; set; }
+		public DbSet<Entry> Entries { get; set; }
+		public DbSet<Chapter> Chapters { get; set; }
+		public DbSet<Person> People { get; set; }
+		public DbSet<EntryPerson> EntryPeople { get; set; }
+		public DbSet<MediaItem> MediaItems { get; set; }
+		public DbSet<CatalogueObject> CatalogueObjects { get; set; }
 
 		protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
 		{
 			// Store enums as text ("Godot2D"), not numbers, so the tables are readable
 			configurationBuilder.Properties<SimulationEngine>().HaveConversion<string>();
 			configurationBuilder.Properties<SimulationStatus>().HaveConversion<string>();
+			configurationBuilder.Properties<EntryKind>().HaveConversion<string>();
+			configurationBuilder.Properties<MissionOutcome>().HaveConversion<string>();
+			configurationBuilder.Properties<EvidenceStatus>().HaveConversion<string>();
+			configurationBuilder.Properties<MediaType>().HaveConversion<string>();
+			configurationBuilder.Properties<CatalogueObjectType>().HaveConversion<string>();
 		}
 
 		public override int SaveChanges()
