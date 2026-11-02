@@ -1,0 +1,36 @@
+{
+	"site.name": "AstPIE",
+	"site.fullName": "Astrophysics Platform for Interactive Education",
+
+	"nav.home": "Home",
+	"nav.learn": "Learn",
+	"nav.explore": "Explore",
+
+	"footer.text": "AstPIE: Astrophysics Platform for Interactive Education",
+
+	"home.title": "AstPIE",
+	"home.intro": "The opening page will be here.",
+
+	"learn.title": "Learn",
+	"learn.intro": "The list of topics will be here.",
+	"learn.topicPlaceholder": "The topic page will be here.",
+
+	"explore.title": "Explore",
+	"explore.intro": "Missions, mysteries and a catalogue of what is out there.",
+
+	"missions.title": "Missions",
+	"missions.description": "The story of each mission, from the idea to its legacy.",
+	"missions.entryPlaceholder": "The mission page will be here.",
+
+	"mysteries.title": "Mysteries",
+	"mysteries.description": "Unexplained signals, open questions and debunked theories.",
+	"mysteries.entryPlaceholder": "The mystery page will be here.",
+
+	"catalogue.title": "Catalogue",
+	"catalogue.description": "Stars, planets, galaxies and other objects, with search and filters.",
+	"catalogue.objectPlaceholder": "The object page will be here.",
+
+	"notFound.title": "Page not found",
+	"notFound.text": "This page does not exist.",
+	"notFound.link": "Go to the home page"
+}

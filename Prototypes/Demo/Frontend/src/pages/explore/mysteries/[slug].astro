@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { t } from '../../../i18n/t';
+
+// The real title comes from the API in commit 6.
+const slug = String(Astro.params.slug);
+---
+
+<BaseLayout title={slug}>
+	<h1>{slug}</h1>
+	<p>{t('mysteries.entryPlaceholder')}</p>
+</BaseLayout>

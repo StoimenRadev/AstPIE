@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n/t';
+---
+
+<BaseLayout title={t('explore.title')}>
+	<h1>{t('explore.title')}</h1>
+	<p>{t('explore.intro')}</p>
+
+	<div class="sections">
+		<a href="/explore/missions">
+			<h2>{t('missions.title')}</h2>
+			<p>{t('missions.description')}</p>
+		</a>
+		<a href="/explore/mysteries">
+			<h2>{t('mysteries.title')}</h2>
+			<p>{t('mysteries.description')}</p>
+		</a>
+		<a href="/explore/catalogue">
+			<h2>{t('catalogue.title')}</h2>
+			<p>{t('catalogue.description')}</p>
+		</a>
+	</div>
+</BaseLayout>
+
+<style>
+	.sections {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: var(--space-3);
+		margin-top: var(--space-4);
+	}
+
+	.sections a {
+		display: block;
+		padding: var(--space-4);
+		border: 1px solid var(--color-border);
+		border-radius: 0.5rem;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.sections a:hover {
+		background: var(--color-surface);
+	}
+
+	.sections h2 {
+		margin-top: 0;
+	}
+
+	.sections p {
+		margin-bottom: 0;
+		color: var(--color-muted);
+	}
+</style>

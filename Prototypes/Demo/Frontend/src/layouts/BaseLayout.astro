@@ -1,0 +1,44 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { t } from '../i18n/t';
+import '../styles/global.css';
+
+interface Props
+{
+	title: string;
+}
+
+const { title } = Astro.props;
+
+let pageTitle = t('site.name');
+if (title !== t('site.name'))
+{
+	pageTitle = title + ' | ' + t('site.name');
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<Header />
+		<main class="container">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		flex: 1;
+		padding-top: var(--space-5);
+		padding-bottom: var(--space-5);
+	}
+</style>

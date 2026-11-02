@@ -1,16 +1,10 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n/t';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={t('home.title')}>
+	<h1>{t('site.name')}</h1>
+	<p>{t('site.fullName')}</p>
+	<p>{t('home.intro')}</p>
+</BaseLayout>
