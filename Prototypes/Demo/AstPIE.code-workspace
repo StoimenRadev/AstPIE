@@ -1,0 +1,29 @@
+{
+  "folders": [
+    { "path": "Frontend" },
+    { "path": "Simulations" }
+  ],
+  "settings": {
+    "dotnet.defaultSolution": "Simulations/AstPIE.Simulations.slnx"
+  },
+  "extensions": {
+    "recommendations": [
+      "astro-build.astro-vscode",
+      "ms-dotnettools.csdevkit",
+      "ms-ossdata.vscode-pgsql",
+      "esbenp.prettier-vscode"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Frontend",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "npm run dev",
+        "cwd": "${workspaceFolder:Frontend}"
+      }
+    ]
+  }
+}
