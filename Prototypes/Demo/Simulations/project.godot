@@ -27,6 +27,12 @@ window/stretch/aspect="expand"
 
 project/assembly_name="AstPIE.Simulations"
 
+[gui]
+
+theme/default_font_hinting=2
+theme/default_font_subpixel_positioning=0
+theme/default_font_multichannel_signed_distance_field=true
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.102, 0.125, 0.2, 1)

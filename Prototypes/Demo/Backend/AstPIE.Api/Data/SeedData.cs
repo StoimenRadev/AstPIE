@@ -41,7 +41,7 @@ namespace AstPIE.Api.Data
 			simulation.Version = "0.1";
 			simulation.Status = SimulationStatus.Published;
 			simulation.BuildUrl = SimulationsUrl + "?sim=newtons-first-law";
-			simulation.ThumbnailUrl = "";
+			simulation.ThumbnailUrl = SimulationsUrl + simulation.Slug + ".webp";
 			simulation.LearningGoal = "See that with zero net force the velocity does not change.";
 			simulation.SourceUrl = SourceUrl + "NewtonsFirstLaw";
 			topic.Simulations.Add(simulation);
@@ -67,7 +67,7 @@ namespace AstPIE.Api.Data
 			simulation.Version = "0.1";
 			simulation.Status = SimulationStatus.Published;
 			simulation.BuildUrl = SimulationsUrl + "?sim=newtons-second-law";
-			simulation.ThumbnailUrl = "";
+			simulation.ThumbnailUrl = SimulationsUrl + simulation.Slug + ".webp";
 			simulation.LearningGoal = "Compare how the same force accelerates a light and a heavy body.";
 			simulation.SourceUrl = SourceUrl + "NewtonsSecondLaw";
 			topic.Simulations.Add(simulation);
@@ -93,7 +93,7 @@ namespace AstPIE.Api.Data
 			simulation.Version = "0.1";
 			simulation.Status = SimulationStatus.Published;
 			simulation.BuildUrl = SimulationsUrl + "?sim=newtons-third-law";
-			simulation.ThumbnailUrl = "";
+			simulation.ThumbnailUrl = SimulationsUrl + simulation.Slug + ".webp";
 			simulation.LearningGoal = "See that the push and the push back are equal, and that the total momentum is kept.";
 			simulation.SourceUrl = SourceUrl + "NewtonsThirdLaw";
 			topic.Simulations.Add(simulation);

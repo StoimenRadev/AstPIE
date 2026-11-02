@@ -1,0 +1,284 @@
+/* Colours of the simulations themselves (ink navy, cream, teal) */
+.simulation {
+	--sim-ink: #1a2033;
+	--sim-cream: #f2e8d5;
+	--sim-teal: #4f8a8b;
+	margin: var(--space-4) 0;
+}
+
+/* ---------- Thumbnail (before Start) ---------- */
+
+.simulation-thumb {
+	position: relative;
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	padding: 0;
+	border: 0;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	background: var(--sim-ink);
+	color: var(--sim-cream);
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+}
+
+.simulation-thumb img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.4s ease;
+}
+
+.simulation-thumb:hover img {
+	transform: scale(1.03);
+}
+
+.simulation-thumb:focus-visible {
+	outline: 3px solid var(--sim-teal);
+	outline-offset: 3px;
+}
+
+/* Dark fade at the bottom behind the text */
+.simulation-thumb::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, rgba(26, 32, 51, 0.9) 0%, rgba(26, 32, 51, 0) 55%);
+}
+
+.thumb-text {
+	position: absolute;
+	z-index: 1;
+	left: var(--space-4);
+	right: var(--space-4);
+	bottom: var(--space-4);
+}
+
+.thumb-title {
+	display: block;
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.thumb-goal {
+	display: block;
+	margin-top: var(--space-1);
+	max-width: 34rem;
+	opacity: 0.9;
+}
+
+/* Round play button in the middle */
+.thumb-play {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 4.5rem;
+	height: 4.5rem;
+	margin: -2.25rem 0 0 -2.25rem;
+	padding-left: 0.3rem;
+	border-radius: 50%;
+	background: var(--sim-cream);
+	color: var(--sim-ink);
+	font-size: 1.5rem;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+	transition: transform 0.2s ease;
+}
+
+.simulation-thumb:hover .thumb-play {
+	transform: scale(1.08);
+}
+
+/* The triangle inside the play button */
+.thumb-play-icon {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0.6em 0 0.6em 1em;
+	border-color: transparent transparent transparent currentColor;
+}
+
+/* ---------- Running simulation ---------- */
+
+/* Keeps the 16:9 place in the page, also while the frame is expanded */
+.simulation-slot {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+}
+
+.simulation-frame {
+	position: absolute;
+	inset: 0;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	background: var(--sim-ink);
+}
+
+.simulation-frame iframe {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+/* Our loading and error screen, drawn over the frame */
+.simulation-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-3);
+	background: var(--sim-ink);
+	color: var(--sim-cream);
+	text-align: center;
+	padding: var(--space-4);
+}
+
+.simulation-overlay p {
+	margin: 0;
+}
+
+.simulation-progress {
+	position: relative;
+	width: min(60%, 20rem);
+	height: 6px;
+	border-radius: 3px;
+	overflow: hidden;
+	background: rgba(242, 232, 213, 0.2);
+}
+
+.simulation-progress div {
+	height: 100%;
+	background: var(--sim-teal);
+	transition: width 0.2s ease;
+}
+
+/* While the engine starts there is no percentage: a moving bar instead */
+.simulation-progress.is-busy div {
+	width: 30% !important;
+	animation: simulation-busy 1.2s ease-in-out infinite;
+}
+
+@keyframes simulation-busy {
+	from {
+		transform: translateX(-100%);
+	}
+
+	to {
+		transform: translateX(340%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.simulation-progress.is-busy div {
+		animation: none;
+		width: 100% !important;
+	}
+}
+
+.simulation-retry,
+.simulation-expand {
+	border: 0;
+	border-radius: 0.375rem;
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.simulation-retry {
+	padding: var(--space-2) var(--space-4);
+	background: var(--sim-cream);
+	color: var(--sim-ink);
+}
+
+.simulation-expand {
+	position: absolute;
+	z-index: 2;
+	right: var(--space-2);
+	bottom: var(--space-2);
+	padding: var(--space-1) var(--space-3);
+	background: rgba(26, 32, 51, 0.85);
+	color: var(--sim-cream);
+	font-size: 0.875rem;
+}
+
+.simulation-expand:hover {
+	background: var(--sim-ink);
+}
+
+/* Expanded: as large as fits the screen (94% of the width or 90% of the height),
+   centred over a dark backdrop. On a 1920x1080 screen that is about 1520 px wide.
+   Only the position changes, so the simulation keeps running.
+   Size and position are rounded to whole pixels: at half pixels the browser
+   blurs everything inside the frame, text included. The width is a multiple
+   of 16 so the 16:9 height is a whole number too. */
+.is-expanded .simulation-frame {
+	--expanded-width: round(down, min(94vw, calc(90vh * 16 / 9)), 16px);
+	--expanded-height: calc(var(--expanded-width) * 9 / 16);
+	position: fixed;
+	z-index: 1001;
+	top: round(down, calc((100vh - var(--expanded-height)) / 2), 1px);
+	left: round(down, calc((100vw - var(--expanded-width)) / 2), 1px);
+	right: auto;
+	bottom: auto;
+	width: var(--expanded-width);
+	height: var(--expanded-height);
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.simulation-backdrop {
+	position: fixed;
+	z-index: 1000;
+	inset: 0;
+	background: rgba(10, 12, 20, 0.75);
+}
+
+.simulation figcaption {
+	margin-top: var(--space-2);
+	color: var(--color-muted);
+	font-size: 0.875rem;
+}
+
+/* ---------- Narrow screens ---------- */
+
+.simulation-narrow {
+	display: none;
+	margin: var(--space-2) 0 0;
+	color: var(--color-muted);
+	font-size: 0.875rem;
+}
+
+@media (max-width: 767px) {
+	.simulation-narrow {
+		display: block;
+	}
+
+	.thumb-title {
+		font-size: 1.125rem;
+	}
+
+	.thumb-goal {
+		display: none;
+	}
+
+	/* On phones Expand uses the whole screen */
+	.is-expanded .simulation-frame {
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100dvh;
+		border-radius: 0;
+	}
+}

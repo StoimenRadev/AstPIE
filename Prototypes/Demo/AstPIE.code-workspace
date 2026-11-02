@@ -30,12 +30,19 @@
         "type": "dotnet",
         "request": "launch",
         "projectPath": "${workspaceFolder:Backend}/AstPIE.Api/AstPIE.Api.csproj"
+      },
+      {
+        "name": "Simulations",
+        "type": "node-terminal",
+        "request": "launch",
+        "command": "npx --yes serve@14.2.6 AstPIE.Simulations.web/AppBundle -l 8081",
+        "cwd": "${workspaceFolder:Simulations}"
       }
     ],
     "compounds": [
       {
         "name": "Full site",
-        "configurations": ["Backend", "Frontend"],
+        "configurations": ["Backend", "Frontend", "Simulations"],
         "stopAll": true
       }
     ]

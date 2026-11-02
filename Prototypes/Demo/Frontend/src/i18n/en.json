@@ -12,8 +12,17 @@
 	"home.intro": "The opening page will be here.",
 
 	"learn.title": "Learn",
-	"learn.intro": "The list of topics will be here.",
-	"learn.topicPlaceholder": "The topic page will be here.",
+	"learn.intro": "Topics with interactive simulations.",
+	"learn.empty": "There are no topics yet.",
+
+	"simulation.start": "Start simulation",
+	"simulation.narrowScreen": "This simulation works best on a wider screen.",
+	"simulation.loading": "Loading simulation",
+	"simulation.starting": "Starting simulation",
+	"simulation.error": "The simulation could not be loaded.",
+	"simulation.retry": "Try again",
+	"simulation.expand": "Expand",
+	"simulation.minimise": "Minimise",
 
 	"explore.title": "Explore",
 	"explore.intro": "Missions, mysteries and a catalogue of what is out there.",

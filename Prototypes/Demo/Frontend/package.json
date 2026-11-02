@@ -17,6 +17,9 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "astro": "^7.4.4",
+    "katex": "^0.18.10",
+    "marked": "^18.1.2",
+    "marked-katex-extension": "^5.1.13",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   }

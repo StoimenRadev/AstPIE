@@ -4,12 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AstPIE.Simulations</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <title>AstPIE simulation</title>
     <!-- Start the big downloads before godot.js even runs; the dotnet.* files
          are otherwise only discovered mid-boot. -->
     <script>
@@ -46,7 +41,8 @@
 
         body {
             color: white;
-            background-color: black;
+            /* Same ink navy as the simulations' clear colour */
+            background-color: #1A2033;
             overflow: hidden;
             touch-action: none;
         }
@@ -68,14 +64,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #242424;
-            font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+            background-color: #1A2033;
+            font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
         }
 
+        /* Only seen when the simulation is opened on its own. On the AstPIE site
+           the page draws its own loading screen on top of the frame. */
         #status {
             position: absolute;
             inset: 0;
-            background-color: #242424;
+            background-color: #1A2033;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -83,28 +81,10 @@
             gap: 1.5rem;
         }
 
-        #status-splash {
-            width: clamp(96px, 22vmin, 200px);
-            height: auto;
-            animation: status-splash-pulse 2.4s ease-in-out infinite;
-        }
-
-        @keyframes status-splash-pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: .55;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            #status-splash {
-                animation: none;
-            }
+        #status-text {
+            color: #F2E8D5;
+            font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1rem;
         }
 
         #status-bar {
@@ -174,8 +154,7 @@
     </noscript>
 
     <div id="status">
-        <!-- Set src to splash.svg, splash.png, or splash.webp to choose the image format. -->
-        <img id="status-splash" src="splash.svg" alt="Loading">
+        <div id="status-text">Loading simulation…</div>
         <div id="status-bar"><progress id="status-progress" aria-label="Loading progress"></progress></div>
         <div id="status-notice" role="alert"></div>
     </div>
@@ -217,19 +196,36 @@
                 statusMode = mode;
             }
 
+            // AstPIE: tell the page around the frame how loading goes, so it can
+            // show its own loading screen. Statuses: progress, starting, ready, error.
+            // The messages hold no private data, so any parent may read them.
+            function notifyParent(status, details) {
+                if (window.parent === window) {
+                    return;
+                }
+                const message = { source: 'astpie-simulation', status: status };
+                if (details) {
+                    Object.assign(message, details);
+                }
+                window.parent.postMessage(message, '*');
+            }
+
             function displayFailureNotice(err) {
                 console.error(err);
                 statusNotice.textContent = typeof err?.message === 'string' ? err.message : String(err);
                 setStatusMode('notice');
                 initializing = false;
+                notifyParent('error', { message: statusNotice.textContent });
             }
 
             let downloadsDone = false;
 
             function reportProgress(current, total) {
+                notifyParent('progress', { loaded: current, total: total });
                 if (!downloadsDone && total > 0 && current >= total) {
                     downloadsDone = true;
                     performance.mark('2dog:downloads-done');
+                    notifyParent('starting');
                 }
             }
 
@@ -337,6 +333,7 @@
                     return started.then(() => {
                         reportTimings();
                         setStatusMode('hidden');
+                        notifyParent('ready');
                     }, displayFailureNotice);
                 })
                 .catch(displayFailureNotice);

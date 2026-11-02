@@ -1,9 +1,82 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../i18n/t';
+import { getTopics } from '../../lib/api';
+import type { TopicListItem } from '../../lib/api';
+
+interface Branch
+{
+	name: string;
+	topics: TopicListItem[];
+}
+
+const topics = await getTopics();
+
+// Group the topics by branch. The API already sorts them by branch and order.
+const branches: Branch[] = [];
+for (const topic of topics)
+{
+	let branch = branches.find((b) => b.name === topic.branch);
+	if (branch === undefined)
+	{
+		branch = { name: topic.branch, topics: [] };
+		branches.push(branch);
+	}
+	branch.topics.push(topic);
+}
 ---
 
 <BaseLayout title={t('learn.title')}>
 	<h1>{t('learn.title')}</h1>
 	<p>{t('learn.intro')}</p>
+
+	{topics.length === 0 && <p>{t('learn.empty')}</p>}
+
+	{branches.map((branch) => (
+		<section>
+			<h2>{branch.name}</h2>
+			<div class="topics">
+				{branch.topics.map((topic) => (
+					<a href={'/learn/' + topic.slug}>
+						<h3>{topic.title}</h3>
+						<p>{topic.summary}</p>
+					</a>
+				))}
+			</div>
+		</section>
+	))}
 </BaseLayout>
+
+<style>
+	section {
+		margin-top: var(--space-5);
+	}
+
+	.topics {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+		gap: var(--space-3);
+	}
+
+	.topics a {
+		display: block;
+		padding: var(--space-4);
+		border: 1px solid var(--color-border);
+		border-radius: 0.5rem;
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	.topics a:hover {
+		background: var(--color-surface);
+	}
+
+	.topics h3 {
+		margin-top: 0;
+	}
+
+	.topics p {
+		margin-bottom: 0;
+		color: var(--color-muted);
+	}
+</style>
