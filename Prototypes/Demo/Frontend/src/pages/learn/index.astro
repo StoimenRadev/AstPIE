@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopicCard from '../../components/TopicCard.astro';
 import { t } from '../../i18n/t';
 import { getTopics } from '../../lib/api';
 import type { TopicListItem } from '../../lib/api';
@@ -37,10 +38,7 @@ for (const topic of topics)
 			<h2>{branch.name}</h2>
 			<div class="topics">
 				{branch.topics.map((topic) => (
-					<a href={'/learn/' + topic.slug}>
-						<h3>{topic.title}</h3>
-						<p>{topic.summary}</p>
-					</a>
+					<TopicCard topic={topic} />
 				))}
 			</div>
 		</section>
@@ -58,25 +56,4 @@ for (const topic of topics)
 		gap: var(--space-3);
 	}
 
-	.topics a {
-		display: block;
-		padding: var(--space-4);
-		border: 1px solid var(--color-border);
-		border-radius: 0.5rem;
-		color: var(--color-text);
-		text-decoration: none;
-	}
-
-	.topics a:hover {
-		background: var(--color-surface);
-	}
-
-	.topics h3 {
-		margin-top: 0;
-	}
-
-	.topics p {
-		margin-bottom: 0;
-		color: var(--color-muted);
-	}
 </style>

@@ -25,6 +25,8 @@ if (title !== t('site.name'))
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<title>{pageTitle}</title>
+		<!-- Pages can add their own tags here, for example a description: <meta slot="head" ... /> -->
+		<slot name="head" />
 	</head>
 	<body>
 		<Header />

@@ -9,7 +9,17 @@
 	"footer.text": "AstPIE: Astrophysics Platform for Interactive Education",
 
 	"home.title": "AstPIE",
-	"home.intro": "The opening page will be here.",
+	"home.tagline": "Learn physics and astronomy with interactive simulations, and explore the missions, mysteries and objects of space.",
+	"home.description": "AstPIE is an interactive platform for learning astrophysics: simulations, missions, mysteries and a catalogue of space.",
+	"home.startLearning": "Start learning",
+	"home.explore": "Explore",
+	"home.learnTitle": "Learn",
+	"home.learnAll": "See all topics",
+	"home.exploreTitle": "Explore",
+	"home.exploreAll": "See everything in Explore",
+	"home.mission": "A mission",
+	"home.mystery": "A mystery",
+	"home.object": "From the catalogue",
 
 	"learn.title": "Learn",
 	"learn.intro": "Topics with interactive simulations.",

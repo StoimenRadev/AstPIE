@@ -1,0 +1,15 @@
+---
+// Picks the drawing for a branch. A new branch gets its own file next to this one.
+import ClassicalMechanicsMotif from './ClassicalMechanicsMotif.astro';
+import DefaultMotif from './DefaultMotif.astro';
+
+interface Props
+{
+	branch: string;
+}
+
+const { branch } = Astro.props;
+---
+
+{branch === 'Classical mechanics' && <ClassicalMechanicsMotif />}
+{branch !== 'Classical mechanics' && <DefaultMotif />}

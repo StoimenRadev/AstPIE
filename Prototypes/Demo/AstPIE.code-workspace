@@ -5,7 +5,7 @@
     { "path": "Simulations" }
   ],
   "settings": {
-    "dotnet.defaultSolution": "AstPIE.slnx"
+    "dotnet.defaultSolution": "Simulations/AstPIE.Simulations.slnx"
   },
   "extensions": {
     "recommendations": [

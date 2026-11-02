@@ -1,0 +1,166 @@
+---
+// Classical mechanics: a flat scene of the branch's classic objects -
+// a box on an inclined plane, a pendulum and its swing, a mass on a spring,
+// a rolling ball with its velocity, and a rocket (action and reaction).
+---
+
+<div class="art" aria-hidden="true">
+	<svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+		<rect class="sky" x="0" y="0" width="320" height="160" />
+
+		<g class="rocket" transform="translate(44 52) rotate(-35)">
+			<polygon class="flame" points="-5,13 5,13 0,28" />
+			<polygon class="fin" points="-6,6 -12,14 -6,12" />
+			<polygon class="fin" points="6,6 12,14 6,12" />
+			<rect class="body" x="-6" y="-16" width="12" height="29" rx="3" />
+			<polygon class="nose" points="-6,-15 6,-15 0,-28" />
+			<circle class="window" cx="0" cy="-4" r="2.5" />
+		</g>
+
+		<g class="pendulum">
+			<rect class="ceiling" x="148" y="10" width="44" height="5" rx="1" />
+			<path class="swing" d="M146 74 Q170 90 194 74" />
+			<line class="string ghost" x1="170" y1="15" x2="146" y2="74" />
+			<circle class="bob ghost" cx="146" cy="74" r="9" />
+			<line class="string" x1="170" y1="15" x2="194" y2="74" />
+			<circle class="bob" cx="194" cy="74" r="9" />
+		</g>
+
+		<g class="ramp">
+			<polygon class="slope" points="14,132 124,132 124,70" />
+			<g transform="translate(66 102.6) rotate(-29.4)">
+				<rect class="crate" x="0" y="-22" width="22" height="22" />
+				<line class="crate-line" x1="0" y1="-22" x2="22" y2="0" />
+			</g>
+		</g>
+
+		<g class="ball">
+			<circle class="ball-body" cx="152" cy="122" r="10" />
+			<line class="arrow" x1="166" y1="122" x2="196" y2="122" />
+			<polygon class="arrow-head" points="196,116 206,122 196,128" />
+		</g>
+
+		<g class="spring">
+			<rect class="wall" x="300" y="92" width="8" height="40" />
+			<polyline class="coil" points="300,118 296,109 291,127 286,109 281,127 276,109 271,127 266,118" />
+			<rect class="mass" x="238" y="106" width="28" height="26" rx="2" />
+		</g>
+
+		<rect class="ground" x="0" y="132" width="320" height="28" />
+	</svg>
+</div>
+
+<style>
+	.art {
+		width: 100%;
+		aspect-ratio: 2 / 1;
+	}
+
+	svg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.sky {
+		fill: var(--art-cream);
+	}
+
+	.ground {
+		fill: var(--art-teal);
+	}
+
+	/* Rocket */
+	.body {
+		fill: var(--art-cream);
+		stroke: var(--art-ink);
+		stroke-width: 2;
+	}
+
+	.nose,
+	.fin {
+		fill: var(--art-coral);
+	}
+
+	.window {
+		fill: var(--art-teal);
+	}
+
+	.flame {
+		fill: var(--art-ochre);
+	}
+
+	/* Pendulum */
+	.ceiling {
+		fill: var(--art-ink);
+	}
+
+	.string {
+		stroke: var(--art-ink);
+		stroke-width: 1.5;
+	}
+
+	.bob {
+		fill: var(--art-coral);
+	}
+
+	.ghost {
+		opacity: 0.25;
+	}
+
+	.swing {
+		fill: none;
+		stroke: var(--art-ink);
+		stroke-width: 1.5;
+		stroke-dasharray: 3 4;
+		opacity: 0.4;
+	}
+
+	/* Inclined plane */
+	.slope {
+		fill: var(--art-ink);
+	}
+
+	.crate {
+		fill: var(--art-ochre);
+		stroke: var(--art-ink);
+		stroke-width: 2;
+	}
+
+	.crate-line {
+		stroke: var(--art-ink);
+		stroke-width: 2;
+	}
+
+	/* Rolling ball */
+	.ball-body {
+		fill: var(--art-coral);
+	}
+
+	.arrow {
+		stroke: var(--art-ink);
+		stroke-width: 2.5;
+	}
+
+	.arrow-head {
+		fill: var(--art-ink);
+	}
+
+	/* Mass on a spring */
+	.wall {
+		fill: var(--art-ink);
+	}
+
+	.coil {
+		fill: none;
+		stroke: var(--art-ink);
+		stroke-width: 2;
+		stroke-linejoin: round;
+	}
+
+	.mass {
+		fill: var(--art-ochre);
+		stroke: var(--art-ink);
+		stroke-width: 2;
+	}
+</style>
