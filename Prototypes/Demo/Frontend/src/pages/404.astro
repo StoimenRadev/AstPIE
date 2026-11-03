@@ -3,8 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { t } from '../i18n/t';
 ---
 
-<BaseLayout title={t('notFound.title')}>
-	<h1>{t('notFound.title')}</h1>
-	<p>{t('notFound.text')}</p>
-	<p><a href="/">{t('notFound.link')}</a></p>
+<BaseLayout title={t('notFound.title')} theme="home">
+	<section class="story-hero wrap" style="min-height:70vh">
+		<h1 class="title">{t('notFound.title')}</h1>
+		<p class="lede">{t('notFound.text')}</p>
+		<p style="margin-top:30px"><a class="btn" href="/">{t('notFound.link')}</a></p>
+	</section>
 </BaseLayout>

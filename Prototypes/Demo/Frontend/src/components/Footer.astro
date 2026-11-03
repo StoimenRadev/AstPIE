@@ -2,16 +2,9 @@
 import { t } from '../i18n/t';
 ---
 
-<footer>
-	<div class="container">
-		<p>{t('footer.text')}</p>
+<footer class="foot">
+	<div class="wrap">
+		<span>{t('footer.text')}</span>
+		<span>{t('footer.project')}</span>
 	</div>
 </footer>
-
-<style>
-	footer {
-		border-top: 1px solid var(--color-border);
-		color: var(--color-muted);
-		font-size: 0.875rem;
-	}
-</style>

@@ -21,7 +21,7 @@ const path = Astro.url.pathname;
 		<meta name="robots" content="noindex, nofollow" />
 		<title>{title + ' | AstPIE admin'}</title>
 	</head>
-	<body>
+	<body class="admin" data-theme="home">
 		<header class="admin-header">
 			<div class="container bar">
 				<a class="logo" href="/admin">AstPIE admin</a>
@@ -51,8 +51,9 @@ const path = Astro.url.pathname;
 
 <style>
 	.admin-header {
-		background: var(--art-ink);
-		color: var(--art-cream);
+		background: var(--bg-2);
+		color: var(--text);
+		box-shadow: 0 1px 0 var(--line);
 	}
 
 	.bar {
@@ -65,7 +66,7 @@ const path = Astro.url.pathname;
 	}
 
 	.admin-header a {
-		color: var(--art-cream);
+		color: var(--text);
 	}
 
 	.logo {
@@ -81,10 +82,10 @@ const path = Astro.url.pathname;
 
 	.admin-header button {
 		padding: var(--space-1) var(--space-3);
-		border: 1px solid var(--art-cream);
+		border: 1px solid var(--text);
 		border-radius: 0.375rem;
 		background: transparent;
-		color: var(--art-cream);
+		color: var(--text);
 		font: inherit;
 		cursor: pointer;
 	}
@@ -129,4 +130,36 @@ const path = Astro.url.pathname;
 			min-width: 0;
 		}
 	}
+</style>
+
+<style is:global>
+	/* The admin pages: one dark background from top to bottom, and form fields that match it */
+	html:has(body.admin) { background: var(--bg); }
+	body.admin { min-height: 100vh; background: var(--bg); color: var(--text); font-family: var(--head); line-height: 1.55; }
+	body.admin a { color: var(--accent); }
+	body.admin h1, body.admin h2 { font-family: var(--head); font-weight: 800; }
+	body.admin input, body.admin select, body.admin textarea {
+		background: var(--bg-2);
+		color: var(--text);
+		border: 1px solid var(--line);
+		border-radius: 8px;
+		padding: 8px 10px;
+		font: inherit;
+	}
+	body.admin input:focus, body.admin select:focus, body.admin textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+	body.admin input[type="checkbox"] { width: auto; accent-color: var(--accent); }
+	body.admin button, body.admin .button {
+		background: var(--accent);
+		color: var(--on-accent);
+		border: 0;
+		border-radius: 999px;
+		padding: 9px 18px;
+		font: 700 0.95rem var(--head);
+		cursor: pointer;
+		text-decoration: none;
+	}
+	body.admin .admin-header button { background: transparent; color: var(--text); border: 1px solid var(--line); }
+	body.admin table { border-collapse: collapse; width: 100%; }
+	body.admin th, body.admin td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; }
+	body.admin th { color: var(--soft); font-weight: 600; }
 </style>

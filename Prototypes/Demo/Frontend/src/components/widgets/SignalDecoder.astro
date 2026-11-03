@@ -1,0 +1,59 @@
+---
+// The Wow! printout, column by column: click a character to read it
+import { t } from '../../i18n/t';
+
+// One character every 12 seconds, and what it means (times the background noise)
+const columns = [
+	{ c: '6', v: 6, from: 0 },
+	{ c: 'E', v: 14, from: 12 },
+	{ c: 'Q', v: 26, from: 24 },
+	{ c: 'U', v: 30, from: 36 },
+	{ c: 'J', v: 19, from: 48 },
+	{ c: '5', v: 5, from: 60 }
+];
+const key = [{ c: '1–9', v: '1–9' }, { c: 'A', v: '10' }, { c: 'E', v: '14' }, { c: 'J', v: '19' }, { c: 'Q', v: '26' }, { c: 'U', v: '30' }];
+---
+
+<div class="decoder-box" data-decoder data-text={t('decoder.result')}>
+	<div>
+		<h3>{t('decoder.title')}</h3>
+		<p>{t('decoder.help')}</p>
+		<div class="code-key">{key.map((item) => <span><b>{item.c}</b>{item.v}</span>)}</div>
+		<div class="decode-out">{t('decoder.empty')}</div>
+	</div>
+	<div>
+		<div class="cols6 bars6">
+			{columns.map((column) => (
+				<button type="button" data-c={column.c} data-v={column.v} data-t={column.from + '–' + (column.from + 12) + ' s'}>
+					<span class="v">{column.v}</span>
+					<span class="b" style={'height:' + Math.round(column.v / 31 * 100) + '%'}></span>
+				</button>
+			))}
+		</div>
+		<div class="cols6 letters6">{columns.map((column) => <span>{column.c}</span>)}</div>
+	</div>
+</div>
+
+<script>
+	for (const decoder of document.querySelectorAll<HTMLElement>('[data-decoder]'))
+	{
+		const out = decoder.querySelector('.decode-out') as HTMLElement;
+		const buttons = decoder.querySelectorAll<HTMLButtonElement>('.bars6 button');
+		for (const button of buttons)
+		{
+			button.addEventListener('click', () =>
+			{
+				buttons.forEach((b) => b.classList.toggle('on', b === button));
+				// The text has {c}, {v} and {t} in it, for example "From {t} the signal was {v} times ..."
+				const text = String(decoder.dataset.text)
+					.replace('{t}', String(button.dataset.t))
+					.replaceAll('{v}', String(button.dataset.v));
+				out.innerHTML = '';
+				const big = document.createElement('b');
+				big.textContent = button.dataset.c + ' = ' + button.dataset.v;
+				out.appendChild(big);
+				out.appendChild(document.createTextNode(text));
+			});
+		}
+	}
+</script>

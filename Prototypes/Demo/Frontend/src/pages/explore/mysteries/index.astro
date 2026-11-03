@@ -1,16 +1,24 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import EntryList from '../../../components/EntryList.astro';
+import Scene from '../../../components/Scene.astro';
 import { t } from '../../../i18n/t';
 import { getEntries } from '../../../lib/api';
 
 const mysteries = await getEntries('Mystery');
 ---
 
-<BaseLayout title={t('mysteries.title')}>
-	<h1>{t('mysteries.title')}</h1>
-	<p>{t('mysteries.description')}</p>
+<BaseLayout title={t('mysteries.title')} theme="mysteries">
+	<section class="scene-hero">
+		<Scene name="scene-mysteries" className="" />
+		<div class="copy wrap"><div class="inner">
+			<h1 class="display">{t('mysteries.title')}</h1>
+			<p class="lede">{t('mysteries.description')}</p>
+		</div></div>
+	</section>
 
-	{mysteries.length === 0 && <p>{t('mysteries.empty')}</p>}
-	<EntryList entries={mysteries} basePath="/explore/mysteries" />
+	<section class="wrap" style="padding-top:40px">
+		{mysteries.length === 0 && <p class="lede">{t('mysteries.empty')}</p>}
+		<EntryList entries={mysteries} basePath="/explore/mysteries" scene="scene-mysteries" more={t('explore.openCase')} />
+	</section>
 </BaseLayout>

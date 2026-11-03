@@ -1,181 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TopicCard from '../components/TopicCard.astro';
-import EntryBadge from '../components/EntryBadge.astro';
+import HomeHeroArt from '../components/HomeHeroArt.astro';
 import { t } from '../i18n/t';
-import { getCatalogue, getEntries, getTopics } from '../lib/api';
-import { formatDistance, formatYears, objectTypeLabel } from '../lib/format';
-
-const topics = await getTopics();
-const missions = await getEntries('Mission');
-const mysteries = await getEntries('Mystery');
-const catalogue = await getCatalogue();
-
-// One random item from a list, or null when the list is empty
-function pickRandom<T>(items: T[]): T | null
-{
-	if (items.length === 0)
-	{
-		return null;
-	}
-	return items[Math.floor(Math.random() * items.length)];
-}
-
-// A different mission, mystery and object on every visit
-const mission = pickRandom(missions);
-const mystery = pickRandom(mysteries);
-const spaceObject = pickRandom(catalogue.items);
-const hasExplore = mission !== null || mystery !== null || spaceObject !== null;
 ---
 
-<BaseLayout title={t('home.title')}>
+<BaseLayout title={t('home.title')} theme="home">
 	<meta slot="head" name="description" content={t('home.description')} />
 
-	<section class="hero">
-		<h1>{t('site.name')}</h1>
-		<p class="full-name">{t('site.fullName')}</p>
-		<p class="tagline">{t('home.tagline')}</p>
-		<div class="actions">
-			<a class="button primary" href="/learn">{t('home.startLearning')}</a>
-			<a class="button" href="/explore">{t('home.explore')}</a>
+	<section class="home-hero">
+		<HomeHeroArt />
+		<div class="copy wrap">
+			<h1>{t('home.heading')}</h1>
+			<p class="lede">{t('home.tagline')}</p>
+			<div class="actions">
+				<a class="btn" href="/learn">{t('home.startLearning')} <span aria-hidden="true">→</span></a>
+				<a class="btn quiet" href="/explore">{t('home.explore')}</a>
+			</div>
 		</div>
 	</section>
-
-	{topics.length > 0 && (
-		<section class="block">
-			<h2>{t('home.learnTitle')}</h2>
-			<div class="cards">
-				{topics.map((topic) => (
-					<TopicCard topic={topic} />
-				))}
-			</div>
-			<p class="more"><a href="/learn">{t('home.learnAll')} →</a></p>
-		</section>
-	)}
-
-	{hasExplore && (
-		<section class="block">
-			<h2>{t('home.exploreTitle')}</h2>
-			<div class="cards">
-				{mission !== null && (
-					<a class="card" href={'/explore/missions/' + mission.slug}>
-						<h3>{mission.title}</h3>
-						<p class="meta">
-							<span>{t('home.mission')}</span>
-							<span>{formatYears(mission.startDate, mission.endDate, mission.missionOutcome === 'Ongoing')}</span>
-							<EntryBadge missionOutcome={mission.missionOutcome} evidenceStatus={null} />
-						</p>
-						<p>{mission.summary}</p>
-					</a>
-				)}
-				{mystery !== null && (
-					<a class="card" href={'/explore/mysteries/' + mystery.slug}>
-						<h3>{mystery.title}</h3>
-						<p class="meta">
-							<span>{t('home.mystery')}</span>
-							<EntryBadge missionOutcome={null} evidenceStatus={mystery.evidenceStatus} />
-						</p>
-						<p>{mystery.summary}</p>
-					</a>
-				)}
-				{spaceObject !== null && (
-					<a class="card" href={'/explore/catalogue/' + spaceObject.slug}>
-						<h3>{spaceObject.name}</h3>
-						<p class="meta">
-							<span>{t('home.object')}</span>
-							<span>{objectTypeLabel(spaceObject.type)}</span>
-							<span>{formatDistance(spaceObject.distanceLy)}</span>
-						</p>
-						<p>{spaceObject.summary}</p>
-					</a>
-				)}
-			</div>
-			<p class="more"><a href="/explore">{t('home.exploreAll')} →</a></p>
-		</section>
-	)}
 </BaseLayout>
 
-<style>
-	.hero {
-		padding: var(--space-5) 0;
-		max-width: 44rem;
-	}
-
-	.hero h1 {
-		margin: 0;
-		font-size: 3rem;
-	}
-
-	.full-name {
-		margin: var(--space-1) 0 0;
-		color: var(--color-muted);
-	}
-
-	.tagline {
-		font-size: 1.25rem;
-	}
-
-	.actions {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-3);
-		margin-top: var(--space-4);
-	}
-
-	.button {
-		display: inline-block;
-		padding: var(--space-2) var(--space-4);
-		border: 1px solid var(--color-border);
-		border-radius: 0.375rem;
-		color: var(--color-text);
-		font-weight: 600;
-		text-decoration: none;
-	}
-
-	.button.primary {
-		border-color: var(--color-link);
-		background: var(--color-link);
-		color: #ffffff;
-	}
-
-	.block {
-		margin-top: var(--space-5);
-	}
-
-	.cards {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-		gap: var(--space-3);
-	}
-
-	.card {
-		display: block;
-		padding: var(--space-4);
-		border: 1px solid var(--color-border);
-		border-radius: 0.5rem;
-		color: var(--color-text);
-		text-decoration: none;
-	}
-
-	.card:hover {
-		background: var(--color-surface);
-	}
-
-
-	.card h3 {
-		margin: 0;
-	}
-
-	.meta {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: var(--space-2);
-		color: var(--color-muted);
-		font-size: 0.875rem;
-	}
-
-	.more {
-		margin-top: var(--space-3);
-	}
+<style is:global>
+	/* The home page is one screen: the picture only, no footer and no scrolling */
+	html:has(.home-hero),
+	html:has(.home-hero) body { height: 100%; overflow: hidden; }
+	.page:has(.home-hero) { min-height: 0; }
+	.page:has(.home-hero) .foot { display: none; }
+	.page:has(.home-hero) .home-hero { height: 100vh; height: 100dvh; min-height: 0; }
 </style>

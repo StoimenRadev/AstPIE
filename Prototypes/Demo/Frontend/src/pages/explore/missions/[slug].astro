@@ -12,6 +12,6 @@ if (entry === null || entry.kind !== 'Mission')
 }
 ---
 
-<BaseLayout title={entry.title}>
-	<EntryPage entry={entry} basePath="/explore/missions" />
+<BaseLayout title={entry.title} theme="missions">
+	<EntryPage entry={entry} basePath="/explore/missions" scene="scene-missions" />
 </BaseLayout>

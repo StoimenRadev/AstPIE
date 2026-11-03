@@ -1,246 +1,150 @@
 ---
-// The page of one mission or mystery: header, timeline, people, chapters, physics link
-import EntryBadge from './EntryBadge.astro';
-import PeopleList from './PeopleList';
-import type { PersonCardData, PeopleLabels } from './PeopleList';
+// The page of one mission or mystery: a photo header, key facts, the story in
+// chapters with a bar to jump between them, the people, pictures and the physics.
+import Chapters from './Chapters.astro';
+import Photo from './Photo.astro';
 import { t } from '../i18n/t';
-import { getPerson } from '../lib/api';
+import { getEntries, getPerson } from '../lib/api';
 import type { Entry } from '../lib/api';
-import { formatDate, formatDateRange, outcomeLabel, statusLabel } from '../lib/format';
-import { renderMarkdown } from '../lib/markdown';
+import { chapterView } from '../lib/chapters';
+import { formatDate, outcomeLabel, statusLabel } from '../lib/format';
+import { countryOf, firstSentence } from '../lib/scenes';
 
 interface Props
 {
 	entry: Entry;
 	// For example "/explore/missions"
 	basePath: string;
+	// The drawing shown where there is no photo
+	scene: string;
 }
 
-const { entry, basePath } = Astro.props;
+const { entry, basePath, scene } = Astro.props;
+const isMission = entry.kind === 'Mission';
 
-// Everything the people cards show is loaded here, on the server
-const people: PersonCardData[] = [];
+const chapters = entry.chapters.map((chapter, index) => chapterView(index, chapter.title, chapter.summary, chapter.body));
+
+// The people, with their photo and a short bio
+const people = [];
 for (const link of entry.people)
 {
 	const person = await getPerson(link.personId);
-
-	let lifespan = '';
-	if (person.birthDate !== null)
-	{
-		lifespan = t('person.born') + ' ' + formatDate(person.birthDate);
-		if (person.deathDate !== null)
-		{
-			lifespan = lifespan + ' · ' + t('person.died') + ' ' + formatDate(person.deathDate);
-		}
-	}
-
-	const otherEntries = [];
-	for (const other of person.entries)
-	{
-		if (other.slug !== entry.slug)
-		{
-			let section = '/explore/missions/';
-			if (other.kind === 'Mystery')
-			{
-				section = '/explore/mysteries/';
-			}
-			otherEntries.push({ href: section + other.slug, title: other.title, role: other.role });
-		}
-	}
-
-	people.push({
-		id: person.id,
-		fullName: person.fullName,
-		role: link.role,
-		isCrew: link.isCrew,
-		photoUrl: person.photoUrl,
-		nationality: person.nationality,
-		lifespan: lifespan,
-		bio: person.bio,
-		otherEntries: otherEntries
-	});
+	people.push({ name: person.fullName, role: link.role, photoUrl: person.photoUrl, bio: firstSentence(person.bio).first });
 }
 
-const peopleLabels: PeopleLabels = {
-	crew: t('entry.crew'),
-	nationality: t('person.nationality'),
-	otherEntries: t('person.otherEntries'),
-	close: t('common.close')
-};
-
-let factLabel = t('entry.outcome');
-let factValue = '';
+// Key facts under the header
+const facts = [];
+if (entry.agency !== null)
+{
+	facts.push({ label: t('entry.agency'), value: entry.agency });
+}
+if (entry.startDate !== null)
+{
+	let label = t('entry.launched');
+	if (!isMission)
+	{
+		label = t('entry.detected');
+	}
+	facts.push({ label: label, value: formatDate(entry.startDate) });
+}
+if (entry.endDate !== null)
+{
+	facts.push({ label: t('entry.ended'), value: formatDate(entry.endDate) });
+}
 if (entry.missionOutcome !== null)
 {
-	factValue = outcomeLabel(entry.missionOutcome);
+	facts.push({ label: t('entry.outcome'), value: outcomeLabel(entry.missionOutcome) });
 }
 if (entry.evidenceStatus !== null)
 {
-	factLabel = t('entry.status');
-	factValue = statusLabel(entry.evidenceStatus);
+	facts.push({ label: t('entry.status'), value: statusLabel(entry.evidenceStatus) });
 }
 
-const chapters = [];
-for (let i = 0; i < entry.chapters.length; i++)
+let countryColour = '';
+const country = countryOf(entry.agency);
+if (country === 'ussr')
 {
-	const chapter = entry.chapters[i];
-	chapters.push({
-		id: 'chapter-' + (i + 1),
-		title: chapter.title,
-		dateLabel: chapter.dateLabel,
-		bodyHtml: renderMarkdown(chapter.body)
-	});
+	countryColour = 'var(--ussr)';
+}
+if (country === 'usa')
+{
+	countryColour = 'var(--usa)';
+}
+
+// Other stories of the same kind
+const others = (await getEntries(entry.kind)).filter((e) => e.slug !== entry.slug).slice(0, 3);
+
+let allLabel = t('entry.allMissions');
+if (!isMission)
+{
+	allLabel = t('entry.allMysteries');
 }
 ---
 
-<article>
-	<p class="back"><a href={basePath}>← {t('entry.back')}</a></p>
-
-	<header>
-		<h1>{entry.title}</h1>
-		<p class="summary">{entry.summary}</p>
-
-		<dl class="facts">
-			{entry.startDate !== null && (
-				<div>
-					<dt>{t('entry.dates')}</dt>
-					<dd>{formatDateRange(entry.startDate, entry.endDate, entry.missionOutcome === 'Ongoing')}</dd>
-				</div>
-			)}
-			{entry.agency !== null && (
-				<div>
-					<dt>{t('entry.agency')}</dt>
-					<dd>{entry.agency}</dd>
-				</div>
-			)}
-			{factValue !== '' && (
-				<div>
-					<dt>{factLabel}</dt>
-					<dd><EntryBadge missionOutcome={entry.missionOutcome} evidenceStatus={entry.evidenceStatus} /></dd>
-				</div>
-			)}
+<section class="story-hero wrap">
+	<a class="back" href={basePath}>← {allLabel}</a>
+	<div class="grid">
+		<div>
+			<h1 class="title">{entry.title}</h1>
+			<p class="lede">{entry.summary}</p>
+			{countryColour !== '' && <div class="tagline"><span><span class="dot" style={'background:' + countryColour}></span>{entry.agency}</span></div>}
+		</div>
+		<div class="hero-photo"><Photo src={entry.coverImageUrl} scene={scene} className="" /></div>
+	</div>
+	{facts.length > 0 && (
+		<dl class="sheet">
+			{facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
 		</dl>
-	</header>
+	)}
+</section>
 
-	{chapters.length > 0 && (
-		<section>
-			<h2>{t('entry.timeline')}</h2>
-			<ol class="timeline">
-				{chapters.map((chapter) => (
-					<li>
-						<span class="when">{chapter.dateLabel}</span>
-						<a href={'#' + chapter.id}>{chapter.title}</a>
-					</li>
+<Chapters chapters={chapters} simulations={[]} />
+
+{people.length > 0 && (
+	<section class="ch" id="people">
+		<div class="ch-head"><span class="ch-num">{String(chapters.length + 1).padStart(2, '0')}</span><div><h2>{t('entry.people')}</h2></div></div>
+		<div class="wide">
+			<div class="people">
+				{people.map((person) => (
+					<div class="person">
+						<Photo src={person.photoUrl} scene={scene} className="" />
+						<div><h4>{person.name}</h4><div class="role">{person.role}</div><p>{person.bio}</p></div>
+					</div>
 				))}
-			</ol>
-		</section>
-	)}
+			</div>
+		</div>
+	</section>
+)}
 
-	{people.length > 0 && (
-		<section>
-			<h2>{t('entry.people')}</h2>
-			<PeopleList client:load people={people} labels={peopleLabels} />
-		</section>
-	)}
+{entry.media.length > 0 && (
+	<section class="wrap" style="padding-top:120px">
+		<div class="section-title"><div><h2>{t('entry.media')}</h2></div></div>
+		<div class="pair">
+			{entry.media.map((media) => (
+				<figure>
+					{media.type === 'Image' && <Photo src={media.url} scene={scene} className="r43" />}
+					{media.type === 'Video' && <video class="photo r43" src={media.url} controls></video>}
+					{(media.type === 'Audio' || media.type === 'Signal') && <audio src={media.url} controls style="width:100%"></audio>}
+					<figcaption><b>{media.title}.</b> {media.caption} {media.credit}</figcaption>
+				</figure>
+			))}
+		</div>
+	</section>
+)}
 
-	{chapters.map((chapter) => (
-		<section class="chapter" id={chapter.id}>
-			<h2>{chapter.title}</h2>
-			{chapter.dateLabel !== null && <p class="when">{chapter.dateLabel}</p>}
-			<div set:html={chapter.bodyHtml} />
-		</section>
-	))}
+{entry.relatedTopic !== null && (
+	<section class="wrap" style="padding-top:120px">
+		<div class="section-title"><div><h2>{t('entry.physics')}</h2><p>{t('entry.physicsText')}</p></div><a class="more" href={'/learn/' + entry.relatedTopic.slug}>{entry.relatedTopic.title} →</a></div>
+	</section>
+)}
 
-	{entry.media.length > 0 && (
-		<section>
-			<h2>{t('entry.media')}</h2>
-			<ul>
-				{entry.media.map((media) => (
-					<li><a href={media.url}>{media.title}</a></li>
-				))}
-			</ul>
-		</section>
-	)}
-
-	{entry.relatedTopic !== null && (
-		<section class="physics">
-			<h2>{t('entry.physics')}</h2>
-			<a href={'/learn/' + entry.relatedTopic.slug}>{entry.relatedTopic.title} →</a>
-		</section>
-	)}
-</article>
-
-<style>
-	article {
-		max-width: 44rem;
-	}
-
-	.back {
-		margin: 0;
-		font-size: 0.875rem;
-	}
-
-	.summary {
-		font-size: 1.25rem;
-		color: var(--color-muted);
-	}
-
-	.facts {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-4);
-		margin: var(--space-4) 0 0;
-	}
-
-	.facts dt {
-		color: var(--color-muted);
-		font-size: 0.8125rem;
-	}
-
-	.facts dd {
-		margin: 0;
-		font-weight: 600;
-	}
-
-	section {
-		margin-top: var(--space-5);
-	}
-
-	.timeline {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		border-left: 2px solid var(--color-border);
-	}
-
-	.timeline li {
-		position: relative;
-		padding: 0 0 var(--space-3) var(--space-4);
-	}
-
-	/* A dot on the line for each chapter */
-	.timeline li::before {
-		content: '';
-		position: absolute;
-		left: -6px;
-		top: 0.45em;
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		background: var(--color-link);
-	}
-
-	.when {
-		display: block;
-		color: var(--color-muted);
-		font-size: 0.875rem;
-	}
-
-	.chapter .when {
-		margin-top: calc(-1 * var(--space-2));
-	}
-
-	.physics a {
-		font-weight: 600;
-	}
-</style>
+{others.length > 0 && (
+	<section class="wrap after">
+		<div class="section-title"><div><h2>{t('entry.keepExploring')}</h2></div><a class="more" href={basePath}>{allLabel} →</a></div>
+		<div class="tiles">
+			{others.map((other) => (
+				<a class="tile" href={basePath + '/' + other.slug}><Photo src={other.coverImageUrl} scene={scene} className="" /><h4>{other.title}</h4><p>{other.summary}</p></a>
+			))}
+		</div>
+	</section>
+)}

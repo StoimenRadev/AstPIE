@@ -1,71 +1,39 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Photo from '../../../components/Photo.astro';
+import Scene from '../../../components/Scene.astro';
 import { t } from '../../../i18n/t';
 import { getCatalogue } from '../../../lib/api';
-import { formatDistance, objectTypeLabel } from '../../../lib/format';
+import { formatDistance, formatValue, objectTypeLabel } from '../../../lib/format';
 
 // A simple list for now. Search, filters and pages come when there are more objects
 // (the API already supports them).
 const catalogue = await getCatalogue();
 ---
 
-<BaseLayout title={t('catalogue.title')}>
-	<h1>{t('catalogue.title')}</h1>
-	<p>{t('catalogue.description')}</p>
+<BaseLayout title={t('catalogue.title')} theme="catalogue">
+	<section class="scene-hero">
+		<Scene name="scene-catalogue" className="" />
+		<div class="copy wrap"><div class="inner">
+			<h1 class="display">{t('catalogue.title')}</h1>
+			<p class="lede">{t('catalogue.description')}</p>
+		</div></div>
+	</section>
 
-	{catalogue.items.length === 0 && <p>{t('catalogue.empty')}</p>}
-
-	<div class="cards">
-		{catalogue.items.map((item) => (
-			<a class="card" href={'/explore/catalogue/' + item.slug}>
-				<h2>{item.name}</h2>
-				<p class="meta">
-					<span>{objectTypeLabel(item.type)}</span>
-					{item.constellation !== null && <span>{item.constellation}</span>}
-					<span>{formatDistance(item.distanceLy)}</span>
-				</p>
-				<p class="summary">{item.summary}</p>
-			</a>
-		))}
-	</div>
+	<section class="wrap" style="padding-top:40px">
+		{catalogue.items.length === 0 && <p class="lede">{t('catalogue.empty')}</p>}
+		<div class="cards">
+			{catalogue.items.map((item) => (
+				<a class="card obj-card" href={'/explore/catalogue/' + item.slug}>
+					<Photo src={item.imageUrl} scene="scene-catalogue" className="" />
+					<h3>{item.name}</h3>
+					<div class="facts">
+						<span><b>{objectTypeLabel(item.type)}</b>{t('catalogue.type')}</span>
+						<span><b>{formatValue(item.constellation)}</b>{t('catalogue.constellation')}</span>
+						<span><b>{formatDistance(item.distanceLy)}</b>{t('catalogue.distance')}</span>
+					</div>
+				</a>
+			))}
+		</div>
+	</section>
 </BaseLayout>
-
-<style>
-	.cards {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-		gap: var(--space-3);
-		margin-top: var(--space-4);
-	}
-
-	.card {
-		display: block;
-		padding: var(--space-4);
-		border: 1px solid var(--color-border);
-		border-radius: 0.5rem;
-		color: var(--color-text);
-		text-decoration: none;
-	}
-
-	.card:hover {
-		background: var(--color-surface);
-	}
-
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-	}
-
-	.meta {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-1) var(--space-3);
-		margin: var(--space-2) 0;
-		color: var(--color-muted);
-		font-size: 0.875rem;
-	}
-
-	.summary {
-		margin: 0;
-	}
-</style>

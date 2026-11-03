@@ -2,58 +2,22 @@
 import { t } from '../i18n/t';
 
 const path = Astro.url.pathname;
-const isLearn = path.startsWith('/learn');
-const isExplore = path.startsWith('/explore');
+
+// The menu item of the section the page belongs to is underlined
+const links = [
+	{ href: '/learn', label: t('nav.learn'), on: path.startsWith('/learn') },
+	{ href: '/explore', label: t('nav.explore'), on: path.startsWith('/explore') }
+];
 ---
 
-<header>
-	<div class="container bar">
-		<a class="logo" href="/">{t('site.name')}</a>
-		<nav>
-			<a href="/learn" class:list={{ active: isLearn }}>{t('nav.learn')}</a>
-			<a href="/explore" class:list={{ active: isExplore }}>{t('nav.explore')}</a>
+<header class="top" id="top">
+	<div class="wrap">
+		<a class="logo" href="/">
+			<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="9" fill="#E8A54B"></circle><ellipse cx="15" cy="15" rx="14" ry="4.5" fill="none" stroke="#EDE6D8" stroke-width="2" transform="rotate(-20 15 15)"></ellipse></svg>
+			{t('site.name')}
+		</a>
+		<nav class="nav">
+			{links.map((link) => <a href={link.href} class:list={{ on: link.on }}>{link.label}</a>)}
 		</nav>
 	</div>
 </header>
-
-<style>
-	header {
-		border-bottom: 1px solid var(--color-border);
-	}
-
-	.bar {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		gap: var(--space-3);
-		padding-top: var(--space-3);
-		padding-bottom: var(--space-3);
-	}
-
-	.logo {
-		font-weight: 700;
-		font-size: 1.25rem;
-		color: var(--color-text);
-		text-decoration: none;
-	}
-
-	nav {
-		display: flex;
-		gap: var(--space-4);
-	}
-
-	nav a {
-		color: var(--color-muted);
-		text-decoration: none;
-	}
-
-	nav a:hover,
-	nav a.active {
-		color: var(--color-text);
-	}
-
-	nav a.active {
-		font-weight: 600;
-	}
-</style>

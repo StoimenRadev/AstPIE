@@ -1,0 +1,163 @@
+---
+// A radio dial to find Sputnik 1's beep. It sent on 20.005 and 40.002 MHz.
+import { t } from '../../i18n/t';
+
+const labels = [15, 20, 25, 30, 35, 40];
+const ticks = [];
+for (let i = 0; i <= 58; i++)
+{
+	let height = 14;
+	if (i % 10 === 0)
+	{
+		height = 30;
+	}
+	else if (i % 5 === 0)
+	{
+		height = 22;
+	}
+	ticks.push({ x: 20 + i * 10, height: height });
+}
+---
+
+<div class="receiver" data-radio data-found={t('radio.found')} data-near={t('radio.near')} data-faint={t('radio.faint')} data-static={t('radio.static')} data-listen={t('radio.listen')} data-stop={t('radio.stop')}>
+	<div>
+		<div class="dial">
+			<svg viewBox="0 0 600 72" aria-hidden="true">
+				<g stroke="#3A2A2F">
+					{ticks.map((tick) => <line x1={tick.x} y1="4" x2={tick.x} y2={4 + tick.height} stroke-width="2"></line>)}
+				</g>
+				<g font-family="Sofia Sans, sans-serif" font-weight="800" font-size="15" fill="#3A2A2F" text-anchor="middle">
+					{labels.map((label, i) => <text x={20 + i * 100} y="68">{label}</text>)}
+					<text x="580" y="68">MHz</text>
+				</g>
+				<rect class="needle" x="319" y="0" width="3" height="52" fill="#C4553F"></rect>
+			</svg>
+			<div class="readout"><b class="freq">30.000</b><span>MHz</span></div>
+		</div>
+		<input class="tuner" type="range" min="15" max="44" step="0.001" value="30" aria-label={t('radio.frequency')} />
+	</div>
+	<div>
+		<div class="bars"><span style="height:20%"></span><span style="height:35%"></span><span style="height:50%"></span><span style="height:65%"></span><span style="height:80%"></span><span style="height:100%"></span></div>
+		<p class="signal-word">{t('radio.static')}</p>
+		<p class="signal-help">{t('radio.help')}</p>
+		<button type="button" class="btn listen">{t('radio.listen')}</button>
+	</div>
+</div>
+
+<script>
+	interface Sound
+	{
+		context: AudioContext;
+		noise: GainNode;
+		timer: number;
+	}
+
+	for (const radio of document.querySelectorAll<HTMLElement>('[data-radio]'))
+	{
+		const tuner = radio.querySelector('.tuner') as HTMLInputElement;
+		const freq = radio.querySelector('.freq') as HTMLElement;
+		const needle = radio.querySelector('.needle') as SVGRectElement;
+		const word = radio.querySelector('.signal-word') as HTMLElement;
+		const bars = radio.querySelectorAll('.bars span');
+		const listen = radio.querySelector('.listen') as HTMLButtonElement;
+		let strength = 0;
+		let sound: Sound | null = null;
+
+		function tune()
+		{
+			const f = Number(tuner.value);
+			freq.textContent = f.toFixed(3);
+			needle.setAttribute('x', (20 + (f - 15) * 20 - 1.5).toFixed(1));
+			const distance = Math.min(Math.abs(f - 20.005), Math.abs(f - 40.002));
+			strength = 0;
+			if (distance < 0.6)
+			{
+				strength = 1 - distance / 0.6;
+			}
+			bars.forEach((bar, i) => bar.classList.toggle('on', strength > i / bars.length));
+			if (strength > 0.95)
+			{
+				word.textContent = String(radio.dataset.found);
+			}
+			else if (strength > 0.3)
+			{
+				word.textContent = String(radio.dataset.near);
+			}
+			else if (strength > 0)
+			{
+				word.textContent = String(radio.dataset.faint);
+			}
+			else
+			{
+				word.textContent = String(radio.dataset.static);
+			}
+			if (sound !== null)
+			{
+				sound.noise.gain.value = 0.1 * (1 - strength) + 0.02;
+			}
+		}
+
+		function start()
+		{
+			const context = new AudioContext();
+			const buffer = context.createBuffer(1, context.sampleRate * 2, context.sampleRate);
+			const samples = buffer.getChannelData(0);
+			for (let i = 0; i < samples.length; i++)
+			{
+				samples[i] = Math.random() * 2 - 1;
+			}
+			const source = context.createBufferSource();
+			source.buffer = buffer;
+			source.loop = true;
+			const noise = context.createGain();
+			source.connect(noise).connect(context.destination);
+			source.start();
+
+			// Sputnik's pulse: about 0.3 s on, 0.3 s off
+			const tone = context.createOscillator();
+			tone.frequency.value = 880;
+			const beep = context.createGain();
+			beep.gain.value = 0;
+			tone.connect(beep).connect(context.destination);
+			tone.start();
+			let on = false;
+			const timer = window.setInterval(() =>
+			{
+				on = !on;
+				if (on)
+				{
+					beep.gain.value = 0.25 * strength;
+				}
+				else
+				{
+					beep.gain.value = 0;
+				}
+			}, 300);
+			sound = { context: context, noise: noise, timer: timer };
+			listen.textContent = String(radio.dataset.stop);
+			tune();
+		}
+
+		function stop(current: Sound)
+		{
+			window.clearInterval(current.timer);
+			current.context.close();
+			sound = null;
+			listen.textContent = String(radio.dataset.listen);
+		}
+
+		listen.addEventListener('click', () =>
+		{
+			if (sound === null)
+			{
+				start();
+			}
+			else
+			{
+				stop(sound);
+			}
+		});
+		tuner.addEventListener('input', tune);
+		tune();
+	}
+</script>

@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Chapters from '../../../components/Chapters.astro';
+import Photo from '../../../components/Photo.astro';
 import { t } from '../../../i18n/t';
-import { getCatalogueObject } from '../../../lib/api';
+import { getCatalogue, getCatalogueObject } from '../../../lib/api';
+import { splitMarkdown } from '../../../lib/chapters';
 import { formatDistance, formatMass, formatRadius, formatValue, objectTypeLabel } from '../../../lib/format';
-import { renderMarkdown } from '../../../lib/markdown';
 
 const item = await getCatalogueObject(String(Astro.params.slug));
 if (item === null)
@@ -11,95 +13,57 @@ if (item === null)
 	return Astro.rewrite('/404');
 }
 
-// Every fact is shown; values that are not known say so instead of being left out
+// The key facts under the header; values that are not known say so
 const facts = [
 	{ label: t('catalogue.type'), value: objectTypeLabel(item.type) },
-	{ label: t('catalogue.otherNames'), value: formatValue(item.otherNames) },
 	{ label: t('catalogue.constellation'), value: formatValue(item.constellation) },
 	{ label: t('catalogue.distance'), value: formatDistance(item.distanceLy) },
 	{ label: t('catalogue.mass'), value: formatMass(item.massKg, item.type) },
 	{ label: t('catalogue.radius'), value: formatRadius(item.radiusKm, item.type) },
-	{ label: t('catalogue.magnitude'), value: formatValue(item.apparentMagnitude) },
+	{ label: t('catalogue.otherNames'), value: formatValue(item.otherNames) },
 	{ label: t('catalogue.discoveredBy'), value: formatValue(item.discoveredBy) },
 	{ label: t('catalogue.discoveryYear'), value: formatValue(item.discoveryYear) }
 ];
 
-const descriptionHtml = renderMarkdown(item.description);
+// The description is cut into chapters at its "## " titles
+const content = splitMarkdown(item.description);
+
+const others = (await getCatalogue()).items.filter((o) => o.slug !== item.slug).slice(0, 3);
 ---
 
-<BaseLayout title={item.name}>
-	<article>
-		<p class="back"><a href="/explore/catalogue">← {t('entry.back')}</a></p>
-		<h1>{item.name}</h1>
-		<p class="summary">{item.summary}</p>
+<BaseLayout title={item.name} theme="catalogue">
+	<section class="story-hero wrap">
+		<a class="back" href="/explore/catalogue">← {t('entry.allObjects')}</a>
+		<div class="grid">
+			<div>
+				<h1 class="title">{item.name}</h1>
+				<p class="lede">{item.summary}</p>
+				<div class="tagline"><span>{objectTypeLabel(item.type)}</span>{item.constellation !== null && <span>{item.constellation}</span>}{item.discoveryYear !== null && <span>{item.discoveryYear}</span>}</div>
+			</div>
+			<div class="hero-photo"><Photo src={item.imageUrl} scene="scene-catalogue" className="" /></div>
+		</div>
+		<dl class="sheet">
+			{facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
+		</dl>
+	</section>
 
-		<table class="facts">
-			<tbody>
-				{facts.map((fact) => (
-					<tr>
-						<th scope="row">{fact.label}</th>
-						<td>{fact.value}</td>
-					</tr>
+	<Chapters chapters={content.chapters} simulations={[]} />
+	{content.chapters.length === 0 && <section class="wrap" style="padding-top:80px"><div class="read" set:html={content.intro} /></section>}
+
+	{item.relatedTopic !== null && (
+		<section class="wrap" style="padding-top:120px">
+			<div class="section-title"><div><h2>{t('entry.physics')}</h2><p>{t('entry.physicsText')}</p></div><a class="more" href={'/learn/' + item.relatedTopic.slug}>{item.relatedTopic.title} →</a></div>
+		</section>
+	)}
+
+	{others.length > 0 && (
+		<section class="wrap after">
+			<div class="section-title"><div><h2>{t('entry.keepExploring')}</h2></div><a class="more" href="/explore/catalogue">{t('entry.allObjects')} →</a></div>
+			<div class="tiles">
+				{others.map((other) => (
+					<a class="tile" href={'/explore/catalogue/' + other.slug}><Photo src={other.imageUrl} scene="scene-catalogue" className="" /><h4>{other.name}</h4><p>{other.summary}</p></a>
 				))}
-			</tbody>
-		</table>
-
-		<div class="description" set:html={descriptionHtml} />
-
-		{item.relatedTopic !== null && (
-			<section class="physics">
-				<h2>{t('entry.physics')}</h2>
-				<a href={'/learn/' + item.relatedTopic.slug}>{item.relatedTopic.title} →</a>
-			</section>
-		)}
-	</article>
+			</div>
+		</section>
+	)}
 </BaseLayout>
-
-<style>
-	article {
-		max-width: 44rem;
-	}
-
-	.back {
-		margin: 0;
-		font-size: 0.875rem;
-	}
-
-	.summary {
-		font-size: 1.25rem;
-		color: var(--color-muted);
-	}
-
-	.facts {
-		width: 100%;
-		margin-top: var(--space-4);
-		border-collapse: collapse;
-	}
-
-	.facts th,
-	.facts td {
-		padding: var(--space-2) 0;
-		border-bottom: 1px solid var(--color-border);
-		text-align: left;
-		vertical-align: top;
-	}
-
-	.facts th {
-		width: 45%;
-		padding-right: var(--space-3);
-		color: var(--color-muted);
-		font-weight: 400;
-	}
-
-	.description {
-		margin-top: var(--space-5);
-	}
-
-	.physics {
-		margin-top: var(--space-5);
-	}
-
-	.physics a {
-		font-weight: 600;
-	}
-</style>

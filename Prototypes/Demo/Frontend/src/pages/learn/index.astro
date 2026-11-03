@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TopicCard from '../../components/TopicCard.astro';
+import Scene from '../../components/Scene.astro';
+import Photo from '../../components/Photo.astro';
 import { t } from '../../i18n/t';
 import { getTopics } from '../../lib/api';
 import type { TopicListItem } from '../../lib/api';
+import { branchScene, firstSentence, topicScene } from '../../lib/scenes';
 
 interface Branch
 {
@@ -27,33 +29,49 @@ for (const topic of topics)
 }
 ---
 
-<BaseLayout title={t('learn.title')}>
-	<h1>{t('learn.title')}</h1>
-	<p>{t('learn.intro')}</p>
+<BaseLayout title={t('learn.title')} theme="learn">
+	<section class="scene-hero">
+		<Scene name="scene-learn" className="" />
+		<div class="copy wrap"><div class="inner">
+			<h1 class="display">{t('learn.title')}</h1>
+			<p class="lede">{t('learn.intro')}</p>
+		</div></div>
+	</section>
 
-	{topics.length === 0 && <p>{t('learn.empty')}</p>}
+	{topics.length === 0 && <section class="wrap"><p class="lede">{t('learn.empty')}</p></section>}
 
 	{branches.map((branch) => (
-		<section>
-			<h2>{branch.name}</h2>
-			<div class="topics">
-				{branch.topics.map((topic) => (
-					<TopicCard topic={topic} />
-				))}
+		<section class="wrap" style="padding-top:40px">
+			<div class="branch-head">
+				<div>
+					<h2>{branch.name}</h2>
+					<p><span class="accent" style="font-weight:800">{branch.topics.length} {t('learn.count')}</span><span class="soft"> · {t('learn.topics')}</span></p>
+				</div>
+				<Photo src="" scene={branchScene(branch.name)} className="" />
+			</div>
+
+			<div class="cards">
+				{branch.topics.map((topic, index) => {
+					const text = firstSentence(topic.summary);
+					return (
+						<a class="law-card" href={'/learn/' + topic.slug}>
+							<Photo src="" scene={topicScene(topic.slug, topic.branch)} className="" />
+							<h3>{topic.title}</h3>
+							<p class="idea">{text.first}</p>
+							{text.rest !== '' && <p>{text.rest}</p>}
+							<div class="meta"><span>{String(index + 1).padStart(2, '0')}</span><span class="sim">▶ {t('learn.simulation')}</span></div>
+						</a>
+					);
+				})}
 			</div>
 		</section>
 	))}
+
+	<section class="wrap">
+		<div class="how">
+			<div><b>{t('learn.readTitle')}</b><span>{t('learn.readText')}</span></div>
+			<div><b>{t('learn.playTitle')}</b><span>{t('learn.playText')}</span></div>
+			<div><b>{t('learn.spaceTitle')}</b><span>{t('learn.spaceText')}</span></div>
+		</div>
+	</section>
 </BaseLayout>
-
-<style>
-	section {
-		margin-top: var(--space-5);
-	}
-
-	.topics {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-		gap: var(--space-3);
-	}
-
-</style>

@@ -1,16 +1,55 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import EntryList from '../../../components/EntryList.astro';
+import Scene from '../../../components/Scene.astro';
 import { t } from '../../../i18n/t';
 import { getEntries } from '../../../lib/api';
 
 const missions = await getEntries('Mission');
 ---
 
-<BaseLayout title={t('missions.title')}>
-	<h1>{t('missions.title')}</h1>
-	<p>{t('missions.description')}</p>
+<BaseLayout title={t('missions.title')} theme="missions">
+	<section class="scene-hero">
+		<Scene name="scene-missions" className="" />
+		<div class="copy wrap"><div class="inner">
+			<h1 class="display">{t('missions.title')}</h1>
+			<p class="lede">{t('missions.description')}</p>
+		</div></div>
+	</section>
 
-	{missions.length === 0 && <p>{t('missions.empty')}</p>}
-	<EntryList entries={missions} basePath="/explore/missions" />
+	<section class="wrap">
+		<div class="filterbar">
+			<div class="seg" role="group" id="country-filter">
+				<button type="button" class="on" data-f="all">{t('explore.all')}</button>
+				<button type="button" data-f="ussr"><span class="dot" style="background:var(--ussr)"></span>{t('explore.ussr')}</button>
+				<button type="button" data-f="usa"><span class="dot" style="background:var(--usa)"></span>{t('explore.usa')}</button>
+			</div>
+		</div>
+		{missions.length === 0 && <p class="lede">{t('missions.empty')}</p>}
+		<EntryList entries={missions} basePath="/explore/missions" scene="scene-missions" more={t('explore.readMission')} />
+	</section>
 </BaseLayout>
+
+<script>
+	// Show only the missions of one country
+	const group = document.getElementById('country-filter');
+	if (group !== null)
+	{
+		const buttons = group.querySelectorAll<HTMLButtonElement>('button');
+		for (const button of buttons)
+		{
+			button.addEventListener('click', () =>
+			{
+				buttons.forEach((b) => b.classList.toggle('on', b === button));
+				for (const card of document.querySelectorAll<HTMLElement>('[data-cards] .card'))
+				{
+					card.style.display = '';
+					if (button.dataset.f !== 'all' && card.dataset.country !== button.dataset.f)
+					{
+						card.style.display = 'none';
+					}
+				}
+			});
+		}
+	}
+</script>
