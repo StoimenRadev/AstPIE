@@ -218,14 +218,71 @@ export interface CatalogueObject
 	relatedTopic: TopicLink | null;
 }
 
-// GET /api/catalogue: the first page, as many objects as the API allows (50).
-// Search, filters and more pages come later, when there are more objects.
-export async function getCatalogue(): Promise<CataloguePage>
+// What the catalogue page asks for. Empty strings and 0 mean "not set".
+export interface CatalogueQuery
 {
-	const response = await fetch(API_URL + '/api/catalogue?pageSize=50');
+	search: string;
+	type: string;
+	constellation: string;
+	minDistance: number;
+	maxDistance: number;
+	page: number;
+	pageSize: number;
+}
+
+// GET /api/catalogue?search=...&type=...&constellation=...&minDistance=...&maxDistance=...&page=...
+export async function getCatalogue(query: CatalogueQuery): Promise<CataloguePage>
+{
+	const params = new URLSearchParams();
+	if (query.search !== '')
+	{
+		params.set('search', query.search);
+	}
+	if (query.type !== '')
+	{
+		params.set('type', query.type);
+	}
+	if (query.constellation !== '')
+	{
+		params.set('constellation', query.constellation);
+	}
+	if (query.minDistance > 0)
+	{
+		params.set('minDistance', String(query.minDistance));
+	}
+	if (query.maxDistance > 0)
+	{
+		params.set('maxDistance', String(query.maxDistance));
+	}
+	params.set('page', String(query.page));
+	params.set('pageSize', String(query.pageSize));
+	const response = await fetch(API_URL + '/api/catalogue?' + params.toString());
 	if (!response.ok)
 	{
 		throw new Error('API error ' + response.status + ' for /api/catalogue');
+	}
+	return await response.json();
+}
+
+// The first page of everything, for lists that show only a few objects
+export async function getAllCatalogue(): Promise<CataloguePage>
+{
+	return await getCatalogue({ search: '', type: '', constellation: '', minDistance: 0, maxDistance: 0, page: 1, pageSize: 50 });
+}
+
+export interface CatalogueFilters
+{
+	types: string[];
+	constellations: string[];
+}
+
+// GET /api/catalogue/filters: the types and constellations that are in use
+export async function getCatalogueFilters(): Promise<CatalogueFilters>
+{
+	const response = await fetch(API_URL + '/api/catalogue/filters');
+	if (!response.ok)
+	{
+		throw new Error('API error ' + response.status + ' for /api/catalogue/filters');
 	}
 	return await response.json();
 }

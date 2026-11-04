@@ -1,13 +1,11 @@
 import { renderMarkdown } from './markdown';
 
-// A long page is shown in chapters, with a bar at the top to jump between them.
+// A long page is shown in parts, with a route at the side to jump between them.
 
 export interface ChapterView
 {
 	// For example "chapter-3"
 	id: string;
-	// "01", "02" ...
-	number: string;
 	title: string;
 	// One sentence under the title
 	summary: string;
@@ -51,17 +49,11 @@ function splitParts(html: string): ChapterPart[]
 	return parts;
 }
 
-function chapterNumber(index: number): string
-{
-	return String(index + 1).padStart(2, '0');
-}
-
 // One chapter from the database (missions and mysteries)
 export function chapterView(index: number, title: string, summary: string, body: string): ChapterView
 {
 	return {
 		id: 'chapter-' + (index + 1),
-		number: chapterNumber(index),
 		title: title,
 		summary: summary,
 		parts: splitParts(renderMarkdown(body))
@@ -105,11 +97,24 @@ export function splitMarkdown(text: string): { intro: string; chapters: ChapterV
 	{
 		chapters.push({
 			id: 'chapter-' + (i + 1),
-			number: chapterNumber(i),
 			title: blocks[i].title,
 			summary: blocks[i].summary,
 			parts: splitParts(renderMarkdown(blocks[i].lines.join('\n')))
 		});
 	}
 	return { intro: renderMarkdown(intro.join('\n')), chapters: chapters };
+}
+
+// True when one of the chapter's parts is the simulation
+export function hasSimulation(chapter: ChapterView): boolean
+{
+	return chapter.parts.some((part) => part.kind === 'simulation');
+}
+
+// The chapters with the simulation moved to the end: a topic ends with trying it
+export function simulationLast(chapters: ChapterView[]): ChapterView[]
+{
+	const others = chapters.filter((chapter) => !hasSimulation(chapter));
+	const withSimulation = chapters.filter((chapter) => hasSimulation(chapter));
+	return others.concat(withSimulation);
 }

@@ -160,131 +160,326 @@ if (!isNew)
 }
 
 const here = listLink + '/' + id;
+
+// ---------- The tabs of the editor ----------
+
+interface Tab
+{
+	id: string;
+	title: string;
+	hint: string;
+	appears: string;
+	// The fields of this tab; empty for a tab that lists child rows
+	fields: string[];
+	// Set for a tab that lists parts, people or images
+	child: ChildSection | null;
+	// true when something in the tab still needs filling in
+	warn: boolean;
+}
+
+function isEmpty(name: string): boolean
+{
+	const value = values[name];
+	return value === null || value === undefined || String(value).trim() === '';
+}
+
+const tabs: Tab[] = [];
+let sections = table.sections;
+if (sections.length === 0)
+{
+	sections = [{ title: 'Details', hint: '', appears: '', fields: table.fields.map((f) => f.name) }];
+}
+for (let i = 0; i < sections.length; i++)
+{
+	const sec = sections[i];
+	// A required field that is empty, or a picture that is missing, marks the tab
+	let warn = false;
+	for (const name of sec.fields)
+	{
+		const f = table.fields.find((x) => x.name === name);
+		if (f !== undefined && !isNew && (f.required || f.type === 'file') && isEmpty(name))
+		{
+			warn = true;
+		}
+	}
+	tabs.push({ id: 'tab-' + i, title: sec.title, hint: sec.hint, appears: sec.appears, fields: sec.fields, child: null, warn: warn });
+}
+
+// Child tables become tabs too, placed before "Publishing"
+const CHILD_INFO: Record<string, { hint: string; appears: string }> = {
+	'chapters': { hint: 'The story in order. The order here is the order on the page and in the route.', appears: 'parts' },
+	'entry-people': { hint: 'People are shared between pages. Link someone who already exists, or add a new person first.', appears: 'people' },
+	'media': { hint: 'Shown in the Images part near the end. Give each one a title, a sentence and a credit.', appears: 'media' }
+};
+const childTabs: Tab[] = childSections.map((section, i) =>
+{
+	let info = { hint: '', appears: '' };
+	if (section.table.key in CHILD_INFO)
+	{
+		info = CHILD_INFO[section.table.key];
+	}
+	const warn = section.rows.length === 0 && section.table.key === 'chapters';
+	return { id: 'child-' + i, title: section.table.title, hint: info.hint, appears: info.appears, fields: [], child: section, warn: warn };
+});
+const publishIndex = tabs.findIndex((tab) => tab.title === 'Publishing');
+if (publishIndex === -1)
+{
+	tabs.push(...childTabs);
+}
+else
+{
+	tabs.splice(publishIndex, 0, ...childTabs);
+}
+
+// ---------- Before publishing ----------
+
+const checks: { ok: boolean; text: string }[] = [];
+if (!isNew)
+{
+	for (const f of table.fields)
+	{
+		if (f.type === 'file' && f.name !== 'thumbnailUrl')
+		{
+			checks.push({ ok: !isEmpty(f.name), text: f.label + ' added' });
+		}
+	}
+	for (const section of childSections)
+	{
+		checks.push({ ok: section.rows.length > 0, text: section.rows.length + ' ' + section.table.title.toLowerCase() });
+	}
+	if (table.key === 'topics')
+	{
+		checks.push({ ok: String(values['content']).includes('[[simulation]]'), text: 'The text places the simulation' });
+	}
+	if (table.fields.some((f) => f.name === 'isPublished'))
+	{
+		checks.push({ ok: values['isPublished'] === true, text: 'Published' });
+	}
+}
+
+// The public page of this row, for the "View on the site" link
+let viewLink = '';
+if (!isNew && table.key === 'entries')
+{
+	let section = 'missions';
+	if (values['kind'] === 'Mystery')
+	{
+		section = 'mysteries';
+	}
+	viewLink = '/explore/' + section + '/' + values['slug'];
+}
+if (!isNew && table.key === 'catalogue')
+{
+	viewLink = '/explore/catalogue/' + values['slug'];
+}
+if (!isNew && table.key === 'topics')
+{
+	viewLink = '/learn/' + values['slug'];
+}
+
+function rowLabel(section: ChildSection, row: any): string
+{
+	return section.table.listColumns
+		.filter((name) => name !== section.table.parentField)
+		.map((name) =>
+		{
+			const f = section.table.fields.find((x) => x.name === name);
+			if (f === undefined)
+			{
+				return '';
+			}
+			return displayValue(f, row[name], section.choices);
+		})
+		.filter((text) => text !== '')
+		.join(' · ');
+}
+
+function rowLink(section: ChildSection, row: any): string
+{
+	return '/admin/' + section.table.key + '/' + row.id + '?back=' + encodeURIComponent(here);
+}
+
+function addLink(section: ChildSection): string
+{
+	return '/admin/' + section.table.key + '/new?' + section.table.parentField + '=' + id + '&back=' + encodeURIComponent(here);
+}
+
+let topNote = 'Every tab is saved together.';
+if (isNew)
+{
+	topNote = 'Fill in the tabs from top to bottom, then save.';
+}
 ---
 
 <AdminLayout title={heading} showMenu={true}>
-	<p class="back"><a href={back}>← Back</a></p>
-	<h1>{heading}</h1>
-
-	{message !== '' && <p class="message">{message}</p>}
-
-	<form method="post" enctype="multipart/form-data" class="edit">
-		{table.fields.map((f) => (
-			<FieldInput
-				field={f}
-				value={values[f.name]}
-				error={fieldErrors[f.name] || ''}
-				choices={choices[f.refTable] || []}
-				locked={!isNew && f.lockedOnEdit}
-			/>
-		))}
-		<button type="submit" class="save">Save</button>
-	</form>
-
-	{childSections.map((section) => (
-		<section class="children">
-			<div class="children-top">
-				<h2>{section.table.title}</h2>
-				<a href={'/admin/' + section.table.key + '/new?' + section.table.parentField + '=' + id + '&back=' + encodeURIComponent(here)}>
-					Add {section.table.singular}
-				</a>
+	<a class="back" href={back}>← {table.title}</a>
+	<form method="post" enctype="multipart/form-data" class="ed-form" id="edit-form">
+		<div class="ed-top">
+			<div>
+				<h1>{heading}</h1>
+				<p class="muted">{topNote}</p>
 			</div>
-			{section.rows.length === 0 && <p class="none">None yet.</p>}
-			{section.rows.length > 0 && (
-				<ul>
-					{section.rows.map((row) => (
-						<li>
-							<a href={'/admin/' + section.table.key + '/' + row.id + '?back=' + encodeURIComponent(here)}>
-								{section.table.listColumns
-									.filter((name) => name !== section.table.parentField)
-									.map((name) => {
-										const f = section.table.fields.find((x) => x.name === name);
-										if (f === undefined)
-										{
-											return '';
-										}
-										return displayValue(f, row[name], section.choices);
-									})
-									.join(' · ')}
-							</a>
-						</li>
-					))}
-				</ul>
-			)}
-		</section>
-	))}
+			<button type="submit" class="save">Save</button>
+		</div>
+
+		{message !== '' && <p class="message">{message}</p>}
+
+		<div class="ed">
+			<nav class="ed-nav">
+				{tabs.map((tab, i) => (
+					<button type="button" data-tab={tab.id} data-appears={tab.appears} class:list={{ on: i === 0 }}>{tab.title}<i class:list={{ w: tab.warn }}></i></button>
+				))}
+			</nav>
+
+			<div>
+				{tabs.map((tab, i) => (
+					<section class:list={['pane', { on: i === 0 }]} data-pane={tab.id}>
+						<div class="pnl">
+							<div class="pnl-h"><h2>{tab.title}</h2>{tab.hint !== '' && <p>{tab.hint}</p>}</div>
+							<div class="pnl-b">
+								{table.fields.filter((f) => tab.fields.includes(f.name)).map((f) => (
+									<FieldInput
+										field={f}
+										value={values[f.name]}
+										error={fieldErrors[f.name] || ''}
+										choices={choices[f.refTable] || []}
+										locked={!isNew && f.lockedOnEdit}
+									/>
+								))}
+
+								{tab.child !== null && tab.child.rows.length === 0 && <p class="muted">None yet.</p>}
+								{tab.child !== null && tab.child.rows.length > 0 && (
+									<ol class="rows">
+										{tab.child.rows.map((row) => (
+											<li><a href={rowLink(tab.child as ChildSection, row)}>{rowLabel(tab.child as ChildSection, row)}</a><span>Edit</span></li>
+										))}
+									</ol>
+								)}
+								{tab.child !== null && <a class="addrow" href={addLink(tab.child)}>Add {tab.child.table.singular}</a>}
+							</div>
+						</div>
+					</section>
+				))}
+			</div>
+
+			<aside class="ed-side">
+				{table.pageMap.length > 0 && (
+					<div class="pnl">
+						<h3>Where this appears on the page</h3>
+						<div class="map">
+							{table.pageMap.map((part) => <div class={'a-' + part.area} data-m={part.key}>{part.label}</div>)}
+						</div>
+					</div>
+				)}
+				{checks.length > 0 && (
+					<div class="pnl">
+						<h3>Before publishing</h3>
+						<ul class="checks">
+							{checks.map((check) => <li class:list={{ ok: check.ok }}>{check.text}</li>)}
+						</ul>
+					</div>
+				)}
+				{viewLink !== '' && <a class="view" href={viewLink} target="_blank">View on the site</a>}
+			</aside>
+		</div>
+	</form>
 
 	{!isNew && (
 		<form method="post" class="delete" onsubmit="return confirm('Delete this for good?');">
+			<div><b>Delete this {table.singular}</b><p>This cannot be undone.{table.children.length > 0 && ' Its parts, people links and images go with it. The people themselves stay.'}</p></div>
 			<input type="hidden" name="_action" value="delete" />
-			<button type="submit">Delete this {table.singular}</button>
+			<button type="submit">Delete</button>
 		</form>
 	)}
 </AdminLayout>
 
+<script>
+	// Tabs: show one pane at a time and light up its part of the page map
+	const nav = document.querySelector('.ed-nav');
+	if (nav !== null)
+	{
+		const buttons = Array.from(nav.querySelectorAll<HTMLButtonElement>('button'));
+		function show(button: HTMLButtonElement)
+		{
+			for (const b of buttons)
+			{
+				b.classList.toggle('on', b === button);
+			}
+			for (const pane of document.querySelectorAll<HTMLElement>('.pane'))
+			{
+				pane.classList.toggle('on', pane.dataset.pane === button.dataset.tab);
+			}
+			for (const part of document.querySelectorAll<HTMLElement>('.map [data-m]'))
+			{
+				part.classList.toggle('hi', part.dataset.m === button.dataset.appears);
+			}
+		}
+		for (const button of buttons)
+		{
+			button.addEventListener('click', () => show(button));
+		}
+		// When saving found a mistake, open the tab with the first wrong field
+		let first = buttons[0];
+		const error = document.querySelector('.pane .has-error');
+		if (error !== null)
+		{
+			const pane = error.closest<HTMLElement>('.pane');
+			for (const b of buttons)
+			{
+				if (pane !== null && b.dataset.tab === pane.dataset.pane)
+				{
+					first = b;
+				}
+			}
+		}
+		if (first !== undefined)
+		{
+			show(first);
+		}
+	}
+</script>
+
 <style>
-	.back {
-		margin: 0;
-		font-size: 0.875rem;
-	}
-
-	.message {
-		padding: var(--space-2) var(--space-3);
-		border-radius: 0.375rem;
-		background: rgba(242, 139, 130, 0.12);
-		color: #F28B82;
-	}
-
-	.edit {
-		margin-top: var(--space-4);
-	}
-
-	.save {
-		padding: var(--space-2) var(--space-5);
-		border: 0;
-		border-radius: 0.375rem;
-		background: var(--art-ink);
-		color: var(--art-cream);
-		font: inherit;
-		font-weight: 600;
-		cursor: pointer;
-	}
-
-	.children {
-		margin-top: var(--space-5);
-		padding-top: var(--space-3);
-		border-top: 1px solid var(--color-border);
-	}
-
-	.children-top {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: baseline;
-		gap: var(--space-3);
-	}
-
-	.children h2 {
-		margin: 0;
-		font-size: 1.25rem;
-	}
-
-	.none {
-		color: var(--color-muted);
-	}
-
-	.delete {
-		margin-top: var(--space-5);
-		padding-top: var(--space-3);
-		border-top: 1px solid var(--color-border);
-	}
-
-	.delete button {
-		padding: var(--space-2) var(--space-3);
-		border: 1px solid #F28B82;
-		border-radius: 0.375rem;
-		background: transparent;
-		color: #F28B82;
-		font: inherit;
-		cursor: pointer;
-	}
+	.back { display: inline-block; font-size: 14.5px; color: var(--muted) !important; text-decoration: none; margin-bottom: 6px; }
+	.ed-top { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-bottom: 20px; }
+	.ed-top p { margin: 0; }
+	.ed { display: grid; grid-template-columns: 210px minmax(0, 1fr) 260px; gap: 22px; align-items: start; }
+	.ed-nav { position: sticky; top: 20px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px; }
+	body.admin .ed-nav button { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 9px; font-size: 15px; color: var(--navy); }
+	body.admin .ed-nav button:hover { background: var(--paper); }
+	body.admin .ed-nav button.on { background: var(--orange-t); font-weight: 600; }
+	.ed-nav i { width: 8px; height: 8px; border-radius: 50%; background: #3BA56B; flex: none; }
+	.ed-nav i.w { background: var(--orange); }
+	.pane { display: none; }
+	.pane.on { display: block; }
+	.pnl { background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+	.pnl-h { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+	.pnl-h h2 { font-size: 18px; }
+	.pnl-h p { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
+	.pnl-b { padding: 20px; }
+	.rows { list-style: none; margin: 0 0 14px; padding: 0; }
+	.rows li { display: flex; justify-content: space-between; gap: 12px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; }
+	.rows li:hover { border-color: var(--navy); }
+	.rows a { flex: 1; padding: 11px 14px; color: var(--navy) !important; text-decoration: none; font-weight: 500; }
+	.rows span { padding: 11px 14px; font-size: 13.5px; color: var(--muted); }
+	.addrow { display: block; text-align: center; padding: 12px; border: 2px dashed var(--line); border-radius: 12px; color: var(--muted) !important; font-weight: 500; text-decoration: none; }
+	.addrow:hover { border-color: var(--navy); color: var(--navy) !important; }
+	.ed-side { position: sticky; top: 20px; display: grid; gap: 14px; }
+	.ed-side .pnl { padding: 16px; }
+	.ed-side h3 { font-size: 15.5px; margin-bottom: 10px; }
+	.map { display: grid; grid-template-columns: 22% 1fr 30%; grid-auto-rows: minmax(26px, auto); gap: 5px; }
+	.map div { border-radius: 6px; background: var(--paper); font-size: 11.5px; color: var(--muted); padding: 6px 7px; transition: background 0.2s, color 0.2s; }
+	.map .a-side { grid-column: 1; grid-row: 1 / span 5; }
+	.map .a-main { grid-column: 2; }
+	.map .a-info { grid-column: 3; grid-row: 1 / span 3; }
+	.map .a-wide { grid-column: 2 / 4; }
+	.map .hi { background: var(--orange); color: #fff; }
+	.checks { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+	.checks li { display: flex; gap: 8px; align-items: center; padding: 6px 0; border-top: 1px solid var(--line); color: var(--navy); }
+	.checks li::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); flex: none; }
+	.checks li.ok::before { background: #3BA56B; }
+	.view { display: block; text-align: center; padding: 11px; border-radius: 10px; border: 1.5px solid var(--line); text-decoration: none; font-weight: 600; color: var(--navy) !important; background: #fff; }
+	body.admin form.ed-form { background: none; border: 0; padding: 0; }
+	body.admin form.delete { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+	form.delete p { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
 </style>

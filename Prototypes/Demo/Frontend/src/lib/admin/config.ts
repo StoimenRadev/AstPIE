@@ -29,6 +29,26 @@ export interface FieldConfig
 	lockedOnEdit: boolean;
 }
 
+// One tab of the editor: a few fields, and the part of the public page they fill
+export interface SectionConfig
+{
+	title: string;
+	// One sentence under the tab's heading
+	hint: string;
+	// The part of the page map that lights up (see PageMapPart.key); empty for none
+	appears: string;
+	fields: string[];
+}
+
+// One block of the small page map at the side of the editor
+export interface PageMapPart
+{
+	key: string;
+	label: string;
+	// Grid area in the map: 'side' (left column), 'main', 'info' (right column) or 'wide'
+	area: string;
+}
+
 export interface TableConfig
 {
 	// Part of the address (/admin/topics) and of the API path (/api/admin/topics)
@@ -43,6 +63,10 @@ export interface TableConfig
 	// Tables edited on this table's page, linked by parentField (for entries: chapters, people, media)
 	children: string[];
 	parentField: string;
+	// The tabs of the editor; empty means one tab with every field
+	sections: SectionConfig[];
+	// The page this table fills, drawn small next to the editor; empty for none
+	pageMap: PageMapPart[];
 }
 
 // Builds a field; only the settings that differ from the defaults are given
@@ -61,6 +85,30 @@ function field(name: string, label: string, type: FieldType, settings: Partial<F
 	return Object.assign(result, settings);
 }
 
+function section(title: string, hint: string, appears: string, fields: string[]): SectionConfig
+{
+	return { title: title, hint: hint, appears: appears, fields: fields };
+}
+
+// The page map of a mission, mystery or catalogue object: route, article, infobox
+const CASE_MAP: PageMapPart[] = [
+	{ key: 'route', label: 'Route', area: 'side' },
+	{ key: 'intro', label: 'Title and intro', area: 'main' },
+	{ key: 'info', label: 'Infobox', area: 'info' },
+	{ key: 'parts', label: 'Parts of the page', area: 'main' },
+	{ key: 'people', label: 'People', area: 'main' },
+	{ key: 'media', label: 'Images', area: 'main' },
+	{ key: 'physics', label: 'The physics behind it', area: 'wide' }
+];
+
+const TOPIC_MAP: PageMapPart[] = [
+	{ key: 'menu', label: 'Side menu', area: 'side' },
+	{ key: 'intro', label: 'Title and the law', area: 'main' },
+	{ key: 'parts', label: 'Parts of the topic', area: 'main' },
+	{ key: 'sim', label: 'Simulation (always last)', area: 'main' },
+	{ key: 'list', label: 'Card on the Learn page', area: 'wide' }
+];
+
 const SLUG_HELP = 'The address of the page: lower-case letters, numbers and dashes, for example newtons-first-law.';
 const FILE_HELP = 'Paste an address, or choose a file to upload (pictures, audio or video, up to 100 MB).';
 
@@ -73,6 +121,13 @@ export const TABLES: TableConfig[] = [
 		listColumns: ['title', 'branch', 'slug', 'isPublished'],
 		children: [],
 		parentField: '',
+		pageMap: TOPIC_MAP,
+		sections: [
+			section('Title and branch', 'The heading of the topic and the branch it belongs to.', 'intro', ['title', 'slug', 'branch', 'sortOrder']),
+			section('Card text', 'Two or three sentences shown on the Learn page and on Home.', 'list', ['summary']),
+			section('Text of the topic', 'The first line is the law in one sentence. Every "## Title" starts a new part. The part with [[simulation]] is always shown last.', 'parts', ['content']),
+			section('Publishing', 'Who can see this topic.', '', ['isPublished'])
+		],
 		fields: [
 			field('title', 'Title', 'text', { required: true }),
 			field('slug', 'Slug', 'text', { required: true, help: SLUG_HELP }),
@@ -91,6 +146,8 @@ export const TABLES: TableConfig[] = [
 		listColumns: ['title', 'topicId', 'status', 'version'],
 		children: [],
 		parentField: '',
+		sections: [],
+		pageMap: [],
 		fields: [
 			field('topicId', 'Topic', 'ref', { required: true, refTable: 'topics' }),
 			field('title', 'Title', 'text', { required: true }),
@@ -112,12 +169,19 @@ export const TABLES: TableConfig[] = [
 		listColumns: ['title', 'kind', 'startDate', 'isPublished'],
 		children: ['chapters', 'entry-people', 'media'],
 		parentField: '',
+		pageMap: CASE_MAP,
+		sections: [
+			section('Title and intro', 'The top of the page. Most visitors read only this, so keep it clear.', 'intro', ['kind', 'title', 'slug', 'summary']),
+			section('Infobox', 'The box on the right: the picture and the short facts.', 'info', ['coverImageUrl', 'startDate', 'endDate', 'agency', 'missionOutcome', 'evidenceStatus']),
+			section('Physics link', 'The last block of the page, linking to one Learn topic.', 'physics', ['relatedTopicId']),
+			section('Publishing', 'Who can see this page.', '', ['isPublished'])
+		],
 		fields: [
 			field('kind', 'Kind', 'select', { required: true, options: ['Mission', 'Mystery'] }),
 			field('title', 'Title', 'text', { required: true }),
 			field('slug', 'Slug', 'text', { required: true, help: SLUG_HELP }),
-			field('summary', 'Summary', 'textarea', { required: true }),
-			field('coverImageUrl', 'Cover image', 'file', { help: FILE_HELP }),
+			field('summary', 'Intro', 'textarea', { required: true, help: 'Three to five sentences that sum up the whole page, like the opening of an encyclopedia article.' }),
+			field('coverImageUrl', 'Main picture', 'file', { help: FILE_HELP }),
 			field('startDate', 'Start date', 'date', {}),
 			field('endDate', 'End date', 'date', { help: 'Leave empty for an ongoing mission.' }),
 			field('agency', 'Agency', 'text', { help: 'Missions only.' }),
@@ -129,17 +193,19 @@ export const TABLES: TableConfig[] = [
 	},
 	{
 		key: 'chapters',
-		title: 'Chapters',
-		singular: 'chapter',
+		title: 'Parts of the page',
+		singular: 'part',
 		labelField: 'title',
 		listColumns: ['title', 'entryId', 'dateLabel', 'sortOrder'],
 		children: [],
 		parentField: 'entryId',
+		sections: [],
+		pageMap: [],
 		fields: [
 			field('entryId', 'Entry', 'ref', { required: true, refTable: 'entries' }),
 			field('title', 'Title', 'text', { required: true }),
-			field('dateLabel', 'Date', 'text', { help: 'Free text, for example "October 1957" or "1970s".' }),
-			field('summary', 'Timeline sentence', 'textarea', { required: true }),
+			field('dateLabel', 'Date', 'text', { help: 'Small grey line in the route, for example "October 1957". Can stay empty.' }),
+			field('summary', 'One-line summary', 'textarea', { required: true, help: 'Shown under the title of the part, and in the route when the reader reaches it.' }),
 			field('body', 'Text', 'markdown', { required: true }),
 			field('sortOrder', 'Order', 'int', {})
 		]
@@ -152,6 +218,8 @@ export const TABLES: TableConfig[] = [
 		listColumns: ['fullName', 'nationality', 'birthDate'],
 		children: [],
 		parentField: '',
+		sections: [],
+		pageMap: [],
 		fields: [
 			field('fullName', 'Full name', 'text', { required: true }),
 			field('nationality', 'Nationality', 'text', { required: true }),
@@ -163,12 +231,14 @@ export const TABLES: TableConfig[] = [
 	},
 	{
 		key: 'entry-people',
-		title: 'People in entries',
-		singular: 'person in an entry',
+		title: 'People on pages',
+		singular: 'person on this page',
 		labelField: 'role',
 		listColumns: ['entryId', 'personId', 'role', 'isCrew'],
 		children: [],
 		parentField: 'entryId',
+		sections: [],
+		pageMap: [],
 		fields: [
 			field('entryId', 'Entry', 'ref', { required: true, refTable: 'entries', lockedOnEdit: true }),
 			field('personId', 'Person', 'ref', { required: true, refTable: 'people', lockedOnEdit: true }),
@@ -179,12 +249,14 @@ export const TABLES: TableConfig[] = [
 	},
 	{
 		key: 'media',
-		title: 'Media',
-		singular: 'media item',
+		title: 'Images and sounds',
+		singular: 'image or sound',
 		labelField: 'title',
 		listColumns: ['title', 'entryId', 'type'],
 		children: [],
 		parentField: 'entryId',
+		sections: [],
+		pageMap: [],
 		fields: [
 			field('entryId', 'Entry', 'ref', { required: true, refTable: 'entries' }),
 			field('type', 'Type', 'select', { required: true, options: ['Image', 'Audio', 'Signal', 'Video'] }),
@@ -204,6 +276,14 @@ export const TABLES: TableConfig[] = [
 		listColumns: ['name', 'type', 'constellation', 'isPublished'],
 		children: [],
 		parentField: '',
+		pageMap: CASE_MAP,
+		sections: [
+			section('Title and intro', 'The name of the object and the sentences under it.', 'intro', ['name', 'slug', 'otherNames', 'summary']),
+			section('Infobox', 'The picture and the measured values on the right.', 'info', ['imageUrl', 'type', 'constellation', 'distanceLy', 'massKg', 'radiusKm', 'apparentMagnitude', 'discoveredBy', 'discoveryYear']),
+			section('Text of the page', 'Every "## Title" starts a new part, and each part gets a dot in the route.', 'parts', ['description']),
+			section('Physics link', 'The last block of the page, linking to one Learn topic.', 'physics', ['relatedTopicId']),
+			section('Publishing', 'Who can see this page.', '', ['isPublished'])
+		],
 		fields: [
 			field('name', 'Name', 'text', { required: true }),
 			field('slug', 'Slug', 'text', { required: true, help: SLUG_HELP }),

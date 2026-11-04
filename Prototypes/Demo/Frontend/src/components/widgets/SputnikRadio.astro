@@ -23,14 +23,14 @@ for (let i = 0; i <= 58; i++)
 	<div>
 		<div class="dial">
 			<svg viewBox="0 0 600 72" aria-hidden="true">
-				<g stroke="#3A2A2F">
+				<g stroke="#1F2A44">
 					{ticks.map((tick) => <line x1={tick.x} y1="4" x2={tick.x} y2={4 + tick.height} stroke-width="2"></line>)}
 				</g>
-				<g font-family="Sofia Sans, sans-serif" font-weight="800" font-size="15" fill="#3A2A2F" text-anchor="middle">
+				<g font-family="Jost, sans-serif" font-weight="600" font-size="15" fill="#1F2A44" text-anchor="middle">
 					{labels.map((label, i) => <text x={20 + i * 100} y="68">{label}</text>)}
 					<text x="580" y="68">MHz</text>
 				</g>
-				<rect class="needle" x="319" y="0" width="3" height="52" fill="#C4553F"></rect>
+				<rect class="needle" x="319" y="0" width="3" height="52" fill="#EE8636"></rect>
 			</svg>
 			<div class="readout"><b class="freq">30.000</b><span>MHz</span></div>
 		</div>
@@ -63,19 +63,38 @@ for (let i = 0; i <= 58; i++)
 		let strength = 0;
 		let sound: Sound | null = null;
 
+		// Sputnik sent on two frequencies, in MHz
+		const SPUTNIK = [20.005, 40.002];
+		// Closer than this, the dial locks onto the signal: on a slider one pixel is
+		// about 0.05 MHz, so an exact hit by mouse would be almost impossible
+		const LOCK = 0.15;
+		// Farther than this, there is only static
+		const RANGE = 0.8;
+
 		function tune()
 		{
-			const f = Number(tuner.value);
+			let f = Number(tuner.value);
+			let distance = Math.abs(f - SPUTNIK[0]);
+			let nearest = SPUTNIK[0];
+			if (Math.abs(f - SPUTNIK[1]) < distance)
+			{
+				distance = Math.abs(f - SPUTNIK[1]);
+				nearest = SPUTNIK[1];
+			}
+			if (distance < LOCK)
+			{
+				f = nearest;
+				distance = 0;
+			}
 			freq.textContent = f.toFixed(3);
 			needle.setAttribute('x', (20 + (f - 15) * 20 - 1.5).toFixed(1));
-			const distance = Math.min(Math.abs(f - 20.005), Math.abs(f - 40.002));
 			strength = 0;
-			if (distance < 0.6)
+			if (distance < RANGE)
 			{
-				strength = 1 - distance / 0.6;
+				strength = 1 - distance / RANGE;
 			}
 			bars.forEach((bar, i) => bar.classList.toggle('on', strength > i / bars.length));
-			if (strength > 0.95)
+			if (distance === 0)
 			{
 				word.textContent = String(radio.dataset.found);
 			}

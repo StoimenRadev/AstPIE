@@ -4,7 +4,8 @@ import { t } from '../i18n/t';
 
 <footer class="foot">
 	<div class="wrap">
-		<span>{t('footer.text')}</span>
-		<span>{t('footer.project')}</span>
+		<div><h4>{t('site.name')}</h4><p>{t('footer.text')}</p></div>
+		<div><h4>{t('nav.learn')}</h4><a href="/learn">{t('footer.allTopics')}</a></div>
+		<div><h4>{t('nav.explore')}</h4><a href="/explore/missions">{t('nav.missions')}</a><a href="/explore/mysteries">{t('nav.mysteries')}</a><a href="/explore/catalogue">{t('nav.catalogue')}</a></div>
 	</div>
 </footer>

@@ -16,4 +16,9 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
   </ItemGroup>
 
+  <!-- The long texts of the first content (read by Data/SeedContent.cs) -->
+  <ItemGroup>
+    <Content Include="Data\Content\**\*.md;Data\Content\**\*.html" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

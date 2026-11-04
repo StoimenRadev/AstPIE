@@ -4,6 +4,7 @@ using AstPIE.Api.Models;
 namespace AstPIE.Api.Data
 {
 	// First content of the site. Runs at startup and only fills empty tables.
+	// The long texts are files in Data/Content, read by SeedContent.
 	public static class SeedData
 	{
 		// The simulations are served locally for now. Later this becomes the CDN address.
@@ -40,10 +41,10 @@ namespace AstPIE.Api.Data
 			topic.Slug = "newtons-first-law";
 			topic.Title = "Newton's First Law";
 			topic.Branch = "Classical mechanics";
-			topic.Summary = "Without a net force, a body keeps moving the way it already moves.";
+			topic.Summary = "Things keep doing what they are already doing. Why a puck keeps sliding on ice, why you lurch forward when a bus brakes, and how Voyager 1 has travelled for decades without fuel.";
 			topic.SortOrder = 1;
 			topic.IsPublished = true;
-			topic.Content = "The text of this topic will be here.";
+			topic.Content = SeedContent.Read("topics", "newtons-first-law.md");
 
 			Simulation simulation = new Simulation();
 			simulation.Slug = "newtons-first-law";
@@ -66,10 +67,10 @@ namespace AstPIE.Api.Data
 			topic.Slug = "newtons-second-law";
 			topic.Title = "Newton's Second Law";
 			topic.Branch = "Classical mechanics";
-			topic.Summary = "The same force speeds up a light body more than a heavy one.";
+			topic.Summary = "The harder you push, the faster it speeds up. Why the same push sends a ball flying but barely moves a boulder, and how engineers work out the force a rocket needs to leave the ground.";
 			topic.SortOrder = 2;
 			topic.IsPublished = true;
-			topic.Content = "The text of this topic will be here.";
+			topic.Content = SeedContent.Read("topics", "newtons-second-law.md");
 
 			Simulation simulation = new Simulation();
 			simulation.Slug = "newtons-second-law";
@@ -92,10 +93,10 @@ namespace AstPIE.Api.Data
 			topic.Slug = "newtons-third-law";
 			topic.Title = "Newton's Third Law";
 			topic.Branch = "Classical mechanics";
-			topic.Summary = "When one body pushes another, it is pushed back just as hard.";
+			topic.Summary = "Every push pushes back. Why two astronauts drift apart when they push each other, and how a rocket moves forward in empty space by throwing gas backwards.";
 			topic.SortOrder = 3;
 			topic.IsPublished = true;
-			topic.Content = "The text of this topic will be here.";
+			topic.Content = SeedContent.Read("topics", "newtons-third-law.md");
 
 			Simulation simulation = new Simulation();
 			simulation.Slug = "newtons-third-law";

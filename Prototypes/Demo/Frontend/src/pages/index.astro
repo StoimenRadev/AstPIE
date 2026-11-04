@@ -1,30 +1,79 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HomeHeroArt from '../components/HomeHeroArt.astro';
+import HomeArt from '../components/art/HomeArt.astro';
+import SectionArt from '../components/art/SectionArt.astro';
+import Slot from '../components/Slot.astro';
 import { t } from '../i18n/t';
+import { getEntries, getEntry, getTopics } from '../lib/api';
+
+const topics = (await getTopics()).slice(0, 3);
+
+// The first mission is the one to start with; its parts show the shape of a case
+const missions = await getEntries('Mission');
+let first = null;
+if (missions.length > 0)
+{
+	first = await getEntry(missions[0].slug);
+}
 ---
 
-<BaseLayout title={t('home.title')} theme="home">
+<BaseLayout title={t('home.title')} theme="home" bodyClass="">
 	<meta slot="head" name="description" content={t('home.description')} />
 
-	<section class="home-hero">
-		<HomeHeroArt />
-		<div class="copy wrap">
-			<h1>{t('home.heading')}</h1>
-			<p class="lede">{t('home.tagline')}</p>
-			<div class="actions">
-				<a class="btn" href="/learn">{t('home.startLearning')} <span aria-hidden="true">→</span></a>
-				<a class="btn quiet" href="/explore">{t('home.explore')}</a>
+	<section class="hero">
+		<HomeArt />
+		<div class="wrap">
+			<div class="hero-text">
+				<h1>{t('home.heading')}</h1>
+				<p class="intro">{t('home.tagline')}</p>
+				<div class="actions">
+					<a class="btn blue" href="/learn">{t('home.startLearning')} <svg><use href="#i-arrow" /></svg></a>
+					<a class="btn light" href="/explore">{t('home.explore')}</a>
+				</div>
 			</div>
 		</div>
 	</section>
+
+	<div class="wrap ways">
+		<section class="way learn">
+			<h2>{t('nav.learn')}</h2>
+			<p>{t('home.learnText')}</p>
+			<ul class="way-list">
+				{topics.map((topic) => (
+					<li><a href={'/learn/' + topic.slug}><div><b>{topic.title}</b><span>{topic.branch}</span></div><span class="go"><svg><use href="#i-arrow" /></svg></span></a></li>
+				))}
+			</ul>
+			<a class="link" href="/learn">{t('home.learnAll')}</a>
+		</section>
+		<section class="way explore">
+			<h2>{t('nav.explore')}</h2>
+			<p>{t('home.exploreText')}</p>
+			<div class="trio">
+				<a href="/explore/missions" style="--c:var(--orange)"><span class="bar"></span><div class="g"><SectionArt name="missions" /></div><div class="t"><b>{t('nav.missions')}</b><span>{t('nav.missionsText')}</span></div></a>
+				<a href="/explore/mysteries" style="--c:var(--navy)"><span class="bar"></span><div class="g"><SectionArt name="mysteries" /></div><div class="t"><b>{t('nav.mysteries')}</b><span>{t('nav.mysteriesText')}</span></div></a>
+				<a href="/explore/catalogue" style="--c:var(--yellow)"><span class="bar"></span><div class="g"><SectionArt name="catalogue" /></div><div class="t"><b>{t('nav.catalogue')}</b><span>{t('nav.catalogueText')}</span></div></a>
+			</div>
+		</section>
+	</div>
+
+	{first !== null && (
+		<section class="feature">
+			<div class="wrap grid">
+				<Slot src={first.coverImageUrl} ratio="4 / 3" empty="" className="natural" />
+				<div>
+					<h2>{t('home.startWith')} {first.title}</h2>
+					<p class="intro" style="margin:0">{first.summary}</p>
+					<div class="route-h" style={'--n:' + Math.min(first.chapters.length, 6)}>
+						{first.chapters.slice(0, 6).map((chapter) => <div><b>{chapter.title}</b></div>)}
+					</div>
+					<a class="btn orange" href={'/explore/missions/' + first.slug}>{t('home.readCase')} <svg><use href="#i-arrow" /></svg></a>
+				</div>
+			</div>
+		</section>
+	)}
 </BaseLayout>
 
 <style is:global>
-	/* The home page is one screen: the picture only, no footer and no scrolling */
-	html:has(.home-hero),
-	html:has(.home-hero) body { height: 100%; overflow: hidden; }
-	.page:has(.home-hero) { min-height: 0; }
-	.page:has(.home-hero) .foot { display: none; }
-	.page:has(.home-hero) .home-hero { height: 100vh; height: 100dvh; min-height: 0; }
+	/* The orange block touches the footer */
+	main:has(.feature) + .foot { margin-top: 0; }
 </style>

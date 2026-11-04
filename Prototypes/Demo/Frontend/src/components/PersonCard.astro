@@ -1,0 +1,82 @@
+---
+// The card that opens in the middle of the screen when a person is clicked.
+// Each person button carries its text in data attributes:
+// data-person, data-role, data-photo, data-initials, data-bio, data-also.
+// The native <dialog> keeps the open/closed state; Esc and a click outside close it.
+import { t } from '../i18n/t';
+---
+
+<dialog class="pc" id="person-card">
+	<div class="pc-in">
+		<div class="slot" data-c="photo"></div>
+		<div class="pc-b">
+			<h3 data-c="name"></h3>
+			<p class="role" data-c="role"></p>
+			<p data-c="bio"></p>
+			<p class="also" data-c="also"></p>
+		</div>
+	</div>
+	<div class="pc-x"><button class="btn ghost sm" type="button" data-close>{t('common.close')}</button></div>
+</dialog>
+
+<script>
+	const card = document.getElementById('person-card') as HTMLDialogElement | null;
+	if (card !== null)
+	{
+		function fill(name: string, text: string)
+		{
+			const box = card!.querySelector<HTMLElement>('[data-c="' + name + '"]');
+			if (box !== null)
+			{
+				box.textContent = text;
+			}
+		}
+
+		document.addEventListener('click', (event) =>
+		{
+			const button = (event.target as HTMLElement).closest<HTMLElement>('[data-person]');
+			if (button === null)
+			{
+				return;
+			}
+			const data = button.dataset;
+			fill('name', String(data.person));
+			fill('role', String(data.role));
+			fill('bio', String(data.bio));
+			fill('also', String(data.also));
+			const photo = card.querySelector<HTMLElement>('[data-c="photo"]');
+			if (photo !== null)
+			{
+				photo.innerHTML = '';
+				photo.dataset.empty = String(data.initials);
+				photo.classList.toggle('empty', data.photo === '');
+				if (data.photo !== '')
+				{
+					const img = document.createElement('img');
+					img.alt = '';
+					img.src = String(data.photo);
+					img.addEventListener('error', () =>
+					{
+						photo.classList.add('empty');
+						img.remove();
+					});
+					photo.appendChild(img);
+				}
+			}
+			card.showModal();
+		});
+
+		const close = card.querySelector('[data-close]');
+		if (close !== null)
+		{
+			close.addEventListener('click', () => card.close());
+		}
+		card.addEventListener('click', (event) =>
+		{
+			if (event.target === card)
+			{
+				card.close();
+			}
+		});
+	}
+</script>

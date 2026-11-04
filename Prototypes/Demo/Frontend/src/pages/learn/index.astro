@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Scene from '../../components/Scene.astro';
-import Photo from '../../components/Photo.astro';
+import CradleArt from '../../components/art/CradleArt.astro';
 import { t } from '../../i18n/t';
 import { getTopics } from '../../lib/api';
 import type { TopicListItem } from '../../lib/api';
-import { branchScene, firstSentence, topicScene } from '../../lib/scenes';
+import { branchDescription } from '../../lib/branches';
 
 interface Branch
 {
@@ -29,49 +28,35 @@ for (const topic of topics)
 }
 ---
 
-<BaseLayout title={t('learn.title')} theme="learn">
-	<section class="scene-hero">
-		<Scene name="scene-learn" className="" />
-		<div class="copy wrap"><div class="inner">
-			<h1 class="display">{t('learn.title')}</h1>
-			<p class="lede">{t('learn.intro')}</p>
-		</div></div>
-	</section>
+<BaseLayout title={t('learn.title')} theme="learn" bodyClass="">
+	<div class="wrap top">
+		<h1 class="t-page">{t('learn.title')}</h1>
+		<p class="intro">{t('learn.intro')}</p>
+	</div>
 
-	{topics.length === 0 && <section class="wrap"><p class="lede">{t('learn.empty')}</p></section>}
+	{topics.length === 0 && <div class="wrap"><p class="intro">{t('learn.empty')}</p></div>}
 
 	{branches.map((branch) => (
-		<section class="wrap" style="padding-top:40px">
-			<div class="branch-head">
-				<div>
-					<h2>{branch.name}</h2>
-					<p><span class="accent" style="font-weight:800">{branch.topics.length} {t('learn.count')}</span><span class="soft"> · {t('learn.topics')}</span></p>
-				</div>
-				<Photo src="" scene={branchScene(branch.name)} className="" />
-			</div>
-
-			<div class="cards">
-				{branch.topics.map((topic, index) => {
-					const text = firstSentence(topic.summary);
-					return (
-						<a class="law-card" href={'/learn/' + topic.slug}>
-							<Photo src="" scene={topicScene(topic.slug, topic.branch)} className="" />
-							<h3>{topic.title}</h3>
-							<p class="idea">{text.first}</p>
-							{text.rest !== '' && <p>{text.rest}</p>}
-							<div class="meta"><span>{String(index + 1).padStart(2, '0')}</span><span class="sim">▶ {t('learn.simulation')}</span></div>
+		<div class="wrap branch">
+			<aside class="branch-card">
+				{branch.name === 'Classical mechanics' && <div class="ill"><CradleArt /></div>}
+				<h2>{branch.name}</h2>
+				<p>{branchDescription(branch.name)}</p>
+			</aside>
+			<ul class="topics">
+				{branch.topics.map((topic) => (
+					<li>
+						<a href={'/learn/' + topic.slug}>
+							<div>
+								<h3>{topic.title}</h3>
+								<p>{topic.summary}</p>
+								<span class="sim-tag"><i></i>{t('learn.endsWithSim')}</span>
+							</div>
+							<span class="arr"><svg><use href="#i-arrow" /></svg></span>
 						</a>
-					);
-				})}
-			</div>
-		</section>
-	))}
-
-	<section class="wrap">
-		<div class="how">
-			<div><b>{t('learn.readTitle')}</b><span>{t('learn.readText')}</span></div>
-			<div><b>{t('learn.playTitle')}</b><span>{t('learn.playText')}</span></div>
-			<div><b>{t('learn.spaceTitle')}</b><span>{t('learn.spaceText')}</span></div>
+					</li>
+				))}
+			</ul>
 		</div>
-	</section>
+	))}
 </BaseLayout>
