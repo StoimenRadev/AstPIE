@@ -1,18 +1,20 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import SceneDefs from '../components/SceneDefs.astro';
+import Icons from '../components/Icons.astro';
 import { t } from '../i18n/t';
 import '../styles/global.css';
 
 interface Props
 {
 	title: string;
-	// The colours of the section: home, learn, missions, mysteries or catalogue
+	// The accent of the section: home, learn, missions, mysteries or catalogue
 	theme: string;
+	// Extra class on <body>, for example "has-after" when a grey block ends the page
+	bodyClass: string;
 }
 
-const { title, theme } = Astro.props;
+const { title, theme, bodyClass } = Astro.props;
 
 let pageTitle = t('site.name');
 if (title !== t('site.name'))
@@ -29,127 +31,64 @@ if (title !== t('site.name'))
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet" />
 		<title>{pageTitle}</title>
 		<!-- Pages can add their own tags here, for example a description: <meta slot="head" ... /> -->
 		<slot name="head" />
 	</head>
-	<body data-theme={theme}>
-		<SceneDefs />
+	<body data-theme={theme} class={bodyClass}>
+		<Icons />
 		<Header />
-		<div class="page">
+		<main>
 			<slot />
-			<Footer />
-		</div>
+		</main>
+		<Footer />
 	</body>
 </html>
 
 <script>
-	// Stars in the drawings: the same seed always gives the same sky
-	function seeded(seed: number)
-	{
-		let s = seed;
-		return () =>
-		{
-			s = (s * 16807) % 2147483647;
-			return s / 2147483647;
-		};
-	}
-
-	for (const group of document.querySelectorAll<SVGGElement>('.stars'))
-	{
-		const next = seeded(Number(group.dataset.seed) * 7919 + 13);
-		const width = Number(group.dataset.w);
-		const height = Number(group.dataset.h);
-		let html = '';
-		for (let i = 0; i < Number(group.dataset.n); i++)
-		{
-			const r = 0.5 + Math.pow(next(), 3) * 2.4;
-			const o = 0.25 + next() * 0.65;
-			html += '<circle cx="' + (next() * width).toFixed(1) + '" cy="' + (next() * height).toFixed(1) + '" r="' + r.toFixed(2) + '" fill="#F3E9D6" opacity="' + o.toFixed(2) + '"/>';
-		}
-		group.innerHTML = html;
-	}
-
-	// Picture slots written inside the texts: <div class="photo" data-scene="..." data-img="...">.
-	// The drawing shows first; a real photo goes on top of it when there is one.
+	// Pictures written inside the stored texts: <div class="photo" data-img="File name.jpg">.
+	// A file name is loaded from Wikimedia Commons; a full address is used as it is.
 	const archive = 'https://commons.wikimedia.org/wiki/Special:FilePath/';
-	for (const box of document.querySelectorAll<HTMLElement>('.read .photo, .wide .photo'))
+	for (const box of document.querySelectorAll<HTMLElement>('.photo[data-img]'))
 	{
-		if (box.dataset.scene && box.querySelector('svg') === null)
+		if (box.querySelector('img') !== null)
 		{
-			box.insertAdjacentHTML('afterbegin', '<svg class="fallback" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#' + box.dataset.scene + '" width="1600" height="900"/></svg>');
+			continue;
 		}
-		if (box.dataset.img && box.querySelector('img') === null)
+		let src = String(box.dataset.img);
+		if (!src.startsWith('http') && !src.startsWith('/'))
 		{
-			const img = document.createElement('img');
-			img.alt = '';
-			img.loading = 'lazy';
-			let src = box.dataset.img;
-			if (!src.startsWith('http') && !src.startsWith('/'))
-			{
-				src = archive + src + '?width=1600';
-			}
-			img.src = src;
-			img.addEventListener('load', () => box.classList.add('loaded'));
-			img.addEventListener('error', () => box.classList.add('missing'));
-			box.appendChild(img);
+			src = archive + src + '?width=1600';
 		}
+		const img = document.createElement('img');
+		img.alt = '';
+		img.loading = 'lazy';
+		img.src = src;
+		img.addEventListener('error', () => box.classList.add('missing'));
+		box.appendChild(img);
 	}
 
-	// The header turns solid once the page scrolls; the chapter bar follows the reading
-	const header = document.getElementById('top');
-	const bar = document.querySelector<HTMLElement>('[data-sectors]');
-	const chapters = document.querySelectorAll<HTMLElement>('.ch');
-
-	function onScroll()
+	// Image slots made by Slot.astro: when the picture fails, show the empty slot
+	function showEmpty(img: HTMLImageElement)
 	{
-		if (header !== null)
+		const slot = img.parentElement;
+		if (slot !== null)
 		{
-			header.classList.toggle('solid', window.scrollY > 40);
+			slot.classList.add('empty');
 		}
-		if (bar === null || chapters.length === 0)
+		img.remove();
+	}
+	for (const img of document.querySelectorAll<HTMLImageElement>('.slot > img'))
+	{
+		// It may have failed before this script ran
+		if (img.complete && img.naturalWidth === 0)
 		{
-			return;
+			showEmpty(img);
 		}
-		let active = '';
-		for (const chapter of chapters)
+		else
 		{
-			if (chapter.getBoundingClientRect().top < window.innerHeight * 0.35)
-			{
-				active = chapter.id;
-			}
-		}
-		for (const button of bar.querySelectorAll<HTMLElement>('button'))
-		{
-			button.classList.toggle('on', button.dataset.jump === active);
-		}
-		const first = chapters[0].getBoundingClientRect().top + window.scrollY;
-		const end = chapters[chapters.length - 1].getBoundingClientRect().bottom + window.scrollY - window.innerHeight;
-		let share = (window.scrollY - first + 200) / (end - first + 200);
-		share = Math.max(0, Math.min(1, share));
-		const progress = bar.querySelector<HTMLElement>('.progress');
-		if (progress !== null)
-		{
-			progress.style.width = (share * 100).toFixed(1) + '%';
+			img.addEventListener('error', () => showEmpty(img));
 		}
 	}
-	window.addEventListener('scroll', onScroll, { passive: true });
-	onScroll();
-
-	// Buttons that jump to a chapter
-	document.addEventListener('click', (event) =>
-	{
-		const target = event.target as HTMLElement;
-		const jump = target.closest<HTMLElement>('[data-jump]');
-		if (jump === null)
-		{
-			return;
-		}
-		const chapter = document.getElementById(String(jump.dataset.jump));
-		if (chapter !== null)
-		{
-			chapter.scrollIntoView({ behavior: 'smooth' });
-		}
-	});
 </script>

@@ -1,0 +1,62 @@
+---
+// The mysteries in two groups: still open, and closed (debunked)
+import Slot from './Slot.astro';
+import { t } from '../i18n/t';
+import type { EntryListItem } from '../lib/api';
+import { statusLabel } from '../lib/format';
+
+interface Props
+{
+	mysteries: EntryListItem[];
+	// false inside the dark band of the Explore page, where the groups have no boxes of their own
+	headings: boolean;
+}
+
+const { mysteries, headings } = Astro.props;
+
+const open = mysteries.filter((m) => m.evidenceStatus !== 'Debunked');
+const closed = mysteries.filter((m) => m.evidenceStatus === 'Debunked');
+
+function status(mystery: EntryListItem): string
+{
+	if (mystery.evidenceStatus === null)
+	{
+		return '';
+	}
+	return statusLabel(mystery.evidenceStatus);
+}
+
+function year(mystery: EntryListItem): string
+{
+	if (mystery.startDate === null)
+	{
+		return '';
+	}
+	return ' · ' + mystery.startDate.substring(0, 4);
+}
+---
+
+<div class="board">
+	<section class="open">
+		{headings && <h2>{t('mysteries.open')}</h2>}
+		{headings && <p>{t('mysteries.openText')}</p>}
+		{open.map((mystery) => (
+			<a class="mcase" href={'/explore/mysteries/' + mystery.slug}>
+				<Slot src={mystery.coverImageUrl} ratio="4 / 3" empty={t('common.noImage')} className="" />
+				<div><b>{mystery.title}</b><span class="st dot orange">{status(mystery)}{year(mystery)}</span><p>{mystery.summary}</p></div>
+			</a>
+		))}
+		{open.length === 0 && <p>{t('mysteries.noneOpen')}</p>}
+	</section>
+	<section class:list={[{ closed: headings, open: !headings }]}>
+		{headings && <h2>{t('mysteries.closed')}</h2>}
+		{headings && <p>{t('mysteries.closedText')}</p>}
+		{closed.map((mystery) => (
+			<a class="mcase" href={'/explore/mysteries/' + mystery.slug}>
+				<Slot src={mystery.coverImageUrl} ratio="4 / 3" empty={t('common.noImage')} className="" />
+				<div><b>{mystery.title}</b><span class="st dot blue">{status(mystery)}{year(mystery)}</span><p>{mystery.summary}</p></div>
+			</a>
+		))}
+		{closed.length === 0 && <p>{t('mysteries.noneClosed')}</p>}
+	</section>
+</div>

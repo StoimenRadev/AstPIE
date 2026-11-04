@@ -1,23 +1,33 @@
 ---
+import Logo from './Logo.astro';
 import { t } from '../i18n/t';
 
 const path = Astro.url.pathname;
+const inLearn = path.startsWith('/learn');
+const inExplore = path.startsWith('/explore');
 
-// The menu item of the section the page belongs to is underlined
-const links = [
-	{ href: '/learn', label: t('nav.learn'), on: path.startsWith('/learn') },
-	{ href: '/explore', label: t('nav.explore'), on: path.startsWith('/explore') }
+// The three parts of Explore, shown in the menu under "Explore"
+const parts = [
+	{ href: '/explore/missions', title: t('nav.missions'), text: t('nav.missionsText'), colour: 'var(--orange)' },
+	{ href: '/explore/mysteries', title: t('nav.mysteries'), text: t('nav.mysteriesText'), colour: 'var(--navy)' },
+	{ href: '/explore/catalogue', title: t('nav.catalogue'), text: t('nav.catalogueText'), colour: 'var(--yellow)' }
 ];
 ---
 
-<header class="top" id="top">
+<header class="head">
 	<div class="wrap">
-		<a class="logo" href="/">
-			<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="9" fill="#E8A54B"></circle><ellipse cx="15" cy="15" rx="14" ry="4.5" fill="none" stroke="#EDE6D8" stroke-width="2" transform="rotate(-20 15 15)"></ellipse></svg>
-			{t('site.name')}
-		</a>
+		<a class="logo" href="/"><Logo />{t('site.name')}</a>
+		<span class="brand-full">{t('site.fullName')}</span>
 		<nav class="nav">
-			{links.map((link) => <a href={link.href} class:list={{ on: link.on }}>{link.label}</a>)}
+			<a class:list={['nav-link', { on: inLearn }]} href="/learn">{t('nav.learn')}</a>
+			<div class="dd">
+				<a class:list={['nav-link', { on: inExplore }]} href="/explore">{t('nav.explore')} <svg><use href="#i-chev" /></svg></a>
+				<div class="dd-panel">
+					{parts.map((part) => (
+						<a href={part.href} style={'--c:' + part.colour}><i></i><div><b>{part.title}</b><span>{part.text}</span></div></a>
+					))}
+				</div>
+			</div>
 		</nav>
 	</div>
 </header>

@@ -1,0 +1,91 @@
+---
+// The route at the side of a case: the parts of the page as a line with a dot each.
+// The line fills as you read, and the part you are on shows its one-line summary.
+export interface RouteItem
+{
+	// The id of the section on the page
+	id: string;
+	title: string;
+	// Small grey line under the title, for example a date; may be empty
+	note: string;
+	// Shown under the part you are reading; may be empty
+	summary: string;
+	// People, images, physics: smaller dots after the story
+	extra: boolean;
+}
+
+interface Props
+{
+	heading: string;
+	items: RouteItem[];
+}
+
+const { heading, items } = Astro.props;
+---
+
+<nav class="route" aria-label={heading} data-route>
+	<h4>{heading}</h4>
+	<ol>
+		<span class="fill"></span>
+		{items.map((item) => (
+			<li class:list={{ extra: item.extra }} data-target={item.id}>
+				<b>{item.title}</b>
+				{item.note !== '' && <span>{item.note}</span>}
+				{item.summary !== '' && <p>{item.summary}</p>}
+			</li>
+		))}
+	</ol>
+</nav>
+
+<script>
+	const route = document.querySelector<HTMLElement>('[data-route]');
+	if (route !== null)
+	{
+		const items = Array.from(route.querySelectorAll<HTMLElement>('li'));
+		const fill = route.querySelector<HTMLElement>('.fill');
+		const sections: HTMLElement[] = [];
+		for (const item of items)
+		{
+			const section = document.getElementById(String(item.dataset.target));
+			if (section !== null)
+			{
+				sections.push(section);
+			}
+		}
+
+		// Everything before the part you are on is "seen"
+		function mark(index: number)
+		{
+			items.forEach((item, i) =>
+			{
+				item.classList.toggle('seen', i < index);
+				item.classList.toggle('here', i === index);
+			});
+			if (fill !== null)
+			{
+				fill.style.height = (items[index].offsetTop + 8) + 'px';
+			}
+		}
+
+		items.forEach((item, i) =>
+		{
+			item.addEventListener('click', () => sections[i].scrollIntoView({ behavior: 'smooth', block: 'start' }));
+		});
+
+		const watcher = new IntersectionObserver((seen) =>
+		{
+			for (const entry of seen)
+			{
+				if (entry.isIntersecting)
+				{
+					mark(sections.indexOf(entry.target as HTMLElement));
+				}
+			}
+		}, { rootMargin: '-30% 0px -60% 0px' });
+		for (const section of sections)
+		{
+			watcher.observe(section);
+		}
+		mark(0);
+	}
+</script>

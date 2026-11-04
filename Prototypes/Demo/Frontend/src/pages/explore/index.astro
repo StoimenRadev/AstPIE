@@ -1,177 +1,57 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Scene from '../../components/Scene.astro';
-import Photo from '../../components/Photo.astro';
+import MysteryBoard from '../../components/MysteryBoard.astro';
+import Slot from '../../components/Slot.astro';
+import YearLine from '../../components/YearLine.astro';
 import { t } from '../../i18n/t';
-import { getCatalogue, getEntries } from '../../lib/api';
-import { countryOf } from '../../lib/scenes';
+import { getAllCatalogue, getEntries } from '../../lib/api';
+import { objectTypeLabel } from '../../lib/format';
 
 const missions = await getEntries('Mission');
 const mysteries = await getEntries('Mystery');
-const catalogue = await getCatalogue();
-
-// The timeline runs from the first to the last mission year. Each mission
-// gets a place on it by its launch date.
-const dated = missions.filter((m) => m.startDate !== null);
-let firstYear = 1957;
-let lastYear = 1977;
-if (dated.length > 0)
-{
-	firstYear = Math.min(...dated.map((m) => Number(String(m.startDate).substring(0, 4))));
-	lastYear = Math.max(...dated.map((m) => Number(String(m.startDate).substring(0, 4)))) + 1;
-}
-
-function place(date: string): number
-{
-	const day = new Date(date + 'T00:00:00Z');
-	const year = day.getUTCFullYear() + day.getUTCMonth() / 12;
-	return 20 + (year - firstYear) / (lastYear - firstYear) * 1100;
-}
-
-const marks = [];
-for (let i = 0; i < dated.length; i++)
-{
-	const mission = dated[i];
-	marks.push({
-		slug: mission.slug,
-		title: mission.title,
-		year: String(mission.startDate).substring(0, 4),
-		x: place(String(mission.startDate)),
-		country: countryOf(mission.agency),
-		up: i % 2 === 0,
-		lift: (i % 4) >= 2
-	});
-}
-
-const years = [];
-for (let year = firstYear; year <= lastYear; year += 5)
-{
-	years.push({ year: year, x: place(year + '-01-01') });
-}
-
-let firstMission = null;
-if (missions.length > 0)
-{
-	firstMission = missions[0];
-}
-let firstMystery = null;
-if (mysteries.length > 0)
-{
-	firstMystery = mysteries[0];
-}
-let firstObject = null;
-if (catalogue.items.length > 0)
-{
-	firstObject = catalogue.items[0];
-}
+const objects = (await getAllCatalogue()).items.slice(0, 4);
 ---
 
-<BaseLayout title={t('explore.title')} theme="home">
-	<section class="scene-hero">
-		<Scene name="scene-hub" className="" />
-		<div class="copy wrap"><div class="inner">
-			<h1 class="display">{t('explore.title')}</h1>
-			<p class="lede">{t('explore.intro')}</p>
-		</div></div>
-	</section>
+<BaseLayout title={t('explore.title')} theme="home" bodyClass="">
+	<div class="wrap top">
+		<h1 class="t-page">{t('explore.title')}</h1>
+		<p class="intro">{t('explore.intro')}</p>
+	</div>
 
-	<section class="wrap" style="padding-top:60px">
-		<div class="doors">
-			<a class="door" href="/explore/missions"><Photo src="" scene="scene-missions" className="" /><h2><i style="background:#EEA772"></i>{t('missions.title')}</h2><p>{t('explore.missionsText')}</p><span class="count" style="color:#EEA772">{missions.length} {t('explore.missionsCount')}</span></a>
-			<a class="door" href="/explore/mysteries"><Photo src="" scene="scene-mysteries" className="" /><h2><i style="background:#E2BD56"></i>{t('mysteries.title')}</h2><p>{t('explore.mysteriesText')}</p><span class="count" style="color:#E2BD56">{mysteries.length} {t('explore.mysteriesCount')}</span></a>
-			<a class="door" href="/explore/catalogue"><Photo src="" scene="scene-catalogue" className="" /><h2><i style="background:#B3A7F2"></i>{t('catalogue.title')}</h2><p>{t('explore.catalogueText')}</p><span class="count" style="color:#B3A7F2">{catalogue.totalCount} {t('explore.objectsCount')}</span></a>
+	<section class="band m">
+		<div class="wrap">
+			<div class="hd"><div><h2>{t('missions.title')}</h2><p>{t('explore.missionsText')}</p></div><a class="go" href="/explore/missions">{t('entry.allMissions')} <svg><use href="#i-arrow" /></svg></a></div>
+			<YearLine missions={missions} />
 		</div>
 	</section>
 
-	{marks.length > 0 && (
-		<section class="wrap" style="padding-top:130px">
-			<div class="tl-wrap">
-				<div class="tl" id="timeline" data-filter="all">
-					<div class="tl-top">
-						<div><h2>{t('explore.timelineTitle')}</h2><p>{t('explore.timelineText')}</p></div>
-						<div class="seg" role="group">
-							<button type="button" class="on" data-f="all">{t('explore.all')}</button>
-							<button type="button" data-f="ussr"><span class="dot" style="background:var(--ussr)"></span>{t('explore.ussr')}</button>
-							<button type="button" data-f="usa"><span class="dot" style="background:var(--usa)"></span>{t('explore.usa')}</button>
-						</div>
-					</div>
-					<svg viewBox="0 0 1144 250" role="img" aria-label={t('explore.timelineTitle')}>
-						<path d="M0 125 H1144" stroke="#EEE7D9" stroke-opacity="0.3" stroke-width="2"></path>
-						{years.map((y) => (
-							<g>
-								<path d={'M' + y.x + ' 131 v8'} stroke="#EEE7D9" stroke-opacity="0.35" stroke-width="2"></path>
-								<text x={y.x} y="244" fill="#8F8798" font-family="Sofia Sans, sans-serif" font-weight="700" font-size="15" text-anchor="middle">{y.year}</text>
-							</g>
-						))}
-						{marks.map((mark) => {
-							let colour = '#8F8798';
-							if (mark.country === 'ussr')
-							{
-								colour = '#DB5443';
-							}
-							if (mark.country === 'usa')
-							{
-								colour = '#5A8FD0';
-							}
-							let stem = 60;
-							if (mark.lift)
-							{
-								stem = 30;
-							}
-							let textY = 125 - stem - 28;
-							let lineEnd = 125 - stem;
-							if (!mark.up)
-							{
-								textY = 125 + stem + 20;
-								lineEnd = 125 + stem;
-							}
-							let anchor = 'start';
-							let textX = mark.x - 10;
-							if (mark.x > 900)
-							{
-								anchor = 'end';
-								textX = mark.x + 10;
-							}
-							return (
-								<a href={'/explore/missions/' + mark.slug}>
-									<g class={'m ' + mark.country}>
-										<path d={'M' + mark.x + ' 125 V' + lineEnd} stroke="#EEE7D9" stroke-opacity="0.3" stroke-width="2"></path>
-										<circle cx={mark.x} cy="125" r="11" fill={colour}></circle>
-										<text x={textX} y={textY} fill="#EEE7D9" font-family="Sofia Sans, sans-serif" font-weight="800" font-size="16" text-anchor={anchor}>{mark.title}</text>
-										<text x={textX} y={textY + 19} fill="#BDB3A3" font-family="Sofia Sans, sans-serif" font-size="13" text-anchor={anchor}>{mark.year}</text>
-									</g>
-								</a>
-							);
-						})}
-					</svg>
-				</div>
-			</div>
-		</section>
-	)}
+	<section class="band n">
+		<div class="wrap">
+			<div class="hd"><div><h2>{t('mysteries.title')}</h2><p>{t('explore.mysteriesText')}</p></div><a class="go" href="/explore/mysteries">{t('entry.allMysteries')} <svg><use href="#i-arrow" /></svg></a></div>
+			<MysteryBoard mysteries={mysteries} headings={false} />
+		</div>
+	</section>
 
-	<section class="wrap" style="padding-top:130px">
-		<div class="section-title"><div><h2>{t('explore.startTitle')}</h2><p>{t('explore.startText')}</p></div></div>
-		<div class="tiles">
-			{firstMission !== null && <a class="tile" href={'/explore/missions/' + firstMission.slug}><Photo src={firstMission.coverImageUrl} scene="scene-missions" className="" /><h4>{firstMission.title}</h4><p>{firstMission.summary}</p><span class="more">{t('explore.readMission')} →</span></a>}
-			{firstMystery !== null && <a class="tile" href={'/explore/mysteries/' + firstMystery.slug}><Photo src={firstMystery.coverImageUrl} scene="scene-mysteries" className="contain" /><h4>{firstMystery.title}</h4><p>{firstMystery.summary}</p><span class="more">{t('explore.openCase')} →</span></a>}
-			{firstObject !== null && <a class="tile" href={'/explore/catalogue/' + firstObject.slug}><Photo src={firstObject.imageUrl} scene="scene-catalogue" className="" /><h4>{firstObject.name}</h4><p>{firstObject.summary}</p><span class="more">{t('explore.seeObject')} →</span></a>}
+	<section class="band y">
+		<div class="wrap">
+			<div class="hd"><div><h2>{t('catalogue.title')}</h2><p>{t('explore.catalogueText')}</p></div><a class="go" href="/explore/catalogue">{t('entry.allObjects')} <svg><use href="#i-arrow" /></svg></a></div>
+			<form class="search" action="/explore/catalogue" method="get" style="margin:0 0 26px">
+				<input type="search" name="q" placeholder={t('catalogue.searchHint')} aria-label={t('catalogue.search')} />
+				<button class="btn" type="submit">{t('catalogue.search')}</button>
+			</form>
+			<div class="objs">
+				{objects.map((item) => (
+					<a href={'/explore/catalogue/' + item.slug}>
+						<Slot src={item.imageUrl} ratio="1 / 1" empty={t('common.noImage')} className="" />
+						<b>{item.name}</b>
+						<span>{objectTypeLabel(item.type)}{item.constellation !== null && ' · ' + item.constellation}</span>
+					</a>
+				))}
+			</div>
 		</div>
 	</section>
 </BaseLayout>
 
-<script>
-	// Fade out the missions of the other country
-	const timeline = document.getElementById('timeline');
-	if (timeline !== null)
-	{
-		const buttons = timeline.querySelectorAll<HTMLButtonElement>('.seg button');
-		for (const button of buttons)
-		{
-			button.addEventListener('click', () =>
-			{
-				timeline.dataset.filter = String(button.dataset.f);
-				buttons.forEach((b) => b.classList.toggle('on', b === button));
-			});
-		}
-	}
-</script>
+<style is:global>
+	main:has(.band.y) + .foot { margin-top: 0; }
+</style>

@@ -1,0 +1,84 @@
+---
+// Missions on a line of years, each one with its photo at its launch date.
+// Missions launched close together are stacked higher so the photos do not overlap.
+import Slot from './Slot.astro';
+import type { EntryListItem } from '../lib/api';
+
+interface Props
+{
+	missions: EntryListItem[];
+}
+
+const { missions } = Astro.props;
+
+const dated = missions.filter((m) => m.startDate !== null);
+dated.sort((a, b) => String(a.startDate).localeCompare(String(b.startDate)));
+
+function yearOf(date: string): number
+{
+	const day = new Date(date + 'T00:00:00Z');
+	return day.getUTCFullYear() + day.getUTCMonth() / 12;
+}
+
+// The line starts and ends on a multiple of five years
+let firstYear = 1955;
+let lastYear = 1980;
+if (dated.length > 0)
+{
+	firstYear = Math.floor(yearOf(String(dated[0].startDate)) / 5) * 5;
+	lastYear = Math.ceil((yearOf(String(dated[dated.length - 1].startDate)) + 1) / 5) * 5;
+}
+
+function percent(year: number): number
+{
+	return (year - firstYear) / (lastYear - firstYear) * 100;
+}
+
+const ticks = [];
+for (let year = firstYear; year <= lastYear; year += 5)
+{
+	ticks.push({ year: year, left: percent(year) });
+}
+
+// Closer than this (in % of the line) to the one before: go one level higher
+const CLOSE = 7;
+const marks = [];
+let previousLeft = -100;
+let level = 0;
+for (const mission of dated)
+{
+	const left = percent(yearOf(String(mission.startDate)));
+	if (left - previousLeft < CLOSE)
+	{
+		level = level + 1;
+	}
+	else
+	{
+		level = 0;
+	}
+	previousLeft = left;
+	marks.push({
+		slug: mission.slug,
+		title: mission.title,
+		year: String(mission.startDate).substring(0, 4),
+		image: mission.coverImageUrl,
+		left: left,
+		height: 10 + level * 80,
+		// Near the right end the name goes on the left of the photo
+		labelLeft: left > 85
+	});
+}
+---
+
+{marks.length > 0 && (
+	<div class="yearline">
+		<div class="axis"></div>
+		{ticks.map((tick) => <span class="tick" style={'left:' + tick.left + '%'}>{tick.year}</span>)}
+		{marks.map((mark) => (
+			<a href={'/explore/missions/' + mark.slug} class:list={{ l: mark.labelLeft }} style={'left:' + mark.left.toFixed(2) + '%;--h:' + mark.height + 'px'}>
+				<Slot src={mark.image} ratio="1 / 1" empty="" className="" />
+				<b>{mark.title}<small>{mark.year}</small></b>
+			</a>
+		))}
+	</div>
+)}

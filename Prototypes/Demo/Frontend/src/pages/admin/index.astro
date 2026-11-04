@@ -22,46 +22,44 @@ for (const table of TABLES)
 	}
 	counts.push({ key: table.key, title: table.title, count: count });
 }
+
+// The most common jobs, each one goes straight to an empty form
+const actions = [
+	{ href: '/admin/entries/new', title: 'Write a mission or mystery', text: 'The intro, the facts for the infobox, then its parts', colour: 'var(--orange)' },
+	{ href: '/admin/catalogue/new', title: 'Add a catalogue object', text: 'Its measurements and who found it', colour: 'var(--yellow)' },
+	{ href: '/admin/topics/new', title: 'Write a Learn topic', text: 'The law in one sentence, the parts and the simulation', colour: 'var(--blue)' },
+	{ href: '/admin/people/new', title: 'Add a person', text: 'Once added, link them to any page', colour: 'var(--navy)' },
+	{ href: '/admin/media/new', title: 'Add an image or sound', text: 'Upload a file and give it a title and credit', colour: '#C3CAD8' }
+];
 ---
 
-<AdminLayout title="Dashboard" showMenu={true}>
-	<h1>Admin</h1>
-	<p>Add and change the content of the site. Unpublished items are visible here, but not on the site.</p>
+<AdminLayout title="Overview" showMenu={true}>
+	<h1>Overview</h1>
+	<p class="muted">What would you like to do? Drafts are visible here, but not on the site.</p>
 
-	<div class="tiles">
+	<div class="do">
+		{actions.map((action) => (
+			<a href={action.href} style={'--c:' + action.colour}><b>{action.title}</b><span>{action.text}</span></a>
+		))}
+	</div>
+
+	<h2 style="margin:8px 0 12px">What is on the site</h2>
+	<div class="counts">
 		{counts.map((item) => (
-			<a class="tile" href={'/admin/' + item.key}>
-				<span class="count">{item.count}</span>
-				<span>{item.title}</span>
-			</a>
+			<a href={'/admin/' + item.key}><b>{item.count}</b><span>{item.title}</span></a>
 		))}
 	</div>
 </AdminLayout>
 
 <style>
-	.tiles {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
-		gap: var(--space-3);
-		margin-top: var(--space-4);
-	}
-
-	.tile {
-		display: flex;
-		flex-direction: column;
-		padding: var(--space-3);
-		border: 1px solid var(--color-border);
-		border-radius: 0.5rem;
-		color: var(--color-text);
-		text-decoration: none;
-	}
-
-	.tile:hover {
-		background: var(--color-surface);
-	}
-
-	.count {
-		font-size: 2rem;
-		font-weight: 700;
-	}
+	.do { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 22px 0 32px; }
+	.do a { display: block; padding: 16px; border-radius: 14px; background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--c); text-decoration: none; }
+	.do a:hover { border-color: var(--navy); border-top-color: var(--c); }
+	.do b { display: block; color: var(--navy); font-weight: 600; margin-bottom: 4px; }
+	.do span { font-size: 14px; color: var(--muted); line-height: 1.45; }
+	.counts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+	.counts a { display: block; padding: 16px 18px; background: #fff; border: 1px solid var(--line); border-radius: 14px; text-decoration: none; }
+	.counts a:hover { border-color: var(--navy); }
+	.counts b { display: block; font-size: 26px; font-weight: 600; color: var(--navy); }
+	.counts span { font-size: 14px; color: var(--muted); }
 </style>
