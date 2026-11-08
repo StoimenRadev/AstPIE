@@ -20,7 +20,26 @@ namespace AstPIE.Api.Data
 		public DbSet<Person> People { get; set; }
 		public DbSet<EntryPerson> EntryPeople { get; set; }
 		public DbSet<MediaItem> MediaItems { get; set; }
+		// Who each photo shows
+		public DbSet<MediaItemPerson> MediaItemPeople { get; set; }
 		public DbSet<CatalogueObject> CatalogueObjects { get; set; }
+
+		// Learn: the parts of a topic page
+		public DbSet<TopicSymbol> TopicSymbols { get; set; }
+		public DbSet<CheckQuestion> CheckQuestions { get; set; }
+		public DbSet<LabTask> LabTasks { get; set; }
+		public DbSet<KeyWord> KeyWords { get; set; }
+		public DbSet<TopicKeyWord> TopicKeyWords { get; set; }
+
+		// Explore: the cover sheet and the cork board
+		public DbSet<EntryFact> EntryFacts { get; set; }
+		public DbSet<Explanation> Explanations { get; set; }
+
+		// Catalogue: the logbook
+		public DbSet<CatalogueFact> CatalogueFacts { get; set; }
+		public DbSet<ObservationLogEntry> ObservationLogEntries { get; set; }
+		public DbSet<Instrument> Instruments { get; set; }
+		public DbSet<CatalogueObjectInstrument> CatalogueObjectInstruments { get; set; }
 
 		protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
 		{
@@ -32,6 +51,8 @@ namespace AstPIE.Api.Data
 			configurationBuilder.Properties<EvidenceStatus>().HaveConversion<string>();
 			configurationBuilder.Properties<MediaType>().HaveConversion<string>();
 			configurationBuilder.Properties<CatalogueObjectType>().HaveConversion<string>();
+			configurationBuilder.Properties<EntryDesk>().HaveConversion<string>();
+			configurationBuilder.Properties<PlateKind>().HaveConversion<string>();
 		}
 
 		public override int SaveChanges()

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
@@ -41,6 +42,24 @@ namespace AstPIE.Api.Controllers.Admin
 				return null;
 			}
 			return text.Trim();
+		}
+
+		// A list of lines (one item per line in the form): empty lines left out, each line trimmed
+		protected static List<string> CleanList(List<string> items)
+		{
+			List<string> result = new List<string>();
+			if (items == null)
+			{
+				return result;
+			}
+			foreach (string item in items)
+			{
+				if (!string.IsNullOrWhiteSpace(item))
+				{
+					result.Add(item.Trim());
+				}
+			}
+			return result;
 		}
 
 		// Optional text for a column that can't be null: "" when nothing was given

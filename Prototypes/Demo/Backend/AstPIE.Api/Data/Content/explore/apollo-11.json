@@ -1,0 +1,1737 @@
+{
+	"slug": "apollo-11",
+	"kind": "Mission",
+	"title": "Apollo 11",
+	"tagline": "Two people on another world",
+	"summary": "Four days to the Moon, two and a half hours walking on it, and a landing that came within seconds of running out of fuel. <mark>In July 1969 two people stood on another world for the first time.</mark>",
+	"coverImageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/A_Man_on_the_Moon%2C_AS11-40-5903_(cropped).jpg?width=700",
+	"coverCaption": "Aldrin on the Moon",
+	"coverCredit": "NASA, Neil Armstrong. Public domain.",
+	"country": "United States",
+	"desk": "American",
+	"startDate": "1969-07-16",
+	"endDate": "1969-07-24",
+	"agency": "NASA",
+	"missionOutcome": "Success",
+	"evidenceStatus": null,
+	"statusNote": null,
+	"radioMinMHz": null,
+	"radioMaxMHz": null,
+	"relatedTopic": "newtons-third-law",
+	"facts": [
+		{
+			"label": "Country",
+			"value": "United States"
+		},
+		{
+			"label": "Launched",
+			"value": "16 July 1969, Kennedy Space Center"
+		},
+		{
+			"label": "Rocket",
+			"value": "Saturn V"
+		},
+		{
+			"label": "Crew",
+			"value": "Armstrong, Aldrin, Collins"
+		},
+		{
+			"label": "Landed",
+			"value": "20 July 1969, Sea of Tranquility"
+		},
+		{
+			"label": "Home",
+			"value": "24 July 1969, Pacific Ocean"
+		}
+	],
+	"people": [
+		{
+			"person": "armstrong",
+			"role": "Commander",
+			"isCrew": true,
+			"sortOrder": 1
+		},
+		{
+			"person": "aldrin",
+			"role": "Lunar module pilot",
+			"isCrew": true,
+			"sortOrder": 2
+		},
+		{
+			"person": "collins",
+			"role": "Command module pilot",
+			"isCrew": true,
+			"sortOrder": 3
+		},
+		{
+			"person": "vonbraun",
+			"role": "His team built the Saturn V",
+			"isCrew": false,
+			"sortOrder": 4
+		},
+		{
+			"person": "hamilton",
+			"role": "Led the landing software team",
+			"isCrew": false,
+			"sortOrder": 5
+		},
+		{
+			"person": "jackking",
+			"role": "Launch commentator",
+			"isCrew": false,
+			"sortOrder": 6
+		},
+		{
+			"person": "bales",
+			"role": "Guidance officer at the landing",
+			"isCrew": false,
+			"sortOrder": 7
+		},
+		{
+			"person": "duke",
+			"role": "Capsule communicator",
+			"isCrew": false,
+			"sortOrder": 8
+		}
+	],
+	"media": [
+		{
+			"sortOrder": 1,
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_Crew.jpg?width=1000",
+			"title": "The crew",
+			"caption": "Neil Armstrong, Michael Collins and Buzz Aldrin.",
+			"credit": "NASA. Public domain.",
+			"text": "Armstrong, Collins, Aldrin",
+			"style": null,
+			"people": [
+				"armstrong",
+				"collins",
+				"aldrin"
+			]
+		},
+		{
+			"sortOrder": 2,
+			"type": "Note",
+			"title": "Note",
+			"text": "Case opened.\nTwo tapes by the radio: the real voices.",
+			"style": "yellow"
+		},
+		{
+			"type": "Audio",
+			"url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Apollo_11_Eagle_Has_Landed.mp3",
+			"title": "Eagle has landed",
+			"credit": "Real recording, 20 July 1969: \"Houston, Tranquility Base here. The Eagle has landed.\" NASA, public domain.",
+			"lengthLabel": null,
+			"sortOrder": 3
+		},
+		{
+			"type": "Audio",
+			"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/dd/Armstrong_Small_Step.ogg/Armstrong_Small_Step.ogg.mp3",
+			"title": "One small step",
+			"credit": "Real recording, 21 July 1969: Neil Armstrong's first words on the Moon. NASA, public domain.",
+			"lengthLabel": null,
+			"sortOrder": 4
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Michael_Collins_practices_in_a_simulator_prior_to_Apollo_11_launch.jpg?width=1000",
+			"title": "Collins in the simulator",
+			"caption": "Michael Collins practises in the command module simulator, 18 days before launch.",
+			"credit": "NASA. Public domain.",
+			"style": "folder",
+			"sortOrder": 5,
+			"people": [
+				"collins"
+			]
+		}
+	],
+	"explanations": [],
+	"chapters": [
+		{
+			"section": "Story",
+			"tabLabel": "A promise",
+			"title": "A promise",
+			"place": "Washington",
+			"dateLabel": "1961 to 1968",
+			"summary": "On 25 May 1961, six weeks after Gagarin's flight, President Kennedy set a goal: land a man on the Moon and return him safely before the decade was out.",
+			"body": "<p>On 25 May 1961, six weeks after Gagarin's flight, President Kennedy set a goal: land a man on the Moon and return him safely before the decade was out. America had then sent one astronaut into space, for fifteen minutes.</p>\n<p><mark>About 400 000 people worked on Apollo.</mark> Mercury put single astronauts into orbit. Gemini taught crews to stay in space for two weeks, work outside, and meet and dock with another craft.</p>\n<p>In January 1967 a fire inside the Apollo 1 capsule during a ground test killed Gus Grissom, Ed White and Roger Chaffee. The spacecraft was redesigned. In December 1968 Apollo 8 carried three men around the Moon and back.</p>",
+			"marginNote": "One astronaut, fifteen minutes. And a deadline.",
+			"showsRadioHint": false,
+			"sortOrder": 1,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "Kennedy: the Moon before 1970",
+					"text": "Set six weeks after Gagarin.",
+					"dateLabel": "25 May 1961",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Met with five months to spare"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_1_fire.jpg?width=900",
+					"title": "Apollo 1, after the fire",
+					"caption": "Inside the Apollo 1 capsule after the fire of 27 January 1967.",
+					"credit": "NASA. Public domain.",
+					"text": "Apollo 1, January 1967",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "400 000 people.\nMercury, Gemini, then Apollo.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "We choose to go",
+			"title": "We choose to go",
+			"place": "Rice University, Houston",
+			"dateLabel": "12 September 1962",
+			"summary": "A year after his promise to Congress, Kennedy explained it to the public.",
+			"body": "<p>A year after his promise to Congress, Kennedy explained it to the public. In the heat of a football stadium in Houston, in front of about 40 000 people, he spoke for less than twenty minutes about why a country should go to the Moon.</p>\n<p><mark>He did not pretend it would be easy. He said that was the point.</mark> The goal would organise and measure the best of the nation's energy and skill.</p>\n<p>The speech became one of the most quoted in the history of spaceflight. Kennedy did not live to see the landing: he was killed in November 1963.</p>",
+			"marginNote": "Because it is hard.",
+			"showsRadioHint": false,
+			"sortOrder": 2,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Video",
+					"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/16/President_Kennedy%27s_Speech_at_Rice_University.ogv/President_Kennedy%27s_Speech_at_Rice_University.ogv.480p.vp9.webm",
+					"posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/President_Kennedy%27s_Speech_at_Rice_University.ogv/500px--President_Kennedy%27s_Speech_at_Rice_University.ogv.jpg",
+					"title": "The Rice University speech",
+					"caption": "Kennedy's whole speech at Rice University, filmed on 12 September 1962.",
+					"credit": "NASA. Public domain.",
+					"lengthLabel": "18 min"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "We choose to go to the Moon in this decade and do the other things, not because they are easy, but because they are hard.",
+					"author": "John F. Kennedy",
+					"dateLabel": "Houston, 12 September 1962"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kennedy_at_Rice_University_-_GPN-2000-001618.jpg?width=800",
+					"title": "Kennedy at Rice",
+					"caption": "President Kennedy speaking at Rice University stadium.",
+					"credit": "NASA. Public domain.",
+					"text": "Houston, 1962",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Mercury",
+			"title": "Mercury",
+			"place": "Cape Canaveral",
+			"dateLabel": "1959 to 1963",
+			"summary": "America's first step was Project Mercury: one astronaut in a small capsule, launched on a rocket built as a missile.",
+			"body": "<p>America's first step was Project Mercury: one astronaut in a small capsule, launched on a rocket built as a missile. On 9 April 1959 NASA introduced its first seven astronauts, all military test pilots. The press treated them like film stars.</p>\n<p>Six of them flew between 1961 and 1963. <mark>Alan Shepard went up and down in fifteen minutes; John Glenn orbited the Earth three times; Gordon Cooper stayed up for more than a day.</mark></p>\n<p>Mercury proved that Americans could fly in space and come home. It did not yet teach them how to go anywhere.</p>",
+			"marginNote": "One person, one small capsule.",
+			"showsRadioHint": false,
+			"sortOrder": 3,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Mercury_Seven_Astronauts_-_GPN-2000-001286.jpg?width=1000",
+					"title": "The Mercury Seven",
+					"caption": "NASA's first seven astronauts, introduced in April 1959.",
+					"credit": "NASA. Public domain.",
+					"text": "the first seven",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Mercury",
+					"data": {
+						"rows": [
+							[
+								"Astronauts chosen",
+								"April 1959"
+							],
+							[
+								"Crewed flights",
+								"six"
+							],
+							[
+								"First",
+								"Shepard, May 1961"
+							],
+							[
+								"Longest",
+								"Cooper, 34 hours"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Gemini",
+			"title": "Gemini",
+			"place": "In orbit",
+			"dateLabel": "1965 and 1966",
+			"summary": "A trip to the Moon needed skills nobody had: living in space for a week or more, working outside a spacecraft, and finding and docking with another craft in orbit.",
+			"body": "<p>A trip to the Moon needed skills nobody had: living in space for a week or more, working outside a spacecraft, and finding and docking with another craft in orbit. Gemini, a capsule for two, was built to learn them.</p>\n<p>In June 1965 Ed White made the first American spacewalk. In December two crews met in orbit, and Gemini 7 stayed up for two weeks. <mark>In March 1966 Neil Armstrong made the first docking in space, then saved his crew when a stuck thruster sent them spinning.</mark></p>\n<p>Ten crews flew Gemini in twenty months. By the end, America was ahead.</p>",
+			"marginNote": "Every skill the Moon would need.",
+			"showsRadioHint": false,
+			"sortOrder": 4,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ed_White_performs_first_U.S._spacewalk_-_GPN-2006-000025.jpg?width=1000",
+					"title": "Ed White outside",
+					"caption": "Ed White during the first American spacewalk, Gemini 4, 3 June 1965.",
+					"credit": "NASA / James McDivitt. Public domain.",
+					"text": "first US spacewalk",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "armstrong"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Gemini",
+					"data": {
+						"rows": [
+							[
+								"Crewed flights",
+								"ten"
+							],
+							[
+								"First spacewalk",
+								"June 1965"
+							],
+							[
+								"Two weeks up",
+								"Gemini 7"
+							],
+							[
+								"First docking",
+								"Gemini 8, Armstrong"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "The fire",
+			"title": "The fire",
+			"place": "Launch Complex 34, Cape Kennedy",
+			"dateLabel": "27 January 1967",
+			"summary": "The first Apollo crew, Gus Grissom, Ed White and Roger Chaffee, were strapped into their capsule on the pad for a test.",
+			"body": "<p>The first Apollo crew, Gus Grissom, Ed White and Roger Chaffee, were strapped into their capsule on the pad for a test. The rocket was not fuelled. Nobody thought it was dangerous.</p>\n<p>The cabin was filled with pure oxygen. A spark from a damaged wire started a fire that spread in seconds. <mark>The hatch opened inwards and could not be pushed open against the pressure. All three died.</mark></p>\n<p>NASA stopped for almost two years. The capsule was rebuilt with a quick-opening hatch, fireproof materials and safer air on the ground. Every later crew flew in a safer spacecraft because of them.</p>",
+			"marginNote": "Three lives, and a safer ship.",
+			"showsRadioHint": false,
+			"sortOrder": 5,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_1_Prime_Crew_-_GPN-2000-001159.jpg?width=1000",
+					"title": "The Apollo 1 crew",
+					"caption": "Gus Grissom, Ed White and Roger Chaffee, the crew of Apollo 1.",
+					"credit": "NASA. Public domain.",
+					"text": "Grissom, White, Chaffee",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "After the fire",
+					"data": {
+						"rows": [
+							[
+								"Hatch",
+								"opens outwards, fast"
+							],
+							[
+								"Materials",
+								"fireproof"
+							],
+							[
+								"Air on the pad",
+								"oxygen and nitrogen"
+							],
+							[
+								"Pause",
+								"almost two years"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Earthrise",
+			"title": "Earthrise",
+			"place": "Around the Moon",
+			"dateLabel": "24 December 1968",
+			"summary": "Seven months before Apollo 11, three astronauts flew the first crewed trip to the Moon.",
+			"body": "<p>Seven months before Apollo 11, three astronauts flew the first crewed trip to the Moon. Apollo 8, with Frank Borman, Jim Lovell and Bill Anders, went around the Moon ten times on Christmas Eve 1968 and came home. Nobody had ever left the Earth's orbit before.</p>\n<p>On the fourth orbit the Earth rose over the lunar horizon. Anders grabbed a camera loaded with colour film. <mark>His photograph, Earthrise, showed the whole planet small and blue above a grey, dead landscape.</mark></p>\n<p>In May 1969 Apollo 10 rehearsed everything except the landing, flying the lunar module down to about 15 kilometres above the surface.</p>",
+			"marginNote": "They went to see the Moon and discovered the Earth.",
+			"showsRadioHint": false,
+			"sortOrder": 6,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/NASA-Apollo8-Dec24-Earthrise.jpg?width=1000",
+					"title": "Earthrise",
+					"caption": "The Earth rising over the Moon, photographed by Bill Anders from Apollo 8 on 24 December 1968.",
+					"credit": "NASA / Bill Anders. Public domain.",
+					"text": "Earthrise, Christmas Eve 1968",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The rehearsals",
+					"data": {
+						"rows": [
+							[
+								"Apollo 8, Dec 1968",
+								"ten orbits of the Moon"
+							],
+							[
+								"Apollo 9, Mar 1969",
+								"lunar module tested"
+							],
+							[
+								"Apollo 10, May 1969",
+								"down to about 15 km"
+							],
+							[
+								"Apollo 11, Jul 1969",
+								"the landing"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The crew and machines",
+			"title": "The crew and the machines",
+			"place": "Houston and Florida",
+			"dateLabel": "1969",
+			"summary": "All three had flown in space before.",
+			"body": "<p>All three had flown in space before. Neil Armstrong was the commander. Buzz Aldrin would fly the lunar module down with him. Michael Collins would stay in orbit around the Moon and wait.</p>\n<p>The command module Columbia carried them there and back, and was the only part to return. <mark>The lunar module Eagle, a spidery craft with four legs that could only fly in space, would carry two of them down and back up.</mark></p>\n<p>Everything was launched by the Saturn V: 110 metres tall and almost 3 000 tonnes when full. Its first stage burned about 13 tonnes of fuel every second.</p>",
+			"marginNote": "Columbia came home. Eagle never could.",
+			"showsRadioHint": false,
+			"sortOrder": 7,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_Lunar_Module_diagram_(0101207).jpg?width=1100",
+					"title": "The lunar module",
+					"caption": "A NASA illustration of the lunar module and its parts.",
+					"credit": "NASA, Marshall Space Flight Center. Public domain.",
+					"style": "photo",
+					"data": {
+						"notes": []
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Apollo 11",
+					"data": {
+						"rows": [
+							[
+								"Saturn V",
+								"110 m tall"
+							],
+							[
+								"At launch",
+								"about 3 000 t"
+							],
+							[
+								"Mission",
+								"8 days"
+							],
+							[
+								"Moon rock",
+								"21.5 kg"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "armstrong"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The Saturn V",
+			"title": "The Saturn V",
+			"place": "Huntsville, Alabama, and Kennedy Space Center",
+			"dateLabel": "1962 to 1969",
+			"summary": "The rocket was designed by Wernher von Braun's team, the same engineers who had launched Explorer 1.",
+			"body": "<p>The rocket was designed by Wernher von Braun's team, the same engineers who had launched Explorer 1. The Saturn V stood 110 metres tall, taller than the Statue of Liberty with its base, and weighed almost 3 000 tonnes when fuelled.</p>\n<p>Its first stage had five F-1 engines and burned for about two and a half minutes, using up more than 2 000 tonnes of fuel and oxygen. <mark>It was built in pieces across the country and stacked upright in the Vehicle Assembly Building, then carried to the pad on a giant crawler.</mark></p>\n<p>It flew thirteen times and never lost a crew.</p>",
+			"marginNote": "Thirteen flights. Not one crew lost.",
+			"showsRadioHint": false,
+			"sortOrder": 8,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_Saturn_V_during_rollout_(48230433592).jpg?width=800",
+					"title": "Rolling out",
+					"caption": "The Saturn V for Apollo 11 being carried to the pad on its crawler, May 1969.",
+					"credit": "NASA. Public domain.",
+					"text": "rollout, May 1969",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Saturn V",
+					"data": {
+						"rows": [
+							[
+								"Height",
+								"about 110 m"
+							],
+							[
+								"Weight, fuelled",
+								"almost 3 000 t"
+							],
+							[
+								"First stage",
+								"five F-1 engines"
+							],
+							[
+								"Flights",
+								"13"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "Eagle",
+			"title": "Eagle",
+			"place": "Grumman, Bethpage, New York",
+			"dateLabel": "1962 to 1969",
+			"summary": "The lunar module was the first true spaceship: built only to fly in space, it could never have survived the Earth's air.",
+			"body": "<p>The lunar module was the first true spaceship: built only to fly in space, it could never have survived the Earth's air. It had two parts. The bottom half, with legs and a landing engine, would stay on the Moon. The top half, with the crew, would fly back up.</p>\n<p>Every gram mattered. <mark>In places its skin was thinner than a few sheets of paper</mark>, and the crew stood up, held by straps, because seats were too heavy.</p>\n<p>The company Grumman built it on Long Island. Engineers there worked through nights and weekends for years.</p>",
+			"marginNote": "Thinner than paper.",
+			"showsRadioHint": false,
+			"sortOrder": 9,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_Lunar_Module_prior_to_extraction_(48322617787).jpg?width=1000",
+					"title": "Eagle in its shell",
+					"caption": "The lunar module Eagle seen from Columbia, just before it was pulled from the top of the rocket.",
+					"credit": "NASA / Project Apollo Archive. Public domain.",
+					"text": "before extraction",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Eagle",
+					"data": {
+						"rows": [
+							[
+								"Built by",
+								"Grumman"
+							],
+							[
+								"Parts",
+								"descent and ascent stage"
+							],
+							[
+								"Crew",
+								"two, standing"
+							],
+							[
+								"Could fly in air",
+								"no"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The computer",
+			"title": "The computer",
+			"place": "MIT Instrumentation Laboratory",
+			"dateLabel": "1961 to 1969",
+			"summary": "Both Columbia and Eagle carried the Apollo Guidance Computer, about the size of a briefcase and weighing about 32 kilograms.",
+			"body": "<p>Both Columbia and Eagle carried the Apollo Guidance Computer, about the size of a briefcase and weighing about 32 kilograms. Its programs were woven by hand into ropes of copper wire and tiny magnetic rings: a wire through a ring meant one, a wire around it meant zero.</p>\n<p>The software was written at MIT by a team led by Margaret Hamilton. She insisted that the computer should cope with overload. <mark>When the 1202 alarms flashed during the landing, the computer dropped its less important jobs and kept flying.</mark></p>\n<p>A modern phone is millions of times more powerful. It has never landed anyone on the Moon.</p>",
+			"marginNote": "Software woven by hand.",
+			"showsRadioHint": false,
+			"sortOrder": 10,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Margaret_Hamilton_-_restoration.jpg?width=800",
+					"title": "Margaret Hamilton",
+					"caption": "Margaret Hamilton in 1969, standing next to printouts of the Apollo flight software her team wrote.",
+					"credit": "Draper Laboratory, restored by Adam Cuerden. Public domain.",
+					"text": "the code for Apollo",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Apollo Guidance Computer",
+					"data": {
+						"rows": [
+							[
+								"Weight",
+								"about 32 kg"
+							],
+							[
+								"Working memory",
+								"2 048 words"
+							],
+							[
+								"Fixed memory",
+								"36 864 words"
+							],
+							[
+								"Programs",
+								"woven into rope"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The spacesuits",
+			"title": "The spacesuits",
+			"place": "Dover, Delaware",
+			"dateLabel": "1965 to 1969",
+			"summary": "Each astronaut's moon suit was made to measure.",
+			"body": "<p>Each astronaut's moon suit was made to measure. It had to hold air, block the Sun's heat and the cold of the shade, and survive sharp rocks and tiny meteorites, while still letting a person bend and walk.</p>\n<p>The suits were made by ILC, a company that also made bras and girdles. <mark>Its seamstresses sewed the many thin layers by hand, with almost no room for error.</mark></p>\n<p>With the backpack, a suit weighed about 90 kilograms on Earth. On the Moon it felt like 15.</p>",
+			"marginNote": "Sewn by hand.",
+			"showsRadioHint": false,
+			"sortOrder": 11,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_A7L_spacesuit%2C_worn_by_Alan_Shepard%2C_Apollo_14_mission%2C_ILC_Industries_-_Kennedy_Space_Center_-_Cape_Canaveral%2C_Florida_-_DSC02887.jpg?width=700",
+					"title": "An A7L moon suit",
+					"caption": "The A7L suit worn by Alan Shepard on Apollo 14, the same model as Apollo 11's.",
+					"credit": "Daderot. CC0",
+					"text": "A7L",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The suit",
+					"data": {
+						"rows": [
+							[
+								"Model",
+								"A7L"
+							],
+							[
+								"Made by",
+								"ILC"
+							],
+							[
+								"With backpack",
+								"about 90 kg on Earth"
+							],
+							[
+								"On the Moon",
+								"about 15 kg"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "Practising the landing",
+			"title": "Practising the landing",
+			"place": "Ellington Air Force Base, Houston",
+			"dateLabel": "1968",
+			"summary": "How do you practise landing on the Moon on Earth?",
+			"body": "<p>How do you practise landing on the Moon on Earth? NASA built a strange flying machine with a jet engine pointing down to cancel five sixths of its weight, so it moved like a craft in the Moon's weak gravity.</p>\n<p>It was hard and dangerous to fly. <mark>On 6 May 1968 Armstrong's machine went out of control, and he ejected less than two seconds before it hit the ground.</mark> He went back to his office the same afternoon.</p>\n<p>Armstrong said later that the trainer was the best preparation he had for the real landing.</p>",
+			"marginNote": "Ejected two seconds before the crash.",
+			"showsRadioHint": false,
+			"sortOrder": 12,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_Landing_Research_Vehicle_in_Flight_-_GPN-2000-000215.jpg?width=800",
+					"title": "The lunar landing trainer",
+					"caption": "A Lunar Landing Research Vehicle in flight, the machine astronauts used to practise landing.",
+					"credit": "NASA. Public domain.",
+					"text": "the flying bedstead",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "armstrong"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Launch morning",
+			"title": "Launch morning",
+			"place": "Kennedy Space Center",
+			"dateLabel": "16 July 1969",
+			"summary": "The crew were woken just after four in the morning.",
+			"body": "<p>The crew were woken just after four in the morning. They had the traditional astronauts' breakfast of steak and eggs with a few colleagues, then went to put on their suits.</p>\n<p>Each man breathed pure oxygen for hours before launch, to clear nitrogen from his blood. <mark>They rode to the pad in a van carrying their portable air supplies like briefcases.</mark></p>\n<p>Armstrong climbed in first, then Collins, then Aldrin. The hatch was closed about two hours before lift-off.</p>",
+			"marginNote": "Steak and eggs.",
+			"showsRadioHint": false,
+			"sortOrder": 13,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_pre-launch_breakfast.jpg?width=1000",
+					"title": "Breakfast",
+					"caption": "The Apollo 11 crew at breakfast on the morning of the launch.",
+					"credit": "NASA. Public domain.",
+					"text": "launch morning",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Launch morning",
+					"data": {
+						"rows": [
+							[
+								"Woken",
+								"just after 4 a.m."
+							],
+							[
+								"Breakfast",
+								"steak and eggs"
+							],
+							[
+								"Hatch closed",
+								"about 2 hours before"
+							],
+							[
+								"Lift-off",
+								"09:32"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Launch and coast",
+			"title": "Launch and the long coast",
+			"place": "Kennedy Space Center, Florida",
+			"dateLabel": "16 to 19 July 1969",
+			"summary": "Apollo 11 lifted off at 09:32 local time on 16 July 1969.",
+			"body": "<p>Apollo 11 lifted off at 09:32 local time on 16 July 1969. About a million people watched from the beaches and roads. Twelve minutes later the crew was in orbit.</p>\n<p>The third stage fired again and sent them towards the Moon. Collins turned Columbia around, docked with Eagle and pulled it free. <mark>For three days they coasted, slowing as the Earth pulled back, then speeding up as the Moon took over.</mark> On 19 July they fired their engine behind the Moon and went into orbit around it.</p>",
+			"marginNote": "Three days of coasting, almost no engine.",
+			"showsRadioHint": false,
+			"sortOrder": 14,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_Launch_-_GPN-2000-000630.jpg?width=900",
+					"title": "Lift-off",
+					"caption": "The Saturn V with Apollo 11 lifts off, 16 July 1969.",
+					"credit": "NASA. Public domain.",
+					"text": "16 July 1969, 09:32",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "384 000 km.\nThree days of silence.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Video",
+					"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/88/Jack_King%27s_Apollo_11_Launch_Commentary_o4OBKOlgmfo.webm/Jack_King%27s_Apollo_11_Launch_Commentary_o4OBKOlgmfo.webm.480p.vp9.webm",
+					"posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Jack_King%27s_Apollo_11_Launch_Commentary_o4OBKOlgmfo.webm/960px--Jack_King%27s_Apollo_11_Launch_Commentary_o4OBKOlgmfo.webm.jpg",
+					"title": "The countdown",
+					"caption": "The last seconds of the countdown and lift-off, with the voice of launch commentator Jack King.",
+					"credit": "NASA Kennedy Space Center. Public domain.",
+					"lengthLabel": "half a minute"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Leaving the Earth",
+			"title": "Leaving the Earth",
+			"place": "Earth orbit",
+			"dateLabel": "16 July 1969",
+			"summary": "Apollo 11 first circled the Earth one and a half times while the crew checked every system.",
+			"body": "<p>Apollo 11 first circled the Earth one and a half times while the crew checked every system. Then, over the Pacific, the third stage fired again for about six minutes.</p>\n<p>It pushed them to about 39 000 kilometres per hour, fast enough to coast all the way to the Moon. <mark>Behind them the Earth shrank from a landscape into a planet.</mark></p>\n<p>Collins then turned Columbia around, docked with Eagle and pulled it free. The empty rocket stage was sent off to orbit the Sun.</p>",
+			"marginNote": "From a landscape to a planet.",
+			"showsRadioHint": false,
+			"sortOrder": 15,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Earth_during_Apollo_11_translunar_coast_AS11-36-5341.jpg?width=1000",
+					"title": "The Earth, leaving",
+					"caption": "The Earth photographed from Apollo 11 on the way to the Moon.",
+					"credit": "NASA. Public domain.",
+					"text": "on the way out",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Leaving",
+					"data": {
+						"rows": [
+							[
+								"Orbits of Earth",
+								"one and a half"
+							],
+							[
+								"Third stage",
+								"fired again"
+							],
+							[
+								"Speed",
+								"about 39 000 km/h"
+							],
+							[
+								"Then",
+								"three days of coasting"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Into lunar orbit",
+			"title": "Into lunar orbit",
+			"place": "Behind the Moon",
+			"dateLabel": "19 July 1969",
+			"summary": "After three days the Moon filled the windows.",
+			"body": "<p>After three days the Moon filled the windows. To stay there, the crew had to fire their engine to slow down, and they had to do it behind the Moon, out of radio contact with everyone.</p>\n<p>If the engine failed, they would swing around and head home. If it burned too long, they could crash. <mark>Houston waited in silence until Columbia came round the edge on time.</mark></p>\n<p>For the first time the crew saw the far side and the landing site up close, grey and pocked with craters.</p>",
+			"marginNote": "The burn nobody could watch.",
+			"showsRadioHint": false,
+			"sortOrder": 16,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/AS11-44-6667_-_Full_Moon_Photographed_From_Apollo_11_Spacecraft.jpg?width=900",
+					"title": "The Moon ahead",
+					"caption": "The Moon photographed from Apollo 11.",
+					"credit": "NASA. Public domain.",
+					"text": "arrival",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Engine fired behind the Moon.\nNo radio. Just waiting.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "On the Moon",
+			"tabLabel": "The landing",
+			"title": "The landing",
+			"place": "Sea of Tranquility",
+			"dateLabel": "20 July 1969",
+			"summary": "Armstrong and Aldrin undocked in Eagle and began to descend.",
+			"body": "<p>Armstrong and Aldrin undocked in Eagle and began to descend. The computer started flashing alarms nobody had seen before, \"1202\" and \"1201\". In Houston a young engineer, Steve Bales, judged that it was still doing the important jobs. The call came back: go.</p>\n<p>Then Armstrong saw that the computer was taking them into a crater full of boulders. <mark>He took over and flew Eagle on, skimming over the rocks, as the fuel ran out.</mark> At 20:17 universal time a probe under one leg touched the ground.</p>",
+			"marginNote": "Play the tape: \"The Eagle has landed.\"",
+			"showsRadioHint": true,
+			"sortOrder": 17,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_Lunar_Module_Eagle_in_landing_configuration_in_lunar_orbit_from_the_Command_and_Service_Module_Columbia.jpg?width=900",
+					"title": "Eagle, before the descent",
+					"caption": "Eagle in lunar orbit, photographed from Columbia.",
+					"credit": "NASA. Public domain.",
+					"text": "Eagle, legs out",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Alarms 1202 and 1201.\nLess than a minute of fuel left.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "On the Moon",
+			"tabLabel": "Tranquility Base here",
+			"title": "Tranquility Base here",
+			"place": "Sea of Tranquility",
+			"dateLabel": "20 July 1969, 20:17 UTC",
+			"summary": "In Mission Control the room had gone silent as the fuel ran low.",
+			"body": "<p>In Mission Control the room had gone silent as the fuel ran low. Then came Aldrin's voice: \"Contact light.\" A probe under one of Eagle's feet had touched the ground.</p>\n<p>Armstrong switched off the engine and gave the landing site its new name. <mark>The man answering him in Houston, Charlie Duke, was so excited he stumbled over the word.</mark></p>\n<p>The tape by the radio is the real recording. Play it.</p>",
+			"marginNote": "The tape by the radio.",
+			"showsRadioHint": true,
+			"sortOrder": 18,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "Houston, Tranquility Base here. The Eagle has landed.",
+					"author": "Neil Armstrong",
+					"dateLabel": "20 July 1969, 20:17 UTC"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mission_Operations_Control_Room_at_the_conclusion_of_Apollo_11.jpg?width=1000",
+					"title": "Mission Control",
+					"caption": "The Mission Operations Control Room in Houston at the end of the mission.",
+					"credit": "NASA. Public domain.",
+					"text": "Houston",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "Roger, Tranquility. We copy you on the ground. You got a bunch of guys about to turn blue. We're breathing again.",
+					"author": "Charlie Duke, Mission Control",
+					"dateLabel": "seconds later"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "On the Moon",
+			"tabLabel": "One small step",
+			"title": "One small step",
+			"place": "Tranquility Base",
+			"dateLabel": "20 and 21 July 1969",
+			"summary": "About six and a half hours after landing, Armstrong climbed down the ladder while a camera sent pictures to the Earth.",
+			"body": "<p>About six and a half hours after landing, Armstrong climbed down the ladder while a camera sent pictures to the Earth. <mark>At 02:56 universal time on 21 July he put his left boot onto the Moon.</mark></p>\n<p>Aldrin followed twenty minutes later and called it \"magnificent desolation\". They collected rocks and soil, planted a flag and set up experiments, including a panel of mirrors that observatories still hit with lasers to measure the distance to the Moon.</p>\n<p>With no wind or rain, their boot prints could last for millions of years.</p>",
+			"marginNote": "Play the second tape: his first words on the Moon.",
+			"showsRadioHint": true,
+			"sortOrder": 19,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/A_Man_on_the_Moon%2C_AS11-40-5903_(cropped).jpg?width=900",
+					"title": "Aldrin on the Moon",
+					"caption": "Buzz Aldrin, photographed by Neil Armstrong.",
+					"credit": "NASA, Neil Armstrong. Public domain.",
+					"text": "Aldrin, by Armstrong",
+					"style": null,
+					"people": [
+						"aldrin"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_bootprint.jpg?width=800",
+					"title": "A boot print",
+					"caption": "Buzz Aldrin's boot print in the lunar soil.",
+					"credit": "NASA, Buzz Aldrin. Public domain.",
+					"text": "a boot print",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "aldrin"
+				},
+				{
+					"sortOrder": 4,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "That's one small step for man, one giant leap for mankind.",
+					"author": "Neil Armstrong",
+					"dateLabel": "Tranquility Base, 21 July 1969, 02:56 UTC"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "On the Moon",
+			"tabLabel": "Magnificent desolation",
+			"title": "Magnificent desolation",
+			"place": "Tranquility Base",
+			"dateLabel": "21 July 1969",
+			"summary": "Aldrin stepped down about twenty minutes after Armstrong.",
+			"body": "<p>Aldrin stepped down about twenty minutes after Armstrong. He looked around at a grey, silent plain under a black sky, with the Earth hanging low above it.</p>\n<p>Walking was strange. In the Moon's weak gravity they bounced, and found that a loping run was easier than walking. <mark>The dust was fine as powder and stuck to everything.</mark></p>\n<p>Most of the photographs from Apollo 11 show Aldrin, because Armstrong carried the camera.</p>",
+			"marginNote": "Most photos show Aldrin.",
+			"showsRadioHint": false,
+			"sortOrder": 20,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Aldrin_Looks_Back_at_Tranquility_Base_-_GPN-2000-001102.jpg?width=1000",
+					"title": "Aldrin looks back",
+					"caption": "Buzz Aldrin looks back towards Tranquility Base. Photograph by Neil Armstrong.",
+					"credit": "NASA / Neil Armstrong. Public domain.",
+					"text": "photo by Armstrong",
+					"style": null,
+					"people": [
+						"aldrin"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "Beautiful view. Magnificent desolation.",
+					"author": "Buzz Aldrin, on stepping onto the Moon",
+					"dateLabel": "21 July 1969"
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "aldrin"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "On the Moon",
+			"tabLabel": "Watching from Earth",
+			"title": "Watching from Earth",
+			"place": "Honeysuckle Creek and Parkes, Australia",
+			"dateLabel": "21 July 1969",
+			"summary": "When Armstrong stepped down the ladder, the Moon was above Australia.",
+			"body": "<p>When Armstrong stepped down the ladder, the Moon was above Australia. A small black-and-white camera on Eagle's side sent the picture to the tracking station at Honeysuckle Creek near Canberra, and minutes later to the big dish at Parkes.</p>\n<p><mark>About six hundred million people, one in every six alive, watched live.</mark> In many countries schools stayed open at night, and people crowded around shop windows with televisions in them.</p>\n<p>The original high-quality tapes were later lost or reused. The pictures that survive are mostly the broadcast copies.</p>",
+			"marginNote": "One person in six, watching.",
+			"showsRadioHint": false,
+			"sortOrder": 21,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/HoneysucklePolaroid.jpg?width=800",
+					"title": "A photo of the screen",
+					"caption": "A Polaroid taken of a monitor at Honeysuckle Creek as Armstrong came down the ladder.",
+					"credit": "NASA. Public domain.",
+					"text": "Honeysuckle Creek",
+					"style": "photo",
+					"people": [
+						"armstrong"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Parkes_Radio_Telescope_(CSIRO)_(cropped).jpg?width=900",
+					"title": "The dish at Parkes",
+					"caption": "The Parkes radio telescope in Australia, which relayed most of the moonwalk.",
+					"credit": "Amanda Slater. CC BY-SA 2.0",
+					"text": "Parkes",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "On the Moon",
+			"tabLabel": "Two and a half hours",
+			"title": "Two and a half hours",
+			"place": "Tranquility Base",
+			"dateLabel": "21 July 1969",
+			"summary": "The moonwalk lasted about two and a half hours, and neither astronaut went further than about 60 metres from Eagle.",
+			"body": "<p>The moonwalk lasted about two and a half hours, and neither astronaut went further than about 60 metres from Eagle. There was a long list of jobs and little time.</p>\n<p>They scooped up about 21 kilograms of rock and soil, set up a seismometer to feel moonquakes, unrolled a sheet of foil to catch particles from the Sun and placed the laser mirrors. They took a phone call from President Nixon. <mark>On one of Eagle's legs they left a plaque</mark>, which is still there.</p>\n<p>Then they climbed back in, threw out their boots and backpacks to save weight, and tried to sleep.</p>",
+			"marginNote": "Still there, on the lower stage.",
+			"showsRadioHint": false,
+			"sortOrder": 22,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Video",
+					"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/83/Restored_Apollo_11_Moonwalk_-_Original_NASA_EVA_Mission_Video_-_Walking_on_the_Moon.webm/Restored_Apollo_11_Moonwalk_-_Original_NASA_EVA_Mission_Video_-_Walking_on_the_Moon.webm.480p.vp9.webm",
+					"posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Restored_Apollo_11_Moonwalk_-_Original_NASA_EVA_Mission_Video_-_Walking_on_the_Moon.webm/960px--Restored_Apollo_11_Moonwalk_-_Original_NASA_EVA_Mission_Video_-_Walking_on_the_Moon.webm.jpg",
+					"title": "The moonwalk, restored",
+					"caption": "NASA's restored television pictures of the whole Apollo 11 moonwalk.",
+					"credit": "NASA. Public domain.",
+					"lengthLabel": "about 3 hours"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_plaque_closeup_on_Moon.jpg?width=800",
+					"title": "The plaque",
+					"caption": "The plaque on Eagle's ladder leg, photographed on the Moon.",
+					"credit": "NASA. Public domain.",
+					"text": "left behind",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "Here men from the planet Earth first set foot upon the Moon, July 1969, A.D. We came in peace for all mankind.",
+					"author": "The plaque on Eagle",
+					"dateLabel": "Tranquility Base, 20 July 1969"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "On the Moon",
+			"tabLabel": "What they left behind",
+			"title": "What they left behind",
+			"place": "Tranquility Base",
+			"dateLabel": "21 July 1969",
+			"summary": "Besides the flag and the experiments, the astronauts left a small bag of mementos on the ground: a gold olive branch, a patch from Apollo 1, and medals in memory of Yuri Gagarin and Vladimir Komarov.",
+			"body": "<p>Besides the flag and the experiments, the astronauts left a small bag of mementos on the ground: a gold olive branch, a patch from Apollo 1, and medals in memory of Yuri Gagarin and Vladimir Komarov.</p>\n<p>They also left a silicon disc the size of a coin, engraved with goodwill messages from the leaders of 73 countries. <mark>Their seismometer picked up the vibrations of their own footsteps</mark> before it went on to record moonquakes.</p>\n<p>The lower half of Eagle is still there, with its plaque, its experiments and the boot prints around it.</p>",
+			"marginNote": "For Gagarin and Komarov too.",
+			"showsRadioHint": false,
+			"sortOrder": 23,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Replik_Seismometer_Apollo_11_Science_Museum.jpg?width=1000",
+					"title": "The seismometer",
+					"caption": "A copy of the Apollo 11 seismometer at the Science Museum in London.",
+					"credit": "Tohma. CC BY-SA 4.0",
+					"text": "listening for moonquakes",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Left on the Moon",
+					"data": {
+						"rows": [
+							[
+								"Olive branch",
+								"gold"
+							],
+							[
+								"Patch",
+								"Apollo 1"
+							],
+							[
+								"Medals",
+								"Gagarin, Komarov"
+							],
+							[
+								"Messages",
+								"from 73 countries"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "On the Moon",
+			"tabLabel": "Lift-off from the Moon",
+			"title": "Lift-off from the Moon",
+			"place": "Tranquility Base",
+			"dateLabel": "21 July 1969, 17:54 UTC",
+			"summary": "There was no backup engine.",
+			"body": "<p>There was no backup engine. If the ascent engine failed to fire, there was no rescue. It fired.</p>\n<p>The top half of Eagle rose from the bottom half. Looking out of the window, <mark>Aldrin saw the flag knocked over by the blast of the engine.</mark> Later crews planted their flags further away.</p>\n<p>Eagle climbed into orbit to meet Columbia, about three and a half hours later.</p>",
+			"marginNote": "One engine. No backup.",
+			"showsRadioHint": false,
+			"sortOrder": 24,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Buzz_Aldrin_and_the_U.S._Flag_on_the_Moon_(9460188482).jpg?width=1000",
+					"title": "The flag",
+					"caption": "Buzz Aldrin beside the flag. It was knocked over at lift-off.",
+					"credit": "NASA / Apollo 11. Public domain.",
+					"text": "blown over at lift-off",
+					"style": null,
+					"people": [
+						"aldrin"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Lift-off",
+					"data": {
+						"rows": [
+							[
+								"Time",
+								"17:54 UTC, 21 July"
+							],
+							[
+								"Engine",
+								"one, no backup"
+							],
+							[
+								"Launch pad",
+								"Eagle's lower half"
+							],
+							[
+								"Docking",
+								"about 3.5 hours later"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "Alone behind the Moon",
+			"title": "Alone behind the Moon",
+			"place": "Lunar orbit",
+			"dateLabel": "20 and 21 July 1969",
+			"summary": "Michael Collins stayed in Columbia, going around the Moon every two hours.",
+			"body": "<p>Michael Collins stayed in Columbia, going around the Moon every two hours. <mark>Each time he passed behind it, he lost radio contact with everyone, for about 48 minutes.</mark></p>\n<p>He later wrote that he did not feel lonely but aware, even happy, in the quiet. He also knew that if something went wrong on the surface, he would have to fly home alone.</p>",
+			"marginNote": "48 minutes, cut off from everyone.",
+			"showsRadioHint": false,
+			"sortOrder": 25,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "collins"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Earth%2C_Moon_and_Lunar_Module%2C_AS11-44-6643.jpg?width=900",
+					"title": "Eagle comes back",
+					"caption": "Eagle's upper stage rising to meet Columbia, with the Earth above the Moon.",
+					"credit": "NASA, Michael Collins. Public domain.",
+					"text": "photographed by Collins",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "Columbia's pilot",
+			"title": "Columbia's pilot",
+			"place": "Lunar orbit",
+			"dateLabel": "20 and 21 July 1969",
+			"summary": "While the others walked on the Moon, Collins had plenty to do.",
+			"body": "<p>While the others walked on the Moon, Collins had plenty to do. He tried to spot Eagle on the surface through a telescope, kept Columbia healthy, and prepared for every kind of rescue in case Eagle came up in the wrong place.</p>\n<p>He carried a book of eighteen different plans for meeting Eagle. <mark>Before he left Columbia for good, he wrote a short message on the wall inside the cabin.</mark></p>\n<p>Collins later wrote one of the best books about spaceflight, Carrying the Fire. He never flew in space again.</p>",
+			"marginNote": "Eighteen plans for one meeting.",
+			"showsRadioHint": false,
+			"sortOrder": 26,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "Spacecraft 107, alias Apollo 11, alias Columbia. The best ship to come down the line. God bless her.",
+					"author": "Michael Collins, written inside Columbia",
+					"dateLabel": "July 1969"
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "collins"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Home",
+			"tabLabel": "The way home",
+			"title": "The way home",
+			"place": "The Moon to the Pacific",
+			"dateLabel": "21 to 24 July 1969",
+			"summary": "Inside Eagle a small switch had been broken off, the one that armed the engine for lift-off.",
+			"body": "<p>Inside Eagle a small switch had been broken off, the one that armed the engine for lift-off. <mark>Aldrin pushed a felt-tip pen into the hole, and it worked.</mark></p>\n<p>The top half of Eagle lifted off, using the bottom half as its launch pad, and met Columbia in orbit. On 24 July Columbia hit the atmosphere at about 11 kilometres per second and landed in the Pacific, where the USS Hornet picked up the crew. They spent three weeks in quarantine.</p>",
+			"marginNote": "A felt-tip pen in a broken switch.",
+			"showsRadioHint": false,
+			"sortOrder": 27,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_CM_hoisted_aboard_Hornet_(S69-21783).jpg?width=900",
+					"title": "Columbia comes aboard",
+					"caption": "The command module Columbia hoisted onto the USS Hornet.",
+					"credit": "NASA. Public domain.",
+					"text": "Columbia, USS Hornet",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Splashdown: 24 July.\nThree weeks in quarantine.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Home",
+			"tabLabel": "Splashdown",
+			"title": "Splashdown",
+			"place": "Pacific Ocean, south-west of Hawaii",
+			"dateLabel": "24 July 1969",
+			"summary": "Columbia hit the top of the atmosphere at about 40 000 kilometres per hour.",
+			"body": "<p>Columbia hit the top of the atmosphere at about 40 000 kilometres per hour. Its heat shield glowed at thousands of degrees, and for a few minutes the radio was cut off by the fire.</p>\n<p>Three red and white parachutes opened, and at 16:50 universal time Columbia splashed into the Pacific. <mark>It landed upside down, and inflated balloons on its top to turn itself the right way up.</mark></p>\n<p>In Houston, Mission Control lit cigars and waved small flags. The mission was over.</p>",
+			"marginNote": "Upside down, then right way up.",
+			"showsRadioHint": false,
+			"sortOrder": 28,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_Kommandomodul_%22Columbia%22.jpg?width=1000",
+					"title": "Columbia today",
+					"caption": "Columbia, scorched by re-entry, at the National Air and Space Museum in Washington.",
+					"credit": "Smithsonian Institution / Eric Long. CC0",
+					"text": "Columbia, Washington",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Coming home",
+					"data": {
+						"rows": [
+							[
+								"Speed at entry",
+								"about 40 000 km/h"
+							],
+							[
+								"Parachutes",
+								"three"
+							],
+							[
+								"Splashdown",
+								"16:50 UTC, 24 July"
+							],
+							[
+								"Ship",
+								"USS Hornet"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Home",
+			"tabLabel": "Quarantine",
+			"title": "Quarantine",
+			"place": "USS Hornet and Houston",
+			"dateLabel": "24 July to 10 August 1969",
+			"summary": "Nobody could be completely sure that the Moon carried no germs.",
+			"body": "<p>Nobody could be completely sure that the Moon carried no germs. As soon as the crew climbed out of Columbia, they were given biological isolation suits, and on the ship they went straight into a sealed trailer.</p>\n<p><mark>President Nixon welcomed them home through its window.</mark> The trailer was flown to Houston, where they lived for almost three weeks with the doctors, the rock boxes and a few mice exposed to moon dust.</p>\n<p>Nobody got ill. After two more missions, quarantine was dropped.</p>",
+			"marginNote": "Welcome home, through glass.",
+			"showsRadioHint": false,
+			"sortOrder": 29,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/President_Nixon_welcomes_the_Apollo_11_astronauts_aboard_the_U.S.S._Hornet.jpg?width=1000",
+					"title": "Nixon at the window",
+					"caption": "President Nixon talks to the crew through the window of the quarantine trailer on USS Hornet.",
+					"credit": "NASA. Public domain.",
+					"text": "through the window",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Quarantine",
+					"data": {
+						"rows": [
+							[
+								"Began",
+								"24 July 1969"
+							],
+							[
+								"Where",
+								"a trailer, then Houston"
+							],
+							[
+								"Ended",
+								"10 August 1969"
+							],
+							[
+								"Germs found",
+								"none"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Home",
+			"tabLabel": "Parades",
+			"title": "Parades",
+			"place": "New York, Chicago, Los Angeles and the world",
+			"dateLabel": "August to November 1969",
+			"summary": "Three days after leaving quarantine, the crew were driven through New York in a ticker-tape parade.",
+			"body": "<p>Three days after leaving quarantine, the crew were driven through New York in a ticker-tape parade. The same day they flew to Chicago and then Los Angeles for more celebrations.</p>\n<p>Then came a world tour of more than twenty countries in about six weeks. <mark>Everywhere, people told them \"we did it\", meaning not America but all of humanity.</mark></p>\n<p>All three found fame hard. None of them flew in space again.</p>",
+			"marginNote": "\"We did it.\"",
+			"showsRadioHint": false,
+			"sortOrder": 30,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_ticker_tape_parade_1.jpg?width=1000",
+					"title": "Ticker tape in New York",
+					"caption": "The Apollo 11 crew in the ticker-tape parade in New York, 13 August 1969.",
+					"credit": "NASA / Bill Taub. Public domain.",
+					"text": "New York, 13 August",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "After the flight",
+					"data": {
+						"rows": [
+							[
+								"Parades",
+								"New York, Chicago, LA"
+							],
+							[
+								"Same day",
+								"13 August 1969"
+							],
+							[
+								"World tour",
+								"more than 20 countries"
+							],
+							[
+								"Flew again",
+								"none of them"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "What it changed",
+			"title": "What it changed",
+			"place": "The Moon",
+			"dateLabel": "1969 to 1972",
+			"summary": "Apollo 11 met Kennedy's goal with five months to spare.",
+			"body": "<p>Apollo 11 met Kennedy's goal with five months to spare. <mark>Five more crews landed, and twelve people walked on the Moon.</mark> The 380 kilograms of rock they brought back showed that the Moon is about as old as the Earth, and helped prove it formed after a huge collision with the young Earth.</p>\n<p>After Apollo 17 in December 1972, nobody went back. More than fifty years later, new missions are being prepared to return.</p>",
+			"marginNote": "Twelve people. Nobody since 1972.",
+			"showsRadioHint": false,
+			"sortOrder": 31,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Note",
+					"title": "Note",
+					"text": "Six landings.\nTwelve people on the Moon.\nNobody since 1972.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_Lunar_Laser_Ranging_Experiment.jpg?width=1000",
+					"title": "The mirrors on the Moon",
+					"caption": "The panel of mirrors left at Tranquility Base. Observatories still bounce lasers off it to measure the distance to the Moon.",
+					"credit": "NASA. Public domain.",
+					"text": "still in use",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "Five more landings",
+			"title": "Five more landings",
+			"place": "The Moon",
+			"dateLabel": "1969 to 1972",
+			"summary": "Apollo 12 landed in November 1969, right next to an old robot probe, Surveyor 3.",
+			"body": "<p>Apollo 12 landed in November 1969, right next to an old robot probe, Surveyor 3. Apollo 13 never landed: an oxygen tank exploded on the way, and the crew came home safely in a famous rescue.</p>\n<p>Apollo 14, 15, 16 and 17 followed. <mark>The last three carried an electric car, the Lunar Roving Vehicle</mark>, and stayed for three days, driving many kilometres to explore mountains and valleys.</p>\n<p>In all, twelve people walked on the Moon. All of them were American men, and all flew between 1969 and 1972.</p>",
+			"marginNote": "Twelve people. Six landings.",
+			"showsRadioHint": false,
+			"sortOrder": 32,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/NASA_Apollo_17_Lunar_Roving_Vehicle.jpg?width=1000",
+					"title": "The rover",
+					"caption": "The Lunar Roving Vehicle on Apollo 17, December 1972.",
+					"credit": "NASA / Harrison Schmitt. Public domain.",
+					"text": "Apollo 17 rover",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The landings",
+					"data": {
+						"rows": [
+							[
+								"Apollo 11, 12",
+								"1969"
+							],
+							[
+								"Apollo 13",
+								"no landing, crew safe"
+							],
+							[
+								"Apollo 14, 15",
+								"1971"
+							],
+							[
+								"Apollo 16, 17",
+								"1972"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "What the rocks said",
+			"title": "What the rocks said",
+			"place": "Houston and laboratories worldwide",
+			"dateLabel": "Since 1969",
+			"summary": "The six landings brought back 382 kilograms of rock and soil.",
+			"body": "<p>The six landings brought back 382 kilograms of rock and soil. Small pieces were lent to scientists all over the world, and most of it is still kept untouched for future studies.</p>\n<p>The rocks showed that the Moon is very old, some of them more than four billion years. <mark>They are so similar to the Earth's mantle that most scientists now think the Moon formed from the debris of a huge collision between the young Earth and another planet.</mark></p>\n<p>The Moon turned out to be a record of the early Solar System, kept almost unchanged.</p>",
+			"marginNote": "Born in a collision.",
+			"showsRadioHint": false,
+			"sortOrder": 33,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_11_moon_rocks.jpg?width=700",
+					"title": "Apollo 11 moon rocks",
+					"caption": "Rock samples brought back by Apollo 11.",
+					"credit": "esuckow2. CC BY 3.0",
+					"text": "from Tranquility Base",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Moon rocks",
+					"data": {
+						"rows": [
+							[
+								"Brought back",
+								"382 kg"
+							],
+							[
+								"Oldest",
+								"over 4 billion years"
+							],
+							[
+								"Most like",
+								"the Earth's mantle"
+							],
+							[
+								"Best idea",
+								"a giant collision"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "The last steps",
+			"title": "The last steps",
+			"place": "Taurus-Littrow valley",
+			"dateLabel": "December 1972",
+			"summary": "Apollo 17 landed in a valley surrounded by mountains.",
+			"body": "<p>Apollo 17 landed in a valley surrounded by mountains. Gene Cernan and Harrison Schmitt, a geologist, the only scientist to walk on the Moon, spent three days exploring.</p>\n<p>On 14 December 1972 Cernan was the last to climb the ladder. <mark>Before he went up, he spoke a few words for whoever would come next.</mark></p>\n<p>Nobody has walked on the Moon since.</p>",
+			"marginNote": "The last footprints, so far.",
+			"showsRadioHint": false,
+			"sortOrder": 34,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_17_Cernan_on_moon.jpg?width=1000",
+					"title": "Gene Cernan",
+					"caption": "Gene Cernan on the Moon during Apollo 17, December 1972.",
+					"credit": "NASA / Harrison Schmitt. Public domain.",
+					"text": "December 1972",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "We leave as we came and, God willing, as we shall return, with peace and hope for all mankind.",
+					"author": "Gene Cernan",
+					"dateLabel": "Taurus-Littrow, 14 December 1972"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "Going back",
+			"title": "Going back",
+			"place": "Kennedy Space Center and the Moon",
+			"dateLabel": "2022 to today",
+			"summary": "NASA's Artemis programme aims to return people to the Moon, this time to stay longer and to land near the south pole, where ice may lie in craters that never see sunlight.",
+			"body": "<p>NASA's Artemis programme aims to return people to the Moon, this time to stay longer and to land near the south pole, where ice may lie in craters that never see sunlight.</p>\n<p>Artemis I flew an empty capsule around the Moon in 2022. <mark>In April 2026 four astronauts of Artemis II flew around the Moon and came home</mark>: the first people to travel there since 1972, and among them the first woman and the first Black astronaut to go to the Moon.</p>\n<p>The next missions are planned to land. More than half a century after Apollo 11, the footprints may soon have company.</p>",
+			"marginNote": "Back, after more than fifty years.",
+			"showsRadioHint": false,
+			"sortOrder": 35,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Artemis_2_Crew_Portrait.jpg?width=800",
+					"title": "The Artemis II crew",
+					"caption": "Reid Wiseman, Victor Glover, Christina Koch and Jeremy Hansen, the crew of Artemis II.",
+					"credit": "NASA / Josh Valcarcel. Public domain.",
+					"text": "Artemis II",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Artemis",
+					"data": {
+						"rows": [
+							[
+								"Artemis I",
+								"2022, no crew"
+							],
+							[
+								"Artemis II",
+								"April 2026, around the Moon"
+							],
+							[
+								"Crew",
+								"four"
+							],
+							[
+								"Next",
+								"a landing"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Try it yourself",
+			"tabLabel": "Try it yourself",
+			"title": "Lifting off from the Moon",
+			"place": "The physics behind this case",
+			"dateLabel": null,
+			"summary": "Eagle's engine pushed hot gas downwards, and the gas pushed the craft upwards with exactly the same force.",
+			"body": "<p>Eagle's engine pushed hot gas downwards, <mark>and the gas pushed the craft upwards with exactly the same force.</mark> There was no air to push against. There did not need to be.</p>\n<p>That is Newton's third law, the same one that launched the Saturn V and steered Columbia home.</p>\n<p>On the monitor: two boxes push each other apart. The pushes are always equal.</p>",
+			"marginNote": null,
+			"showsRadioHint": false,
+			"sortOrder": 36,
+			"media": [
+				{
+					"type": "Simulation",
+					"title": "Lifting off from the Moon",
+					"sortOrder": 1
+				}
+			],
+			"explanations": []
+		}
+	]
+}

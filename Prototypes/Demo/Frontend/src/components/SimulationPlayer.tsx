@@ -4,7 +4,6 @@ import './SimulationPlayer.css';
 export interface SimulationLabels
 {
 	start: string;
-	narrowScreen: string;
 	loading: string;
 	starting: string;
 	error: string;
@@ -16,7 +15,6 @@ export interface SimulationLabels
 interface Props
 {
 	title: string;
-	learningGoal: string;
 	buildUrl: string;
 	thumbnailUrl: string;
 	labels: SimulationLabels;
@@ -227,15 +225,8 @@ export default function SimulationPlayer(props: Props)
 					aria-label={props.labels.start + ': ' + props.title}
 				>
 					{props.thumbnailUrl !== '' && <img src={props.thumbnailUrl} alt="" loading="lazy" />}
-					<span className="thumb-text">
-						<span className="thumb-title">{props.title}</span>
-						<span className="thumb-goal">{props.learningGoal}</span>
-					</span>
-					<span className="thumb-play">
-						<span className="thumb-play-icon" aria-hidden="true" />
-					</span>
+					<span className="thumb-run">{props.labels.start}</span>
 				</button>
-				<p className="simulation-narrow">{props.labels.narrowScreen}</p>
 			</figure>
 		);
 	}

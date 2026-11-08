@@ -1,0 +1,1617 @@
+{
+	"slug": "vostok-1",
+	"kind": "Mission",
+	"title": "Vostok 1",
+	"tagline": "The first person in space",
+	"summary": "On 12 April 1961 Yuri Gagarin, a 27-year-old pilot from a small Russian village, became the first person to leave the Earth. <mark>One trip around the planet, 108 minutes, and the world changed.</mark>",
+	"coverImageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Yuri_Gagarin_(1961)_-_Restoration.jpg?width=700",
+	"coverCaption": "Yuri Gagarin, 1961",
+	"coverCredit": "Arto Jousi, Finnish Museum of Photography. Public domain.",
+	"country": "Soviet Union",
+	"desk": "Soviet",
+	"startDate": "1961-04-12",
+	"endDate": "1961-04-12",
+	"agency": "USSR",
+	"missionOutcome": "Success",
+	"evidenceStatus": null,
+	"statusNote": null,
+	"radioMinMHz": null,
+	"radioMaxMHz": null,
+	"relatedTopic": "newtons-third-law",
+	"facts": [
+		{
+			"label": "Country",
+			"value": "Soviet Union"
+		},
+		{
+			"label": "Launched",
+			"value": "12 April 1961, 09:07 Moscow time"
+		},
+		{
+			"label": "Pilot",
+			"value": "Yuri Gagarin"
+		},
+		{
+			"label": "Rocket",
+			"value": "Vostok, from the R-7 family"
+		},
+		{
+			"label": "Lasted",
+			"value": "108 minutes, one orbit"
+		},
+		{
+			"label": "Landed",
+			"value": "near Engels, on the Volga"
+		}
+	],
+	"people": [
+		{
+			"person": "gagarin",
+			"role": "Pilot",
+			"isCrew": true,
+			"sortOrder": 1
+		},
+		{
+			"person": "korolev",
+			"role": "Chief designer",
+			"isCrew": false,
+			"sortOrder": 2
+		},
+		{
+			"person": "titov",
+			"role": "Backup pilot",
+			"isCrew": true,
+			"sortOrder": 3
+		},
+		{
+			"person": "nelyubov",
+			"role": "Second backup for the flight",
+			"isCrew": false,
+			"sortOrder": 4
+		}
+	],
+	"media": [
+		{
+			"sortOrder": 1,
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vostok_spacecraft.jpg?width=900",
+			"title": "A Vostok spacecraft",
+			"caption": "The sphere the pilot rode in, on top of the equipment section.",
+			"credit": "HPH, CC BY-SA 3.0",
+			"text": "a Vostok spacecraft",
+			"style": null
+		},
+		{
+			"sortOrder": 2,
+			"type": "Note",
+			"title": "Note",
+			"text": "Case opened.\nListen to the tape: his real voice at lift-off.",
+			"style": "yellow"
+		},
+		{
+			"type": "Audio",
+			"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cc/Gagarin-Poyekhali.ogg/Gagarin-Poyekhali.ogg.mp3",
+			"title": "Gagarin, 12 Apr. 1961",
+			"credit": "Real recording of Yuri Gagarin at lift-off: \"Poyekhali!\" (Let's go!). Public domain.",
+			"lengthLabel": null,
+			"sortOrder": 3
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Titov%2C_Khruschev%2C_Gagarin_1961.jpg?width=900",
+			"title": "Titov, Khrushchev and Gagarin",
+			"caption": "Gherman Titov, Nikita Khrushchev and Yuri Gagarin in 1961.",
+			"credit": "Unknown author. CC BY-SA 3.0 NL.",
+			"style": "folder",
+			"sortOrder": 4,
+			"people": [
+				"titov",
+				"gagarin"
+			]
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9A%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82_%D0%AE%D1%80%D0%B8%D0%B9_%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD.jpg?width=900",
+			"title": "Ready to fly",
+			"caption": "Yuri Gagarin in his spacesuit on 12 April 1961, the day of the flight.",
+			"credit": "TASS. CC BY 4.0.",
+			"style": "folder",
+			"sortOrder": 5,
+			"people": [
+				"gagarin"
+			]
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Yuri_Gagarin_and_Sergey_Korolev_on_Baikonur.jpg?width=1000",
+			"title": "Gagarin and Korolev",
+			"caption": "Yuri Gagarin and Sergei Korolev in the last minutes before the flight, a frame from a 1969 documentary.",
+			"credit": "Moscow Main Archive (Glavarkhiv). CC BY 4.0.",
+			"style": "folder",
+			"sortOrder": 6,
+			"people": [
+				"gagarin",
+				"korolev"
+			]
+		}
+	],
+	"explanations": [],
+	"chapters": [
+		{
+			"section": "Story",
+			"tabLabel": "Dogs in rockets",
+			"title": "Dogs in rockets",
+			"place": "Kapustin Yar",
+			"dateLabel": "22 July 1951",
+			"summary": "Long before orbit, Soviet scientists sent dogs straight up and down in rockets, to see whether a living body could survive the launch, a few minutes of weightlessness and the fall.",
+			"body": "<p>Long before orbit, Soviet scientists sent dogs straight up and down in rockets, to see whether a living body could survive the launch, a few minutes of weightlessness and the fall.</p>\n<p>They chose small stray dogs, which were used to hunger and cold and stayed calm. On 22 July 1951 two of them, Dezik and Tsygan, rode an R-1 rocket to about 100 kilometres and came back down under a parachute. <mark>They were the first dogs to reach the edge of space and return alive.</mark></p>\n<p>Dozens of such flights followed in the 1950s. Some dogs flew several times. Several died.</p>",
+			"marginNote": "Strays, because they were tough.",
+			"showsRadioHint": false,
+			"sortOrder": 1,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dezik_and_Tsygan_launch_1951-07-22.tif?width=900",
+					"title": "Dezik and Tsygan",
+					"caption": "Preparing the launch of Dezik and Tsygan on 22 July 1951.",
+					"credit": "Pretenderrs. CC BY-SA 3.0",
+					"text": "July 1951",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The first dog flight",
+					"data": {
+						"rows": [
+							[
+								"Date",
+								"22 July 1951"
+							],
+							[
+								"Rocket",
+								"R-1"
+							],
+							[
+								"Height",
+								"about 100 km"
+							],
+							[
+								"Result",
+								"both dogs alive"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Dogs first",
+			"title": "Dogs first",
+			"place": "Tyuratam",
+			"dateLabel": "19 and 20 August 1960",
+			"summary": "Before a person could fly, the spacecraft had to bring something living back.",
+			"body": "<p>Before a person could fly, the spacecraft had to bring something living back. On 19 August 1960 two dogs, Belka and Strelka, were launched in a test version of Vostok, together with mice, rats, insects and plants.</p>\n<p>They circled the Earth seventeen times in about a day. <mark>When the capsule landed, both dogs were alive and well</mark>: the first animals to come home from orbit.</p>\n<p>Strelka later had puppies. One of them, Pushinka, was given to President Kennedy's family as a gift in 1961.</p>",
+			"marginNote": "The first to come back alive.",
+			"showsRadioHint": false,
+			"sortOrder": 2,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Belka_and_Strelka.jpg?width=1000",
+					"title": "Belka and Strelka",
+					"caption": "Belka and Strelka, the first animals to return alive from orbit.",
+					"credit": "Museum of Cosmonautics / Moscow Main Archive. CC BY 4.0",
+					"text": "Belka and Strelka",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Strelka_with_puppies_01.jpg?width=900",
+					"title": "Strelka and her puppies",
+					"caption": "Strelka with her puppies after the flight. One of them was sent to the White House.",
+					"credit": "mos.ru. CC BY 4.0",
+					"text": "Strelka's puppies",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "The flight",
+					"data": {
+						"rows": [
+							[
+								"Launched",
+								"19 August 1960"
+							],
+							[
+								"Orbits",
+								"seventeen"
+							],
+							[
+								"Crew",
+								"two dogs, mice, rats"
+							],
+							[
+								"Came back",
+								"all alive"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "The ones that did not return",
+			"title": "The ones that did not return",
+			"place": "Tyuratam and Siberia",
+			"dateLabel": "July to December 1960",
+			"summary": "Belka and Strelka's success was not the whole story.",
+			"body": "<p>Belka and Strelka's success was not the whole story. On 28 July 1960 a rocket carrying the dogs Chaika and Lisichka broke apart less than a minute after launch, and both were killed.</p>\n<p>On 1 December 1960 Pchyolka and Mushka circled the Earth, but their capsule came down on the wrong path and was destroyed on purpose so it could not land abroad. <mark>Three weeks later Kometa and Shutka survived a launch failure and landed in the snow of Siberia, where they were found alive after a cold night.</mark></p>\n<p>Each failure was studied and fixed. None of them was announced at the time.</p>",
+			"marginNote": "Every failure taught something.",
+			"showsRadioHint": false,
+			"sortOrder": 3,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "1960",
+					"data": {
+						"rows": [
+							[
+								"28 July",
+								"Chaika, Lisichka: killed"
+							],
+							[
+								"19 August",
+								"Belka, Strelka: home"
+							],
+							[
+								"1 December",
+								"Pchyolka, Mushka: lost"
+							],
+							[
+								"22 December",
+								"Kometa, Shutka: found alive"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Russian_space_dog_box.jpg?width=700",
+					"title": "A dog's cabin",
+					"caption": "A container used for the space dogs, with room to lie down and be fed.",
+					"credit": "CC BY-SA 3.0",
+					"text": "a dog's cabin",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "None of these losses\nwas announced.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Choosing the first",
+			"title": "Choosing the first",
+			"place": "Moscow",
+			"dateLabel": "1959 to 1961",
+			"summary": "Doctors went through the records of thousands of military pilots.",
+			"body": "<p>Doctors went through the records of thousands of military pilots. In 1960 twenty were chosen: young, extremely healthy and small, because the capsule was tight. Yuri Gagarin, a 26-year-old fighter pilot and the son of a carpenter, was 1.57 metres tall.</p>\n<p>They were spun in centrifuges, shut alone in silent chambers and parachuted again and again. Six trained for the first flight. <mark>By early April 1961 the choice came down to two: Gagarin, with Gherman Titov as his backup.</mark></p>\n<p>Vostok was designed to fly itself. Nobody knew whether a person could think clearly in weightlessness, so the controls were locked, and a sealed envelope held the code to unlock them. Gagarin was told the code before launch anyway.</p>",
+			"marginNote": "Twenty candidates, six in training, one seat.",
+			"showsRadioHint": false,
+			"sortOrder": 4,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "gagarin"
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "titov"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Controls locked.\nThe code in a sealed envelope.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Training",
+			"title": "Training",
+			"place": "Moscow and the training centre",
+			"dateLabel": "1960 and 1961",
+			"summary": "The twenty men were tested in every way the doctors could think of.",
+			"body": "<p>The twenty men were tested in every way the doctors could think of. They were spun in a centrifuge until they weighed several times their normal weight, and shut alone in a silent, soundproof room for days at a time.</p>\n<p>They made dozens of parachute jumps, sat in heat chambers and flew in aircraft that dived to give a few seconds of weightlessness. <mark>Nobody knew which of these would matter in space, so they trained for all of them.</mark></p>\n<p>The training centre they used later grew into Star City, where cosmonauts still train today.</p>",
+			"marginNote": "Spun, locked in, dropped.",
+			"showsRadioHint": false,
+			"sortOrder": 5,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gagarin_Cosmonauts_Training_Center_(14297265176).jpg?width=1000",
+					"title": "The training centre",
+					"caption": "The Gagarin Cosmonaut Training Center at Star City, near Moscow.",
+					"credit": "Christopher Michel. CC BY 2.0",
+					"text": "Star City today",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Soviet_Union_1981_CPA_5189_stamp_(Soviet-Romanian_Space_Flight._Cosmonaut_at_Training_Center_(high-G_training_in_human_centrifuge)_and_on_video_surveillance_monitor).jpg?width=600",
+					"title": "The centrifuge",
+					"caption": "A Soviet stamp showing a cosmonaut training in the centrifuge.",
+					"credit": "Post of the USSR. Public domain.",
+					"text": "in the centrifuge",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "The tests",
+					"data": {
+						"rows": [
+							[
+								"Centrifuge",
+								"several times body weight"
+							],
+							[
+								"Silence room",
+								"days alone"
+							],
+							[
+								"Parachute",
+								"dozens of jumps"
+							],
+							[
+								"Also",
+								"heat, low pressure"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "The six",
+			"title": "The six",
+			"place": "Training centre",
+			"dateLabel": "1960 to 1961",
+			"summary": "Six of the twenty were chosen to train first, as a vanguard: Yuri Gagarin, Gherman Titov, Grigori Nelyubov, Andrian Nikolayev, Pavel Popovich and Valery Bykovsky.",
+			"body": "<p>Six of the twenty were chosen to train first, as a vanguard: Yuri Gagarin, Gherman Titov, Grigori Nelyubov, Andrian Nikolayev, Pavel Popovich and Valery Bykovsky.</p>\n<p>Only six could fit into the one full training simulator. <mark>In January 1961 they took their final exams, and Gagarin, Titov and Nelyubov came out on top.</mark></p>\n<p>Five of the six later flew in space. Nelyubov never did: he was dismissed in 1963 and painted out of the group photographs.</p>",
+			"marginNote": "Six trained. Five flew.",
+			"showsRadioHint": false,
+			"sortOrder": 6,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "gagarin"
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "titov"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "The choice",
+			"title": "The choice",
+			"place": "Tyuratam",
+			"dateLabel": "8 April 1961",
+			"summary": "The state commission met four days before the flight to confirm who would go.",
+			"body": "<p>The state commission met four days before the flight to confirm who would go. Gagarin would fly. Titov would be his backup, suited up and ready until the last moment.</p>\n<p>Gagarin was calm under pressure, quick to learn and easy to like, and his family story was the one the country wanted to tell: <mark>the son of a carpenter on a collective farm, who had lived through the German occupation as a boy.</mark></p>\n<p>Titov was disappointed. He was given the next flight, a much longer one.</p>",
+			"marginNote": "A carpenter's son.",
+			"showsRadioHint": false,
+			"sortOrder": 7,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Yuri_Gagarin_(1961)_-_Restoration.jpg?width=700",
+					"title": "Yuri Gagarin",
+					"caption": "Yuri Gagarin in 1961.",
+					"credit": "Arto Jousi, Finnish Museum of Photography. CC BY 4.0",
+					"text": "chosen, April 1961",
+					"style": null,
+					"people": [
+						"gagarin"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The decision",
+					"data": {
+						"rows": [
+							[
+								"Commission",
+								"8 April 1961"
+							],
+							[
+								"Pilot",
+								"Yuri Gagarin"
+							],
+							[
+								"Backup",
+								"Gherman Titov"
+							],
+							[
+								"Flight",
+								"12 April 1961"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The spacecraft",
+			"title": "The spacecraft",
+			"place": "OKB-1, near Moscow",
+			"dateLabel": "1960 to 1961",
+			"summary": "The pilot rode in a sphere 2.3 metres across, covered in a heat shield, with three small windows.",
+			"body": "<p>The pilot rode in a sphere 2.3 metres across, covered in a heat shield, with three small windows. Behind it, an equipment section held the batteries, the oxygen and the retro-rocket. In all it weighed about 4.7 tonnes.</p>\n<p>A sphere is stable as it falls through the air, whichever way it turns, but it cannot steer, and it lands hard. <mark>So the pilot would not stay inside: at about seven kilometres up he would be thrown out in his seat and come down on his own parachute.</mark></p>\n<p>Before any person flew, the design was tested with dogs and a life-size mannequin nicknamed Ivan Ivanovich. Two dogs died in December 1960. The last two tests, in March 1961, both worked.</p>",
+			"marginNote": "Ejected at 7 km. A parachute of his own.",
+			"showsRadioHint": false,
+			"sortOrder": 8,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vostok_Spacecraft_Diagram.svg?width=1000",
+					"title": "The Vostok spacecraft",
+					"caption": "The pilot's sphere and the equipment section behind it.",
+					"credit": "Roryjoem, CC BY-SA 3.0",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "sphere 2.3 m"
+							},
+							{
+								"text": "retro-rocket behind"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Vostok",
+					"data": {
+						"rows": [
+							[
+								"Sphere",
+								"2.3 m across"
+							],
+							[
+								"Mass",
+								"about 4.7 tonnes"
+							],
+							[
+								"Windows",
+								"three"
+							],
+							[
+								"Landing",
+								"pilot ejected at 7 km"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Full-Size_Mock-up_of_Vostok_1_capsule_at_Mus%C3%A9e_de_l'air_et_de_l'espace%2C_Le_Bourget%2C_France_(53431558341).jpg?width=900",
+					"title": "The Vostok sphere",
+					"caption": "A full-size mock-up of the capsule at the Air and Space Museum, Le Bourget.",
+					"credit": "Alan Wilson, CC BY-SA 2.0",
+					"text": "the sphere, full size",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The seat and the parachute",
+			"title": "The seat and the parachute",
+			"place": "Inside Vostok",
+			"dateLabel": "1960 to 1961",
+			"summary": "The Vostok sphere came down too fast for a person to survive the landing inside it.",
+			"body": "<p>The Vostok sphere came down too fast for a person to survive the landing inside it. So the pilot's seat was also an ejection seat, like a fighter plane's.</p>\n<p>At about seven kilometres up, a hatch would blow off and the seat would fire out of the capsule. <mark>Then the pilot would separate from the seat and come down under his own parachute</mark>, while the empty capsule landed on a parachute of its own.</p>\n<p>The same seat could also save the pilot if the rocket failed on the pad, throwing him clear of the explosion.</p>",
+			"marginNote": "Out at seven kilometres.",
+			"showsRadioHint": false,
+			"sortOrder": 9,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vostok_ejector_seat.jpg?width=800",
+					"title": "The ejection seat",
+					"caption": "A Vostok ejection seat on display.",
+					"credit": "Stolbovsky. CC BY 4.0",
+					"text": "the seat",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Coming down",
+					"data": {
+						"rows": [
+							[
+								"Hatch blown",
+								"about 7 km up"
+							],
+							[
+								"Seat fired",
+								"out of the capsule"
+							],
+							[
+								"Pilot",
+								"own parachute"
+							],
+							[
+								"Capsule",
+								"its own parachute"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The orange suit",
+			"title": "The orange suit",
+			"place": "Moscow",
+			"dateLabel": "1960 to 1961",
+			"summary": "Gagarin flew in a pressure suit called SK-1.",
+			"body": "<p>Gagarin flew in a pressure suit called SK-1. If the cabin lost its air, the suit would keep him alive. On the outside it had a bright orange cover, so that rescuers could find him on the ground or in the sea.</p>\n<p>The helmet was white. <mark>Just before the flight someone painted the letters CCCP on it, the Russian initials of the Soviet Union</mark>, so that if he came down in a strange place nobody would take him for a spy.</p>\n<p>That suit and helmet became the picture of a cosmonaut for the whole world.</p>",
+			"marginNote": "Orange, to be found.",
+			"showsRadioHint": false,
+			"sortOrder": 10,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Replica_of_Gagarin's_spacesuit_(cropped).jpg?width=600",
+					"title": "The SK-1 suit",
+					"caption": "A copy of Gagarin's orange SK-1 suit at the Museum of Cosmonautics in Moscow.",
+					"credit": "Museum of Cosmonautics. CC0",
+					"text": "SK-1",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "SK-1",
+					"data": {
+						"rows": [
+							[
+								"Kind",
+								"pressure suit"
+							],
+							[
+								"Cover",
+								"bright orange"
+							],
+							[
+								"Helmet",
+								"white, with CCCP"
+							],
+							[
+								"Why orange",
+								"easy to find"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The locked controls",
+			"title": "The locked controls",
+			"place": "Inside Vostok",
+			"dateLabel": "12 April 1961",
+			"summary": "Nobody knew whether a person in weightlessness would stay calm and think clearly.",
+			"body": "<p>Nobody knew whether a person in weightlessness would stay calm and think clearly. Some doctors feared a pilot might panic. So Vostok was built to fly the whole mission without him.</p>\n<p>The manual controls were locked. To unlock them the pilot had to type a three-digit code, kept in a sealed envelope in the cabin. <mark>Before launch, several people quietly told Gagarin the code anyway: 1, 2, 5.</mark></p>\n<p>He never needed it. The automatic systems flew the whole flight.</p>",
+			"marginNote": "1, 2, 5.",
+			"showsRadioHint": false,
+			"sortOrder": 11,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The lock",
+					"data": {
+						"rows": [
+							[
+								"Controls",
+								"locked"
+							],
+							[
+								"Code",
+								"three digits"
+							],
+							[
+								"Kept in",
+								"a sealed envelope"
+							],
+							[
+								"Needed",
+								"never"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Code in a sealed envelope.\nHe already knew it.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "gagarin"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "Ivan Ivanovich",
+			"title": "Ivan Ivanovich",
+			"place": "Tyuratam",
+			"dateLabel": "9 and 25 March 1961",
+			"summary": "The last two test flights before Gagarin copied his flight exactly: one orbit, then landing.",
+			"body": "<p>The last two test flights before Gagarin copied his flight exactly: one orbit, then landing. Each carried a dog, and a life-size mannequin in a real spacesuit, nicknamed Ivan Ivanovich.</p>\n<p>The mannequin was thrown out of the capsule in its seat and came down on its own parachute, just as a pilot would. In case anyone found it in a field and took it for a dead man, <mark>the word MAKET, \"dummy\", was put inside its helmet.</mark> Its radio played recorded singing, so that nobody listening would think a person was on board.</p>\n<p>Both flights worked. Ivan Ivanovich now stands in the National Air and Space Museum in Washington.</p>",
+			"marginNote": "The first passenger in a spacesuit.",
+			"showsRadioHint": false,
+			"sortOrder": 12,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ivan_ivanowich.jpg?width=800",
+					"title": "Ivan Ivanovich",
+					"caption": "The mannequin that flew twice before Gagarin, at the National Air and Space Museum.",
+					"credit": "Eric Long, National Air and Space Museum, Smithsonian. Public domain.",
+					"text": "MAKET: dummy",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The last tests",
+					"data": {
+						"rows": [
+							[
+								"9 March 1961",
+								"dog Chernushka"
+							],
+							[
+								"25 March 1961",
+								"dog Zvezdochka"
+							],
+							[
+								"Each carried",
+								"Ivan Ivanovich"
+							],
+							[
+								"Result",
+								"both landed safely"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "The night before",
+			"title": "The night before",
+			"place": "Tyuratam",
+			"dateLabel": "11 April 1961",
+			"summary": "Gagarin and Titov spent the last night in a small wooden house near the launch pad.",
+			"body": "<p>Gagarin and Titov spent the last night in a small wooden house near the launch pad. They talked, played a little billiards and went to bed early.</p>\n<p>Without telling them, the doctors had put sensors under their mattresses to see how well they slept. <mark>Both slept soundly. Korolev, it was said, hardly slept at all.</mark></p>\n<p>They were woken at 5:30 in the morning. The house is now a small museum, and every crew launching from Baikonur stays near it.</p>",
+			"marginNote": "They slept. Korolev did not.",
+			"showsRadioHint": false,
+			"sortOrder": 13,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Expedition_64_Gagarin%E2%80%99s_Cottage_(NHQ202010070017).jpg?width=1000",
+					"title": "Gagarin's cottage",
+					"caption": "The house where Gagarin and Titov spent the night before the flight, now a museum.",
+					"credit": "NASA / GCTC / Andrey Shelepin. Public domain.",
+					"text": "the cottage",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The last night",
+					"data": {
+						"rows": [
+							[
+								"Where",
+								"a small house near the pad"
+							],
+							[
+								"With",
+								"Gherman Titov"
+							],
+							[
+								"Under the beds",
+								"sensors"
+							],
+							[
+								"Woken",
+								"5:30"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "The ride to the pad",
+			"title": "The ride to the pad",
+			"place": "Tyuratam",
+			"dateLabel": "Morning, 12 April 1961",
+			"summary": "After breakfast and medical checks, Gagarin and Titov were helped into their suits and driven to the pad in a bus.",
+			"body": "<p>After breakfast and medical checks, Gagarin and Titov were helped into their suits and driven to the pad in a bus.</p>\n<p>On the way, Gagarin asked the driver to stop and stepped out for a moment by the back wheel of the bus. <mark>Male cosmonauts still make exactly the same stop on their way to the rocket, for luck.</mark></p>\n<p>At the pad Gagarin said a few words to the people gathered there, climbed the steps and took the lift to the top of the rocket.</p>",
+			"marginNote": "A stop by the back wheel.",
+			"showsRadioHint": false,
+			"sortOrder": 14,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Soyuz_MS-12_crew_in_front_of_their_bus_at_the_Krayniy_Airport_in_Baikonur.jpg?width=800",
+					"title": "The crew bus",
+					"caption": "A Soyuz crew with their bus at Baikonur in 2019. The bus ride to the pad is still part of the tradition.",
+					"credit": "NASA / Victor Zelentsov. Public domain.",
+					"text": "the bus, still",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "A tradition since 1961.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "A faulty hatch",
+			"title": "A faulty hatch",
+			"place": "On top of the rocket",
+			"dateLabel": "12 April 1961",
+			"summary": "Gagarin was strapped into his seat and the hatch was closed.",
+			"body": "<p>Gagarin was strapped into his seat and the hatch was closed. Then a warning light showed that the hatch was not properly sealed.</p>\n<p>The engineers climbed back up, undid the dozens of bolts that held the hatch, checked it, and closed it again. <mark>Gagarin waited inside, talking calmly over the radio, and asked for some music.</mark></p>\n<p>His call sign was Kedr, cedar. The ground called itself Zarya, dawn. Korolev's voice kept him company until lift-off.</p>",
+			"marginNote": "Kedr to Zarya.",
+			"showsRadioHint": false,
+			"sortOrder": 15,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "korolev"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "On the radio",
+					"data": {
+						"rows": [
+							[
+								"Gagarin",
+								"Kedr, cedar"
+							],
+							[
+								"Ground",
+								"Zarya, dawn"
+							],
+							[
+								"Problem",
+								"hatch sensor"
+							],
+							[
+								"Fixed by",
+								"reopening the hatch"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Let's go",
+			"title": "Let's go",
+			"place": "Tyuratam, Kazakh SSR",
+			"dateLabel": "12 April 1961, 09:07 Moscow time",
+			"summary": "Gagarin and Titov were driven to the same pad that had launched Sputnik.",
+			"body": "<p>Gagarin and Titov were driven to the same pad that had launched Sputnik. Gagarin was strapped into the capsule. There was a long wait while a hatch seal was checked, and Korolev kept talking to him calmly. Gagarin asked for music.</p>\n<p><mark>As the rocket lifted off, Gagarin called out a single word: Poyekhali!, \"Let's go!\".</mark> The rocket pressed him into his seat with several times his normal weight. After two minutes the boosters fell away, and after five the core stage shut down.</p>",
+			"marginNote": "Play the tape: that is his real voice at lift-off.",
+			"showsRadioHint": true,
+			"sortOrder": 16,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vostok-K_Carrier_Rocket_%E2%80%93_VDNKh%2C_Moscow_(38921927071).jpg?width=900",
+					"title": "The Vostok rocket",
+					"caption": "A Vostok rocket of the R-7 family, on display in Moscow.",
+					"credit": "Alan Wilson, CC BY-SA 2.0",
+					"text": "the Vostok rocket",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "korolev"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "\"Poyekhali!\"\nLet's go!",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "Around the world",
+			"title": "One trip around the world",
+			"place": "In orbit",
+			"dateLabel": "12 April 1961",
+			"summary": "Vostok 1 went around the Earth once, between about 170 and 330 kilometres up, at more than 27 000 kilometres per hour.",
+			"body": "<p>Vostok 1 went around the Earth once, between about 170 and 330 kilometres up, at more than 27 000 kilometres per hour. Gagarin reported the curve of the horizon, the blue layer of the air and the darkness of space. He ate, drank and wrote notes, and found he could work normally while floating.</p>\n<p>Over Africa the retro-rocket fired. Then the equipment section failed to separate. <mark>The two parts tumbled together for about ten minutes,</mark> until the cables burned through in the heat of re-entry. Gagarin kept calm.</p>",
+			"marginNote": "108 minutes from lift-off to landing.",
+			"showsRadioHint": false,
+			"sortOrder": 17,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The flight",
+					"data": {
+						"rows": [
+							[
+								"Lift-off to landing",
+								"108 min"
+							],
+							[
+								"Speed",
+								"about 27 400 km/h"
+							],
+							[
+								"Height",
+								"170 to 330 km"
+							],
+							[
+								"Orbits",
+								"one"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Over Africa: retro-rocket.\nThen ten minutes of tumbling.",
+					"style": "white"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vostok_5_reentry_capsule_01.jpg?width=1000",
+					"title": "A Vostok capsule after flight",
+					"caption": "The capsule of Vostok 5, flown in 1963: the same design that carried Gagarin around the Earth.",
+					"credit": "Stolbovsky. CC BY 4.0",
+					"text": "the same ball, after flight",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "What he saw",
+			"title": "What he saw",
+			"place": "In orbit",
+			"dateLabel": "12 April 1961",
+			"summary": "Gagarin looked out through small round windows.",
+			"body": "<p>Gagarin looked out through small round windows. He reported the clouds and their shadows on the ground, the rivers and fields, and the curve of the horizon.</p>\n<p>He described a thin blue band along the edge of the Earth, fading into the black of space. <mark>He was the first person to see the planet as a whole world hanging in the dark.</mark></p>\n<p>As he crossed into the night side, the stars appeared, bright and steady, not twinkling as they do through air.</p>",
+			"marginNote": "A thin blue edge.",
+			"showsRadioHint": false,
+			"sortOrder": 18,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/International_Space_Station_after_undocking_of_STS-132.jpg?width=1000",
+					"title": "The thin blue line",
+					"caption": "The thin blue layer of the air along the Earth's edge, photographed from orbit many years later.",
+					"credit": "NASA. Public domain.",
+					"text": "the edge of the air",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Clouds, rivers, a blue edge.\nStars that did not twinkle.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "108 minutes",
+			"title": "108 minutes",
+			"place": "Lift-off to landing",
+			"dateLabel": "12 April 1961, Moscow time",
+			"summary": "The whole flight, from lift-off to landing, took 108 minutes.",
+			"body": "<p>The whole flight, from lift-off to landing, took 108 minutes. Most of it Gagarin spent watching and reporting: the colours of the Earth, the sharp line between day and night, the stars that did not twinkle.</p>\n<p>The spacecraft did almost everything on its own. <mark>Gagarin's main job was to stay calm, observe and prove that a person could do both in space.</mark></p>\n<p>His radio reports were short, and his voice stayed steady even during the tumbling before re-entry.</p>",
+			"marginNote": "Shorter than a football match.",
+			"showsRadioHint": false,
+			"sortOrder": 19,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The flight, by the clock",
+					"data": {
+						"rows": [
+							[
+								"09:07",
+								"lift-off"
+							],
+							[
+								"09:18",
+								"in orbit"
+							],
+							[
+								"10:25",
+								"retro-rocket, over Africa"
+							],
+							[
+								"10:55",
+								"landing near Engels"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/1961_CPA_2561.jpg?width=700",
+					"title": "A stamp for the flight",
+					"caption": "A Soviet stamp issued in 1961 for the first human spaceflight.",
+					"credit": "Post of the USSR. Public domain.",
+					"text": "stamp, 1961",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "gagarin"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "Into the fire",
+			"title": "Into the fire",
+			"place": "Re-entry",
+			"dateLabel": "12 April 1961",
+			"summary": "After the tumbling stopped, the sphere fell into the thick air.",
+			"body": "<p>After the tumbling stopped, the sphere fell into the thick air. Its heat shield glowed and burned away, and through the window Gagarin saw the flames of the fire around him.</p>\n<p>The braking pressed him into his seat with about eight times his normal weight. <mark>For a few moments his sight greyed, but he stayed conscious.</mark></p>\n<p>The shield worked. The sphere slowed until it was falling gently enough for the hatch to open.</p>",
+			"marginNote": "Eight times his weight.",
+			"showsRadioHint": false,
+			"sortOrder": 20,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vostok_5_reentry_capsule_02.jpg?width=1000",
+					"title": "A burned capsule",
+					"caption": "The scorched outside of the Vostok 5 capsule, which came back through the same fire.",
+					"credit": "Stolbovsky. CC BY 4.0",
+					"text": "scorched by re-entry",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Re-entry",
+					"data": {
+						"rows": [
+							[
+								"Heat shield",
+								"burned away"
+							],
+							[
+								"Braking",
+								"about 8 times body weight"
+							],
+							[
+								"Seen",
+								"flames at the window"
+							],
+							[
+								"Pilot",
+								"conscious"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Landing",
+			"tabLabel": "Ejected",
+			"title": "Ejected",
+			"place": "Above the Saratov region",
+			"dateLabel": "12 April 1961, 10:48 Moscow time",
+			"summary": "At about seven kilometres the hatch blew off with a bang, and Gagarin's seat shot out of the capsule into the cold spring air.",
+			"body": "<p>At about seven kilometres the hatch blew off with a bang, and Gagarin's seat shot out of the capsule into the cold spring air.</p>\n<p>His main parachute opened, then the seat fell away. <mark>He floated down over the Volga, recognising the river and the area where he had learned to fly years before.</mark></p>\n<p>He landed on soft ploughed ground. The flight had begun with a rocket and ended like a parachute jump.</p>",
+			"marginNote": "Back over the Volga.",
+			"showsRadioHint": false,
+			"sortOrder": 21,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "gagarin"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "He had learned to fly\nnear here, at Saratov.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Landing",
+			"tabLabel": "Down in a field",
+			"title": "Down in a field",
+			"place": "Near Engels, Saratov region",
+			"dateLabel": "12 April 1961",
+			"summary": "At about seven kilometres up, Gagarin was ejected as planned and came down under his own parachute, in a field near the city of Engels, on the Volga.",
+			"body": "<p>At about seven kilometres up, Gagarin was ejected as planned and came down under his own parachute, in a field near the city of Engels, on the Volga.</p>\n<p><mark>The first people to see him were a farmer, Anna Takhtarova, and her granddaughter.</mark> A man in a bright orange suit and white helmet was walking towards them. He told them not to be afraid: he was a Soviet citizen, and he needed a telephone to call Moscow.</p>\n<p>For years the Soviet Union said he had landed inside his capsule, because the rules for a record flight required it. The parachute landing was admitted later.</p>",
+			"marginNote": "An orange suit in a field, asking for a telephone.",
+			"showsRadioHint": false,
+			"sortOrder": 22,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gagarin_field.jpg?width=900",
+					"title": "Gagarin's field",
+					"caption": "The landing site near Engels today, with its monument.",
+					"credit": "Flagoved, CC BY-SA 3.0",
+					"text": "the landing site today",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Anna Takhtarova and her granddaughter:\nthe first to meet him.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Landing",
+			"tabLabel": "The capsule",
+			"title": "The capsule",
+			"place": "Near Smelovka, Saratov region",
+			"dateLabel": "12 April 1961",
+			"summary": "The empty sphere came down on its own parachute a few kilometres away, scorched and dented, with its hatch open.",
+			"body": "<p>The empty sphere came down on its own parachute a few kilometres away, scorched and dented, with its hatch open.</p>\n<p>Soldiers and local people reached it first. <mark>Some of them tore off small pieces as souvenirs before the guards arrived.</mark></p>\n<p>The capsule of Vostok 1 is kept today at the museum of the company that built it, near Moscow. A monument stands at the place where Gagarin landed.</p>",
+			"marginNote": "Souvenirs, before the guards came.",
+			"showsRadioHint": false,
+			"sortOrder": 23,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vostok_1_after_landing.jpg?width=800",
+					"title": "Vostok 1 after landing",
+					"caption": "The Vostok 1 capsule in the field after landing.",
+					"credit": "Errabee, English Wikipedia. CC BY-SA 2.5",
+					"text": "the real capsule",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Two landings",
+					"data": {
+						"rows": [
+							[
+								"Gagarin",
+								"by his own parachute"
+							],
+							[
+								"Capsule",
+								"a few km away"
+							],
+							[
+								"Region",
+								"Saratov, on the Volga"
+							],
+							[
+								"Time",
+								"about 10:55 Moscow"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Landing",
+			"tabLabel": "The record and the rule",
+			"title": "The record and the rule",
+			"place": "Paris and Moscow",
+			"dateLabel": "1961",
+			"summary": "To count as an official world record, a flight had to be registered with the international aviation federation, and its rules said the pilot must land inside his aircraft.",
+			"body": "<p>To count as an official world record, a flight had to be registered with the international aviation federation, and its rules said the pilot must land inside his aircraft.</p>\n<p>So the Soviet report said that Gagarin had landed in his capsule. <mark>For years the parachute landing was kept quiet, and the launch site was given as Baikonur, a town hundreds of kilometres away.</mark></p>\n<p>The records were accepted. The real story came out bit by bit, and the full details only after the Soviet Union ended.</p>",
+			"marginNote": "A record, and a small untruth.",
+			"showsRadioHint": false,
+			"sortOrder": 24,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "What was claimed",
+					"data": {
+						"rows": [
+							[
+								"Landed",
+								"in the capsule"
+							],
+							[
+								"Really",
+								"by parachute"
+							],
+							[
+								"Launch site",
+								"Baikonur"
+							],
+							[
+								"Really",
+								"Tyuratam"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "The first spaceman",
+			"title": "The world's first spaceman",
+			"place": "Moscow and the world",
+			"dateLabel": "April 1961 onwards",
+			"summary": "Two days later Gagarin was welcomed in Moscow by huge crowds.",
+			"body": "<p>Two days later Gagarin was welcomed in Moscow by huge crowds. Over the next months he travelled around the world, and everywhere people lined the streets to see him.</p>\n<p>In America the news was a second shock after Sputnik. Alan Shepard flew on 5 May 1961, for fifteen minutes. <mark>On 25 May, President Kennedy told Congress that America should land a man on the Moon before the end of the decade.</mark></p>\n<p>Gagarin never flew in space again; he was too valuable to risk. He died on 27 March 1968 in a training flight. Every 12 April people around the world celebrate his flight.</p>",
+			"marginNote": "Six weeks later, America aimed for the Moon.",
+			"showsRadioHint": false,
+			"sortOrder": 25,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Greeting_of_Yuri_Gagarin_02.jpg?width=1000",
+					"title": "Moscow welcomes Gagarin",
+					"caption": "Crowds in Moscow on 14 April 1961.",
+					"credit": "Moscow Main Archive. CC BY 4.0",
+					"text": "Moscow, 14 April 1961",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Clipping",
+					"title": "A man on the Moon before 1970",
+					"text": "Kennedy sets America a deadline.",
+					"dateLabel": "25 May 1961",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "The race moves to the Moon"
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "A world tour",
+			"title": "A world tour",
+			"place": "Around the world",
+			"dateLabel": "1961 to 1962",
+			"summary": "After the welcome in Moscow, Gagarin became the Soviet Union's most famous ambassador.",
+			"body": "<p>After the welcome in Moscow, Gagarin became the Soviet Union's most famous ambassador. He visited about thirty countries in the next few years.</p>\n<p>In July 1961 he came to Manchester at the invitation of a foundry workers' union. It was raining, but <mark>he insisted on riding in an open car so that the crowds could see him</mark>, and he met workers at their factory.</p>\n<p>Everywhere he went, people lined the streets for a glimpse of his smile.</p>",
+			"marginNote": "The roof stayed down.",
+			"showsRadioHint": false,
+			"sortOrder": 26,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Yuri_Gagarin_plaque%2C_Manchester_Airport.jpg?width=900",
+					"title": "A plaque in Manchester",
+					"caption": "A plaque at Manchester Airport remembering Gagarin's visit in July 1961.",
+					"credit": "Mike Peel. CC BY-SA 4.0",
+					"text": "Manchester, 1961",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The tour",
+					"data": {
+						"rows": [
+							[
+								"Countries",
+								"about thirty"
+							],
+							[
+								"Manchester",
+								"July 1961"
+							],
+							[
+								"Invited by",
+								"foundry workers"
+							],
+							[
+								"Car",
+								"open, in the rain"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "America answers",
+			"title": "America answers",
+			"place": "Cape Canaveral",
+			"dateLabel": "May 1961 to February 1962",
+			"summary": "On 5 May 1961 Alan Shepard became the first American in space.",
+			"body": "<p>On 5 May 1961 Alan Shepard became the first American in space. His capsule, Freedom 7, flew up and came straight back down into the Atlantic: fifteen minutes, without going into orbit.</p>\n<p>The first American orbit came on 20 February 1962, when John Glenn circled the Earth three times in Friendship 7. <mark>America was still behind, so Kennedy set a target the Soviets could not reach with the rockets they had: the Moon.</mark></p>\n<p>The race that Gagarin had opened would end on the Moon eight years later.</p>",
+			"marginNote": "Fifteen minutes, then three orbits.",
+			"showsRadioHint": false,
+			"sortOrder": 27,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Alan_Shepard_in_capsule_aboard_Freedom_7_before_launch.jpg?width=700",
+					"title": "Alan Shepard",
+					"caption": "Alan Shepard inside Freedom 7 before his launch on 5 May 1961.",
+					"credit": "NASA. Public domain.",
+					"text": "Shepard, May 1961",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/John_Glenn_Entering_Friendship_7_-_GPN-2000-000652.jpg?width=900",
+					"title": "John Glenn",
+					"caption": "John Glenn climbing into Friendship 7 on 20 February 1962.",
+					"credit": "NASA. Public domain.",
+					"text": "Glenn, February 1962",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "A whole day in orbit",
+			"title": "A whole day in orbit",
+			"place": "Vostok 2",
+			"dateLabel": "6 and 7 August 1961",
+			"summary": "Four months after Gagarin, his backup Gherman Titov flew Vostok 2.",
+			"body": "<p>Four months after Gagarin, his backup Gherman Titov flew Vostok 2. This time the flight lasted more than a day: seventeen orbits in about 25 hours.</p>\n<p>Titov ate several meals, took the controls for a short time, filmed the Earth, and became the first person to sleep in space. <mark>He was also the first to feel space sickness</mark>, which nobody had expected and which later turned out to affect many astronauts.</p>\n<p>He was 25 years old, and he is still the youngest person ever to have flown in space.</p>",
+			"marginNote": "The first to sleep in orbit.",
+			"showsRadioHint": false,
+			"sortOrder": 28,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Soviet_Union_1961_CPA_2606_stamp_(Second_Manned_Orbital_Space_Flight._Major_Titov_and_Vostok_2).jpg?width=800",
+					"title": "Titov on a stamp",
+					"caption": "A 1961 Soviet stamp for the second human orbital flight.",
+					"credit": "Post of the USSR (I. L. Levin). Public domain.",
+					"text": "Vostok 2, 1961",
+					"style": "photo",
+					"people": [
+						"titov"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "titov"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Vostok 2",
+					"data": {
+						"rows": [
+							[
+								"Flew",
+								"6 and 7 August 1961"
+							],
+							[
+								"Orbits",
+								"seventeen"
+							],
+							[
+								"Lasted",
+								"about 25 hours"
+							],
+							[
+								"Pilot's age",
+								"25"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "The first woman",
+			"title": "The first woman",
+			"place": "Vostok 6",
+			"dateLabel": "16 to 19 June 1963",
+			"summary": "Valentina Tereshkova had worked in a textile factory and made parachute jumps as a hobby.",
+			"body": "<p>Valentina Tereshkova had worked in a textile factory and made parachute jumps as a hobby. In 1962 she was chosen with four other women to train as cosmonauts.</p>\n<p>On 16 June 1963 she flew Vostok 6, with the radio call sign Chaika, \"Seagull\". <mark>She orbited the Earth 48 times in almost three days</mark>, longer than all the American astronauts until then put together.</p>\n<p>She was the first woman in space. The second, Svetlana Savitskaya, did not fly until 1982.</p>",
+			"marginNote": "\"Ya Chaika\": I am Seagull.",
+			"showsRadioHint": false,
+			"sortOrder": 29,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Valentina_Tereshkova_(January_1963).jpg?width=700",
+					"title": "Valentina Tereshkova",
+					"caption": "Valentina Tereshkova in January 1963, five months before her flight.",
+					"credit": "Alexander Mokletsov, RIA Novosti archive. CC BY-SA 3.0",
+					"text": "Tereshkova, 1963",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Vostok 6",
+					"data": {
+						"rows": [
+							[
+								"Flew",
+								"16 to 19 June 1963"
+							],
+							[
+								"Orbits",
+								"48"
+							],
+							[
+								"Call sign",
+								"Chaika, Seagull"
+							],
+							[
+								"Next woman",
+								"1982"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "The last flight",
+			"title": "The last flight",
+			"place": "Near Kirzhach, Vladimir region",
+			"dateLabel": "27 March 1968",
+			"summary": "Gagarin hoped to fly in space again and trained for Soyuz, but his leaders would not risk the country's hero.",
+			"body": "<p>Gagarin hoped to fly in space again and trained for Soyuz, but his leaders would not risk the country's hero. He went back to flying jets to keep his pilot's skills.</p>\n<p>On 27 March 1968 he took off in a two-seat MiG-15 training jet with his instructor, Vladimir Seryogin. <mark>The plane crashed into a forest, and both men were killed.</mark> Gagarin was 34.</p>\n<p>The cause has been argued about ever since. His ashes were placed in the Kremlin Wall, near Korolev's.</p>",
+			"marginNote": "Thirty-four years old.",
+			"showsRadioHint": false,
+			"sortOrder": 30,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kremlin_Wall_Necropolis_-_Gagarin%2C_Yuri_01.jpg?width=700",
+					"title": "In the Kremlin Wall",
+					"caption": "The plaque in the Kremlin Wall where Gagarin's ashes are kept.",
+					"credit": "Tothkaroj. CC BY-SA 4.0",
+					"text": "Kremlin Wall",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "27 March 1968",
+					"data": {
+						"rows": [
+							[
+								"Aircraft",
+								"MiG-15 trainer"
+							],
+							[
+								"With",
+								"Vladimir Seryogin"
+							],
+							[
+								"Where",
+								"near Kirzhach"
+							],
+							[
+								"Cause",
+								"still debated"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "Remembered",
+			"title": "Remembered",
+			"place": "Everywhere",
+			"dateLabel": "Since 1962",
+			"summary": "From 1962 the Soviet Union celebrated 12 April as Cosmonautics Day, and Russia still does.",
+			"body": "<p>From 1962 the Soviet Union celebrated 12 April as Cosmonautics Day, and Russia still does. Since 2001 people around the world hold Yuri's Night parties on the same date.</p>\n<p>In 2011, fifty years after the flight, the United Nations named 12 April the International Day of Human Space Flight. <mark>In Moscow a titanium statue of Gagarin, 42 metres tall, stands with its arms swept back as if lifting off.</mark></p>\n<p>Streets, schools, a town, a crater on the Moon and the launch pad itself carry his name.</p>",
+			"marginNote": "Every 12 April.",
+			"showsRadioHint": false,
+			"sortOrder": 31,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D1%83_%D0%AE.%D0%90.%2C_%D0%AE%D0%B3%D0%BE-%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%BE%D0%BA%D1%80%D1%83%D0%B3%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0.jpg?width=900",
+					"title": "The Gagarin monument",
+					"caption": "The titanium monument to Gagarin in Moscow, unveiled in 1980.",
+					"credit": "Kemal Kozbaev. CC BY-SA 4.0",
+					"text": "Moscow, titanium",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "12 April",
+					"data": {
+						"rows": [
+							[
+								"Since 1962",
+								"Cosmonautics Day"
+							],
+							[
+								"Since 2001",
+								"Yuri's Night"
+							],
+							[
+								"Since 2011",
+								"a United Nations day"
+							],
+							[
+								"Monument",
+								"42 m, Moscow"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Try it yourself",
+			"tabLabel": "Try it yourself",
+			"title": "How a rocket moves",
+			"place": "The physics behind this case",
+			"dateLabel": null,
+			"summary": "A rocket has nothing to push against in space.",
+			"body": "<p>A rocket has nothing to push against in space. It pushes its own gas. <mark>The engine throws hot gas backwards, and the gas pushes the rocket forwards with exactly the same force.</mark></p>\n<p>That is Newton's third law: every push comes with an equal push back. The same law explains why Gagarin's rocket could lift him off the ground, and why it kept speeding up above the air.</p>\n<p>On the monitor: two boxes push each other apart. Watch the two pushes.</p>",
+			"marginNote": null,
+			"showsRadioHint": false,
+			"sortOrder": 32,
+			"media": [
+				{
+					"type": "Simulation",
+					"title": "How a rocket moves",
+					"sortOrder": 1
+				}
+			],
+			"explanations": []
+		}
+	]
+}

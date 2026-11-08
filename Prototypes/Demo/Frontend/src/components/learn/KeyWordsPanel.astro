@@ -1,0 +1,27 @@
+---
+// The key words of a page, explained in the right margin beside the line where each one first
+// appears (on narrower PC screens they open as a sheet from the bottom). Placed by scripts/learn.ts.
+import type { KeyWord } from '../../lib/api';
+import { keyWordUnit } from '../../lib/learn';
+import { t } from '../../i18n/t';
+
+interface Props
+{
+	words: KeyWord[];
+}
+
+const { words } = Astro.props;
+---
+
+<aside class="gloss" id="kw" aria-label={t('learn.keyWords')}>
+	<div class="kwhead"><b>{t('learn.keyWords')}</b><button class="kwclose" type="button" aria-label={t('learn.closeKeyWords')}>×</button></div>
+	<dl>
+		{words.map((word) => (
+			<div class="kwe" id={'kw-' + word.slug} data-term={word.slug}>
+				<dt>{word.name}</dt>
+				<dd>{word.definition}</dd>
+				{keyWordUnit(word) !== '' && <dd class="unit">{keyWordUnit(word)}</dd>}
+			</div>
+		))}
+	</dl>
+</aside>

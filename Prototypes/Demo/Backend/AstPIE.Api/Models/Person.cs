@@ -22,6 +22,9 @@ namespace AstPIE.Api.Models
 		[Required]
 		public string PhotoUrl { get; set; }
 
+		// Who took the photo, and its licence
+		public string PhotoCredit { get; set; }
+
 		[Required]
 		public string Bio { get; set; }
 

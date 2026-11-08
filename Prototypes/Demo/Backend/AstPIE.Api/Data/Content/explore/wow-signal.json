@@ -1,0 +1,1218 @@
+{
+	"slug": "wow-signal",
+	"kind": "Mystery",
+	"title": "Wow! signal",
+	"tagline": "Seventy-two seconds from Sagittarius",
+	"summary": "On a summer night in 1977 a radio telescope in Ohio heard something from deep space that looked exactly like a message. <mark>It lasted 72 seconds. In almost fifty years of searching, it has never come back.</mark>",
+	"coverImageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Wow_signal.jpg?width=700",
+	"coverCaption": "the printout",
+	"coverCredit": "Big Ear Radio Observatory and NAAPO, public domain",
+	"country": "United States",
+	"desk": "Mystery",
+	"startDate": "1977-08-15",
+	"endDate": null,
+	"agency": null,
+	"missionOutcome": null,
+	"evidenceStatus": "Unexplained",
+	"statusNote": "case still open",
+	"radioMinMHz": 1400,
+	"radioMaxMHz": 1440,
+	"relatedTopic": null,
+	"facts": [
+		{
+			"label": "Heard",
+			"value": "15 August 1977, 22:16 local time"
+		},
+		{
+			"label": "Where",
+			"value": "Big Ear radio telescope, Ohio"
+		},
+		{
+			"label": "Frequency",
+			"value": "about 1420 MHz (hydrogen)"
+		},
+		{
+			"label": "Lasted",
+			"value": "72 seconds"
+		},
+		{
+			"label": "Heard again",
+			"value": "Never"
+		}
+	],
+	"people": [
+		{
+			"person": "ehman",
+			"role": "Found the signal",
+			"isCrew": false,
+			"sortOrder": 1
+		},
+		{
+			"person": "kraus",
+			"role": "Designed and built Big Ear",
+			"isCrew": false,
+			"sortOrder": 2
+		},
+		{
+			"person": "gray",
+			"role": "Searched for it again for years",
+			"isCrew": false,
+			"sortOrder": 3
+		},
+		{
+			"person": "mendez",
+			"role": "Proposed the flaring hydrogen cloud",
+			"isCrew": false,
+			"sortOrder": 4
+		},
+		{
+			"person": "drake",
+			"role": "Made the first search, 1960",
+			"isCrew": false,
+			"sortOrder": 5
+		},
+		{
+			"person": "caballero",
+			"role": "Found a Sun-like star",
+			"isCrew": false,
+			"sortOrder": 6
+		}
+	],
+	"media": [
+		{
+			"sortOrder": 1,
+			"type": "Document",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wow_signal.jpg?width=1000",
+			"title": "The printout",
+			"caption": "A scan of a copy of the original computer printout, with Jerry Ehman's red circle and his one-word note.",
+			"credit": "Big Ear Radio Observatory and North American AstroPhysical Observatory (NAAPO). Public domain."
+		},
+		{
+			"sortOrder": 2,
+			"type": "Note",
+			"title": "Note",
+			"text": "Case opened.\nEvery part adds evidence to the board.",
+			"style": "yellow"
+		},
+		{
+			"type": "Signal",
+			"title": "6EQUJ5 as sound",
+			"credit": "Made by AstPIE from the six printed values. Big Ear recorded numbers, not sound.",
+			"chartKey": "wow",
+			"sortOrder": 3
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ozma_reunion_photo.jpg?width=900",
+			"title": "The Ozma team",
+			"caption": "The Project Ozma team, Frank Drake among them, back at the Green Bank telescope for the 25th anniversary of the search, 1985.",
+			"credit": "NRAO/AUI/NSF. CC BY 4.0.",
+			"style": "folder",
+			"sortOrder": 4,
+			"people": [
+				"drake"
+			]
+		}
+	],
+	"explanations": [],
+	"chapters": [
+		{
+			"section": "The night",
+			"tabLabel": "A search begins",
+			"title": "A search begins",
+			"place": "Ohio State University",
+			"dateLabel": "1973",
+			"summary": "Big Ear had spent years mapping the radio sky.",
+			"body": "<p>Big Ear had spent years mapping the radio sky. When that work ended, the money ended too. Rather than leave the telescope idle, the astronomers decided in 1973 to use it for something few others were doing: listening for signals from other civilisations.</p>\n<p>The search was led by Robert Dixon and run almost entirely by volunteers. <mark>A computer recorded the sky around the clock, and people checked the printouts by hand.</mark></p>\n<p>It went on for more than twenty years, one of the longest searches of its kind.</p>",
+			"marginNote": "Run by volunteers.",
+			"showsRadioHint": false,
+			"sortOrder": 1,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The Ohio search",
+					"data": {
+						"rows": [
+							[
+								"Started",
+								"1973"
+							],
+							[
+								"Led by",
+								"Robert Dixon"
+							],
+							[
+								"Run by",
+								"volunteers"
+							],
+							[
+								"Lasted",
+								"more than twenty years"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "kraus"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "An idle telescope,\nput to a new use.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The night",
+			"tabLabel": "The night",
+			"title": "The night",
+			"place": "Big Ear radio telescope, Delaware, Ohio",
+			"dateLabel": "15 August 1977, 22:16",
+			"summary": "Since 1973 Ohio State University's radio telescope, nicknamed Big Ear, had been searching the sky for signals from other civilisations.",
+			"body": "<p>Since 1973 Ohio State University's radio telescope, nicknamed Big Ear, had been searching the sky for signals from other civilisations. Night after night it listened, and an IBM 1130 computer printed what it heard on long sheets of paper.</p>\n<p>At 22:16 on 15 August 1977 the turning Earth swept Big Ear's view across a patch of sky in the constellation Sagittarius. <mark>For 72 seconds the computer recorded a signal that rose, peaked and faded away again.</mark> Nobody was in the control room. The numbers were simply printed with all the others.</p>\n<p>A few days later Jerry Ehman, an astronomer who checked the printouts by hand, reached that sheet at his kitchen table. Among the usual columns of ones and twos, one column read 6, E, Q, U, J, 5. He circled it in red and wrote one word in the margin: Wow!</p>",
+			"marginNote": "Nobody was watching. The computer printed it anyway.",
+			"showsRadioHint": false,
+			"sortOrder": 2,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Document",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wow_signal.jpg?width=1000",
+					"title": "The printout",
+					"caption": "The column Ehman circled, and his note in the margin.",
+					"credit": "Big Ear Radio Observatory and NAAPO. Public domain."
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "ehman"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Mon 15 Aug 1977\n22:16, local time\n72 seconds",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The night",
+			"tabLabel": "The printout",
+			"title": "The printout",
+			"place": "Ehman's kitchen table",
+			"dateLabel": "A few days later",
+			"summary": "The printout follows a simple code.",
+			"body": "<p>The printout follows a simple code. Big Ear split the radio band into 50 narrow channels, one column each. Every 12 seconds the computer printed one character per channel, telling how much stronger the signal was than the normal hiss of space.</p>\n<p>A space meant weaker than the background. The numbers 1 to 9 meant that many times stronger. After that it switched to letters: A meant 10, B meant 11, and so on up to Z for 35.</p>\n<p><mark>Read that way, 6EQUJ5 is the shape of a hill: 6, 14, 26, 30, 19, 5.</mark> And it was in only one of the 50 channels. Natural sources spread their radio waves over many frequencies. A signal squeezed into one narrow channel looks much more like a transmitter.</p>",
+			"marginNote": "Play the tape: the six values turned into sound. Big Ear recorded numbers, not sound.",
+			"showsRadioHint": true,
+			"sortOrder": 3,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Printout",
+					"chartKey": "wow",
+					"title": "The six values of 6EQUJ5",
+					"caption": "Each bar is one 12-second reading. The dotted curve is what a source fixed in the sky draws as the Earth turns it through the telescope's view.",
+					"credit": "Chart drawn by AstPIE from the printed values."
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "How to read it",
+					"data": {
+						"rows": [
+							[
+								"space",
+								"weaker than the hiss"
+							],
+							[
+								"1 to 9",
+								"that many times stronger"
+							],
+							[
+								"A to Z",
+								"10 to 35 times"
+							],
+							[
+								"6 E Q U J 5",
+								"6 14 26 30 19 5"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Document",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wow_signal.jpg?width=1000",
+					"title": "The printout",
+					"caption": "The original printout, with the column circled.",
+					"credit": "Big Ear Radio Observatory and NAAPO. Public domain."
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The night",
+			"tabLabel": "Ehman's circle",
+			"title": "Ehman's circle",
+			"place": "Jerry Ehman's home",
+			"dateLabel": "A few days after 15 August 1977",
+			"summary": "Jerry Ehman was one of the volunteers.",
+			"body": "<p>Jerry Ehman was one of the volunteers. A few days after the night of 15 August, he sat down with the latest stack of printouts, as he often did, and ran his eye down the columns of characters.</p>\n<p>Most of it was ones, twos and spaces. Then, in one column, he saw 6EQUJ5. <mark>He circled it in red pen and wrote one word in the margin: Wow!</mark></p>\n<p>He showed it to Dixon and Kraus. They agreed it was the strongest and strangest signal they had ever recorded.</p>",
+			"marginNote": "A red pen and one word.",
+			"showsRadioHint": false,
+			"sortOrder": 4,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wow_signal_(large).jpg?width=1000",
+					"title": "The circle",
+					"caption": "Ehman's red circle and his word in the margin of the printout.",
+					"credit": "Big Ear Radio Observatory and North American AstroPhysical Observatory. Public domain.",
+					"text": "Wow!",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "ehman"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The telescope",
+			"tabLabel": "Kraus's telescope",
+			"title": "Kraus's telescope",
+			"place": "Delaware, Ohio",
+			"dateLabel": "1956 to 1961",
+			"summary": "Big Ear was designed by John Kraus, a professor at Ohio State who had already invented a new kind of antenna, the helical antenna, still used on satellites today.",
+			"body": "<p>Big Ear was designed by John Kraus, a professor at Ohio State who had already invented a new kind of antenna, the helical antenna, still used on satellites today.</p>\n<p>Money was short. <mark>Much of the telescope was built by Kraus himself, his students and volunteers, working weekends for years</mark>, with help from the National Science Foundation.</p>\n<p>When it was finished in 1961 it was one of the largest radio telescopes in the United States.</p>",
+			"marginNote": "Built at weekends.",
+			"showsRadioHint": false,
+			"sortOrder": 5,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "kraus"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Students, volunteers,\nand five years of weekends.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Big Ear",
+					"data": {
+						"rows": [
+							[
+								"Designed by",
+								"John Kraus"
+							],
+							[
+								"Built",
+								"1956 to 1961"
+							],
+							[
+								"Built by",
+								"students, volunteers"
+							],
+							[
+								"Paid by",
+								"National Science Foundation"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The telescope",
+			"tabLabel": "The telescope",
+			"title": "The telescope",
+			"place": "Delaware, Ohio",
+			"dateLabel": "Built 1956 to 1961",
+			"summary": "Big Ear was not a dish.",
+			"body": "<p>Big Ear was not a dish. A flat reflector more than 100 metres long tilted up or down and sent radio waves along an aluminium ground plane, as large as three football fields, to a fixed curved reflector that focused them onto the receivers.</p>\n<p>It could not turn sideways. It let the Earth do the work: as the planet rotates, any point in the sky crosses its narrow view in about 72 seconds, exactly how long the Wow! signal lasted.</p>\n<p>One detail is the most frustrating of all. <mark>Big Ear had two horns side by side, so a real source should pass through one and, three minutes later, the other. The signal appeared in only one.</mark> Big Ear was taken apart in 1998 to make room for a golf course.</p>",
+			"marginNote": "Two horns, three minutes apart. Seen in only one.",
+			"showsRadioHint": false,
+			"sortOrder": 6,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"chartKey": "svg:bigear",
+					"title": "How Big Ear listened",
+					"caption": "Radio waves hit the tilting flat reflector, travel along the ground plane to the fixed curved reflector and are focused back onto the two feed horns.",
+					"credit": "Diagram drawn by AstPIE."
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "kraus"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Horn 1: signal.\nHorn 2, three minutes later: nothing.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The telescope",
+			"tabLabel": "The sky survey",
+			"title": "The sky survey",
+			"place": "Delaware, Ohio",
+			"dateLabel": "1965 to 1971",
+			"summary": "Before it listened for aliens, Big Ear made a map.",
+			"body": "<p>Before it listened for aliens, Big Ear made a map. From 1965 to 1971 it swept the sky strip by strip as the Earth turned, recording every source of radio waves it could find.</p>\n<p>The result, the Ohio Sky Survey, listed nearly 20 000 radio sources. <mark>Many had never been seen before</mark>: distant galaxies, quasars and clouds of gas.</p>\n<p>Knowing the normal sky so well helped later. A new signal from a place where nothing was known stood out at once.</p>",
+			"marginNote": "First a map, then a search.",
+			"showsRadioHint": false,
+			"sortOrder": 7,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The Ohio Sky Survey",
+					"data": {
+						"rows": [
+							[
+								"Years",
+								"1965 to 1971"
+							],
+							[
+								"Sources found",
+								"nearly 20 000"
+							],
+							[
+								"Many",
+								"new to science"
+							],
+							[
+								"Method",
+								"the Earth's turning"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Know the normal sky,\nand the strange stands out.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The telescope",
+			"tabLabel": "Big Ear's end",
+			"title": "Big Ear's end",
+			"place": "Delaware, Ohio",
+			"dateLabel": "1997 and 1998",
+			"summary": "Big Ear kept listening for another twenty years after the Wow!",
+			"body": "<p>Big Ear kept listening for another twenty years after the Wow! signal, run mostly by volunteers. It was one of the longest searches of its kind.</p>\n<p>The land it stood on belonged to Ohio Wesleyan University. In the 1980s the university sold it to developers, and <mark>in 1998 the telescope was taken apart to make room for a golf course.</mark></p>\n<p>Today a historical marker stands near the site. The printout with the red circle survives.</p>",
+			"marginNote": "The telescope is gone. The printout is not.",
+			"showsRadioHint": false,
+			"sortOrder": 8,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "/images/people/ehman-bigear.jpg",
+					"title": "Jerry Ehman at Big Ear",
+					"caption": "Jerry Ehman sitting on the structure of Big Ear, before the telescope was taken down.",
+					"credit": "Big Ear Radio Observatory and North American AstroPhysical Observatory (bigear.org). Used here for the mockup only; permission needed before publishing.",
+					"text": "Ehman on Big Ear",
+					"style": null,
+					"people": [
+						"ehman"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Big Ear",
+					"data": {
+						"rows": [
+							[
+								"Built",
+								"1956 to 1961"
+							],
+							[
+								"Searched for signals",
+								"1973 to 1997"
+							],
+							[
+								"Taken down",
+								"1998"
+							],
+							[
+								"Replaced by",
+								"a golf course"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The search",
+			"tabLabel": "Where it came from",
+			"title": "Where it came from",
+			"place": "Constellation Sagittarius",
+			"dateLabel": "Since 1977",
+			"summary": "Because of the two horns, the signal has two possible positions, very close together, in Sagittarius, the Archer.",
+			"body": "<p>Because of the two horns, the signal has two possible positions, very close together, in Sagittarius, the Archer. Its brightest stars look like a teapot, and the signal came from a little to the east of it, towards the crowded centre of our galaxy.</p>\n<p>For decades no particular star could be linked to it. In 2022 the amateur astronomer Alberto Caballero searched the area for stars like our Sun and found one about 1 800 light-years away. <mark>So far, nothing has been heard from it.</mark></p>",
+			"marginNote": "A reply would take 1 800 years to get there.",
+			"showsRadioHint": false,
+			"sortOrder": 9,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "Where in the sky",
+					"data": {
+						"rows": [
+							[
+								"Constellation",
+								"Sagittarius"
+							],
+							[
+								"Horn 1",
+								"RA 19h 25m 31s"
+							],
+							[
+								"Horn 2",
+								"RA 19h 28m 22s"
+							],
+							[
+								"Both",
+								"Dec −26° 57′"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "A Sun-like star nearby,\n1 800 light-years off.\nSilent so far.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Milky_way's_galactic_center_seen_fro_Rara_nepal.jpg?width=800",
+					"title": "Towards the centre of the galaxy",
+					"caption": "The centre of the Milky Way rising over Rara, in Nepal. The signal came from this part of the sky.",
+					"credit": "Subarna1228. CC BY-SA 4.0",
+					"text": "this part of the sky",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The search",
+			"tabLabel": "Looking again",
+			"title": "Looking again",
+			"place": "Big Ear",
+			"dateLabel": "1977 to 1978",
+			"summary": "If the signal came from a transmitter, it might send again.",
+			"body": "<p>If the signal came from a transmitter, it might send again. Ehman and Dixon pointed Big Ear at the same strip of sky night after night.</p>\n<p>They listened more than a hundred times over the following months. <mark>They heard nothing at all: not the signal, not anything like it.</mark></p>\n<p>A signal that appears only once is the hardest kind to study. Scientists cannot test it, measure it again or show it to anyone else.</p>",
+			"marginNote": "More than a hundred tries.",
+			"showsRadioHint": false,
+			"sortOrder": 10,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "Looking again",
+					"data": {
+						"rows": [
+							[
+								"Tries",
+								"more than a hundred"
+							],
+							[
+								"Where",
+								"the same strip of sky"
+							],
+							[
+								"Heard",
+								"nothing"
+							],
+							[
+								"Problem",
+								"it happened once"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "ehman"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Once is not enough\nfor science.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The search",
+			"tabLabel": "The search",
+			"title": "The search",
+			"place": "Ohio, New Mexico and Tasmania",
+			"dateLabel": "1977 to today",
+			"summary": "If it came from a transmitter, it might come again.",
+			"body": "<p>If it came from a transmitter, it might come again. Big Ear pointed at the same spot more than a hundred times. It heard nothing.</p>\n<p>Robert Gray spent years on it, with a telescope at Harvard and then, in 1995 and 1996, with the Very Large Array in New Mexico, many times more sensitive than Big Ear. In 1999 he tried again from Tasmania. <mark>None of the searches found the signal, or anything like it.</mark></p>\n<p>In 2012 the Arecibo telescope in Puerto Rico even sent a reply towards Sagittarius. Today, large surveys scan the sky for narrow signals and find plenty. Almost all of them are satellites, aircraft or equipment on Earth.</p>",
+			"marginNote": "More than a hundred tries at Big Ear alone.",
+			"showsRadioHint": false,
+			"sortOrder": 11,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/NRAO_Very_Large_Array%2C_New_Mexico%2C_USA_2024_4.jpg?width=1000",
+					"title": "The Very Large Array",
+					"caption": "Robert Gray used these dishes in 1995 and 1996 to search the spot for hours at a time.",
+					"credit": "dconvertini, CC BY-SA 2.0",
+					"text": "Very Large Array, New Mexico",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Arecibo_Observatory_Aerial_View.jpg?width=800",
+					"title": "Arecibo Observatory",
+					"caption": "In 2012 this dish sent a reply towards Sagittarius, made of thousands of short messages from the public.",
+					"credit": "H. Schweiker, WIYN and NOAO/AURA/NSF. CC BY 4.0",
+					"text": "Arecibo: a reply, 2012",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "gray"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The search",
+			"tabLabel": "A reply in 2012",
+			"title": "A reply in 2012",
+			"place": "Arecibo, Puerto Rico",
+			"dateLabel": "15 August 2012",
+			"summary": "On the 35th anniversary of the signal, the giant Arecibo radio telescope in Puerto Rico sent an answer.",
+			"body": "<p>On the 35th anniversary of the signal, the giant Arecibo radio telescope in Puerto Rico sent an answer.</p>\n<p>A television channel had invited people to write messages online. <mark>About ten thousand of them were beamed towards the Wow! signal's part of Sagittarius.</mark></p>\n<p>If anyone is there, at about 1 800 light-years, the reply will take about 1 800 years to arrive.</p>",
+			"marginNote": "Ten thousand messages, very slow post.",
+			"showsRadioHint": false,
+			"sortOrder": 12,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "A reply to the Wow!",
+					"text": "Messages from the public, sent from Arecibo.",
+					"dateLabel": "15 August 2012",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Arriving in about 1 800 years"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The reply",
+					"data": {
+						"rows": [
+							[
+								"Sent",
+								"15 August 2012"
+							],
+							[
+								"From",
+								"Arecibo"
+							],
+							[
+								"Messages",
+								"about ten thousand"
+							],
+							[
+								"Arrival",
+								"in about 1 800 years"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Explanations",
+			"tabLabel": "The facts to explain",
+			"title": "The facts to explain",
+			"place": "Big Ear's records",
+			"dateLabel": "1977",
+			"summary": "Any explanation must fit a short list of facts, read from six characters and the way Big Ear worked.",
+			"body": "<p>Any explanation must fit a short list of facts, read from six characters and the way Big Ear worked.</p>\n<p>The signal was very narrow, in a single channel, close to the hydrogen frequency. <mark>It rose and fell over 72 seconds, exactly as a fixed point in the sky would as Big Ear's beam swept past it.</mark> It appeared in one horn and not in the other. And it was never heard again.</p>\n<p>Something on the ground or moving fast through the sky would have looked different. That is why it is so hard to explain away.</p>",
+			"marginNote": "Four facts, no answer.",
+			"showsRadioHint": false,
+			"sortOrder": 13,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Printout",
+					"chartKey": "wow",
+					"title": "The rise and fall",
+					"caption": "The six values of 6EQUJ5 against the shape a point in the sky would make.",
+					"credit": "Drawing by AstPIE."
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The facts",
+					"data": {
+						"rows": [
+							[
+								"Width",
+								"one narrow channel"
+							],
+							[
+								"Frequency",
+								"near hydrogen's"
+							],
+							[
+								"Shape",
+								"like a fixed point in the sky"
+							],
+							[
+								"Repeated",
+								"never"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Explanations",
+			"tabLabel": "The explanations",
+			"title": "The explanations",
+			"place": "Observatories and journals",
+			"dateLabel": "1977 to 2024",
+			"summary": "Any explanation has to fit the same few facts: a narrow signal near the hydrogen frequency, a rise and fall that matched the turning sky, one horn instead of two, and silence ever since.",
+			"body": "<p>Any explanation has to fit the same few facts: a narrow signal near the hydrogen frequency, a rise and fall that matched the turning sky, one horn instead of two, and silence ever since.</p>\n<p>Four ideas are pinned to the board. <mark>Pick up a card to read what supports it and what speaks against it.</mark></p>\n<p>The hydrogen frequency is special. Hydrogen, the most common element, gives off a faint glow at 1420 megahertz everywhere in space. Astronomers use it to map the galaxy, so nobody on Earth is allowed to broadcast on it.</p>",
+			"marginNote": "Four ideas. Only one is still being tested.",
+			"showsRadioHint": false,
+			"sortOrder": 14,
+			"media": [],
+			"explanations": [
+				{
+					"title": "A signal from another civilisation",
+					"proposedBy": "The idea that made it famous, 1977",
+					"forText": "It was very narrow, like a transmitter, close to the hydrogen frequency that others might choose because every scientist would know it. And it behaved exactly like a source fixed in the sky.",
+					"againstText": "It never repeated, which a beacon meant to be found surely would. It carried no message or pattern, and it lasted only 72 seconds.",
+					"imageFit": "contain",
+					"verdict": "Nothing supports it beyond the signal itself.",
+					"stamp": "POSSIBLE",
+					"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Arecibo_message.svg?width=400",
+					"imageCredit": "The Arecibo message, sent by people in 1974. Arne Nordmann, CC BY-SA 3.0",
+					"sortOrder": 1
+				},
+				{
+					"title": "Interference from the Earth",
+					"proposedBy": "The first thing every astronomer checks",
+					"forText": "Most unexpected signals are made by people: radar, aircraft, satellites. A reflection from space debris could in principle make a short spike.",
+					"againstText": "Nothing on Earth should transmit at 1420 MHz. The 72-second rise and fall matched the turning sky, not something nearby. No satellite was in the right place.",
+					"imageFit": null,
+					"verdict": "It does not fit the shape or the frequency.",
+					"stamp": "UNLIKELY",
+					"imageUrl": null,
+					"imageCredit": null,
+					"sortOrder": 2
+				},
+				{
+					"title": "A passing comet",
+					"proposedBy": "Antonio Paris, 2017",
+					"forText": "Comets are surrounded by hydrogen, which glows at exactly this frequency. Two comets, undiscovered in 1977, were in that part of the sky.",
+					"againstText": "Comets are far too faint to be seen so strongly. The comets were not in the right place, and the signal should have shown in both horns.",
+					"imageFit": null,
+					"verdict": "An interesting idea that did not survive the checks.",
+					"stamp": "REJECTED",
+					"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Comet_Hale-Bopp_1995O1.jpg?width=600",
+					"imageCredit": "Comet Hale-Bopp, 1997. E. Kolmhofer, H. Raab, Johannes Kepler Observatory. CC BY-SA 3.0",
+					"sortOrder": 3
+				},
+				{
+					"title": "A hydrogen cloud that flared",
+					"proposedBy": "Abel Méndez and colleagues, 2024",
+					"forText": "Old Arecibo data show weaker signals of the same narrow shape from cold hydrogen clouds. A burst of energy, for example from a magnetar, could make one flare briefly and never in the same way again.",
+					"againstText": "It needs a rare and very bright event at the right moment. The idea is new, other teams have not confirmed it, and no flare as strong as the Wow! has been seen.",
+					"imageFit": null,
+					"verdict": "The best natural explanation so far.",
+					"stamp": "BEING TESTED",
+					"imageUrl": null,
+					"imageCredit": null,
+					"sortOrder": 4
+				}
+			]
+		},
+		{
+			"section": "Explanations",
+			"tabLabel": "The comet idea",
+			"title": "The comet idea",
+			"place": "Washington, D.C.",
+			"dateLabel": "2016 and 2017",
+			"summary": "In 2016 Antonio Paris, a teacher of astronomy, suggested that the signal came from a comet.",
+			"body": "<p>In 2016 Antonio Paris, a teacher of astronomy, suggested that the signal came from a comet. Comets are wrapped in clouds of hydrogen, and two comets unknown in 1977 had been in that part of the sky.</p>\n<p>The idea made headlines around the world. Other astronomers checked it quickly. <mark>The comets were not in the right place when the signal arrived, and their hydrogen glow would have been far too weak.</mark></p>\n<p>Most scientists rejected it. It was still a useful test: a clear idea that could be checked, and was.</p>",
+			"marginNote": "Checked, and rejected.",
+			"showsRadioHint": false,
+			"sortOrder": 15,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Comet_Hale-Bopp_from_State_College_PA_1997.jpg?width=800",
+					"title": "A comet",
+					"caption": "Comet Hale-Bopp over Pennsylvania in 1997. Comets carry clouds of hydrogen around them.",
+					"credit": "Jstuby. CC0",
+					"text": "comets and hydrogen",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The comet idea",
+					"data": {
+						"rows": [
+							[
+								"Proposed",
+								"2016 and 2017"
+							],
+							[
+								"By",
+								"Antonio Paris"
+							],
+							[
+								"Problem",
+								"wrong place"
+							],
+							[
+								"And",
+								"far too weak"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Explanations",
+			"tabLabel": "A flare in the cold",
+			"title": "A flare in the cold",
+			"place": "Arecibo archives",
+			"dateLabel": "2024",
+			"summary": "In 2024 Abel Méndez and his colleagues went through old recordings from the Arecibo telescope.",
+			"body": "<p>In 2024 Abel Méndez and his colleagues went through old recordings from the Arecibo telescope. They found several faint signals at the hydrogen frequency that looked a little like the Wow!, only much weaker.</p>\n<p>Their idea: a cold cloud of hydrogen gas, normally almost invisible, was suddenly lit up by a burst of energy from a distant star or dead star. <mark>For a short time the cloud would shine like a natural radio beacon.</mark></p>\n<p>It fits the narrow signal and the hydrogen frequency, and it would explain why nothing was heard again. It still has to be confirmed.</p>",
+			"marginNote": "A natural beacon, switched on briefly.",
+			"showsRadioHint": false,
+			"sortOrder": 16,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "mendez"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The flare idea",
+					"data": {
+						"rows": [
+							[
+								"Proposed",
+								"2024"
+							],
+							[
+								"By",
+								"Abel Méndez and team"
+							],
+							[
+								"Clue",
+								"weaker signals in old data"
+							],
+							[
+								"Status",
+								"being tested"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "If it is right,\nit will happen again,\nsomewhere.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Explanations",
+			"tabLabel": "Other strange signals",
+			"title": "Other strange signals",
+			"place": "Cambridge, Parkes and Green Bank",
+			"dateLabel": "1967 to 2019",
+			"summary": "The Wow!",
+			"body": "<p>The Wow! signal is not the only time the sky seemed to be sending a message. The others show how a mystery usually ends: <mark>with a new kind of object in space, or with something ordinary on the ground.</mark></p>\n<p>In 1967 the student Jocelyn Bell Burnell found a pulse repeating every 1.34 seconds. Her team half-jokingly called it LGM-1, for Little Green Men. It was the first pulsar, a tiny spinning dead star.</p>\n<p>For years the Parkes telescope in Australia picked up bursts that looked like they came from space, always during office hours. They came from the staff microwave oven, opened before it had finished.</p>",
+			"marginNote": "Most mysteries end in a new discovery, or a microwave oven.",
+			"showsRadioHint": false,
+			"sortOrder": 17,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "Pulses every 1.34 seconds",
+					"text": "Nicknamed LGM-1, \"Little Green Men\".",
+					"dateLabel": "1967",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Susan_Jocelyn_Bell_(Burnell)%2C_1967.jpg?width=500",
+					"caption": "Jocelyn Bell in 1967, the year she found the pulses.",
+					"credit": "Roger W Haworth. CC BY-SA 2.0",
+					"data": {
+						"outcome": "Solved: the first pulsar"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Clipping",
+					"title": "Bursts at Parkes, only in office hours",
+					"text": "They looked like they came from space.",
+					"dateLabel": "1998 to 2015",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Microwave_oven_flashon.jpg?width=600",
+					"caption": "The culprit: a microwave oven, opened before it had finished.",
+					"credit": "Wrightmt. Public domain.",
+					"data": {
+						"outcome": "Solved: the microwave oven"
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Clipping",
+					"title": "A burst of a few thousandths of a second",
+					"text": "From far outside our galaxy.",
+					"dateLabel": "2007",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Canadian_Hydrogen_Intensity_Mapping_Experiment_-_overall.jpg?width=700",
+					"caption": "CHIME in Canada, which now catches fast radio bursts almost every day.",
+					"credit": "Z22. CC BY-SA 4.0",
+					"data": {
+						"outcome": "Partly solved: magnetars"
+					}
+				},
+				{
+					"sortOrder": 4,
+					"type": "Clipping",
+					"title": "A narrow signal from Proxima Centauri?",
+					"text": "The best candidate since the Wow!",
+					"dateLabel": "2019",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/New_shot_of_Proxima_Centauri%2C_our_nearest_neighbour.jpg?width=600",
+					"caption": "Proxima Centauri, the nearest star to the Sun, seen by Hubble.",
+					"credit": "ESA/Hubble and NASA. CC BY 4.0",
+					"data": {
+						"outcome": "Solved: equipment on Earth"
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Listening",
+			"tabLabel": "Listening for others",
+			"title": "Listening for others",
+			"place": "Green Bank, West Virginia",
+			"dateLabel": "April 1960",
+			"summary": "The idea of listening for other civilisations is older than Big Ear.",
+			"body": "<p>The idea of listening for other civilisations is older than Big Ear. In 1959 two physicists suggested that the hydrogen frequency, the one the Wow! signal was near, would be the natural channel for anyone who wanted to be found.</p>\n<p>In April 1960 a young astronomer, Frank Drake, pointed a 26-metre dish at Green Bank at two nearby stars like the Sun, Tau Ceti and Epsilon Eridani. He called it Project Ozma. <mark>For about 150 hours he listened, and heard nothing.</mark></p>\n<p>A year later he wrote the Drake equation, a list of the things you would need to know to estimate how many civilisations might be out there. Most of them are still unknown.</p>",
+			"marginNote": "The first time anyone listened on purpose.",
+			"showsRadioHint": false,
+			"sortOrder": 18,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "drake"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Howard_E._Tatel_Radio_Telescope_-_side.jpg?width=1000",
+					"title": "The Ozma dish",
+					"caption": "The 26-metre Howard E. Tatel telescope at Green Bank, used for Project Ozma in 1960.",
+					"credit": "Z22. CC BY-SA 4.0",
+					"text": "Green Bank, 1960",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Project Ozma",
+					"data": {
+						"rows": [
+							[
+								"When",
+								"April to July 1960"
+							],
+							[
+								"Dish",
+								"26 m"
+							],
+							[
+								"Stars",
+								"Tau Ceti, Epsilon Eridani"
+							],
+							[
+								"Heard",
+								"nothing"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Listening",
+			"tabLabel": "The Drake equation",
+			"title": "The Drake equation",
+			"place": "Green Bank, West Virginia",
+			"dateLabel": "November 1961",
+			"summary": "In 1961 Frank Drake invited a small group of scientists to Green Bank to discuss the search for other civilisations.",
+			"body": "<p>In 1961 Frank Drake invited a small group of scientists to Green Bank to discuss the search for other civilisations. To give the meeting an agenda, he wrote down an equation.</p>\n<p>It multiplies together the things you would need to know: how many stars form, how many have planets, how many planets could support life, how often life becomes intelligent, how often it builds radio transmitters, and how long such civilisations last. <mark>The answer is how many might be sending signals in our galaxy right now.</mark></p>\n<p>We now know that most stars have planets. The other numbers are still guesses.</p>",
+			"marginNote": "An agenda, not an answer.",
+			"showsRadioHint": false,
+			"sortOrder": 19,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Drake_Equation.jpg?width=1200",
+					"title": "The Drake equation",
+					"caption": "An illustration of the Drake equation and its factors.",
+					"credit": "NOIRLab / AURA / NSF / P. Marenfeld. CC BY 4.0",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "most numbers still unknown"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "drake"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Listening",
+			"tabLabel": "Sending a message",
+			"title": "Sending a message",
+			"place": "Arecibo, Puerto Rico",
+			"dateLabel": "16 November 1974",
+			"summary": "Listening is one half of the conversation.",
+			"body": "<p>Listening is one half of the conversation. In 1974, to celebrate an upgrade of the Arecibo telescope, Frank Drake and his colleagues sent a message the other way.</p>\n<p>It was 1 679 ones and zeros. Arranged in a grid of 73 rows of 23, they form a picture: numbers, the chemistry of DNA, a human figure, the Solar System and the telescope itself. <mark>It was aimed at a cluster of stars called M13, about 25 000 light-years away.</mark></p>\n<p>It was meant mostly as a demonstration. Any reply could not arrive for about 50 000 years.</p>",
+			"marginNote": "1 679 bits, 25 000 light-years.",
+			"showsRadioHint": false,
+			"sortOrder": 20,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Arecibo_message.svg?width=400",
+					"title": "The Arecibo message",
+					"caption": "The 1974 Arecibo message, with its parts coloured to make them easier to see.",
+					"credit": "Arne Nordmann. CC BY-SA 3.0",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "73 rows of 23"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Heart_of_M13_Hercules_Globular_Cluster.jpg?width=900",
+					"title": "M13",
+					"caption": "The heart of M13, the star cluster the message was sent towards.",
+					"credit": "ESA / Hubble and NASA. Public domain.",
+					"text": "the target, M13",
+					"style": "dark"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Listening",
+			"tabLabel": "Listening today",
+			"title": "Listening today",
+			"place": "Green Bank, Parkes and South Africa",
+			"dateLabel": "Since 2015",
+			"summary": "In 2015 a private foundation launched Breakthrough Listen, the largest search so far: ten years and about 100 million dollars to listen to a million nearby stars and a hundred nearby galaxies.",
+			"body": "<p>In 2015 a private foundation launched Breakthrough Listen, the largest search so far: ten years and about 100 million dollars to listen to a million nearby stars and a hundred nearby galaxies.</p>\n<p>It uses some of the biggest dishes in the world, including the Green Bank Telescope, the largest steerable dish on Earth, and Parkes in Australia. <mark>Unlike Big Ear, it records the whole signal</mark>, so a candidate can be studied again and again.</p>\n<p>Its one strong candidate so far, from the direction of Proxima Centauri in 2019, turned out to be interference from equipment on the Earth.</p>",
+			"marginNote": "Recording everything this time.",
+			"showsRadioHint": false,
+			"sortOrder": 21,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Green_Bank_Telescope_NRAO.jpg?width=1000",
+					"title": "The Green Bank Telescope",
+					"caption": "The Robert C. Byrd Green Bank Telescope, about 100 metres across, the largest fully steerable radio dish in the world.",
+					"credit": "NRAO / AUI / NSF. CC BY 4.0",
+					"text": "Green Bank today",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Breakthrough Listen",
+					"data": {
+						"rows": [
+							[
+								"Started",
+								"2015"
+							],
+							[
+								"Planned",
+								"ten years"
+							],
+							[
+								"Targets",
+								"a million stars"
+							],
+							[
+								"Found so far",
+								"nothing confirmed"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Still open",
+			"tabLabel": "What would solve it",
+			"title": "What would solve it",
+			"place": "Radio telescopes around the world",
+			"dateLabel": "Today",
+			"summary": "The Wow!",
+			"body": "<p>The Wow! signal happened once, was recorded by an old computer in a simple code, and was only noticed days later. There is no way to measure it again. Every explanation has to fit six characters on a sheet of paper.</p>\n<p>What would settle it is another signal like it, caught by modern equipment that records the full signal and can point several dishes at once. If a similar burst comes from a hydrogen cloud, the flare idea is confirmed. If a narrow signal ever repeats from the same star, with a pattern in it, it would be one of the biggest discoveries in history.</p>\n<p><mark>Until then it stays what it has been since 1977: the most famous question mark in radio astronomy.</mark></p>",
+			"marginNote": "One more detection would change everything.",
+			"showsRadioHint": false,
+			"sortOrder": 22,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Parkes_Radio_Telescope_(CSIRO)_(cropped).jpg?width=1000",
+					"title": "The Parkes telescope",
+					"caption": "One of the dishes used today by surveys that look for narrow signals like the Wow!",
+					"credit": "Amanda Slater, CC BY-SA 2.0",
+					"text": "Parkes, still listening",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Status: still open.\nWaiting for a second signal.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Still open",
+			"tabLabel": "Why it still matters",
+			"title": "Why it still matters",
+			"place": "Today",
+			"dateLabel": null,
+			"summary": "The Wow!",
+			"body": "<p>The Wow! signal is not famous because it proves anything. It is famous because it is honest: a strong, clean signal, recorded carefully, that nobody has been able to explain.</p>\n<p>It shows how science deals with something that happened only once. <mark>Every idea has to fit the evidence, every idea is tested, and \"we do not know yet\" is an acceptable answer.</mark></p>\n<p>Newer telescopes now record far more than Big Ear ever could. If anything like it happens again, it will not be missed.</p>",
+			"marginNote": "We do not know yet.",
+			"showsRadioHint": false,
+			"sortOrder": 23,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Allen_Telescope_Array_-_Flickr_-_brewbooks_(4).jpg?width=1000",
+					"title": "The Allen Telescope Array",
+					"caption": "The Allen Telescope Array in California, built to search for signals like the Wow!",
+					"credit": "brewbooks. CC BY-SA 2.0",
+					"text": "listening today",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Status: still open.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		}
+	]
+}

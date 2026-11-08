@@ -1,0 +1,22 @@
+---
+// The thin top bar of the Learn pages (and of the page-not-found page, where Learn is not marked)
+import LogoName from '../LogoName.astro';
+import { t } from '../../i18n/t';
+
+interface Props
+{
+	inLearn: boolean;
+}
+
+const { inLearn } = Astro.props;
+---
+
+<header class="top">
+	<LogoName id="astpieLearn" href="/" />
+	<nav>
+		<a href="/" data-leave="#141a35">{t('nav.home')}</a>
+		<a class:list={[{ on: inLearn }]} href="/learn">{t('nav.learn')}</a>
+		<a href="/explore" data-leave="#140d09">{t('nav.explore')}</a>
+	</nav>
+</header>
+<div class="veil"></div>

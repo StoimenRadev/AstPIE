@@ -27,6 +27,14 @@ namespace AstPIE.Api.Controllers.Admin
 				select new EntryAdminDto
 				{
 					Id = e.Id,
+					Tagline = e.Tagline,
+					CoverCaption = e.CoverCaption,
+					CoverCredit = e.CoverCredit,
+					Country = e.Country,
+					Desk = e.Desk,
+					StatusNote = e.StatusNote,
+					RadioMinMHz = e.RadioMinMHz,
+					RadioMaxMHz = e.RadioMaxMHz,
 					Kind = e.Kind,
 					Slug = e.Slug,
 					Title = e.Title,
@@ -52,6 +60,14 @@ namespace AstPIE.Api.Controllers.Admin
 				select new EntryAdminDto
 				{
 					Id = e.Id,
+					Tagline = e.Tagline,
+					CoverCaption = e.CoverCaption,
+					CoverCredit = e.CoverCredit,
+					Country = e.Country,
+					Desk = e.Desk,
+					StatusNote = e.StatusNote,
+					RadioMinMHz = e.RadioMinMHz,
+					RadioMaxMHz = e.RadioMaxMHz,
 					Kind = e.Kind,
 					Slug = e.Slug,
 					Title = e.Title,
@@ -173,6 +189,14 @@ namespace AstPIE.Api.Controllers.Admin
 			entry.EvidenceStatus = input.EvidenceStatus;
 			entry.RelatedTopicId = input.RelatedTopicId;
 			entry.IsPublished = input.IsPublished;
+			entry.Tagline = Optional(input.Tagline);
+			entry.CoverCaption = Optional(input.CoverCaption);
+			entry.CoverCredit = Optional(input.CoverCredit);
+			entry.Country = Optional(input.Country);
+			entry.Desk = input.Desk;
+			entry.StatusNote = Optional(input.StatusNote);
+			entry.RadioMinMHz = input.RadioMinMHz;
+			entry.RadioMaxMHz = input.RadioMaxMHz;
 		}
 	}
 }

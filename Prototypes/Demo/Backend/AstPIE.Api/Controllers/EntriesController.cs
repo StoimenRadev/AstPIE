@@ -35,20 +35,25 @@ namespace AstPIE.Api.Controllers
 					Slug = entry.Slug,
 					Kind = entry.Kind,
 					Title = entry.Title,
+					Tagline = entry.Tagline,
 					Summary = entry.Summary,
 					CoverImageUrl = entry.CoverImageUrl,
+					Country = entry.Country,
+					Desk = entry.Desk,
 					StartDate = entry.StartDate,
 					EndDate = entry.EndDate,
 					Agency = entry.Agency,
 					MissionOutcome = entry.MissionOutcome,
-					EvidenceStatus = entry.EvidenceStatus
+					EvidenceStatus = entry.EvidenceStatus,
+					StatusNote = entry.StatusNote,
+					PageCount = entry.Chapters.Count()
 				}).ToListAsync();
 
 			return entries;
 		}
 
 		// GET /api/entries/sputnik-1
-		// One entry with its chapters, people, media and "Physics behind it", or 404
+		// One case with its cover sheet, pages, desk items, people and cork board, or 404
 		[HttpGet("{slug}")]
 		public async Task<ActionResult<EntryDto>> GetEntry(string slug)
 		{
@@ -66,25 +71,31 @@ namespace AstPIE.Api.Controllers
 			result.Slug = entry.Slug;
 			result.Kind = entry.Kind;
 			result.Title = entry.Title;
+			result.Tagline = entry.Tagline;
 			result.Summary = entry.Summary;
 			result.CoverImageUrl = entry.CoverImageUrl;
+			result.CoverCaption = entry.CoverCaption;
+			result.CoverCredit = entry.CoverCredit;
+			result.Country = entry.Country;
+			result.Desk = entry.Desk;
 			result.StartDate = entry.StartDate;
 			result.EndDate = entry.EndDate;
 			result.Agency = entry.Agency;
 			result.MissionOutcome = entry.MissionOutcome;
 			result.EvidenceStatus = entry.EvidenceStatus;
+			result.StatusNote = entry.StatusNote;
+			result.RadioMinMHz = entry.RadioMinMHz;
+			result.RadioMaxMHz = entry.RadioMaxMHz;
 			result.RelatedTopic = await FindTopicLink(entry.RelatedTopicId);
 
-			result.Chapters = await (
-				from chapter in db.Chapters
-				where chapter.EntryId == entry.Id
-				orderby chapter.SortOrder
-				select new ChapterDto
+			result.Facts = await (
+				from fact in db.EntryFacts
+				where fact.EntryId == entry.Id
+				orderby fact.SortOrder
+				select new FactDto
 				{
-					Title = chapter.Title,
-					DateLabel = chapter.DateLabel,
-					Summary = chapter.Summary,
-					Body = chapter.Body
+					Label = fact.Label,
+					Value = fact.Value
 				}).ToListAsync();
 
 			result.People = await (
@@ -96,26 +107,131 @@ namespace AstPIE.Api.Controllers
 				{
 					PersonId = person.Id,
 					FullName = person.FullName,
+					Nationality = person.Nationality,
+					BirthDate = person.BirthDate,
+					DeathDate = person.DeathDate,
 					PhotoUrl = person.PhotoUrl,
+					PhotoCredit = person.PhotoCredit,
+					Bio = person.Bio,
 					Role = link.Role,
 					IsCrew = link.IsCrew
 				}).ToListAsync();
 
-			result.Media = await (
-				from media in db.MediaItems
-				where media.EntryId == entry.Id
-				orderby media.SortOrder
-				select new MediaItemDto
+			List<Chapter> chapters = await (
+				from chapter in db.Chapters
+				where chapter.EntryId == entry.Id
+				orderby chapter.SortOrder
+				select chapter).ToListAsync();
+
+			List<MediaItem> media = await (
+				from item in db.MediaItems
+				where item.EntryId == entry.Id
+				orderby item.SortOrder
+				select item).ToListAsync();
+
+			// Who each photo of the case shows
+			List<MediaItemPerson> shown = await (
+				from link in db.MediaItemPeople
+				join item in db.MediaItems on link.MediaItemId equals item.Id
+				where item.EntryId == entry.Id
+				select link).ToListAsync();
+
+			List<Explanation> explanations = await (
+				from explanation in db.Explanations
+				where explanation.EntryId == entry.Id
+				orderby explanation.SortOrder
+				select explanation).ToListAsync();
+
+			// Things without a page lie on the desk with the case summary
+			foreach (MediaItem item in media)
+			{
+				if (item.ChapterId == null)
 				{
-					Type = media.Type,
-					Url = media.Url,
-					Title = media.Title,
-					Caption = media.Caption,
-					Credit = media.Credit,
-					License = media.License
-				}).ToListAsync();
+					result.Media.Add(ToDto(item, shown));
+				}
+			}
+			foreach (Explanation explanation in explanations)
+			{
+				if (explanation.ChapterId == null)
+				{
+					result.Explanations.Add(ToDto(explanation));
+				}
+			}
+
+			foreach (Chapter chapter in chapters)
+			{
+				ChapterDto page = new ChapterDto();
+				page.Section = chapter.Section;
+				page.TabLabel = chapter.TabLabel;
+				page.Title = chapter.Title;
+				page.Place = chapter.Place;
+				page.DateLabel = chapter.DateLabel;
+				page.Summary = chapter.Summary;
+				page.Body = chapter.Body;
+				page.MarginNote = chapter.MarginNote;
+				page.ShowsRadioHint = chapter.ShowsRadioHint;
+
+				foreach (MediaItem item in media)
+				{
+					if (item.ChapterId == chapter.Id)
+					{
+						page.Media.Add(ToDto(item, shown));
+					}
+				}
+				foreach (Explanation explanation in explanations)
+				{
+					if (explanation.ChapterId == chapter.Id)
+					{
+						page.Explanations.Add(ToDto(explanation));
+					}
+				}
+				result.Chapters.Add(page);
+			}
 
 			return result;
+		}
+
+		private static MediaItemDto ToDto(MediaItem item, List<MediaItemPerson> shown)
+		{
+			MediaItemDto dto = new MediaItemDto();
+			dto.Type = item.Type;
+			dto.Url = item.Url;
+			dto.Title = item.Title;
+			dto.Caption = item.Caption;
+			dto.Credit = item.Credit;
+			dto.License = item.License;
+			dto.Text = item.Text;
+			dto.Author = item.Author;
+			dto.DateLabel = item.DateLabel;
+			dto.PosterUrl = item.PosterUrl;
+			dto.LengthLabel = item.LengthLabel;
+			dto.PersonId = item.PersonId;
+			dto.ShownPeopleIds = (
+				from link in shown
+				where link.MediaItemId == item.Id
+				orderby link.PersonId
+				select link.PersonId).ToList();
+			dto.Style = item.Style;
+			dto.ChartKey = item.ChartKey;
+			dto.Data = item.Data;
+			dto.SortOrder = item.SortOrder;
+			return dto;
+		}
+
+		private static ExplanationDto ToDto(Explanation explanation)
+		{
+			ExplanationDto dto = new ExplanationDto();
+			dto.Title = explanation.Title;
+			dto.ProposedBy = explanation.ProposedBy;
+			dto.ForText = explanation.ForText;
+			dto.AgainstText = explanation.AgainstText;
+			dto.Verdict = explanation.Verdict;
+			dto.Stamp = explanation.Stamp;
+			dto.ImageUrl = explanation.ImageUrl;
+			dto.ImageCredit = explanation.ImageCredit;
+			dto.ImageFit = explanation.ImageFit;
+			dto.SortOrder = explanation.SortOrder;
+			return dto;
 		}
 
 		// The linked Learn topic, or null when there is none (or it is not published)

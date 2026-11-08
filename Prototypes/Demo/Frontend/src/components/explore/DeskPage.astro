@@ -1,0 +1,136 @@
+---
+// A case desk (missions and mysteries) or the observatory (catalogue objects), drawn here on the
+// server by lib/deskHtml.ts. Every other page, picked-up view and the photo folder wait in the page
+// as text; scripts/desk/desk.ts turns them into elements when opened and moves things around.
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Logo from '../Logo.astro';
+import type { DeskCase, DeskObject } from '../../lib/deskTypes';
+import { caseView, objectView } from '../../lib/deskHtml';
+import type { DeskView } from '../../lib/deskHtml';
+import { t } from '../../i18n/t';
+import '../../styles/desk.css';
+
+interface Props
+{
+	title: string;
+	description: string;
+	// 'case' or 'cat'
+	mode: string;
+	data: DeskCase | DeskObject;
+}
+
+const { title, description, mode, data } = Astro.props;
+
+let view: DeskView;
+if (mode === 'cat')
+{
+	view = objectView(data as DeskObject);
+}
+else
+{
+	view = caseView(data as DeskCase);
+}
+---
+
+<SiteLayout title={title} bodyClass={view.bodyClass}>
+	<meta slot="head" name="description" content={description} />
+	<div id="arrive"></div>
+	<header class="top">
+		<a class="logo" href="/" data-leave="#141a35"><Logo id="astpieDesk" /><span>{t('logo.ast')}<b>{t('logo.pie')}</b></span></a>
+		<nav>
+			<a href="/" data-leave="#141a35">{t('nav.home')}</a>
+			<a href="/learn" data-leave="#fbf9f4">{t('nav.learn')}</a>
+			<a class="on" href="/explore">{t('nav.explore')}</a>
+		</nav>
+		<span class="case-name" id="case-name" set:html={view.caseName}></span>
+		<a class="btn" href="/explore">{t('desk.openArchive')}</a>
+	</header>
+	<div class="view">
+		<div class="stage" id="stage" data-mode={mode}>
+			<div id="desk" set:html={view.desk}></div>
+			<div id="caseLayer">
+				<div class="folder"></div>
+				<div class="tabs" id="tabs" set:html={view.tabs}></div>
+				<div class="sheet">
+					<svg class="clip" viewBox="0 0 30 80" aria-hidden="true"><path d="M10 72 V14 a8 8 0 0 1 16 0 V62 a12 12 0 0 1 -24 0 V20" fill="none" stroke="#9ea3a8" stroke-width="3.2" stroke-linecap="round" /></svg>
+					<div class="sheet-inner" id="sheet-inner" set:html={view.sheet}></div>
+				</div>
+				<div class:list={['tapes', { many: view.manyTapes }]} id="tapes" set:html={view.tapes}></div>
+				<div class="radio" id="radio" data-low={view.radioLow} data-high={view.radioHigh} set:html={view.radio}></div>
+				<button class="photobox" id="photobox" title={t('desk.openPhotos')} set:html={view.photoBox}></button>
+				<div class="items" id="items" data-missing={t('desk.pictureMissing')} set:html={view.items}></div>
+				<svg id="strings" viewBox="0 0 1600 940" aria-hidden="true"></svg>
+			</div>
+			<div id="catLayer">
+				<div class="logbook"><div class="page left" id="cat-left" set:html={view.catLeft}></div><div class="page right" id="cat-right" set:html={view.catRight}></div></div>
+				<div class="lighttable"><div class="glass" id="plate" set:html={view.plate}></div><div id="plate-cap" set:html={view.plateCaption}></div></div>
+				<div class="instruments" id="instruments" set:html={view.instruments}></div>
+				<button class="platebox" id="platebox" title={t('desk.openPhotos')} set:html={view.plateBox}></button>
+			</div>
+			<div class="light"></div>
+		</div>
+	</div>
+	<script is:inline>
+		// Sizes the desk to the window before it is first drawn, and again whenever the window changes.
+		// The desk is 940 units tall and as wide as the window allows (at least 1600), scaled to fit.
+		// scripts/desk/desk.ts reads the scale and the extra width from the stage.
+		(function ()
+		{
+			const stage = document.getElementById('stage');
+			const strings = document.getElementById('strings');
+			const wood = document.getElementById('wood');
+			function fit()
+			{
+				const vw = window.innerWidth;
+				const vh = window.innerHeight - 52;
+				const s = Math.min(vw / 1600, vh / 940);
+				const dx = Math.round(Math.max(1600, vw / s) - 1600);
+				stage.style.width = (1600 + dx) + 'px';
+				stage.style.setProperty('--dx', dx + 'px');
+				stage.style.transform = 'scale(' + s + ')';
+				stage.style.left = ((vw - (1600 + dx) * s) / 2) + 'px';
+				stage.style.top = ((vh - 940 * s) / 2) + 'px';
+				stage.dataset.scale = String(s);
+				stage.dataset.dx = String(dx);
+				strings.setAttribute('viewBox', '0 0 ' + (1600 + dx) + ' 940');
+				strings.style.width = (1600 + dx) + 'px';
+				wood.setAttribute('viewBox', '0 0 ' + (1600 + dx) + ' 940');
+			}
+			fit();
+			window.addEventListener('resize', fit);
+		})();
+	</script>
+	<div class="overlay" id="overlay"></div>
+	<Fragment set:html={view.templates} />
+</SiteLayout>
+
+<script>
+	import { startDesk } from '../../scripts/desk/desk';
+
+	startDesk();
+
+	// Leaving the desk: it goes dark first, or to the colour of the next part of the site
+	const cover = document.getElementById('arrive') as HTMLElement;
+	for (const link of document.querySelectorAll<HTMLAnchorElement>('a[data-leave]'))
+	{
+		link.addEventListener('click', (e) =>
+		{
+			if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0)
+			{
+				return;
+			}
+			e.preventDefault();
+			cover.style.background = String(link.dataset.leave);
+			cover.classList.add('leaving');
+			window.setTimeout(() =>
+			{
+				location.href = link.href;
+			}, 360);
+		});
+	}
+	// Coming back with the browser's back button shows the desk again
+	window.addEventListener('pageshow', () =>
+	{
+		cover.classList.remove('leaving');
+	});
+</script>

@@ -207,9 +207,19 @@ for (let i = 0; i < sections.length; i++)
 
 // Child tables become tabs too, placed before "Publishing"
 const CHILD_INFO: Record<string, { hint: string; appears: string }> = {
-	'chapters': { hint: 'The story in order. The order here is the order on the page and in the route.', appears: 'parts' },
-	'entry-people': { hint: 'People are shared between pages. Link someone who already exists, or add a new person first.', appears: 'people' },
-	'media': { hint: 'Shown in the Images part near the end. Give each one a title, a sentence and a credit.', appears: 'media' }
+	'chapters': { hint: 'The pages in order. Pages with the same section follow each other under one coloured tab.', appears: 'tabs' },
+	'entry-facts': { hint: 'The rows on the cover sheet, in order.', appears: 'cover' },
+	'media': { hint: 'Each thing lands on the desk with its page. Without a page it lies on the case summary; Audio and Signal without a page are tapes for the radio.', appears: 'desk' },
+	'explanations': { hint: 'Mysteries only: the cards pinned on the cork board, with their stamp.', appears: 'desk' },
+	'entry-people': { hint: 'People are shared between cases. Link someone who already exists, or add a new person first.', appears: 'photos' },
+	'media-people': { hint: 'Who this photo shows. One person: it is one of their own photos. Several: they are on it together. Only people of the case are listed in the photo folder.', appears: '' },
+	'topic-symbols': { hint: 'The rows of "Reading it symbol by symbol", in order.', appears: 'law' },
+	'check-questions': { hint: 'Each question sits after the section it names, with its answer behind a button.', appears: 'parts' },
+	'topic-key-words': { hint: 'The key words this topic marks in its text. Add new words under Key words first.', appears: 'keywords' },
+	'lab-tasks': { hint: 'The tasks on the lab sheet, in order.', appears: '' },
+	'catalogue-facts': { hint: 'The rows on the left page of the logbook, in order.', appears: 'left' },
+	'log-entries': { hint: 'The observation log, oldest first.', appears: 'log' },
+	'catalogue-instruments': { hint: 'The instruments in the stack on the observatory desk.', appears: 'instruments' }
 };
 const childTabs: Tab[] = childSections.map((section, i) =>
 {
@@ -218,7 +228,7 @@ const childTabs: Tab[] = childSections.map((section, i) =>
 	{
 		info = CHILD_INFO[section.table.key];
 	}
-	const warn = section.rows.length === 0 && section.table.key === 'chapters';
+	const warn = section.rows.length === 0 && (section.table.key === 'chapters' || section.table.key === 'log-entries');
 	return { id: 'child-' + i, title: section.table.title, hint: info.hint, appears: info.appears, fields: [], child: section, warn: warn };
 });
 const publishIndex = tabs.findIndex((tab) => tab.title === 'Publishing');
@@ -386,7 +396,7 @@ if (isNew)
 
 	{!isNew && (
 		<form method="post" class="delete" onsubmit="return confirm('Delete this for good?');">
-			<div><b>Delete this {table.singular}</b><p>This cannot be undone.{table.children.length > 0 && ' Its parts, people links and images go with it. The people themselves stay.'}</p></div>
+			<div><b>Delete this {table.singular}</b><p>This cannot be undone.{table.children.length > 0 && ' Everything listed on its tabs goes with it. People and instruments themselves stay.'}</p></div>
 			<input type="hidden" name="_action" value="delete" />
 			<button type="submit">Delete</button>
 		</form>

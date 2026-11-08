@@ -1,0 +1,1085 @@
+{
+	"slug": "luna-1",
+	"kind": "Mission",
+	"title": "Luna 1",
+	"tagline": "It was meant to hit the Moon",
+	"summary": "It was supposed to hit the Moon. It missed by about 6 000 kilometres, flew on, and <mark>became the first object made by people to escape the Earth's gravity and circle the Sun.</mark>",
+	"coverImageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Luna-1_(Memorial_Museum_of_Astronautics).JPG?width=700",
+	"coverCaption": "a full-size copy",
+	"coverCredit": "Armael, CC0",
+	"country": "Soviet Union",
+	"desk": "Soviet",
+	"startDate": "1959-01-02",
+	"endDate": "1959-01-05",
+	"agency": "USSR",
+	"missionOutcome": "PartialSuccess",
+	"evidenceStatus": null,
+	"statusNote": null,
+	"radioMinMHz": null,
+	"radioMaxMHz": null,
+	"relatedTopic": "newtons-second-law",
+	"facts": [
+		{
+			"label": "Country",
+			"value": "Soviet Union"
+		},
+		{
+			"label": "Launched",
+			"value": "2 January 1959, Tyuratam"
+		},
+		{
+			"label": "Rocket",
+			"value": "R-7 with a Block E upper stage"
+		},
+		{
+			"label": "Weight",
+			"value": "361 kg"
+		},
+		{
+			"label": "Ended",
+			"value": "missed the Moon, now circles the Sun"
+		}
+	],
+	"people": [
+		{
+			"person": "shklovsky",
+			"role": "Astronomer, thought up the sodium cloud",
+			"isCrew": false,
+			"sortOrder": 1
+		},
+		{
+			"person": "korolev",
+			"role": "Chief designer",
+			"isCrew": false,
+			"sortOrder": 2
+		},
+		{
+			"person": "keldysh",
+			"role": "Worked out the paths",
+			"isCrew": false,
+			"sortOrder": 3
+		}
+	],
+	"media": [
+		{
+			"sortOrder": 1,
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/RIAN_archive_162831_Luna-1_automated_space_station.jpg?width=900",
+			"title": "Luna 1",
+			"caption": "The probe, a metal sphere with antennas and the spikes of its instruments.",
+			"credit": "Alexander Mokletsov, RIA Novosti archive. CC BY-SA 3.0",
+			"text": "Luna 1, the Ye-1 probe",
+			"style": null
+		},
+		{
+			"sortOrder": 2,
+			"type": "Note",
+			"title": "Note",
+			"text": "Case opened.\nThe target was the Moon itself.",
+			"style": "yellow"
+		}
+	],
+	"explanations": [],
+	"chapters": [
+		{
+			"section": "Story",
+			"tabLabel": "Why the Moon",
+			"title": "Why the Moon",
+			"place": "Moscow",
+			"dateLabel": "Early 1958",
+			"summary": "After Sputnik, the next obvious goal was the Moon: the only other world close enough to reach with the rockets of 1958.",
+			"body": "<p>After Sputnik, the next obvious goal was the Moon: the only other world close enough to reach with the rockets of 1958. Whoever got there first would win the next round of the race.</p>\n<p>In early 1958 Korolev and the mathematician Mstislav Keldysh, who led the calculations of Soviet space paths, asked the government for permission to send probes there. <mark>Permission came that spring.</mark></p>\n<p>The plan had three steps: hit the Moon, fly around it and photograph its hidden side, and one day land on it gently.</p>",
+			"marginNote": "Hit it, circle it, land on it.",
+			"showsRadioHint": false,
+			"sortOrder": 1,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mstislav_Vsevolodovich_Keldysh_(2).jpg?width=400",
+					"title": "Mstislav Keldysh",
+					"caption": "Mstislav Keldysh on a Soviet stamp. He led the mathematics of the Soviet space programme.",
+					"credit": "Ministry of Communications of the USSR. Public domain.",
+					"text": "Keldysh",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "korolev"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "The plan",
+					"data": {
+						"rows": [
+							[
+								"Step one",
+								"hit the Moon"
+							],
+							[
+								"Step two",
+								"photograph the far side"
+							],
+							[
+								"Step three",
+								"land softly"
+							],
+							[
+								"Approved",
+								"spring 1958"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "The race to the Moon",
+			"title": "The race to the Moon begins",
+			"place": "OKB-1, near Moscow",
+			"dateLabel": "1958",
+			"summary": "Once Sputnik had reached orbit, Korolev's design bureau set a far harder target: a probe all the way to the Moon, 384 000 kilometres away.",
+			"body": "<p>Once Sputnik had reached orbit, Korolev's design bureau set a far harder target: a probe all the way to the Moon, 384 000 kilometres away. It would not land or orbit. <mark>It would hit the Moon, and prove that Soviet rockets could reach another world.</mark></p>\n<p>The probe was a small metal sphere called Ye-1. It needed the R-7 with a new upper stage on top, the Block E, which had to fire at exactly the right moment and stop at exactly the right speed. A tiny error near the Earth becomes thousands of kilometres by the time the probe reaches the Moon.</p>\n<p>In 1958 three launches were tried, in September, October and December. All three rockets failed before the probe could leave the Earth.</p>",
+			"marginNote": "Three launches in 1958. Three failures.",
+			"showsRadioHint": false,
+			"sortOrder": 2,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/RIAN_archive_73086_A_scheme_of_the_Luna-1_lay-out.jpg?width=900",
+					"title": "Luna 1, laid out",
+					"caption": "A scheme of the probe: the sphere, its antennas and its instruments.",
+					"credit": "Alexander Mokletsov, RIA Novosti archive. CC BY-SA 3.0",
+					"style": "photo",
+					"data": {
+						"notes": []
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Block-E_rocket_stage.png?width=700",
+					"title": "The Block E stage",
+					"caption": "The new upper stage that had to stop at exactly the right speed.",
+					"credit": "Alexander Mokletsov. CC BY-SA 3.0",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "stop it a second late and you miss"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "korolev"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "America aims too",
+			"title": "America aims too",
+			"place": "Cape Canaveral, Florida",
+			"dateLabel": "1958 to 1959",
+			"summary": "The United States was aiming for the Moon at the same time, with small probes called Pioneer.",
+			"body": "<p>The United States was aiming for the Moon at the same time, with small probes called Pioneer. The first, in August 1958, exploded just over a minute after lift-off.</p>\n<p>Pioneer 1, launched on 11 October 1958, climbed about 113 000 kilometres, a third of the way to the Moon, before it fell back and burned up. Pioneer 3 reached about 102 000 kilometres in December. <mark>Both were going up and then falling back down: too slow to escape.</mark></p>\n<p>Pioneer 4 finally passed the Moon in March 1959, about two months after Luna 1, and like it went on into orbit around the Sun.</p>",
+			"marginNote": "Two countries, one target.",
+			"showsRadioHint": false,
+			"sortOrder": 3,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pioneer_3.jpg?width=900",
+					"title": "Pioneer 3",
+					"caption": "Pioneer 3, the small cone-shaped probe launched towards the Moon in December 1958.",
+					"credit": "NASA. Public domain.",
+					"text": "Pioneer 3, 1958",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The Pioneers",
+					"data": {
+						"rows": [
+							[
+								"Pioneer 1",
+								"about 113 000 km"
+							],
+							[
+								"Pioneer 3",
+								"about 102 000 km"
+							],
+							[
+								"Luna 1",
+								"passed the Moon"
+							],
+							[
+								"Pioneer 4",
+								"passed it two months later"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Three failures",
+			"title": "Three failures",
+			"place": "Tyuratam",
+			"dateLabel": "September to December 1958",
+			"summary": "Before Luna 1 there were three attempts that the world never heard about.",
+			"body": "<p>Before Luna 1 there were three attempts that the world never heard about. On 23 September 1958 the first rocket broke apart about a minute and a half after lift-off. On 11 October the second broke apart too. Both were shaken to pieces by violent vibrations in the boosters.</p>\n<p>On 4 December the third rocket climbed for about four minutes before its main engine failed. Again the probe never left the Earth.</p>\n<p><mark>None of the three was announced.</mark> The Soviet Union only told the world about launches that worked, so for years Luna 1 looked like a first-time success.</p>",
+			"marginNote": "Three tries nobody was told about.",
+			"showsRadioHint": false,
+			"sortOrder": 4,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The hidden attempts",
+					"data": {
+						"rows": [
+							[
+								"23 Sep 1958",
+								"rocket broke apart"
+							],
+							[
+								"11 Oct 1958",
+								"rocket broke apart"
+							],
+							[
+								"4 Dec 1958",
+								"engine failed"
+							],
+							[
+								"2 Jan 1959",
+								"Luna 1, success"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Only launches that worked\nwere ever announced.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Escape velocity",
+			"title": "Escape velocity",
+			"place": "Tyuratam, Kazakh SSR",
+			"dateLabel": "2 January 1959",
+			"summary": "This time every stage worked.",
+			"body": "<p>This time every stage worked. The Block E pushed the probe up to about 11 kilometres per second, <mark>the escape velocity: the speed needed to escape the Earth's gravity completely.</mark></p>\n<p>Escape velocity is a turning point. Anything slower, however fast, eventually falls back or stays in orbit. Anything faster leaves and never returns. Luna 1 was the first object made by people to reach it.</p>\n<p>Escape velocity depends only on the mass and size of the planet, not on the object: about 11.2 km/s from the Earth, 2.4 km/s from the Moon, 60 km/s from Jupiter.</p>",
+			"marginNote": "Slower than this, you come back. Faster, you never do.",
+			"showsRadioHint": false,
+			"sortOrder": 5,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "Luna 1",
+					"data": {
+						"rows": [
+							[
+								"Escape velocity",
+								"11.2 km/s"
+							],
+							[
+								"Mass",
+								"361 kg"
+							],
+							[
+								"To the Moon",
+								"about 34 hours"
+							],
+							[
+								"Batteries",
+								"about 62 hours"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "From the Moon: 2.4 km/s.\nFrom Jupiter: 60 km/s.",
+					"style": "white"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/1959_CPA_2306.jpg?width=900",
+					"title": "The Soviet cosmic rocket",
+					"caption": "A Soviet stamp of 1959 for the \"Soviet cosmic rocket\", as Luna 1 was first called.",
+					"credit": "Post of the USSR. Public domain.",
+					"text": "stamp, 1959",
+					"style": "photo"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Steered from the ground",
+			"title": "Steered from the ground",
+			"place": "Tyuratam",
+			"dateLabel": "2 January 1959",
+			"summary": "The R-7 and its new upper stage did not have a computer that could decide on its own when to stop.",
+			"body": "<p>The R-7 and its new upper stage did not have a computer that could decide on its own when to stop. Instead, radio stations on the ground measured the rocket's speed and position, and sent a command to shut the engine down at the right moment.</p>\n<p>For a path to the Moon that moment had to be exact. <mark>A second too late meant hundreds of metres per second too fast, and thousands of kilometres off target.</mark></p>\n<p>On 2 January 1959 the command came a little late. Nobody knew yet what that would mean.</p>",
+			"marginNote": "A second too late.",
+			"showsRadioHint": false,
+			"sortOrder": 6,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "How it was steered",
+					"data": {
+						"rows": [
+							[
+								"Measured by",
+								"radio stations"
+							],
+							[
+								"Engine stopped by",
+								"a ground command"
+							],
+							[
+								"Command",
+								"a little late"
+							],
+							[
+								"Result",
+								"too fast"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Too late by a moment.\nToo fast by a little.\nMissed by 6 000 km.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "The cosmic rocket",
+			"title": "The cosmic rocket",
+			"place": "Moscow",
+			"dateLabel": "3 January 1959",
+			"summary": "The Soviet news agency announced a \"cosmic rocket\" on its way to the Moon.",
+			"body": "<p>The Soviet news agency announced a \"cosmic rocket\" on its way to the Moon. The announcement did not say what the probe was meant to do there.</p>\n<p>When it missed, the story changed smoothly. <mark>Luna 1 was presented as a planned success: the first artificial planet, and later given the name Mechta, \"dream\".</mark></p>\n<p>Western newspapers called it Lunik. The official name Luna 1 was given only later, once more Moon probes had followed it.</p>",
+			"marginNote": "Rocket, Lunik, Mechta, Luna 1.",
+			"showsRadioHint": false,
+			"sortOrder": 7,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "A Soviet cosmic rocket",
+					"text": "TASS announces a launch towards the Moon.",
+					"dateLabel": "3 January 1959",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Its goal was not said"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Its names",
+					"data": {
+						"rows": [
+							[
+								"First",
+								"the cosmic rocket"
+							],
+							[
+								"In the West",
+								"Lunik"
+							],
+							[
+								"Later",
+								"Mechta, dream"
+							],
+							[
+								"Today",
+								"Luna 1"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "Through the belts",
+			"title": "Through the belts",
+			"place": "Leaving the Earth",
+			"dateLabel": "2 January 1959",
+			"summary": "In its first hours Luna 1 crossed the radiation belts that Explorer 1 had found a year earlier.",
+			"body": "<p>In its first hours Luna 1 crossed the radiation belts that Explorer 1 had found a year earlier. Its counters measured the radiation as it climbed through them and out the other side.</p>\n<p><mark>It was one of the first spacecraft to pass right through the outer belt</mark>, and its readings helped show how far from the Earth the belts reach.</p>\n<p>Beyond the belts, the space between the Earth and the Moon turned out to be much quieter.</p>",
+			"marginNote": "Through the belts and out.",
+			"showsRadioHint": false,
+			"sortOrder": 8,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Structure_of_the_magnetosphere_numbered.svg?width=900",
+					"title": "The Earth's magnetic bubble",
+					"caption": "The magnetic field around the Earth, shaped by the solar wind, with the radiation belts inside it.",
+					"credit": "NASA, vector by Aaron Kaase. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "Luna 1 flew out through here"
+							}
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "An artificial comet",
+			"title": "An artificial comet",
+			"place": "About 113 000 km from the Earth",
+			"dateLabel": "3 January 1959",
+			"summary": "How do you prove that a small probe is on its way to the Moon?",
+			"body": "<p>How do you prove that a small probe is on its way to the Moon? Luna 1 released a kilogram of sodium vapour. In sunlight the cloud glowed orange, like a street lamp, and spread into a fuzzy patch hundreds of kilometres wide.</p>\n<p><mark>For a few minutes it was visible from the ground as a faint star in the constellation Aquarius,</mark> and astronomers photographed it. The first artificial comet let scientists check the probe's path, and showed everyone that something really was on its way.</p>",
+			"marginNote": "A kilogram of sodium, glowing like a street lamp.",
+			"showsRadioHint": false,
+			"sortOrder": 9,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The sodium cloud",
+					"data": {
+						"rows": [
+							[
+								"Released",
+								"3 January 1959"
+							],
+							[
+								"Sodium",
+								"about 1 kg"
+							],
+							[
+								"From the Earth",
+								"about 113 000 km"
+							],
+							[
+								"Seen in",
+								"Aquarius"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Proof that it was really\non its way to the Moon.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "shklovsky"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "The miss",
+			"title": "The miss",
+			"place": "Past the Moon",
+			"dateLabel": "4 January 1959",
+			"summary": "The upper stage was supposed to be switched off by a radio command from the ground.",
+			"body": "<p>The upper stage was supposed to be switched off by a radio command from the ground. The command came a little late. The stage burned a few seconds too long, and the probe went slightly too fast.</p>\n<p><mark>About 34 hours after launch, Luna 1 swept past the Moon at about 6 000 kilometres and kept going.</mark> Too fast to be captured by the Moon, fast enough to escape the Earth, it went into orbit around the Sun, between the orbits of the Earth and Mars, where it still travels today.</p>\n<p>The Soviet press called it a triumph: the first artificial planet, named Mechta, \"dream\". Only years later did it become widely known that the real goal had been to hit the Moon.</p>",
+			"marginNote": "A few seconds of extra engine. 6 000 km wide.",
+			"showsRadioHint": false,
+			"sortOrder": 10,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"chartKey": "sketch:lunapath",
+					"title": "Planned and real path",
+					"caption": "Dashed: the planned path into the Moon. Solid: the real path, a little too fast, past the Moon and on around the Sun. Not to scale.",
+					"credit": "Sketch drawn by AstPIE."
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/1959_CPA_2305.jpg?width=900",
+					"title": "The path, on a stamp",
+					"caption": "A 1959 stamp with the path of the \"Soviet cosmic rocket\" from the Earth past the Moon.",
+					"credit": "Post of the USSR. Public domain.",
+					"text": "the path, 1959",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Clipping",
+					"title": "The first artificial planet",
+					"text": "Named Mechta, \"dream\".",
+					"dateLabel": "January 1959",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "The real goal stayed hidden"
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "Around the Sun",
+			"title": "Around the Sun",
+			"place": "Between the Earth and Mars",
+			"dateLabel": "From January 1959",
+			"summary": "After passing the Moon, Luna 1 was moving too fast for the Earth to pull it back.",
+			"body": "<p>After passing the Moon, Luna 1 was moving too fast for the Earth to pull it back. It began to circle the Sun instead, in an orbit slightly bigger than the Earth's.</p>\n<p>At its closest it comes almost as near to the Sun as the Earth does. At its furthest it goes about a third of the way out to the orbit of Mars. <mark>One trip around the Sun takes it about 450 days.</mark></p>\n<p>It is still there, a small dead sphere, and it will keep circling for millions of years.</p>",
+			"marginNote": "Still circling, more than sixty years later.",
+			"showsRadioHint": false,
+			"sortOrder": 11,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"chartKey": "sketch:lunasun",
+					"title": "Luna 1 around the Sun",
+					"caption": "The orbits of the Earth, Luna 1 and Mars around the Sun, roughly to scale.",
+					"credit": "Drawing by AstPIE."
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Its orbit",
+					"data": {
+						"rows": [
+							[
+								"Around",
+								"the Sun"
+							],
+							[
+								"One trip",
+								"about 450 days"
+							],
+							[
+								"Closest",
+								"near the Earth's orbit"
+							],
+							[
+								"Furthest",
+								"towards Mars"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Flight",
+			"tabLabel": "The last signal",
+			"title": "The last signal",
+			"place": "About 600 000 km from the Earth",
+			"dateLabel": "5 January 1959",
+			"summary": "Luna 1 ran on batteries, with no solar panels.",
+			"body": "<p>Luna 1 ran on batteries, with no solar panels. They were expected to last about two and a half days.</p>\n<p>They did. About 62 hours after launch, when the probe was some 600 000 kilometres away, its signal faded out. <mark>It was the furthest anyone had ever heard a spacecraft.</mark></p>\n<p>In those few days it had escaped the Earth, passed the Moon and sent back the first measurements from deep space.</p>",
+			"marginNote": "Heard further than anything before.",
+			"showsRadioHint": false,
+			"sortOrder": 12,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The end",
+					"data": {
+						"rows": [
+							[
+								"Power",
+								"batteries only"
+							],
+							[
+								"Lasted",
+								"about 62 hours"
+							],
+							[
+								"Last heard",
+								"about 600 000 km away"
+							],
+							[
+								"Record",
+								"furthest so far"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/RIAN_archive_162831_Luna-1_automated_space_station.jpg?width=900",
+					"title": "Luna 1",
+					"caption": "A copy of Luna 1. All its power came from the batteries inside the sphere.",
+					"credit": "Alexander Mokletsov, RIA Novosti archive. CC BY-SA 3.0",
+					"text": "batteries only",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Science",
+			"tabLabel": "What it found",
+			"title": "What it found",
+			"place": "Between the Earth and the Moon",
+			"dateLabel": "January 1959",
+			"summary": "Luna 1 carried a magnetometer, Geiger counters and small ion traps that could catch charged particles.",
+			"body": "<p>Luna 1 carried a magnetometer, Geiger counters and small ion traps that could catch charged particles. Its batteries lasted about 62 hours, long enough to report from beyond the Moon.</p>\n<p><mark>The ion traps found a steady stream of charged gas flowing outward through space: the first direct measurement of the solar wind.</mark> Near the Moon the magnetometer found no magnetic field. Unlike the Earth, the Moon has none, as many later probes confirmed.</p>",
+			"marginNote": "Two discoveries on the way past.",
+			"showsRadioHint": false,
+			"sortOrder": 13,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "On board",
+					"data": {
+						"rows": [
+							[
+								"Magnetometer",
+								"no field at the Moon"
+							],
+							[
+								"Ion traps",
+								"the solar wind"
+							],
+							[
+								"Geiger counters",
+								"radiation"
+							],
+							[
+								"Power",
+								"batteries, 62 h"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Solar wind: measured for the first time.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA's_Solar_Dynamics_Observatory_-_20100819.jpg?width=900",
+					"title": "Where the wind comes from",
+					"caption": "The Sun, photographed by NASA's Solar Dynamics Observatory. Luna 1 was the first to measure the wind of particles it blows out into space.",
+					"credit": "NASA/SDO (AIA). Public domain.",
+					"text": "the source of the wind",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Science",
+			"tabLabel": "The solar wind",
+			"title": "The solar wind",
+			"place": "Between the Earth and the Moon",
+			"dateLabel": "January 1959",
+			"summary": "Scientists had suspected that the Sun blows a thin wind of charged gas into space, because the tails of comets always point away from it.",
+			"body": "<p>Scientists had suspected that the Sun blows a thin wind of charged gas into space, because the tails of comets always point away from it. Nobody had measured it.</p>\n<p>Luna 1 carried small cup-shaped detectors called ion traps, designed by Konstantin Gringauz. <mark>Far from the Earth, they caught a steady stream of charged particles flowing from the Sun.</mark></p>\n<p>In 1962 the American probe Mariner 2 measured the solar wind for months on its way to Venus and confirmed it beyond doubt.</p>",
+			"marginNote": "Comet tails were the clue.",
+			"showsRadioHint": false,
+			"sortOrder": 14,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mariner_2_plasma_probe_diagram.png?width=700",
+					"title": "Catching the wind",
+					"caption": "The plasma detector on Mariner 2, which confirmed the solar wind in 1962.",
+					"credit": "JPL. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "confirmed in 1962"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The solar wind",
+					"data": {
+						"rows": [
+							[
+								"Made of",
+								"charged gas"
+							],
+							[
+								"First caught by",
+								"Luna 1"
+							],
+							[
+								"Detectors by",
+								"Konstantin Gringauz"
+							],
+							[
+								"Confirmed by",
+								"Mariner 2, 1962"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Science",
+			"tabLabel": "A Moon without a magnet",
+			"title": "A Moon without a magnet",
+			"place": "Passing the Moon",
+			"dateLabel": "4 January 1959",
+			"summary": "The Earth is wrapped in a magnetic field, made by liquid iron moving in its core.",
+			"body": "<p>The Earth is wrapped in a magnetic field, made by liquid iron moving in its core. Would the Moon have one too?</p>\n<p>Luna 1 carried a magnetometer on a short arm. As it passed the Moon, the instrument found nothing it could measure. <mark>Luna 2 confirmed it later that year: the Moon has no global magnetic field.</mark></p>\n<p>That means the Moon's core is small and has long gone quiet. It also means nothing shields its surface from the solar wind.</p>",
+			"marginNote": "No magnet, no shield.",
+			"showsRadioHint": false,
+			"sortOrder": 15,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunar_libration_with_phase2.gif?width=400",
+					"title": "The Moon",
+					"caption": "The Moon over one month, as it wobbles slightly and shows its phases.",
+					"credit": "Tom Ruen. Public domain.",
+					"text": "no magnetic field",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Earth: a magnetic shield.\nMoon: none.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "A second chance",
+			"title": "A second chance",
+			"place": "The Moon",
+			"dateLabel": "September and October 1959",
+			"summary": "Luna 2, of the same design, was launched on 12 September 1959.",
+			"body": "<p>Luna 2, of the same design, was launched on 12 September 1959. This time the timing was right. <mark>On 14 September it crashed into the Moon, the first object from Earth to touch another world.</mark> It carried metal pennants with the Soviet coat of arms.</p>\n<p>Three weeks later Luna 3 flew around the Moon and took the first photographs of its far side. In a single year the Luna programme had escaped the Earth, hit the Moon and seen its hidden face.</p>",
+			"marginNote": "Luna 2 hit it. Luna 3 saw the far side.",
+			"showsRadioHint": false,
+			"sortOrder": 16,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Kansas_Cosmosphere_Luna_2_Pennant_2013.JPG?width=900",
+					"title": "A Luna 2 pennant",
+					"caption": "A copy of the pennant carried to the Moon by Luna 2.",
+					"credit": "Patrick Pelletier, CC BY-SA 3.0",
+					"text": "Luna 2 pennant, a copy",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Document",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Soviet_Union_1963_CPA_2957_stamp_(First_in_Space._Pennant%2C_near_side_of_the_Moon_and_Luna_2_in_orbit).jpg?width=700",
+					"title": "First on the Moon",
+					"caption": "A Soviet stamp of 1963 showing the pennant and Luna 2.",
+					"credit": "Post of the Soviet Union. Public domain."
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "The far side",
+			"title": "The far side",
+			"place": "Around the Moon",
+			"dateLabel": "7 October 1959",
+			"summary": "The Moon always shows the Earth the same face, so nobody had ever seen its other side.",
+			"body": "<p>The Moon always shows the Earth the same face, so nobody had ever seen its other side. Luna 3 was sent around it, on a path that swung behind the Moon and back towards the Earth.</p>\n<p>On 7 October 1959 it pointed its camera at the far side and took pictures on ordinary photographic film. <mark>The film was developed, fixed and dried inside the probe</mark>, then scanned line by line and sent home by radio, like a slow fax.</p>\n<p>The pictures were grainy, but they showed something unexpected: the far side has almost none of the large dark plains that cover the near side.</p>",
+			"marginNote": "A darkroom in space.",
+			"showsRadioHint": false,
+			"sortOrder": 17,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Luna_3_moon.jpg?width=1000",
+					"title": "The first view of the far side",
+					"caption": "One of the first photographs of the far side of the Moon, taken by Luna 3 on 7 October 1959.",
+					"credit": "OKB-1. Public domain.",
+					"text": "never seen before 1959",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Luna-3_(Memorial_Museum_of_Astronautics).JPG?width=900",
+					"title": "Luna 3",
+					"caption": "A copy of Luna 3 at the Memorial Museum of Astronautics in Moscow.",
+					"credit": "Armael. CC0",
+					"text": "Luna 3",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "Names on the far side",
+			"title": "Names on the far side",
+			"place": "The far side of the Moon",
+			"dateLabel": "1959 to 1961",
+			"summary": "Whoever maps a place first gets to suggest its names.",
+			"body": "<p>Whoever maps a place first gets to suggest its names. The Soviet scientists who studied Luna 3's photographs named the features they could see.</p>\n<p>A dark plain became Mare Moscoviense, the Sea of Moscow. <mark>A large crater was named after Tsiolkovsky, the schoolteacher who first worked out how to reach space.</mark> Others honoured the scientist Lomonosov and the writer Jules Verne.</p>\n<p>The International Astronomical Union accepted the names in 1961. They are still on every map of the Moon.</p>",
+			"marginNote": "First to see, first to name.",
+			"showsRadioHint": false,
+			"sortOrder": 18,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tsiolkovskiy_crater_Apollo_15.jpg?width=900",
+					"title": "Tsiolkovskiy crater",
+					"caption": "Tsiolkovskiy crater on the far side, photographed from Apollo 15 in 1971.",
+					"credit": "NASA. Public domain.",
+					"text": "Tsiolkovskiy crater",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mare_Moscoviense_5124_med.jpg?width=800",
+					"title": "Mare Moscoviense",
+					"caption": "The Sea of Moscow, one of the few dark plains on the far side.",
+					"credit": "NASA. Public domain.",
+					"text": "Sea of Moscow",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Far side names",
+					"data": {
+						"rows": [
+							[
+								"Mare Moscoviense",
+								"Sea of Moscow"
+							],
+							[
+								"Tsiolkovskiy",
+								"a crater"
+							],
+							[
+								"Also",
+								"Lomonosov, Jules Verne"
+							],
+							[
+								"Accepted",
+								"1961"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "A soft landing",
+			"title": "A soft landing",
+			"place": "Ocean of Storms",
+			"dateLabel": "3 February 1966",
+			"summary": "Hitting the Moon was one thing.",
+			"body": "<p>Hitting the Moon was one thing. Landing on it gently enough for a spacecraft to keep working was much harder, and many attempts failed.</p>\n<p>On 3 February 1966 Luna 9 succeeded. Just before touchdown a small capsule was thrown clear, rolled to a stop and opened like the petals of a flower. <mark>It sent back the first pictures ever taken on the surface of another world.</mark></p>\n<p>They settled a worry that the Moon might be covered in deep dust that would swallow a spacecraft. The ground was firm.</p>",
+			"marginNote": "The first photo from the surface.",
+			"showsRadioHint": false,
+			"sortOrder": 19,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Luna_9_Space_Probe.jpg?width=800",
+					"title": "Luna 9",
+					"caption": "A copy of the whole Luna 9 spacecraft. Only the small ball at the top landed, then opened its petals on the Moon.",
+					"credit": "Stolbovsky. CC BY 4.0",
+					"text": "Luna 9",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Soviet_Union_1966_CPA_3315_-_3317_triptych_(Luna_9).jpg?width=1200",
+					"title": "Luna 9 stamps",
+					"caption": "Soviet stamps of 1966 celebrating the first soft landing on the Moon.",
+					"credit": "Post of the USSR. Public domain.",
+					"text": "stamps, 1966",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Luna 9",
+					"data": {
+						"rows": [
+							[
+								"Landed",
+								"3 February 1966"
+							],
+							[
+								"Where",
+								"Ocean of Storms"
+							],
+							[
+								"First",
+								"pictures from the surface"
+							],
+							[
+								"Found",
+								"firm ground"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Afterwards",
+			"tabLabel": "Robots on the Moon",
+			"title": "Robots on the Moon",
+			"place": "Sea of Fertility and Sea of Rains",
+			"dateLabel": "1970 and 1971",
+			"summary": "After the Americans landed people on the Moon, the Soviet Union sent machines instead.",
+			"body": "<p>After the Americans landed people on the Moon, the Soviet Union sent machines instead. In September 1970 Luna 16 landed, drilled into the ground and flew home with about a hundred grams of moon soil: the first sample brought back without astronauts.</p>\n<p>Two months later Luna 17 set down Lunokhod 1, an eight-wheeled rover driven by a team on Earth. <mark>It worked for about ten months and drove more than ten kilometres.</mark></p>\n<p>The line that began with Luna 1 had grown into a whole programme of robots on the Moon.</p>",
+			"marginNote": "Driven from 384 000 km away.",
+			"showsRadioHint": false,
+			"sortOrder": 20,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Soviet_moonrover.JPG?width=900",
+					"title": "Lunokhod",
+					"caption": "A Lunokhod rover in a museum. Lunokhod 1 drove on the Moon from November 1970.",
+					"credit": "Petar Milošević. CC BY-SA 3.0",
+					"text": "Lunokhod",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lunokhod_1_Revisited_(LROC402_-_M175502049R_LR1_thumb).png?width=800",
+					"title": "Lunokhod 1 today",
+					"caption": "Lunokhod 1 and its tracks, photographed from orbit by NASA's Lunar Reconnaissance Orbiter decades later.",
+					"credit": "NASA / GSFC / Arizona State University. Public domain.",
+					"text": "still there",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Robots, 1970",
+					"data": {
+						"rows": [
+							[
+								"Luna 16",
+								"brought back soil"
+							],
+							[
+								"Sample",
+								"about 100 grams"
+							],
+							[
+								"Lunokhod 1",
+								"a rover"
+							],
+							[
+								"Drove",
+								"more than 10 km"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Try it yourself",
+			"tabLabel": "Try it yourself",
+			"title": "Why a few seconds mattered",
+			"place": "The physics behind this case",
+			"dateLabel": null,
+			"summary": "An engine that pushes for longer changes the speed by more.",
+			"body": "<p>An engine that pushes for longer changes the speed by more. <mark>The same force acting for a little longer gives a little more speed,</mark> and on the way to the Moon a little more speed means thousands of kilometres off target.</p>\n<p>Newton's second law connects the three: force, mass and how quickly the speed changes. The same push speeds up a light probe much more than a heavy rocket stage.</p>\n<p>On the monitor: push a light box and a heavy box with the same force, and compare.</p>",
+			"marginNote": null,
+			"showsRadioHint": false,
+			"sortOrder": 21,
+			"media": [
+				{
+					"type": "Simulation",
+					"title": "Why a few seconds mattered",
+					"sortOrder": 1
+				}
+			],
+			"explanations": []
+		}
+	]
+}

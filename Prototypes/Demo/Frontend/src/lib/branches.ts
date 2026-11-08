@@ -2,7 +2,7 @@
 // A branch without a description here simply shows its name.
 
 const DESCRIPTIONS: Record<string, string> = {
-	'Classical mechanics': 'How and why things move: forces, mass and motion. The base for everything that flies, falls or orbits.'
+	'Classical mechanics': 'How things move, and why they start, stop and turn.'
 };
 
 export function branchDescription(branch: string): string
@@ -14,13 +14,8 @@ export function branchDescription(branch: string): string
 	return '';
 }
 
-// The first sentence of a text
-export function firstSentence(text: string): string
+// The id of a branch on the Learn page, for links straight to it: "Classical mechanics" -> "classical-mechanics"
+export function branchId(branch: string): string
 {
-	const end = text.indexOf('. ');
-	if (end === -1)
-	{
-		return text;
-	}
-	return text.substring(0, end + 1);
+	return branch.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }

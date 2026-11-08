@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +37,14 @@ namespace AstPIE.Api.Models
 
 		public CatalogueObjectType Type { get; set; }
 
+		// The type as written in the logbook, for example "Planet (a sub-Neptune)"
+		public string TypeLabel { get; set; }
+
 		public string Constellation { get; set; }
+
+		// Where it is in the sky: right ascension in hours, declination in degrees
+		public double? RightAscension { get; set; }
+		public double? Declination { get; set; }
 
 		// Stored in light-years, kilograms and kilometres. The page shows nicer units.
 		public double? DistanceLy { get; set; }
@@ -52,12 +60,19 @@ namespace AstPIE.Api.Models
 		[Required]
 		public string Summary { get; set; }
 
-		// Markdown
+		// The text on the left page of the logbook (HTML paragraphs)
 		[Required]
 		public string Description { get; set; }
 
 		[Required]
 		public string ImageUrl { get; set; }
+
+		// The caption under the main picture, who made it, and whether it is a dark sky image
+		public string ImageCaption { get; set; }
+
+		public string ImageCredit { get; set; }
+
+		public bool ImageIsDark { get; set; }
 
 		// "Physics behind it": a Learn topic. Deleting the topic only clears this link.
 		public int? RelatedTopicId { get; set; }
@@ -68,5 +83,9 @@ namespace AstPIE.Api.Models
 		public bool IsPublished { get; set; }
 		public DateTime CreatedAt { get; set; }
 		public DateTime UpdatedAt { get; set; }
+
+		public List<CatalogueFact> Facts { get; set; } = new List<CatalogueFact>();
+		public List<ObservationLogEntry> LogEntries { get; set; } = new List<ObservationLogEntry>();
+		public List<CatalogueObjectInstrument> Instruments { get; set; } = new List<CatalogueObjectInstrument>();
 	}
 }

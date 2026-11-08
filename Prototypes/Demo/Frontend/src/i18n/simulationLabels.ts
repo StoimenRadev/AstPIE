@@ -6,7 +6,6 @@ export function simulationLabels(): SimulationLabels
 {
 	return {
 		start: t('simulation.start'),
-		narrowScreen: t('simulation.narrowScreen'),
 		loading: t('simulation.loading'),
 		starting: t('simulation.starting'),
 		error: t('simulation.error'),

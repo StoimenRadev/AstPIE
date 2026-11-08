@@ -1,79 +1,136 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import HomeArt from '../components/art/HomeArt.astro';
-import SectionArt from '../components/art/SectionArt.astro';
-import Slot from '../components/Slot.astro';
+// The home page: a night sky that changes as you scroll through four parts (the opening,
+// Learn, Explore and the end), each with a big drawing of something in space.
+import SiteLayout from '../layouts/SiteLayout.astro';
+import LogoName from '../components/LogoName.astro';
+import Logo from '../components/Logo.astro';
+import FlareDefs from '../components/home/FlareDefs.astro';
+import FlareStar from '../components/home/FlareStar.astro';
+import Planet from '../components/home/Planet.astro';
+import Pulsar from '../components/home/Pulsar.astro';
+import BlackHole from '../components/home/BlackHole.astro';
+import Galaxy from '../components/home/Galaxy.astro';
 import { t } from '../i18n/t';
-import { getEntries, getEntry, getTopics } from '../lib/api';
+import '../styles/home.css';
 
-const topics = (await getTopics()).slice(0, 3);
-
-// The first mission is the one to start with; its parts show the shape of a case
-const missions = await getEntries('Mission');
-let first = null;
-if (missions.length > 0)
-{
-	first = await getEntry(missions[0].slug);
-}
+// The colour each part of the page fades to before the next page opens
+const TO_LEARN = '#fbf9f4';
+const TO_EXPLORE = '#140d09';
 ---
 
-<BaseLayout title={t('home.title')} theme="home" bodyClass="">
+<SiteLayout title={t('site.name')} bodyClass="load">
 	<meta slot="head" name="description" content={t('home.description')} />
+	<div class="glows"></div>
+	<canvas id="sky"></canvas>
+	<div class="veil"></div>
+	<FlareDefs />
 
-	<section class="hero">
-		<HomeArt />
+	<header id="top">
 		<div class="wrap">
-			<div class="hero-text">
-				<h1>{t('home.heading')}</h1>
-				<p class="intro">{t('home.tagline')}</p>
-				<div class="actions">
-					<a class="btn blue" href="/learn">{t('home.startLearning')} <svg><use href="#i-arrow" /></svg></a>
-					<a class="btn light" href="/explore">{t('home.explore')}</a>
-				</div>
-			</div>
+			<LogoName id="astpieTop" href="/" />
+			<nav>
+				<a href="/learn" data-leave={TO_LEARN}>{t('nav.learn')}</a>
+				<a href="/explore" data-leave={TO_EXPLORE}>{t('nav.explore')}</a>
+			</nav>
 		</div>
-	</section>
+	</header>
 
-	<div class="wrap ways">
-		<section class="way learn">
-			<h2>{t('nav.learn')}</h2>
-			<p>{t('home.learnText')}</p>
-			<ul class="way-list">
-				{topics.map((topic) => (
-					<li><a href={'/learn/' + topic.slug}><div><b>{topic.title}</b><span>{topic.branch}</span></div><span class="go"><svg><use href="#i-arrow" /></svg></span></a></li>
-				))}
-			</ul>
-			<a class="link" href="/learn">{t('home.learnAll')}</a>
-		</section>
-		<section class="way explore">
-			<h2>{t('nav.explore')}</h2>
-			<p>{t('home.exploreText')}</p>
-			<div class="trio">
-				<a href="/explore/missions" style="--c:var(--orange)"><span class="bar"></span><div class="g"><SectionArt name="missions" /></div><div class="t"><b>{t('nav.missions')}</b><span>{t('nav.missionsText')}</span></div></a>
-				<a href="/explore/mysteries" style="--c:var(--navy)"><span class="bar"></span><div class="g"><SectionArt name="mysteries" /></div><div class="t"><b>{t('nav.mysteries')}</b><span>{t('nav.mysteriesText')}</span></div></a>
-				<a href="/explore/catalogue" style="--c:var(--yellow)"><span class="bar"></span><div class="g"><SectionArt name="catalogue" /></div><div class="t"><b>{t('nav.catalogue')}</b><span>{t('nav.catalogueText')}</span></div></a>
-			</div>
-		</section>
-	</div>
-
-	{first !== null && (
-		<section class="feature">
-			<div class="wrap grid">
-				<Slot src={first.coverImageUrl} ratio="4 / 3" empty="" className="natural" />
-				<div>
-					<h2>{t('home.startWith')} {first.title}</h2>
-					<p class="intro" style="margin:0">{first.summary}</p>
-					<div class="route-h" style={'--n:' + Math.min(first.chapters.length, 6)}>
-						{first.chapters.slice(0, 6).map((chapter) => <div><b>{chapter.title}</b></div>)}
-					</div>
-					<a class="btn orange" href={'/explore/missions/' + first.slug}>{t('home.readCase')} <svg><use href="#i-arrow" /></svg></a>
+	<main>
+		<!-- The opening: an ocean exoplanet rising at the corner, its red star above -->
+		<section class="hero" data-bg="#141a35" data-n1="70,140,165,.2" data-n2="120,90,160,.15">
+			<div class="obj o-planet" data-y=".25"><div class="in"><Planet /></div></div>
+			<div class="flare" style="width:300px;left:calc(50% + 120px);top:70px;color:#e8835a" data-y="-.12"><FlareStar /></div>
+			<div class="flare f2 edge" style="width:150px;left:calc((100% - 1100px) / 4 - 75px);top:44%;color:#8fc3d6" data-y="-.2"><FlareStar /></div>
+			<div class="flare f3" style="width:120px;left:3%;top:8%;color:#e3b04b" data-y="-.08"><FlareStar /></div>
+			<div class="flare f2" style="width:90px;left:calc(50% - 10px);top:12%;color:#c7a6d9" data-y="-.28"><FlareStar /></div>
+			<div class="wrap">
+				<div class="text">
+					<h1><span class="line"><span>{t('home.line1')}</span></span><span class="line"><span>{t('home.line2')}</span></span><span class="line"><span>{t('home.line3')}</span></span></h1>
+					<p class="lead">{t('home.lead')}</p>
+					<div class="go"><a class="main" href="/learn" data-leave={TO_LEARN}>{t('home.startLearning')}</a><a class="alt" href="/explore" data-leave={TO_EXPLORE}>{t('nav.explore')}</a></div>
 				</div>
 			</div>
 		</section>
-	)}
-</BaseLayout>
 
-<style is:global>
-	/* The orange block touches the footer */
-	main:has(.feature) + .foot { margin-top: 0; }
-</style>
+		<div class="band"><div class="comet" id="comet1" style="width:420px" data-from="-.3,.05" data-to="1.1,.6"></div></div>
+
+		<!-- Learn: a pulsar -->
+		<section class="learn right" id="learn" data-bg="#0f2b35" data-n1="70,160,170,.18" data-n2="40,90,120,.16">
+			<div class="obj o-pulsar" data-y=".25"><div class="in"><Pulsar /></div></div>
+			<div class="flare f3" style="width:130px;left:42%;top:10%;color:#8fc3d6" data-y="-.15"><FlareStar /></div>
+			<div class="flare f2" style="width:100px;left:30%;bottom:10%;color:#e3b04b" data-y="-.22"><FlareStar /></div>
+			<div class="wrap">
+				<div class="panel">
+					<span class="bg"></span>
+					<div class="kicker rise">{t('home.learnKicker')}</div>
+					<h2 class="rise">{t('nav.learn')}</h2>
+					<p class="lead rise">{t('home.learnLead')}</p>
+					<div class="list rise">
+						<div class="item"><b>{t('home.learnStep1')}</b><span>{t('home.learnStep1Text')}</span></div>
+						<div class="item"><b>{t('home.learnStep2')}</b><span>{t('home.learnStep2Text')}</span></div>
+						<div class="item"><b>{t('home.learnStep3')}</b><span>{t('home.learnStep3Text')}</span></div>
+					</div>
+					<a class="open rise" href="/learn" data-leave={TO_LEARN}>{t('home.openLearn')} <i>&rarr;</i></a>
+				</div>
+			</div>
+		</section>
+
+		<div class="band" id="belt"></div>
+
+		<!-- Explore: a black hole, its disc in crisp bands with streaks -->
+		<section class="explore" id="explore" data-bg="#1e1424" data-n1="210,130,60,.14" data-n2="128,89,138,.16">
+			<div class="obj o-hole" data-y=".22"><div class="in"><BlackHole /></div></div>
+			<div class="flare f2" style="width:140px;left:56%;top:8%;color:#e8835a" data-y="-.18"><FlareStar /></div>
+			<div class="flare f3" style="width:90px;left:4%;bottom:10%;color:#c7a6d9" data-y="-.1"><FlareStar /></div>
+			<div class="wrap">
+				<div class="panel">
+					<span class="bg"></span>
+					<div class="kicker rise">{t('home.exploreKicker')}</div>
+					<h2 class="rise">{t('nav.explore')}</h2>
+					<p class="lead rise">{t('home.exploreLead')}</p>
+					<div class="list rise">
+						<a class="item" href="/explore#missions" data-leave={TO_EXPLORE}><b>{t('nav.missions')}</b><span>{t('home.missionsText')}</span></a>
+						<a class="item" href="/explore#mysteries" data-leave={TO_EXPLORE}><b>{t('nav.mysteries')}</b><span>{t('home.mysteriesText')}</span></a>
+						<a class="item" href="/explore#catalogue" data-leave={TO_EXPLORE}><b>{t('nav.catalogue')}</b><span>{t('home.catalogueText')}</span></a>
+					</div>
+					<a class="open rise" href="/explore" data-leave={TO_EXPLORE}>{t('home.openExplore')} <i>&rarr;</i></a>
+				</div>
+			</div>
+		</section>
+
+		<div class="band"><div class="comet" id="comet2" style="width:480px" data-from="1.25,.08" data-to="-.4,.62"></div></div>
+
+		<!-- The end: a far galaxy -->
+		<section class="about center" id="about" data-bg="#0e1426" data-n1="90,120,180,.14" data-n2="140,100,170,.16">
+			<div class="obj o-galaxy" data-y=".2"><div class="in"><Galaxy /></div></div>
+			<div class="flare" style="width:150px;right:8%;top:14%;color:#e3b04b" data-y="-.16"><FlareStar /></div>
+			<div class="flare f3" style="width:100px;right:16%;bottom:14%;color:#8fc3d6" data-y="-.24"><FlareStar /></div>
+			<div class="wrap">
+				<div class="panel">
+					<span class="bg"></span>
+					<div class="kicker rise">{t('home.endKicker')}</div>
+					<p class="big rise">{t('home.endText')}</p>
+					<span class="sign rise">{t('home.endSign')}</span>
+					<div class="go rise"><a class="main" href="/learn" data-leave={TO_LEARN}>{t('home.startLearning')}</a><a class="alt" href="/explore" data-leave={TO_EXPLORE}>{t('nav.explore')}</a></div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="wrap">
+			<span class="brand"><Logo id="astpieFoot" /><strong>{t('logo.ast')}<b>{t('logo.pie')}</b></strong> · {t('site.fullName')}</span>
+			<nav><a href="/learn" data-leave={TO_LEARN}>{t('nav.learn')}</a><a href="/explore" data-leave={TO_EXPLORE}>{t('nav.explore')}</a></nav>
+		</div>
+	</footer>
+</SiteLayout>
+
+<script>
+	import { startHome } from '../scripts/home';
+	import { setUpLogoName } from '../scripts/logoName';
+	import { setUpLeaving } from '../scripts/leaving';
+
+	setUpLogoName();
+	setUpLeaving();
+	startHome();
+</script>

@@ -15,6 +15,9 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 // The connection string and the admin key are in appsettings.Local.json.
 // That file is only on this computer: git ignores it.
 builder.Configuration.AddJsonFile("appsettings.Local.json", true);
+// Environment variables and the command line still win over that file (for example to test on another schema)
+builder.Configuration.AddEnvironmentVariables();
+builder.Configuration.AddCommandLine(args);
 
 builder.Services.AddDbContext<AppDbContext>(ConfigureDatabase);
 builder.Services.AddControllers();

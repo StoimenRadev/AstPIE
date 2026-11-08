@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using AstPIE.Api.Models;
 
@@ -35,6 +36,31 @@ namespace AstPIE.Api.Dtos
 
 		public int SortOrder { get; set; }
 		public bool IsPublished { get; set; }
+
+		[Required]
+		public string Question { get; set; }
+
+		[Required]
+		public string PredictQuestion { get; set; }
+
+		public List<string> PredictOptions { get; set; } = new List<string>();
+
+		public int PredictAnswer { get; set; }
+
+		[Required]
+		public string LawStatement { get; set; }
+
+		[Required]
+		public string LawEquation { get; set; }
+
+		[Required]
+		public string ReadAloud { get; set; }
+
+		public List<string> RecapPoints { get; set; } = new List<string>();
+
+		public int? ExploreEntryId { get; set; }
+
+		public string ExploreLine { get; set; }
 	}
 
 	public class TopicAdminDto : TopicInput
@@ -71,6 +97,14 @@ namespace AstPIE.Api.Dtos
 		public string LearningGoal { get; set; }
 
 		public string SourceUrl { get; set; }
+
+		public string LabIntro { get; set; }
+
+		public string ModelText { get; set; }
+
+		public List<string> Limits { get; set; } = new List<string>();
+
+		public string StepCode { get; set; }
 	}
 
 	public class SimulationAdminDto : SimulationInput
@@ -101,6 +135,22 @@ namespace AstPIE.Api.Dtos
 		public EvidenceStatus? EvidenceStatus { get; set; }
 		public int? RelatedTopicId { get; set; }
 		public bool IsPublished { get; set; }
+
+		public string Tagline { get; set; }
+
+		public string CoverCaption { get; set; }
+
+		public string CoverCredit { get; set; }
+
+		public string Country { get; set; }
+
+		public EntryDesk Desk { get; set; }
+
+		public string StatusNote { get; set; }
+
+		public double? RadioMinMHz { get; set; }
+
+		public double? RadioMaxMHz { get; set; }
 	}
 
 	public class EntryAdminDto : EntryInput
@@ -127,6 +177,18 @@ namespace AstPIE.Api.Dtos
 		public string Body { get; set; }
 
 		public int SortOrder { get; set; }
+
+		[Required]
+		public string Section { get; set; }
+
+		[Required]
+		public string TabLabel { get; set; }
+
+		public string Place { get; set; }
+
+		public string MarginNote { get; set; }
+
+		public bool ShowsRadioHint { get; set; }
 	}
 
 	public class ChapterAdminDto : ChapterInput
@@ -150,6 +212,8 @@ namespace AstPIE.Api.Dtos
 
 		[Required]
 		public string Bio { get; set; }
+
+		public string PhotoCredit { get; set; }
 	}
 
 	public class PersonAdminDto : PersonInput
@@ -189,7 +253,7 @@ namespace AstPIE.Api.Dtos
 
 		public MediaType Type { get; set; }
 
-		[Required]
+		// Empty for things drawn by code
 		public string Url { get; set; }
 
 		[Required]
@@ -199,6 +263,26 @@ namespace AstPIE.Api.Dtos
 		public string Credit { get; set; }
 		public string License { get; set; }
 		public int SortOrder { get; set; }
+
+		public int? ChapterId { get; set; }
+
+		public string Text { get; set; }
+
+		public string Author { get; set; }
+
+		public string DateLabel { get; set; }
+
+		public string PosterUrl { get; set; }
+
+		public string LengthLabel { get; set; }
+
+		public int? PersonId { get; set; }
+
+		public string Style { get; set; }
+
+		public string ChartKey { get; set; }
+
+		public string Data { get; set; }
 	}
 
 	public class MediaItemAdminDto : MediaItemInput
@@ -242,6 +326,18 @@ namespace AstPIE.Api.Dtos
 		public string ImageUrl { get; set; }
 		public int? RelatedTopicId { get; set; }
 		public bool IsPublished { get; set; }
+
+		public string TypeLabel { get; set; }
+
+		public double? RightAscension { get; set; }
+
+		public double? Declination { get; set; }
+
+		public string ImageCaption { get; set; }
+
+		public string ImageCredit { get; set; }
+
+		public bool ImageIsDark { get; set; }
 	}
 
 	public class CatalogueObjectAdminDto : CatalogueObjectInput

@@ -1,116 +1,14 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import CaseRoute from '../../../components/CaseRoute.astro';
-import type { RouteItem } from '../../../components/CaseRoute.astro';
-import Parts from '../../../components/Parts.astro';
-import Slot from '../../../components/Slot.astro';
-import { t } from '../../../i18n/t';
-import { getAllCatalogue, getCatalogueObject } from '../../../lib/api';
-import { splitMarkdown } from '../../../lib/chapters';
-import { formatDistance, formatMass, formatRadius, formatValue, objectTypeLabel } from '../../../lib/format';
+// A catalogue object, opened in the observatory logbook
+import DeskPage from '../../../components/explore/DeskPage.astro';
+import { getCatalogueObject } from '../../../lib/api';
+import { toDeskObject } from '../../../lib/desk';
 
 const item = await getCatalogueObject(String(Astro.params.slug));
 if (item === null)
 {
 	return Astro.rewrite('/404');
 }
-
-// The description is cut into parts at its "## " titles
-const content = splitMarkdown(item.description);
-
-// The infobox, in groups. Values that are not known say so.
-const where = [
-	{ label: t('catalogue.constellation'), value: formatValue(item.constellation) },
-	{ label: t('catalogue.distance'), value: formatDistance(item.distanceLy) }
-];
-const what = [
-	{ label: t('catalogue.type'), value: objectTypeLabel(item.type) },
-	{ label: t('catalogue.mass'), value: formatMass(item.massKg, item.type) },
-	{ label: t('catalogue.radius'), value: formatRadius(item.radiusKm, item.type) }
-];
-if (item.apparentMagnitude !== null)
-{
-	what.push({ label: t('catalogue.magnitude'), value: String(item.apparentMagnitude) });
-}
-const found = [
-	{ label: t('catalogue.discoveredBy'), value: formatValue(item.discoveredBy) },
-	{ label: t('catalogue.discoveryYear'), value: formatValue(item.discoveryYear) }
-];
-
-const route: RouteItem[] = content.chapters.map((chapter) => ({ id: chapter.id, title: chapter.title, note: '', summary: chapter.summary, extra: false }));
-
-// Other objects of the same type
-const similar = (await getAllCatalogue()).items.filter((o) => o.slug !== item.slug && o.type === item.type).slice(0, 3);
-if (similar.length > 0)
-{
-	route.push({ id: 'similar', title: t('catalogue.similar'), note: '', summary: '', extra: true });
-}
-if (item.relatedTopic !== null)
-{
-	route.push({ id: 'physics', title: t('entry.physics'), note: '', summary: '', extra: true });
-}
 ---
 
-<BaseLayout title={item.name} theme="catalogue" bodyClass="">
-	<div class="wrap case">
-		<CaseRoute heading={t('catalogue.onThisPage')} items={route} />
-
-		<article class="case-main">
-			<h1>{item.name}</h1>
-			<div class="meta kind">
-				<span class="dot" style="--dc:var(--yellow)">{objectTypeLabel(item.type)}</span>
-				{item.constellation !== null && <span>{t('catalogue.inConstellation')} {item.constellation}</span>}
-				{item.distanceLy !== null && <span>{formatDistance(item.distanceLy)}</span>}
-			</div>
-			<p class="intro">{item.summary}</p>
-
-			{content.chapters.length === 0 && <div class="read" set:html={content.intro} />}
-			{content.chapters.map((chapter) => (
-				<section class="sect" id={chapter.id}>
-					<h2>{chapter.title}</h2>
-					{chapter.summary !== '' && <p class="when">{chapter.summary}</p>}
-					<Parts parts={chapter.parts} simulations={[]} />
-				</section>
-			))}
-
-			{similar.length > 0 && (
-				<section class="sect" id="similar">
-					<h2>{t('catalogue.similar')}</h2>
-					<div class="objs" style="grid-template-columns:repeat(3,1fr);margin-top:18px">
-						{similar.map((other) => (
-							<a href={'/explore/catalogue/' + other.slug}>
-								<Slot src={other.imageUrl} ratio="1 / 1" empty={t('common.noImage')} className="" />
-								<b>{other.name}</b>
-								<span>{formatValue(other.constellation)} · {formatDistance(other.distanceLy)}</span>
-							</a>
-						))}
-					</div>
-				</section>
-			)}
-
-			{item.relatedTopic !== null && (
-				<section class="sect" id="physics">
-					<h2>{t('entry.physics')}</h2>
-					<a class="physics" href={'/learn/' + item.relatedTopic.slug}>
-						<div><small>{t('nav.learn')}</small><strong>{item.relatedTopic.title}</strong><span>{t('entry.physicsText')}</span></div>
-						<span class="arr"><svg><use href="#i-arrow" /></svg></span>
-					</a>
-				</section>
-			)}
-		</article>
-
-		<aside class="infobox">
-			<Slot src={item.imageUrl} ratio="1 / 1" empty={t('common.noImage')} className="natural" />
-			<h3>{item.name}</h3>
-			{item.otherNames !== null && <div class="status muted" style="font-weight:400">{t('catalogue.alsoCalled')} {item.otherNames}</div>}
-			<dl>
-				<div class="grp">{t('catalogue.whereItIs')}</div>
-				{where.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
-				<div class="grp">{t('catalogue.whatItIs')}</div>
-				{what.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
-				<div class="grp">{t('catalogue.discovery')}</div>
-				{found.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
-			</dl>
-		</aside>
-	</div>
-</BaseLayout>
+<DeskPage title={item.name} description={item.summary} mode="cat" data={toDeskObject(item)} />

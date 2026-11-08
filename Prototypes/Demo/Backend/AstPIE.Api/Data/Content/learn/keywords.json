@@ -1,0 +1,105 @@
+[
+	{
+		"slug": "net-force",
+		"name": "net force",
+		"otherForms": [
+			"Net force"
+		],
+		"definition": "All the forces on an object added together, taking their directions into account. If they cancel, the net force is zero and the motion does not change.",
+		"symbol": "ΣF",
+		"unit": "newtons (N)"
+	},
+	{
+		"slug": "force",
+		"name": "force",
+		"otherForms": [
+			"Force",
+			"forces",
+			"Forces"
+		],
+		"definition": "A push or a pull. Every force has a size and a direction, and it can start, stop, speed up, slow down or turn a motion.",
+		"symbol": "F",
+		"unit": "newtons (N)"
+	},
+	{
+		"slug": "friction",
+		"name": "friction",
+		"otherForms": [
+			"Friction"
+		],
+		"definition": "A force that acts against sliding wherever two surfaces rub together. It is what slows a sliding book or a rolling ball.",
+		"symbol": null,
+		"unit": null
+	},
+	{
+		"slug": "inertia",
+		"name": "inertia",
+		"otherForms": [
+			"Inertia"
+		],
+		"definition": "An object's resistance to any change in its motion. The more mass something has, the more inertia it has.",
+		"symbol": null,
+		"unit": null
+	},
+	{
+		"slug": "velocity",
+		"name": "velocity",
+		"otherForms": [
+			"Velocity"
+		],
+		"definition": "Speed together with a direction. Turning at a steady speed still changes the velocity.",
+		"symbol": "v",
+		"unit": "metres per second (m/s)"
+	},
+	{
+		"slug": "mass",
+		"name": "mass",
+		"otherForms": [
+			"Mass"
+		],
+		"definition": "How much matter an object has. It tells you how hard the object is to speed up or slow down.",
+		"symbol": "m",
+		"unit": "kilograms (kg)"
+	},
+	{
+		"slug": "acceleration",
+		"name": "acceleration",
+		"otherForms": [
+			"Acceleration"
+		],
+		"definition": "How much the velocity changes every second. Speeding up, slowing down and turning are all acceleration.",
+		"symbol": "a",
+		"unit": "metres per second per second (m/s²)"
+	},
+	{
+		"slug": "newton",
+		"name": "newton",
+		"otherForms": [
+			"newtons"
+		],
+		"definition": "The unit of force. One newton speeds up 1 kg by 1 m/s every second, about the weight of a small apple.",
+		"symbol": "N",
+		"unit": null
+	},
+	{
+		"slug": "force-pair",
+		"name": "force pair",
+		"otherForms": [
+			"pair",
+			"Pair"
+		],
+		"definition": "The two forces two objects put on each other. They are equal in size, opposite in direction, and act on different objects.",
+		"symbol": null,
+		"unit": null
+	},
+	{
+		"slug": "momentum",
+		"name": "momentum",
+		"otherForms": [
+			"Momentum"
+		],
+		"definition": "Mass times velocity. When objects push on each other, their total momentum stays the same.",
+		"symbol": "p = m · v",
+		"unit": "kg·m/s"
+	}
+]

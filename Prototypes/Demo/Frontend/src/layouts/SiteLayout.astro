@@ -1,0 +1,38 @@
+---
+// The frame of every public page: the <head>, the fonts and the icon.
+// Each page brings its own top bar, footer and styles (home, Learn, the archive and the desks
+// all look different), so this layout only holds what they share.
+import { t } from '../i18n/t';
+
+interface Props
+{
+	title: string;
+	// Classes on <body>, for example "load" while the home page starts
+	bodyClass: string;
+}
+
+const { title, bodyClass } = Astro.props;
+
+let pageTitle = t('site.name');
+if (title !== t('site.name'))
+{
+	pageTitle = title + ' · ' + t('site.name');
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=PT+Mono&family=PT+Sans+Narrow:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+		<title>{pageTitle}</title>
+		<!-- Pages can add their own tags here, for example a description: <meta slot="head" ... /> -->
+		<slot name="head" />
+	</head>
+	<body class={bodyClass}>
+		<slot />
+	</body>
+</html>
