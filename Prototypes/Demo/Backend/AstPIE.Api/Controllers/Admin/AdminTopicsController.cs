@@ -26,6 +26,16 @@ namespace AstPIE.Api.Controllers.Admin
 				select new TopicAdminDto
 				{
 					Id = topic.Id,
+					Question = topic.Question,
+					PredictQuestion = topic.PredictQuestion,
+					PredictOptions = topic.PredictOptions,
+					PredictAnswer = topic.PredictAnswer,
+					LawStatement = topic.LawStatement,
+					LawEquation = topic.LawEquation,
+					ReadAloud = topic.ReadAloud,
+					RecapPoints = topic.RecapPoints,
+					ExploreEntryId = topic.ExploreEntryId,
+					ExploreLine = topic.ExploreLine,
 					Slug = topic.Slug,
 					Title = topic.Title,
 					Branch = topic.Branch,
@@ -46,6 +56,16 @@ namespace AstPIE.Api.Controllers.Admin
 				select new TopicAdminDto
 				{
 					Id = t.Id,
+					Question = t.Question,
+					PredictQuestion = t.PredictQuestion,
+					PredictOptions = t.PredictOptions,
+					PredictAnswer = t.PredictAnswer,
+					LawStatement = t.LawStatement,
+					LawEquation = t.LawEquation,
+					ReadAloud = t.ReadAloud,
+					RecapPoints = t.RecapPoints,
+					ExploreEntryId = t.ExploreEntryId,
+					ExploreLine = t.ExploreLine,
 					Slug = t.Slug,
 					Title = t.Title,
 					Branch = t.Branch,
@@ -72,6 +92,10 @@ namespace AstPIE.Api.Controllers.Admin
 			}
 
 			Topic topic = new Topic();
+			if (input.ExploreEntryId != null && !await (from e in db.Entries where e.Id == input.ExploreEntryId select e).AnyAsync())
+			{
+				return FieldError("ExploreEntryId", "This case does not exist.");
+			}
 			Apply(input, topic);
 			db.Topics.Add(topic);
 			await db.SaveChangesAsync();
@@ -92,6 +116,10 @@ namespace AstPIE.Api.Controllers.Admin
 				return ConflictMessage("Another topic already uses the slug \"" + input.Slug + "\".");
 			}
 
+			if (input.ExploreEntryId != null && !await (from e in db.Entries where e.Id == input.ExploreEntryId select e).AnyAsync())
+			{
+				return FieldError("ExploreEntryId", "This case does not exist.");
+			}
 			Apply(input, topic);
 			await db.SaveChangesAsync();
 			return NoContent();
@@ -133,6 +161,16 @@ namespace AstPIE.Api.Controllers.Admin
 			topic.Content = input.Content;
 			topic.SortOrder = input.SortOrder;
 			topic.IsPublished = input.IsPublished;
+			topic.Question = input.Question.Trim();
+			topic.PredictQuestion = input.PredictQuestion.Trim();
+			topic.PredictOptions = CleanList(input.PredictOptions);
+			topic.PredictAnswer = input.PredictAnswer;
+			topic.LawStatement = input.LawStatement.Trim();
+			topic.LawEquation = input.LawEquation;
+			topic.ReadAloud = input.ReadAloud.Trim();
+			topic.RecapPoints = CleanList(input.RecapPoints);
+			topic.ExploreEntryId = input.ExploreEntryId;
+			topic.ExploreLine = Optional(input.ExploreLine);
 		}
 	}
 }

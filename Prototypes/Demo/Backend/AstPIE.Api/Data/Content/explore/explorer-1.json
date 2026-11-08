@@ -1,0 +1,1361 @@
+{
+	"slug": "explorer-1",
+	"kind": "Mission",
+	"title": "Explorer 1",
+	"tagline": "America's first satellite",
+	"summary": "America's answer to Sputnik. A thin, pencil-shaped satellite with one small instrument, which <mark>made the first great discovery of the space age: belts of radiation wrapped around the Earth.</mark>",
+	"coverImageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer1.jpg?width=700",
+	"coverCaption": "Explorer 1",
+	"coverCredit": "NASA, public domain",
+	"country": "United States",
+	"desk": "American",
+	"startDate": "1958-02-01",
+	"endDate": "1970-03-31",
+	"agency": "U.S. Army (ABMA) and JPL",
+	"missionOutcome": "Success",
+	"evidenceStatus": null,
+	"statusNote": null,
+	"radioMinMHz": null,
+	"radioMaxMHz": null,
+	"relatedTopic": "newtons-first-law",
+	"facts": [
+		{
+			"label": "Country",
+			"value": "United States"
+		},
+		{
+			"label": "Launched",
+			"value": "31 January 1958, Cape Canaveral, Florida"
+		},
+		{
+			"label": "Rocket",
+			"value": "Juno I, a Jupiter-C"
+		},
+		{
+			"label": "Weight",
+			"value": "about 14 kg"
+		},
+		{
+			"label": "Ended",
+			"value": "fell back on 31 March 1970"
+		}
+	],
+	"people": [
+		{
+			"person": "vonbraun",
+			"role": "Led the rocket team",
+			"isCrew": false,
+			"sortOrder": 1
+		},
+		{
+			"person": "pickering",
+			"role": "Director of the Jet Propulsion Laboratory",
+			"isCrew": false,
+			"sortOrder": 2
+		},
+		{
+			"person": "vanallen",
+			"role": "Built the radiation instrument",
+			"isCrew": false,
+			"sortOrder": 3
+		},
+		{
+			"person": "ludwig",
+			"role": "Built the radiation counter",
+			"isCrew": false,
+			"sortOrder": 4
+		}
+	],
+	"media": [
+		{
+			"sortOrder": 1,
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ignition_of_Jupiter-C_with_Explorer_1.jpg?width=900",
+			"title": "Ignition",
+			"caption": "The Jupiter-C ignites with Explorer 1 on top, 31 January 1958.",
+			"credit": "NASA. Public domain.",
+			"text": "ignition, 31 Jan. 1958",
+			"style": null
+		},
+		{
+			"sortOrder": 2,
+			"type": "Note",
+			"title": "Note",
+			"text": "Case opened.\nFollow the tabs in order, or jump to any part.",
+			"style": "yellow"
+		},
+		{
+			"type": "Audio",
+			"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/0/03/1958-02-03_First_US_Satellite_Launched.ogv/1958-02-03_First_US_Satellite_Launched.ogv.240p.vp9.webm",
+			"title": "Newsreel, 3 Feb. 1958",
+			"credit": "Universal Newsreels, public domain",
+			"lengthLabel": null,
+			"sortOrder": 3
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer_1_in_Gantry.jpg?width=900",
+			"title": "In the gantry",
+			"caption": "Explorer 1 on top of its Jupiter-C rocket, inside the service tower.",
+			"credit": "Public domain.",
+			"style": "folder",
+			"sortOrder": 4
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wernher_von_Braun_(9131111).jpg?width=900",
+			"title": "The front page",
+			"caption": "Wernher von Braun with the Huntsville Times front page announcing the launch of Explorer 1.",
+			"credit": "NASA Marshall Space Flight Center. Public domain.",
+			"style": "folder",
+			"sortOrder": 5,
+			"people": [
+				"vonbraun"
+			]
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Data_Review_(1958).jpg?width=1000",
+			"title": "Reading the data",
+			"caption": "James Van Allen (second from left) and his team at the University of Iowa go through the data from Explorer 1, 1958.",
+			"credit": "James A. Van Allen Papers, University of Iowa Archives. Public domain.",
+			"style": "folder",
+			"sortOrder": 6,
+			"people": [
+				"vanallen"
+			]
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pickering%2C_Dr_William_H_-_5021504330.jpg?width=900",
+			"title": "Pickering and Surveyor",
+			"caption": "William Pickering, director of JPL, beside a Surveyor, the Moon lander JPL built in the 1960s.",
+			"credit": "San Diego Air and Space Museum Archives. No known copyright restrictions.",
+			"style": "folder",
+			"sortOrder": 7,
+			"people": [
+				"pickering"
+			]
+		}
+	],
+	"explanations": [],
+	"chapters": [
+		{
+			"section": "Story",
+			"tabLabel": "Brought from Germany",
+			"title": "Brought from Germany",
+			"place": "Germany, then Fort Bliss, Texas",
+			"dateLabel": "1945 to 1950",
+			"summary": "In May 1945, as the war in Europe ended, Wernher von Braun and many of the engineers who had built the German V-2 surrendered to the American army.",
+			"body": "<p>In May 1945, as the war in Europe ended, Wernher von Braun and many of the engineers who had built the German V-2 surrendered to the American army. They had chosen to be taken by the Americans rather than the Soviets.</p>\n<p>Under a secret programme later called Operation Paperclip, more than a hundred of them were brought to the United States. <mark>Their past in Nazi Germany, where the V-2 had been built by prisoners from concentration camps, was quietly played down.</mark></p>\n<p>At Fort Bliss in Texas they helped the army launch captured V-2s from the desert at White Sands, and they began to plan rockets of their own.</p>",
+			"marginNote": "Brilliant engineers, with a dark past.",
+			"showsRadioHint": false,
+			"sortOrder": 1,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Project_Paperclip_Team_at_Fort_Bliss.jpg?width=1200",
+					"title": "The team at Fort Bliss",
+					"caption": "Von Braun's German rocket team at Fort Bliss, Texas, after the war.",
+					"credit": "U.S. Army. Public domain.",
+					"text": "Fort Bliss, Texas",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "vonbraun"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Operation Paperclip",
+					"data": {
+						"rows": [
+							[
+								"Began",
+								"1945"
+							],
+							[
+								"Engineers brought",
+								"more than a hundred"
+							],
+							[
+								"First base",
+								"Fort Bliss, Texas"
+							],
+							[
+								"Test range",
+								"White Sands"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Huntsville",
+			"title": "Huntsville",
+			"place": "Redstone Arsenal, Alabama",
+			"dateLabel": "1950 to 1956",
+			"summary": "In 1950 the army moved von Braun's team to the Redstone Arsenal in Huntsville, a quiet cotton town in Alabama.",
+			"body": "<p>In 1950 the army moved von Braun's team to the Redstone Arsenal in Huntsville, a quiet cotton town in Alabama. There they built the Redstone, a missile that could carry a warhead about 300 kilometres. It first flew in August 1953.</p>\n<p>The Germans and their American colleagues turned Huntsville into a rocket town. <mark>Its test stands shook the windows of the houses around them.</mark></p>\n<p>Von Braun also became a public figure. He wrote magazine articles and worked with Walt Disney on television programmes about travel to space, watched by millions of Americans.</p>",
+			"marginNote": "A cotton town becomes a rocket town.",
+			"showsRadioHint": false,
+			"sortOrder": 2,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mercury-Redstone_on_Redstone_Test_Stand_MSFC-9306795.jpg?width=800",
+					"title": "The test stand",
+					"caption": "A Redstone rocket on the test stand in Huntsville, where the team fired its engines before flight.",
+					"credit": "NASA. Public domain.",
+					"text": "test stand, Huntsville",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Redstone",
+					"data": {
+						"rows": [
+							[
+								"Built by",
+								"the army, in Huntsville"
+							],
+							[
+								"Range",
+								"about 300 km"
+							],
+							[
+								"First flight",
+								"August 1953"
+							],
+							[
+								"Later carried",
+								"Explorer 1, Alan Shepard"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Project Orbiter",
+			"title": "Project Orbiter",
+			"place": "Washington",
+			"dateLabel": "1954 and 1955",
+			"summary": "In 1954 von Braun and the Navy proposed Project Orbiter: put a small satellite into orbit with a Redstone and several rings of small solid rockets on top.",
+			"body": "<p>In 1954 von Braun and the Navy proposed Project Orbiter: put a small satellite into orbit with a Redstone and several rings of small solid rockets on top. It used parts that already existed and could have flown within two years.</p>\n<p>In the summer of 1955 a government committee chose a different plan, Vanguard, from the Naval Research Laboratory. Vanguard was a new rocket, not a weapon, and the government wanted the first satellite to look peaceful. <mark>Von Braun's team was told to stay out of the satellite business.</mark></p>\n<p>They kept their plans in a drawer. When Vanguard was not ready in time, the drawer was opened.</p>",
+			"marginNote": "Ready, but not chosen.",
+			"showsRadioHint": false,
+			"sortOrder": 3,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Redstone-jupiterc-mercuryredstone-compared.jpg?width=900",
+					"title": "One rocket, three jobs",
+					"caption": "The Redstone missile, the Jupiter-C that launched Explorer 1, and the Mercury-Redstone that later carried an astronaut.",
+					"credit": "NASA. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "the same rocket underneath"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Two plans",
+					"data": {
+						"rows": [
+							[
+								"Project Orbiter",
+								"Redstone, existing parts"
+							],
+							[
+								"Vanguard",
+								"a new rocket"
+							],
+							[
+								"Chosen in 1955",
+								"Vanguard"
+							],
+							[
+								"Reason",
+								"to look peaceful"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Plans kept in a drawer.\nOpened after Sputnik.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "The answer to Sputnik",
+			"title": "The answer to Sputnik",
+			"place": "Huntsville and Pasadena",
+			"dateLabel": "November 1957 to January 1958",
+			"summary": "After Sputnik, and after the Vanguard rocket exploded on live television, the United States turned to a team it had kept waiting: the Army rocket engineers of Wernher von Braun in Huntsville, Alabama.",
+			"body": "<p>After Sputnik, and after the Vanguard rocket exploded on live television, the United States turned to a team it had kept waiting: the Army rocket engineers of Wernher von Braun in Huntsville, Alabama.</p>\n<p>They already had a rocket, the Jupiter-C. The Jet Propulsion Laboratory in California, led by William Pickering, built the satellite and the small upper stages, and James Van Allen of the University of Iowa supplied the instrument.</p>\n<p><mark>Von Braun had promised a satellite in ninety days. It took eighty-four.</mark></p>",
+			"marginNote": "Go-ahead: 8 November 1957.",
+			"showsRadioHint": false,
+			"sortOrder": 4,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Juno_I_awaiting_launch_with_Explorer_I.jpg?width=800",
+					"title": "Waiting for launch",
+					"caption": "The Juno I rocket with Explorer 1 on top, Cape Canaveral.",
+					"credit": "Public domain.",
+					"text": "Juno I on the pad",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vanguard_rocket_explodes.jpg?width=800",
+					"title": "Vanguard explodes",
+					"caption": "The first American attempt, 6 December 1957.",
+					"credit": "U.S. Navy. Public domain.",
+					"text": "why the Army got its chance",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "vonbraun"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Kaputnik",
+			"title": "Kaputnik",
+			"place": "Cape Canaveral, Florida",
+			"dateLabel": "6 December 1957",
+			"summary": "America's answer was meant to be Vanguard, a new rocket built for the Navy by civilian scientists.",
+			"body": "<p>America's answer was meant to be Vanguard, a new rocket built for the Navy by civilian scientists. After Sputnik, its first test with a small satellite on top was suddenly treated as the real thing, with television cameras watching.</p>\n<p>On 6 December 1957 the engine lit, and the rocket rose about a metre. Then it lost thrust, sank back onto the pad and exploded in a ball of fire. <mark>The newspapers had their headlines ready: Flopnik, Stayputnik, Kaputnik.</mark></p>\n<p>The little satellite was thrown clear and lay in the bushes, still beeping. It is now in the National Air and Space Museum in Washington.</p>",
+			"marginNote": "Live on television.",
+			"showsRadioHint": false,
+			"sortOrder": 5,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vanguard_tv-3_launchpad.jpg?width=800",
+					"title": "Vanguard on the pad",
+					"caption": "The Vanguard rocket on its launch pad before the attempt of 6 December 1957.",
+					"credit": "U.S. Navy. Public domain.",
+					"text": "before",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Clipping",
+					"title": "Flopnik! Kaputnik!",
+					"text": "American papers on the Vanguard explosion.",
+					"dateLabel": "7 December 1957",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Two months later: Explorer 1"
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vanguard_TV3.jpg?width=800",
+					"title": "The satellite that survived",
+					"caption": "The small Vanguard satellite, dented but in one piece after the explosion.",
+					"credit": "Audin, English Wikipedia. Public domain.",
+					"text": "it kept beeping",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "Three teams, one satellite",
+			"title": "Three teams, one satellite",
+			"place": "Jet Propulsion Laboratory, Pasadena",
+			"dateLabel": "Late 1957",
+			"summary": "Explorer 1 was a long, thin cylinder, about two metres long including the last rocket stage it stayed attached to, and only 16 centimetres wide.",
+			"body": "<p>Explorer 1 was a long, thin cylinder, about two metres long including the last rocket stage it stayed attached to, and only 16 centimetres wide. In all it weighed about 14 kilograms.</p>\n<p>Inside was Van Allen's cosmic ray detector, a Geiger counter that clicked each time a charged particle passed through it, plus sensors for temperature and tiny meteoroids. <mark>Two radio transmitters, on 108.00 and 108.03 megahertz, sent the readings home.</mark></p>\n<p>To keep it steady, the top of the rocket and the satellite were spun like a rifle bullet, about 750 times a minute, before the upper stages fired.</p>",
+			"marginNote": "16 cm wide, about 2 m long.",
+			"showsRadioHint": false,
+			"sortOrder": 6,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer_1_Model_With_Cutaway_Showing_Science_Components.jpg?width=1000",
+					"title": "Explorer 1 opened up",
+					"caption": "A model with a cutaway showing the instruments inside.",
+					"credit": "NASA. Public domain.",
+					"style": "photo",
+					"data": {
+						"notes": [
+							{
+								"x": 6,
+								"y": 8,
+								"text": "Geiger counter inside"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Document",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer_I_Characteristics.jpg?width=1200",
+					"title": "Explorer 1 characteristics",
+					"caption": "A chart of the satellite's main characteristics.",
+					"credit": "Public domain."
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Explorer 1",
+					"data": {
+						"rows": [
+							[
+								"Length",
+								"about 2 m"
+							],
+							[
+								"Width",
+								"16 cm"
+							],
+							[
+								"Weight",
+								"about 14 kg"
+							],
+							[
+								"Radios",
+								"108.00 and 108.03 MHz"
+							],
+							[
+								"Spin",
+								"about 750 per minute"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The Juno rocket",
+			"title": "The Juno rocket",
+			"place": "Huntsville, Alabama",
+			"dateLabel": "1956 to 1958",
+			"summary": "The rocket that launched Explorer 1, called Juno I, was a Redstone missile with a strange crown on top.",
+			"body": "<p>The rocket that launched Explorer 1, called Juno I, was a Redstone missile with a strange crown on top. Above the Redstone sat a spinning tub holding eleven small solid rockets, then three more inside, then a single one at the very top, attached to the satellite.</p>\n<p><mark>The tub was spun up like a top before launch</mark>, so that the small rockets would fly straight even if they did not burn evenly. Once the Redstone had climbed and coasted to the top of its path, the rings of small rockets fired one after another, each adding speed.</p>\n<p>Von Braun's team had flown almost the same rocket in September 1956. Some people believe it could have launched a satellite a year before Sputnik, if it had been allowed to.</p>",
+			"marginNote": "Eleven, then three, then one.",
+			"showsRadioHint": false,
+			"sortOrder": 7,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Juno_upper_stages.jpg?width=600",
+					"title": "The spinning tub",
+					"caption": "The upper stages of Juno I: rings of small solid rockets inside a tub that was spun before launch.",
+					"credit": "NASA. Public domain.",
+					"text": "the spinning tub",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Juno I",
+					"data": {
+						"rows": [
+							[
+								"Stage one",
+								"Redstone, liquid fuel"
+							],
+							[
+								"Stage two",
+								"eleven small rockets"
+							],
+							[
+								"Stage three",
+								"three small rockets"
+							],
+							[
+								"Stage four",
+								"one, stayed with Explorer"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "vonbraun"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The counter",
+			"title": "The counter",
+			"place": "University of Iowa",
+			"dateLabel": "Late 1957",
+			"summary": "Explorer 1's main instrument came from James Van Allen's physics department in Iowa.",
+			"body": "<p>Explorer 1's main instrument came from James Van Allen's physics department in Iowa. It was built by his graduate student George Ludwig, who had a few weeks to make it fit inside a narrow tube and survive a rocket launch.</p>\n<p>At its heart was a Geiger counter: a small tube of gas that gives a tiny electric pulse each time a charged particle passes through it. <mark>Van Allen wanted to count cosmic rays, the fast particles that arrive from deep space.</mark></p>\n<p>Ludwig used the new transistors instead of radio valves to keep it small and light. It worked so well that it found something nobody had been looking for.</p>",
+			"marginNote": "Built in weeks by a student.",
+			"showsRadioHint": false,
+			"sortOrder": 8,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer_1_Instruments.jpg?width=800",
+					"title": "The instruments",
+					"caption": "A diagram of Explorer 1's instruments, from James Van Allen's papers.",
+					"credit": "James A. Van Allen Papers, University of Iowa. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "the counter is in here"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "vanallen"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "The cosmic ray detector",
+					"data": {
+						"rows": [
+							[
+								"Built by",
+								"George Ludwig"
+							],
+							[
+								"Heart",
+								"a Geiger counter"
+							],
+							[
+								"Counted",
+								"charged particles"
+							],
+							[
+								"Used",
+								"transistors"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "Stripes to stay cool",
+			"title": "Stripes to stay cool",
+			"place": "Jet Propulsion Laboratory",
+			"dateLabel": "January 1958",
+			"summary": "In orbit a satellite is baked by the Sun on one side and frozen by the dark on the other.",
+			"body": "<p>In orbit a satellite is baked by the Sun on one side and frozen by the dark on the other. If the inside gets too hot or too cold, the batteries and transistors stop working.</p>\n<p>The engineers at the Jet Propulsion Laboratory had no room for heaters or fans. Instead they covered the shell in a pattern of light and dark stripes. <mark>The ratio of light to dark was worked out so that the satellite would take in about as much heat as it gave off.</mark></p>\n<p>Thermometers on board sent back the temperature. The stripes worked.</p>",
+			"marginNote": "Paint as a thermostat.",
+			"showsRadioHint": false,
+			"sortOrder": 9,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/JPL_-_Explorer_1_is_test-mated_before_launch.jpg?width=900",
+					"title": "A test fit",
+					"caption": "Explorer 1 being fitted to the top of its rocket before launch.",
+					"credit": "NASA. Public domain.",
+					"text": "test fit, January 1958",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "No heater, no fan.\nJust the right stripes.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Pad 26",
+			"title": "Pad 26",
+			"place": "Cape Canaveral, Florida",
+			"dateLabel": "January 1958",
+			"summary": "Explorer 1 was launched from Launch Complex 26, a concrete pad near the beach at Cape Canaveral.",
+			"body": "<p>Explorer 1 was launched from Launch Complex 26, a concrete pad near the beach at Cape Canaveral. Next to it stood a low, thick-walled blockhouse, where the launch team sat behind small windows and periscopes.</p>\n<p>Inside, the countdown was run from rows of switches, lights and dials. <mark>Everything was checked by hand, step by step, from a printed list.</mark></p>\n<p>The blockhouse and its consoles are still there, kept as part of a museum about the first years of American spaceflight.</p>",
+			"marginNote": "Behind thick concrete.",
+			"showsRadioHint": false,
+			"sortOrder": 10,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/LC-26_Launch_console.jpg?width=1000",
+					"title": "The launch console",
+					"caption": "Launch consoles inside the blockhouse of Launch Complex 26, now part of a museum.",
+					"credit": "Bubba73 (Jud McCranie). CC BY-SA 3.0",
+					"text": "the blockhouse today",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Launch_Complex_26%2C_Blockhouse.jpg?width=700",
+					"title": "The blockhouse",
+					"caption": "The blockhouse at Launch Complex 26 from outside.",
+					"credit": "Ozzie321. CC BY-SA 4.0",
+					"text": "blockhouse, LC-26",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Waiting for the wind",
+			"title": "Waiting for the wind",
+			"place": "Cape Canaveral",
+			"dateLabel": "29 to 31 January 1958",
+			"summary": "Everything was ready by 29 January.",
+			"body": "<p>Everything was ready by 29 January. Then the weather reports came in. The jet stream, a river of very fast wind high above the ground, was blowing far too hard.</p>\n<p>The Jupiter-C was a thin rocket with a heavy spinning top. <mark>Strong winds high up could bend it off course or break it.</mark> The launch was put off for a day, and then for another.</p>\n<p>On the evening of 31 January the winds finally dropped, and the countdown went ahead.</p>",
+			"marginNote": "Two days of waiting.",
+			"showsRadioHint": false,
+			"sortOrder": 11,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Video",
+					"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/78/Explorer_1_Teletype_Reporting_During_Launch.webm/Explorer_1_Teletype_Reporting_During_Launch.webm.240p.vp9.webm",
+					"posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Explorer_1_Teletype_Reporting_During_Launch.webm/500px--Explorer_1_Teletype_Reporting_During_Launch.webm.jpg",
+					"title": "The teletype",
+					"caption": "A teletype machine printing reports during the launch of Explorer 1.",
+					"credit": "U.S. Army. Public domain.",
+					"lengthLabel": "a few seconds"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Countdown",
+					"data": {
+						"rows": [
+							[
+								"Ready",
+								"29 January"
+							],
+							[
+								"Delayed by",
+								"the jet stream"
+							],
+							[
+								"Second delay",
+								"30 January"
+							],
+							[
+								"Launched",
+								"31 January, 22:48"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Launch night",
+			"title": "Launch night",
+			"place": "Cape Canaveral, Florida",
+			"dateLabel": "31 January 1958, 22:48 local time",
+			"summary": "The Jupiter-C lifted off at 22:48.",
+			"body": "<p>The Jupiter-C lifted off at 22:48. Within minutes the upper stages had fired, but nobody could be sure the satellite was in orbit. The answer would only come once it had gone around the Earth and passed over a tracking station in California.</p>\n<p><mark>The signal came several minutes late,</mark> because the orbit was higher than planned and one trip took longer. Then it arrived.</p>\n<p>After midnight in Washington, Pickering, Van Allen and von Braun held a full-size model over their heads for the photographers.</p>",
+			"marginNote": "Higher orbit, longer trip, later signal. The newsreel tape is from three days later.",
+			"showsRadioHint": true,
+			"sortOrder": 12,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Launch_of_Jupiter_C_with_Explorer_1.jpg?width=800",
+					"title": "Lift-off",
+					"caption": "Launch of the Jupiter-C with Explorer 1, 31 January 1958.",
+					"credit": "NASA. Public domain.",
+					"text": "31 Jan. 1958, 22:48",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer_1_conference_1958.jpg?width=1000",
+					"title": "The press conference",
+					"caption": "Pickering, Van Allen and von Braun with a model of Explorer 1.",
+					"credit": "NASA, JPL. Public domain.",
+					"text": "after midnight, Washington",
+					"style": null,
+					"people": [
+						"pickering",
+						"vanallen",
+						"vonbraun"
+					]
+				},
+				{
+					"sortOrder": 3,
+					"type": "Video",
+					"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/44/JPL-19580131-EXPLORf-0001-AVC2004245_Explorer_1_Americas_First_Satellite.webm/JPL-19580131-EXPLORf-0001-AVC2004245_Explorer_1_Americas_First_Satellite.webm.480p.vp9.webm",
+					"posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/JPL-19580131-EXPLORf-0001-AVC2004245_Explorer_1_Americas_First_Satellite.webm/960px--JPL-19580131-EXPLORf-0001-AVC2004245_Explorer_1_Americas_First_Satellite.webm.jpg",
+					"title": "America's first satellite",
+					"caption": "Film from the Jet Propulsion Laboratory about the launch of Explorer 1.",
+					"credit": "NASA / JPL. Public domain.",
+					"lengthLabel": "2 min"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Eight minutes late",
+			"title": "Eight minutes late",
+			"place": "The Pentagon and California",
+			"dateLabel": "31 January to 1 February 1958",
+			"summary": "William Pickering waited for news in a communications room at the Pentagon in Washington, together with Van Allen and von Braun.",
+			"body": "<p>William Pickering waited for news in a communications room at the Pentagon in Washington, together with Van Allen and von Braun. Nobody knew whether the satellite was in orbit. Only a radio station seeing it come round the Earth could prove it.</p>\n<p>The signal was expected over California about an hour and three quarters after launch. The moment came and went in silence. <mark>The minutes stretched out. Then, about eight minutes late, a station in California heard it.</mark></p>\n<p>The orbit was higher than planned, so each trip around the Earth took longer. America had its satellite.</p>",
+			"marginNote": "The longest eight minutes.",
+			"showsRadioHint": false,
+			"sortOrder": 13,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "pickering"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The orbit it got",
+					"data": {
+						"rows": [
+							[
+								"Lowest point",
+								"about 360 km"
+							],
+							[
+								"Highest point",
+								"about 2 550 km"
+							],
+							[
+								"Once around",
+								"about 115 minutes"
+							],
+							[
+								"Higher than",
+								"planned"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Silence.\nThen the signal,\neight minutes late.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Discovery",
+			"tabLabel": "A counter went silent",
+			"title": "A counter that went silent",
+			"place": "University of Iowa",
+			"dateLabel": "February to May 1958",
+			"summary": "Van Allen's Geiger counter behaved strangely.",
+			"body": "<p>Van Allen's Geiger counter behaved strangely. At low altitude it counted as expected. Higher up, the count sometimes dropped to zero, as if space were suddenly empty.</p>\n<p>Van Allen and his students worked out that the opposite was true. <mark>The radiation was so intense that it overwhelmed the counter and made it go silent.</mark> Explorer 3, launched in March with a tape recorder on board, confirmed it.</p>\n<p>The Earth turned out to be wrapped in belts of charged particles held in place by its magnetic field. They are called the Van Allen belts, and they were the first great discovery of the space age.</p>",
+			"marginNote": "Silent did not mean empty. It meant too much.",
+			"showsRadioHint": false,
+			"sortOrder": 14,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Allen_radiation_belt.svg?width=1000",
+					"title": "The radiation belts",
+					"caption": "The belts of charged particles around the Earth, seen from the side.",
+					"credit": "Booyabazooka. Public domain.",
+					"style": null,
+					"data": {
+						"notes": []
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Printout",
+					"chartKey": "counts",
+					"title": "What the counter read",
+					"caption": "Counts rise with height, then suddenly read zero: the counter was overwhelmed. A simplified sketch.",
+					"credit": "Sketch drawn by AstPIE."
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "vanallen"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Discovery",
+			"tabLabel": "Explorer 3 and the tape",
+			"title": "Explorer 3 and the tape",
+			"place": "Cape Canaveral and Iowa City",
+			"dateLabel": "March 1958",
+			"summary": "Explorer 1 could only report while it passed over a tracking station.",
+			"body": "<p>Explorer 1 could only report while it passed over a tracking station. Most of each orbit was never heard. Van Allen needed the whole story.</p>\n<p>Explorer 2 failed to reach orbit on 5 March 1958. Explorer 3 succeeded on 26 March, and this one carried a tiny tape recorder. It recorded a whole orbit, and on a radio command it played the tape back to the ground in a few seconds.</p>\n<p><mark>The tapes showed the counter jumping to its maximum, then dropping to zero, again and again.</mark> The silence was too much radiation, not too little. Van Allen announced the belts on 1 May 1958.</p>",
+			"marginNote": "A whole orbit in a few seconds.",
+			"showsRadioHint": false,
+			"sortOrder": 15,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer_3_Flight_Recorder.jpg?width=1000",
+					"title": "The tape recorder",
+					"caption": "A flight recorder like the one Explorer 3 carried, at the National Air and Space Museum.",
+					"credit": "Sanjay Acharya. CC BY-SA 4.0",
+					"text": "the recorder",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "Space is radioactive!",
+					"author": "Ernest Ray, Van Allen's student, on seeing the readings",
+					"dateLabel": "Iowa City, spring 1958"
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "vanallen"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Discovery",
+			"tabLabel": "The shape of the belts",
+			"title": "The shape of the belts",
+			"place": "Around the Earth",
+			"dateLabel": "1958 onwards",
+			"summary": "Later satellites mapped what Explorer 1 had found.",
+			"body": "<p>Later satellites mapped what Explorer 1 had found. There are two main belts, shaped like doughnuts around the Earth, thickest above the equator and dipping towards the poles.</p>\n<p>The inner belt, roughly 1 000 to 6 000 kilometres up, holds mostly protons. The outer belt, roughly 13 000 to 60 000 kilometres up, holds mostly electrons. <mark>The Earth's magnetic field traps the particles and makes them bounce from pole to pole.</mark></p>\n<p>Near the poles, particles that leak out of the belts strike the air and make it glow: the northern and southern lights.</p>",
+			"marginNote": "Two doughnuts of radiation.",
+			"showsRadioHint": false,
+			"sortOrder": 16,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Allen_Belts.jpg?width=1000",
+					"title": "The two belts",
+					"caption": "An illustration of the inner and outer radiation belts around the Earth.",
+					"credit": "NASA / Van Allen Probes / Goddard Space Flight Center. Public domain.",
+					"text": "inner and outer belt",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The belts",
+					"data": {
+						"rows": [
+							[
+								"Inner belt",
+								"about 1 000 to 6 000 km"
+							],
+							[
+								"Mostly",
+								"protons"
+							],
+							[
+								"Outer belt",
+								"about 13 000 to 60 000 km"
+							],
+							[
+								"Mostly",
+								"electrons"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Discovery",
+			"tabLabel": "Argus",
+			"title": "Argus",
+			"place": "South Atlantic Ocean",
+			"dateLabel": "August and September 1958",
+			"summary": "Within months of the discovery, the United States ran a secret experiment.",
+			"body": "<p>Within months of the discovery, the United States ran a secret experiment. In August and September 1958, rockets launched from a ship in the South Atlantic exploded three small nuclear bombs about 480 kilometres above the Earth.</p>\n<p>The question was whether the explosions would make artificial radiation belts. They did. <mark>Explorer 4, a satellite built by Van Allen's team, measured thin new belts of electrons that lasted for weeks.</mark></p>\n<p>The tests were revealed in a newspaper in March 1959. Since 1963 a treaty has banned nuclear tests in space.</p>",
+			"marginNote": "Belts made by people.",
+			"showsRadioHint": false,
+			"sortOrder": 17,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Operation_Argus_launch.jpg?width=600",
+					"title": "An Argus launch",
+					"caption": "A rocket carrying an Argus test device lifts off from the deck of USS Norton Sound in 1958.",
+					"credit": "U.S. Department of Energy. Public domain.",
+					"text": "launched from a ship",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer4_instruments.png?width=900",
+					"title": "Explorer 4's instruments",
+					"caption": "The detectors carried by Explorer 4, which measured the artificial belts.",
+					"credit": "Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "measured the new belts"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Operation Argus",
+					"data": {
+						"rows": [
+							[
+								"Explosions",
+								"three"
+							],
+							[
+								"Height",
+								"about 480 km"
+							],
+							[
+								"Measured by",
+								"Explorer 4"
+							],
+							[
+								"Banned",
+								"since 1963"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Discovery",
+			"tabLabel": "The spinning surprise",
+			"title": "The spinning surprise",
+			"place": "In orbit",
+			"dateLabel": "The first hours",
+			"summary": "Explorer 1 was spun around its long axis, like a pencil spinning along its length.",
+			"body": "<p>Explorer 1 was spun around its long axis, like a pencil spinning along its length. Within its first orbit it began to tumble end over end instead.</p>\n<p>The reason was its four flexible wire antennas. As they wobbled, they turned a little of the spin's energy into heat. <mark>A spinning body that slowly loses energy ends up turning around the axis where its mass is spread out the most,</mark> and for a long pencil that is end over end.</p>\n<p>Engineers learned the lesson. Later spinning satellites were built short and wide, like a can.</p>",
+			"marginNote": "A lesson learned in orbit, not on paper.",
+			"showsRadioHint": false,
+			"sortOrder": 18,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"chartKey": "sketch:undefined",
+					"title": "Spin and tumble",
+					"caption": "Planned: spinning along its length. In orbit: turning end over end.",
+					"credit": "Sketch drawn by AstPIE."
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Flexible antennas waste a little energy on every turn.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/America's_First_Satellite_(Explorer_1).jpg?width=900",
+					"title": "Explorer 1 in orbit",
+					"caption": "Explorer 1 was meant to spin along its length, like a rifle bullet, with its four wire antennas sticking out.",
+					"credit": "NASA/JPL-Caltech. Public domain.",
+					"text": "meant to spin like a bullet",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "Following it",
+			"title": "Following it",
+			"place": "Tracking stations",
+			"dateLabel": "From February 1958",
+			"summary": "A satellite is only useful if someone can hear it.",
+			"body": "<p>A satellite is only useful if someone can hear it. The Jet Propulsion Laboratory had built a tracking system called Microlock, with very sensitive receivers that locked onto a faint signal and followed it as its pitch changed.</p>\n<p>Stations in California, Florida, Singapore and Nigeria listened each time Explorer 1 passed over them. <mark>Its transmitters were tiny, using a small fraction of a watt</mark>, so only careful listeners could catch them.</p>\n<p>The Navy's Minitrack network, built for Vanguard, followed Explorer 1 too. The two networks grew into the systems NASA still uses to talk to its spacecraft.</p>",
+			"marginNote": "A whisper, followed around the world.",
+			"showsRadioHint": false,
+			"sortOrder": 19,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "Listening to Explorer 1",
+					"data": {
+						"rows": [
+							[
+								"Network",
+								"Microlock, built by JPL"
+							],
+							[
+								"Also",
+								"Minitrack, the Navy"
+							],
+							[
+								"Transmitters",
+								"two, very weak"
+							],
+							[
+								"Frequencies",
+								"108.00 and 108.03 MHz"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "pickering"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Each pass: a few minutes\nof signal, then silence.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "A long quiet orbit",
+			"title": "A long quiet orbit",
+			"place": "In orbit",
+			"dateLabel": "May 1958 to 31 March 1970",
+			"summary": "The batteries ran down, and the last readings came on 23 May 1958.",
+			"body": "<p>The batteries ran down, and the last readings came on 23 May 1958. The satellite kept circling, silent, for almost twelve more years.</p>\n<p><mark>On 31 March 1970, after more than 58,000 orbits, Explorer 1 fell back into the atmosphere and burned up.</mark></p>",
+			"marginNote": "Silent for twelve years, still in orbit.",
+			"showsRadioHint": false,
+			"sortOrder": 20,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "DayGrid",
+					"title": "Every week in orbit",
+					"caption": "One dot per week. Red: the weeks it was still sending data.",
+					"data": {
+						"from": "1958-02-01",
+						"to": "1970-03-31",
+						"loud": 16,
+						"weekly": true
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Radio silent: 23 May 1958.\nStill in orbit for twelve years.",
+					"style": "white"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer_1_Orbit_(1970-03-31).jpg?width=700",
+					"title": "Explorer I \"dies\"",
+					"caption": "A newspaper report from 31 March 1970: Explorer 1 burned up in the air after 58 376 orbits.",
+					"credit": "James A. Van Allen Papers, University of Iowa. Public domain.",
+					"text": "March 1970",
+					"style": "photo"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "What it changed",
+			"title": "What it changed",
+			"place": "Washington",
+			"dateLabel": "1958",
+			"summary": "Explorer 1 put America into the race, and it brought back a real discovery, not just a beep.",
+			"body": "<p>Explorer 1 put America into the race, and it brought back a real discovery, not just a beep.</p>\n<p><mark>In July 1958 Congress created a civilian space agency, NASA, which opened on 1 October.</mark> The Jet Propulsion Laboratory that built Explorer 1 became NASA's centre for exploring the planets.</p>\n<p>The belts it found still matter: spacecraft and astronauts have to be protected when they cross them.</p>",
+			"marginNote": "A discovery, and a space agency.",
+			"showsRadioHint": false,
+			"sortOrder": 21,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "NASA is created",
+					"text": "A civilian agency for space.",
+					"dateLabel": "29 July 1958",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Opened on 1 October 1958"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Final_Meeting_of_NACA_-_GPN-2002-000023.jpg?width=1000",
+					"title": "The last meeting of NACA",
+					"caption": "The final meeting of NACA, the aviation agency that became the core of NASA in 1958.",
+					"credit": "NASA. Public domain.",
+					"text": "NACA becomes NASA",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "NASA opens",
+			"title": "NASA opens",
+			"place": "Washington",
+			"dateLabel": "1 October 1958",
+			"summary": "The space race needed someone in charge.",
+			"body": "<p>The space race needed someone in charge. On 29 July 1958 Eisenhower signed the law that created the National Aeronautics and Space Administration, and NASA opened on 1 October 1958.</p>\n<p>It was built around the old aviation agency NACA and its laboratories. Its first head was T. Keith Glennan, the president of a university in Ohio. <mark>In December 1958 the Jet Propulsion Laboratory, the builder of Explorer 1, moved over from the army to NASA.</mark></p>\n<p>Von Braun's team followed in 1960. Explorer 1's three partners now worked for the same agency.</p>",
+			"marginNote": "A civilian agency for space.",
+			"showsRadioHint": false,
+			"sortOrder": 22,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/President_Eisenhower_with_Dryden_and_Glennan_(18017930243).jpg?width=1000",
+					"title": "NASA's first leaders",
+					"caption": "President Eisenhower with T. Keith Glennan, NASA's first administrator, and his deputy Hugh Dryden.",
+					"credit": "NASA. No known copyright restrictions.",
+					"text": "Eisenhower, Glennan, Dryden",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "NASA",
+					"data": {
+						"rows": [
+							[
+								"Law signed",
+								"29 July 1958"
+							],
+							[
+								"Opened",
+								"1 October 1958"
+							],
+							[
+								"First head",
+								"T. Keith Glennan"
+							],
+							[
+								"JPL joined",
+								"December 1958"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "JPL goes to the planets",
+			"title": "JPL goes to the planets",
+			"place": "Pasadena and Venus",
+			"dateLabel": "1958 to 1962",
+			"summary": "Under NASA, the laboratory that built Explorer 1 was given a new job: exploring the planets.",
+			"body": "<p>Under NASA, the laboratory that built Explorer 1 was given a new job: exploring the planets. Its first attempts at the Moon and Venus failed.</p>\n<p>Then, on 14 December 1962, Mariner 2 flew past Venus. <mark>It was the first spacecraft to visit another planet</mark>, and it found that Venus is fiercely hot under its clouds. On the way it measured the solar wind for months.</p>\n<p>JPL went on to send spacecraft to every planet in the Solar System. Its Voyagers are still flying.</p>",
+			"marginNote": "From Explorer to every planet.",
+			"showsRadioHint": false,
+			"sortOrder": 23,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mariner_2.jpg?width=1000",
+					"title": "Mariner 2",
+					"caption": "Mariner 2, the first spacecraft to fly past another planet, Venus, in December 1962.",
+					"credit": "NASA / JPL. Public domain.",
+					"text": "Mariner 2, 1962",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "The Explorers that followed",
+			"title": "The Explorers that followed",
+			"place": "In orbit",
+			"dateLabel": "1958 to today",
+			"summary": "Explorer 1 was the first of a long family.",
+			"body": "<p>Explorer 1 was the first of a long family. NASA has used the name Explorer for small science satellites ever since, and has launched close to a hundred of them.</p>\n<p>One of the earliest made history again. <mark>On 14 August 1959 Explorer 6 sent back the first photograph of the Earth taken from orbit</mark>: a blurry patch of sunlit clouds over the Pacific. It was crude, but it was the first time anyone saw the planet from outside.</p>\n<p>Later Explorers studied the Sun, the stars in X-rays, and the faint glow left over from the Big Bang.</p>",
+			"marginNote": "The first picture of home.",
+			"showsRadioHint": false,
+			"sortOrder": 24,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Video",
+					"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d0/1959-08-10_Explorer_VI.webm/1959-08-10_Explorer_VI.webm.480p.vp9.webm",
+					"posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/1959-08-10_Explorer_VI.webm/500px--1959-08-10_Explorer_VI.webm.jpg",
+					"title": "Explorer 6, a newsreel",
+					"caption": "A Universal newsreel from 10 August 1959 about the launch of Explorer 6.",
+					"credit": "Universal Studios. CC0",
+					"lengthLabel": "1 min"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/First_satellite_photo_-_Explorer_VI.jpg?width=800",
+					"title": "The first photo from orbit",
+					"caption": "The first photograph of the Earth from a satellite, taken by Explorer 6 on 14 August 1959.",
+					"credit": "NASA. Public domain.",
+					"text": "Earth, 14 August 1959",
+					"style": "photo"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "The belts today",
+			"title": "The belts today",
+			"place": "The radiation belts",
+			"dateLabel": "2012 to 2019",
+			"summary": "Half a century after Explorer 1, NASA sent two spacecraft, the Van Allen Probes, to fly through the belts for seven years and measure them in detail.",
+			"body": "<p>Half a century after Explorer 1, NASA sent two spacecraft, the Van Allen Probes, to fly through the belts for seven years and measure them in detail.</p>\n<p>Within days they found a surprise. <mark>In September 2012 a third belt appeared between the two known ones</mark>, lasted about four weeks, and was then wiped away by a blast from the Sun. The belts turned out to grow, shrink and change shape all the time.</p>\n<p>Every satellite, and every astronaut on the way to the Moon, still has to be protected from the belts that Van Allen's counter found.</p>",
+			"marginNote": "Found in 1958. Still surprising.",
+			"showsRadioHint": false,
+			"sortOrder": 25,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Allen_Probes_A_and_B.jpg?width=1000",
+					"title": "The Van Allen Probes",
+					"caption": "An illustration of the two Van Allen Probes inside the radiation belts.",
+					"credit": "NASA / Goddard Space Flight Center. Public domain.",
+					"text": "two probes, 2012",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Van Allen Probes",
+					"data": {
+						"rows": [
+							[
+								"Launched",
+								"August 2012"
+							],
+							[
+								"Spacecraft",
+								"two"
+							],
+							[
+								"Worked until",
+								"2019"
+							],
+							[
+								"Surprise",
+								"a third belt"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Try it yourself",
+			"tabLabel": "Try it yourself",
+			"title": "Why it stayed up so long",
+			"place": "The physics behind this case",
+			"dateLabel": null,
+			"summary": "After its batteries died, Explorer 1 kept circling the Earth for almost twelve years with no engine at all.",
+			"body": "<p>After its batteries died, Explorer 1 kept circling the Earth for almost twelve years with no engine at all.</p>\n<p><mark>A moving object keeps its speed until a force changes it.</mark> Gravity bent its path into an orbit, and only the thin air at the lowest point slowly took its speed away.</p>\n<p>On the monitor: give a box a push on a field with no friction, and watch it keep going.</p>",
+			"marginNote": null,
+			"showsRadioHint": false,
+			"sortOrder": 26,
+			"media": [
+				{
+					"type": "Simulation",
+					"title": "Why it stayed up so long",
+					"sortOrder": 1
+				}
+			],
+			"explanations": []
+		}
+	]
+}

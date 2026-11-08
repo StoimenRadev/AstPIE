@@ -1,0 +1,921 @@
+{
+	"slug": "lost-cosmonauts",
+	"kind": "Mystery",
+	"title": "The lost cosmonauts",
+	"tagline": "Were people secretly lost in space?",
+	"summary": "For decades people whispered that the Soviet Union had hidden cosmonauts who died in space. Two brothers in Italy even said they had recorded their last words. <mark>What really happened is a story about secrecy.</mark>",
+	"coverImageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Judica-cordiglia-brothers.jpg?width=700",
+	"coverCaption": "the brothers",
+	"coverCredit": "Unknown photographer, public domain",
+	"country": "Soviet Union",
+	"desk": "Mystery",
+	"startDate": null,
+	"endDate": null,
+	"agency": null,
+	"missionOutcome": null,
+	"evidenceStatus": "Debunked",
+	"statusNote": "case closed",
+	"radioMinMHz": 15,
+	"radioMaxMHz": 25,
+	"relatedTopic": null,
+	"facts": [
+		{
+			"label": "Claim",
+			"value": "Soviet cosmonauts died in space and were hidden"
+		},
+		{
+			"label": "When",
+			"value": "late 1950s and 1960s"
+		},
+		{
+			"label": "Main source",
+			"value": "radio recordings from near Turin, Italy"
+		},
+		{
+			"label": "Checked",
+			"value": "radar records, archives opened after 1991"
+		},
+		{
+			"label": "Real secret",
+			"value": "one death in training, hidden until 1986"
+		}
+	],
+	"people": [
+		{
+			"person": "judicacordiglia",
+			"role": "Radio amateurs, Torre Bert",
+			"isCrew": false,
+			"sortOrder": 1
+		},
+		{
+			"person": "bondarenko",
+			"role": "Cosmonaut, died in training",
+			"isCrew": false,
+			"sortOrder": 2
+		},
+		{
+			"person": "nelyubov",
+			"role": "Cosmonaut, removed from photos",
+			"isCrew": false,
+			"sortOrder": 3
+		},
+		{
+			"person": "oberg",
+			"role": "Checked the stories",
+			"isCrew": false,
+			"sortOrder": 4
+		}
+	],
+	"media": [
+		{
+			"sortOrder": 1,
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Judica-cordiglia-brothers.jpg?width=900",
+			"title": "The Judica-Cordiglia brothers",
+			"caption": "Achille and Gian Battista Judica-Cordiglia, radio amateurs from Turin, at their listening station.",
+			"credit": "Unknown photographer. Public domain.",
+			"text": "the brothers of Torre Bert",
+			"style": null,
+			"people": [
+				"judicacordiglia"
+			]
+		},
+		{
+			"sortOrder": 2,
+			"type": "Note",
+			"title": "Note",
+			"text": "Case opened.\nRumours, recordings, and what the archives showed.",
+			"style": "yellow"
+		},
+		{
+			"type": "Audio",
+			"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cc/Gagarin-Poyekhali.ogg/Gagarin-Poyekhali.ogg.mp3",
+			"title": "Gagarin, 12 Apr. 1961",
+			"credit": "Real recording of Yuri Gagarin at lift-off: \"Poyekhali!\" (Let's go!). Public domain.",
+			"lengthLabel": null,
+			"sortOrder": 3
+		}
+	],
+	"explanations": [],
+	"chapters": [
+		{
+			"section": "Rumours",
+			"tabLabel": "A secret programme",
+			"title": "A secret programme",
+			"place": "Tyuratam and Moscow",
+			"dateLabel": "1957 to 1991",
+			"summary": "In the United States, rocket launches happened in front of reporters and television cameras, failures included.",
+			"body": "<p>In the United States, rocket launches happened in front of reporters and television cameras, failures included. In the Soviet Union, almost nothing was said until a mission had already succeeded.</p>\n<p>The launch site was hidden under a false name. The engineers were never named. <mark>Western intelligence watched from the air and with radar, but the public knew only what Moscow announced.</mark></p>\n<p>That gap between what happened and what was said is where the lost-cosmonaut stories grew.</p>",
+			"marginNote": "Silence is where stories grow.",
+			"showsRadioHint": false,
+			"sortOrder": 1,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/U2_bajkonur.jpg?width=700",
+					"title": "Seen from a spy plane",
+					"caption": "The Soviet launch site photographed from an American U-2 spy plane.",
+					"credit": "U.S. Air Force. Public domain.",
+					"text": "the view from a U-2",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Two ways",
+					"data": {
+						"rows": [
+							[
+								"USA",
+								"launches on television"
+							],
+							[
+								"USSR",
+								"announced after success"
+							],
+							[
+								"Failures, USA",
+								"public"
+							],
+							[
+								"Failures, USSR",
+								"hidden"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Rumours",
+			"tabLabel": "The rumours",
+			"title": "The rumours",
+			"place": "Western newspapers",
+			"dateLabel": "Late 1950s to 1960s",
+			"summary": "The Soviet space programme was run in deep secrecy.",
+			"body": "<p>The Soviet space programme was run in deep secrecy. Launches were announced only after they had succeeded. Failures were never mentioned. Even the man in charge, Sergei Korolev, was known only as \"the Chief Designer\".</p>\n<p>Where there is silence, stories grow. Newspapers in the West began to print reports that the Soviet Union had already sent people into space, lost them, and covered it up. None of the reports came with evidence that could be checked.</p>\n<p><mark>The idea was believable because the secrecy was real.</mark> The question was not whether a death would have been hidden, but whether one had happened.</p>",
+			"marginNote": "Real secrecy makes any rumour believable.",
+			"showsRadioHint": false,
+			"sortOrder": 2,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "Cosmonauts lost in space?",
+					"text": "Reports with names and dates, but nothing anyone could check.",
+					"dateLabel": "Late 1950s",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Never confirmed"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Launches announced only after they worked.\nFailures: never.",
+					"style": "white"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9D%D0%B8%D0%BD%D0%B0_%D0%B8_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9_%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%8B_(cropped).jpg?width=600",
+					"title": "The Chief Designer",
+					"caption": "Sergei Korolev. Until his death in 1966 his name was a state secret.",
+					"credit": "Unknown author. CC BY 4.0",
+					"text": "name kept secret",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Rumours",
+			"tabLabel": "Names from Italy",
+			"title": "Names from Italy",
+			"place": "Rome",
+			"dateLabel": "December 1959",
+			"summary": "In December 1959 an Italian news agency published a story that went around the world.",
+			"body": "<p>In December 1959 an Italian news agency published a story that went around the world. It named Soviet pilots who, it said, had died on secret rocket flights in the late 1950s.</p>\n<p>The names sounded real: Ledovsky, Shiborin, Mitkov and others. The agency said the information came from a senior communist in Czechoslovakia. <mark>No date, place or document could ever be checked.</mark></p>\n<p>For years the list was repeated in newspapers and books as if it were fact.</p>",
+			"marginNote": "Names, but no evidence.",
+			"showsRadioHint": false,
+			"sortOrder": 3,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "Soviet pilots lost on secret flights?",
+					"text": "Names from an Italian news agency.",
+					"dateLabel": "December 1959",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Never confirmed"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Ledovsky. Shiborin. Mitkov.\nWho were they?",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Rumours",
+			"tabLabel": "Men in a magazine",
+			"title": "Men in a magazine",
+			"place": "Moscow",
+			"dateLabel": "1959",
+			"summary": "Years later the American space engineer and historian James Oberg went looking for the men on the Italian list.",
+			"body": "<p>Years later the American space engineer and historian James Oberg went looking for the men on the Italian list. He found their names in a Soviet magazine.</p>\n<p>In 1959 the popular magazine Ogonyok had published an article about volunteers who tested high-altitude equipment: pressure suits, parachutes and cabins. <mark>The men on the list seem to have been those testers, photographed and named in the article.</mark></p>\n<p>They had worked on the ground and in aircraft. None of them had been to space, and none had died there.</p>",
+			"marginNote": "Testers, not cosmonauts.",
+			"showsRadioHint": false,
+			"sortOrder": 4,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "Ogonyok: men who test the heights",
+					"text": "Volunteers for high-altitude equipment.",
+					"dateLabel": "1959",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "The source of the names"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The names traced",
+					"data": {
+						"rows": [
+							[
+								"Source",
+								"Ogonyok magazine, 1959"
+							],
+							[
+								"Who they were",
+								"equipment testers"
+							],
+							[
+								"Flew in space",
+								"no"
+							],
+							[
+								"Traced by",
+								"James Oberg"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The listeners",
+			"tabLabel": "The brothers of Torre Bert",
+			"title": "The brothers of Torre Bert",
+			"place": "Near Turin, Italy",
+			"dateLabel": "1957 to 1960s",
+			"summary": "When Sputnik 1 was launched, two brothers in Turin, Achille and Gian Battista Judica-Cordiglia, were among the many radio amateurs who tuned in to its beeps.",
+			"body": "<p>When Sputnik 1 was launched, two brothers in Turin, Achille and Gian Battista Judica-Cordiglia, were among the many radio amateurs who tuned in to its beeps.</p>\n<p>They were good at it. <mark>They built a listening station in an old German bunker on a hill outside the city, called it Torre Bert,</mark> and filled it with aerials and tape recorders.</p>\n<p>Over the next few years they recorded signals from many satellites. Journalists visited them, and their recordings were played on radio and television in Italy and abroad.</p>",
+			"marginNote": "A bunker, home-made aerials and tape recorders.",
+			"showsRadioHint": false,
+			"sortOrder": 5,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Judica-cordiglia-brothers.jpg?width=900",
+					"title": "The Judica-Cordiglia brothers",
+					"caption": "Achille and Gian Battista at their listening station.",
+					"credit": "Unknown photographer. Public domain.",
+					"text": "Achille and Gian Battista",
+					"style": null,
+					"people": [
+						"judicacordiglia"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "judicacordiglia"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The listeners",
+			"tabLabel": "What they said they heard",
+			"title": "What they said they heard",
+			"place": "Torre Bert",
+			"dateLabel": "1960 and 1961",
+			"summary": "The brothers' most famous claims went far beyond satellite beeps.",
+			"body": "<p>The brothers' most famous claims went far beyond satellite beeps. They said they had recorded secret Soviet flights that had gone wrong.</p>\n<p>In November 1960, they said, they picked up a Morse SOS moving away from the Earth. In early 1961 they released a recording of heavy breathing and a failing heartbeat. <mark>In May 1961 came the most dramatic: a woman's voice in Russian, saying she was getting hot and could see flames.</mark></p>\n<p>The recordings were powerful to listen to, and for many people they seemed to prove the rumours.</p>",
+			"marginNote": "Three claims. Pin them up, then check them.",
+			"showsRadioHint": false,
+			"sortOrder": 6,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Alcobendas_-_Museo_Nacional_de_Ciencia_y_Tecnolog%C3%ADa_(MUNCYT)%2C_magetof%C3%B3n_Geloso.jpg?width=800",
+					"title": "A tape recorder of the time",
+					"caption": "An Italian Geloso tape recorder of the period. Amateurs kept what they heard on machines like this.",
+					"credit": "Zarateman. CC0",
+					"text": "an Italian recorder",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Clipping",
+					"title": "An SOS in Morse, moving away",
+					"text": "As if a spacecraft was lost in space.",
+					"dateLabel": "Nov. 1960",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Claimed"
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Clipping",
+					"title": "Breathing and a failing heartbeat",
+					"text": "Said to come from a dying cosmonaut.",
+					"dateLabel": "Early 1961",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Claimed"
+					}
+				},
+				{
+					"sortOrder": 4,
+					"type": "Clipping",
+					"title": "A woman's voice: \"I am hot\"",
+					"text": "As if a capsule was burning up.",
+					"dateLabel": "May 1961",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Claimed"
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The checks",
+			"tabLabel": "The recordings, checked",
+			"title": "The recordings, checked",
+			"place": "Engineers, historians and Russian speakers",
+			"dateLabel": "1960s to 1990s",
+			"summary": "Over the years the claims were examined, and the problems piled up.",
+			"body": "<p>Over the years the claims were examined, and the problems piled up. The frequencies the brothers used do not match those Soviet spacecraft used for voice. The timings match no launch tracked by Western radar, which watched Soviet launch sites closely.</p>\n<p>Russian speakers who listened to the \"woman cosmonaut\" found that her speech made little sense, with mistakes no Soviet pilot would make.</p>\n<p><mark>The heartbeat proves nothing on its own:</mark> the test flights before Gagarin carried dogs and a life-size mannequin, and their instruments sent back exactly that kind of medical data by radio.</p>",
+			"marginNote": "Play the tape: a real Vostok voice, Gagarin at lift-off, to compare.",
+			"showsRadioHint": true,
+			"sortOrder": 7,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Shemya_FPS-17.jpg?width=700",
+					"title": "Watching the launches",
+					"caption": "An AN/FPS-17 radar, the kind the United States used to watch Soviet launches. This one stood on Shemya, Alaska.",
+					"credit": "TSgt L. Hernandez, USAF. Public domain.",
+					"text": "radar on watch",
+					"style": null
+				}
+			],
+			"explanations": [
+				{
+					"title": "The frequencies",
+					"proposedBy": "Radio engineers",
+					"forText": "The brothers were skilled and did record real satellite signals.",
+					"againstText": "The frequencies they named do not match those Soviet spacecraft used for voice.",
+					"imageFit": null,
+					"verdict": "Wrong frequencies for a crewed flight.",
+					"stamp": "DOES NOT FIT",
+					"imageUrl": null,
+					"imageCredit": null,
+					"sortOrder": 2
+				},
+				{
+					"title": "The timing",
+					"proposedBy": "Western radar tracking",
+					"forText": "Soviet launches were secret, so a hidden flight was possible in principle.",
+					"againstText": "Western radar watched Soviet launch sites closely. No launch matches the claimed flights.",
+					"imageFit": null,
+					"verdict": "No launch at those times.",
+					"stamp": "DOES NOT FIT",
+					"imageUrl": null,
+					"imageCredit": null,
+					"sortOrder": 3
+				},
+				{
+					"title": "The language",
+					"proposedBy": "Russian speakers",
+					"forText": "The voice sounds frightened and real.",
+					"againstText": "The speech makes little sense, with mistakes no Soviet pilot reading a checklist would make.",
+					"imageFit": null,
+					"verdict": "Not how a cosmonaut would speak.",
+					"stamp": "DOES NOT FIT",
+					"imageUrl": null,
+					"imageCredit": null,
+					"sortOrder": 4
+				}
+			]
+		},
+		{
+			"section": "The checks",
+			"tabLabel": "The explanations",
+			"title": "The explanations",
+			"place": "Tested against the evidence",
+			"dateLabel": null,
+			"summary": "Three ideas are pinned to the board.",
+			"body": "<p>Three ideas are pinned to the board. <mark>Pick up a card to read what supports it and what speaks against it.</mark></p>\n<p>The last one explains why the story lasted so long: the Soviet Union really did hide things, and people noticed the gaps.</p>",
+			"marginNote": "Ruled out, very likely, confirmed.",
+			"showsRadioHint": false,
+			"sortOrder": 8,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Soviet_Union_1961_CPA_2560-2562_stamps_(World's_First_Manned_Space_Flight).jpg?width=800",
+					"title": "Only the successes",
+					"caption": "Stamps for Gagarin's flight, 1961. Successes were celebrated loudly; failures were never mentioned.",
+					"credit": "Post of the USSR. Public domain.",
+					"text": "only the successes",
+					"style": "photo"
+				}
+			],
+			"explanations": [
+				{
+					"title": "Cosmonauts really died in space",
+					"proposedBy": "The story told by the rumours",
+					"forText": "The programme was secret, failures were hidden, and at least one real death in training was covered up.",
+					"againstText": "No such flight appears in Western radar tracking, in the archives opened after 1991, or in the engineers' memoirs. Every cosmonaut of the time is accounted for.",
+					"imageFit": null,
+					"verdict": "The records exist, and they show no such flight.",
+					"stamp": "RULED OUT",
+					"imageUrl": null,
+					"imageCredit": null,
+					"sortOrder": 2
+				},
+				{
+					"title": "The tapes were misunderstood or made up",
+					"proposedBy": "Most historians who studied them",
+					"forText": "The frequencies, timings and language do not fit real flights. Some sounds match the medical signals of unmanned test flights.",
+					"againstText": "Nobody has shown exactly how each recording was made. The brothers always stood by them.",
+					"imageFit": null,
+					"verdict": "The best fit for all the evidence.",
+					"stamp": "VERY LIKELY",
+					"imageUrl": null,
+					"imageCredit": null,
+					"sortOrder": 3
+				},
+				{
+					"title": "Rumours grew from real secrets",
+					"proposedBy": "How the story started",
+					"forText": "There was a real hidden death in training, and cosmonauts were painted out of photographs.",
+					"againstText": "This explains why the rumours were believed, not whether any claim was true.",
+					"imageFit": null,
+					"verdict": "The secrecy was real, and it fed the legend.",
+					"stamp": "CONFIRMED",
+					"imageUrl": null,
+					"imageCredit": null,
+					"sortOrder": 4
+				}
+			]
+		},
+		{
+			"section": "Real secrets",
+			"tabLabel": "A real hidden death",
+			"title": "A real hidden death",
+			"place": "Moscow",
+			"dateLabel": "23 March 1961",
+			"summary": "There was one real death, and it was hidden.",
+			"body": "<p>There was one real death, and it was hidden. Valentin Bondarenko, at 24 the youngest of the first cosmonauts, was near the end of a ten-day test in a sealed chamber filled with oxygen-rich air.</p>\n<p>He wiped his skin with a pad of cotton soaked in alcohol and tossed it away. It landed on a hot electric plate and burst into flames, and the fire spread to his woollen suit. <mark>He died in hospital about eight hours later, less than three weeks before Gagarin's flight.</mark></p>\n<p>The death was revealed only in 1986, in the newspaper Izvestia. Six years after Bondarenko, a similar fire in pure oxygen killed the three astronauts of Apollo 1 in America.</p>",
+			"marginNote": "Hidden for 25 years. Revealed in 1986.",
+			"showsRadioHint": false,
+			"sortOrder": 9,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "bondarenko"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Apollo_1_fire.jpg?width=900",
+					"title": "Apollo 1, after the fire",
+					"caption": "The inside of the Apollo 1 capsule after the fire of 27 January 1967, which killed three astronauts in a pure-oxygen cabin.",
+					"credit": "NASA. Public domain.",
+					"text": "Apollo 1, 1967: the same danger",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "23 March 1961\nrevealed: 1986, Izvestia",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Real secrets",
+			"tabLabel": "The Nedelin catastrophe",
+			"title": "The Nedelin catastrophe",
+			"place": "Tyuratam",
+			"dateLabel": "24 October 1960",
+			"summary": "A real disaster really was hidden, and it happened at the same launch site as Sputnik and Gagarin.",
+			"body": "<p>A real disaster really was hidden, and it happened at the same launch site as Sputnik and Gagarin. On 24 October 1960 a new military rocket, the R-16, was being prepared for its first test.</p>\n<p>With the rocket fuelled and dozens of people around it, an engine of the second stage fired by mistake. <mark>The rocket exploded on the pad, killing Marshal Mitrofan Nedelin and many engineers and soldiers.</mark> The official count was 78; others put it higher.</p>\n<p>The newspapers said Nedelin had died in a plane crash. The truth was published only in 1989.</p>",
+			"marginNote": "Hidden for almost thirty years.",
+			"showsRadioHint": false,
+			"sortOrder": 10,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9F%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D1%87%D0%B8%D0%BA%D0%B0%D0%BC%2C_%D0%BF%D0%BE%D0%B3%D0%B8%D0%B1%D1%88%D0%B8%D1%85_%D0%BF%D1%80%D0%B8_%D0%B2%D0%B7%D1%80%D1%8B%D0%B2%D0%B5_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D1%8B_%D0%A0-16_24_%D0%BE%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F_1960_%D0%B3%D0%BE%D0%B4%D0%B0_(%D0%91%D0%B0%D0%B9%D0%BA%D0%BE%D0%BD%D1%83%D1%80).jpg?width=800",
+					"title": "The memorial",
+					"caption": "The memorial at Baikonur to those killed in the R-16 explosion of 24 October 1960.",
+					"credit": "Georgy Dolgopsky. CC BY-SA 4.0",
+					"text": "Baikonur memorial",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "24 October 1960",
+					"data": {
+						"rows": [
+							[
+								"Rocket",
+								"R-16, a missile"
+							],
+							[
+								"Killed",
+								"at least 78"
+							],
+							[
+								"Cover story",
+								"a plane crash"
+							],
+							[
+								"Revealed",
+								"1989"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Real secrets",
+			"tabLabel": "Faces removed",
+			"title": "Faces removed from photographs",
+			"place": "Official photographs",
+			"dateLabel": "1961 to 1963",
+			"summary": "Several of the first cosmonauts left the programme early, some for health and some for discipline.",
+			"body": "<p>Several of the first cosmonauts left the programme early, some for health and some for discipline. The best known is Grigori Nelyubov, one of the six candidates for the first flight, dismissed in 1963 after an argument with a military patrol.</p>\n<p><mark>When official photographs of the group were published, he had been painted out of them.</mark> Years later, people comparing originals and published versions spotted a missing man in a row.</p>\n<p>To many, that looked like proof that cosmonauts were disappearing. In fact the people removed were alive. They had simply left the programme.</p>",
+			"marginNote": "Removed from the photo, not from life.",
+			"showsRadioHint": false,
+			"sortOrder": 11,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "nelyubov"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nelyubov_training.jpg?width=900",
+					"title": "Nelyubov in training",
+					"caption": "Grigori Nelyubov during training, before he was dismissed.",
+					"credit": "Moscow Main Archive, Museum of Cosmonautics. CC BY 4.0",
+					"text": "Nelyubov, in training",
+					"style": null,
+					"people": [
+						"nelyubov"
+					]
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Painted out of the group photo.\nStill alive at the time.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Real secrets",
+			"tabLabel": "A landing kept quiet",
+			"title": "A landing kept quiet",
+			"place": "Moscow",
+			"dateLabel": "1961 onwards",
+			"summary": "Even the greatest Soviet success was told with small untruths.",
+			"body": "<p>Even the greatest Soviet success was told with small untruths. To fit the rules for an official record, Gagarin was said to have landed inside his capsule, not by his own parachute.</p>\n<p>The launch site was given as Baikonur, a town hundreds of kilometres from the real pad. <mark>When people later found out, it made other official stories easier to doubt.</mark></p>\n<p>Each small secret, once discovered, gave the rumours a little more fuel.</p>",
+			"marginNote": "Small untruths, big doubts.",
+			"showsRadioHint": false,
+			"sortOrder": 12,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vostok_1_after_landing.jpg?width=800",
+					"title": "The empty capsule",
+					"caption": "The Vostok 1 capsule after landing. Gagarin had already come down separately by parachute.",
+					"credit": "Errabee, English Wikipedia. CC BY-SA 2.5",
+					"text": "he was not inside",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "What was claimed",
+					"data": {
+						"rows": [
+							[
+								"Landed",
+								"in the capsule"
+							],
+							[
+								"Really",
+								"by parachute"
+							],
+							[
+								"Launch site",
+								"Baikonur"
+							],
+							[
+								"Really",
+								"Tyuratam"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Real secrets",
+			"tabLabel": "Deaths that were announced",
+			"title": "Deaths that were announced",
+			"place": "Soyuz 1 and Soyuz 11",
+			"dateLabel": "1967 and 1971",
+			"summary": "Not every death was hidden.",
+			"body": "<p>Not every death was hidden. On 24 April 1967 Vladimir Komarov died when the parachutes of Soyuz 1 failed to open properly and the capsule hit the ground. The Soviet Union announced it and gave him a state funeral.</p>\n<p>On 30 June 1971 the three cosmonauts of Soyuz 11, Georgi Dobrovolsky, Vladislav Volkov and Viktor Patsayev, were coming home after more than three weeks on the first space station. A valve opened as the capsule separated, and the air escaped. <mark>They are still the only people ever to have died in space itself.</mark></p>\n<p>These deaths were real and public. They are the opposite of the lost-cosmonaut story: tragedies that were reported, investigated and remembered.</p>",
+			"marginNote": "Real tragedies, openly mourned.",
+			"showsRadioHint": false,
+			"sortOrder": 13,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vladimir_Mikhaylovich_Komarov_(1927-1967)%2C_his_wife_Valentina_Komarov%2C_and_their_daughter_Irina.jpg?width=800",
+					"title": "Vladimir Komarov and his family",
+					"caption": "Vladimir Komarov with his wife Valentina and their daughter Irina.",
+					"credit": "Smithsonian Institution. No known copyright restrictions.",
+					"text": "Komarov, with his family",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Soyuz_11_crew.jpg?width=800",
+					"title": "The crew of Soyuz 11",
+					"caption": "A Soviet stamp in memory of Dobrovolsky, Volkov and Patsayev.",
+					"credit": "Post of the USSR. Public domain.",
+					"text": "Soyuz 11, 1971",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Announced deaths",
+					"data": {
+						"rows": [
+							[
+								"24 April 1967",
+								"Komarov, Soyuz 1"
+							],
+							[
+								"30 June 1971",
+								"Soyuz 11 crew"
+							],
+							[
+								"Cause, 1967",
+								"parachute failure"
+							],
+							[
+								"Cause, 1971",
+								"air escaped"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The truth",
+			"tabLabel": "The investigator",
+			"title": "The investigator",
+			"place": "Houston and elsewhere",
+			"dateLabel": "1970s to 1990s",
+			"summary": "James Oberg worked as an engineer on NASA's Space Shuttle in Houston.",
+			"body": "<p>James Oberg worked as an engineer on NASA's Space Shuttle in Houston. In his own time he studied the Soviet space programme, reading everything that was published and comparing it line by line.</p>\n<p>He took the lost-cosmonaut stories seriously enough to check them. <mark>He found the real hidden deaths and the doctored photographs, and showed that the famous rumours did not hold up.</mark></p>\n<p>His book Uncovering Soviet Disasters, published in 1988, set out what had really been hidden and what had been invented.</p>",
+			"marginNote": "Took the rumours seriously enough to check.",
+			"showsRadioHint": false,
+			"sortOrder": 14,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "Uncovering Soviet Disasters",
+					"text": "James Oberg's book on what was really hidden.",
+					"dateLabel": "1988",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "Real secrets, false rumours"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "James Oberg",
+					"data": {
+						"rows": [
+							[
+								"Worked",
+								"NASA, Space Shuttle"
+							],
+							[
+								"Studied",
+								"the Soviet programme"
+							],
+							[
+								"Found",
+								"real hidden deaths"
+							],
+							[
+								"Rejected",
+								"the lost cosmonauts"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The truth",
+			"tabLabel": "The archives open",
+			"title": "What the archives showed",
+			"place": "Moscow",
+			"dateLabel": "After 1991",
+			"summary": "After the Soviet Union broke up in 1991, historians could read documents that had been secret for decades, and the engineers and cosmonauts of the early years could speak freely.",
+			"body": "<p>After the Soviet Union broke up in 1991, historians could read documents that had been secret for decades, and the engineers and cosmonauts of the early years could speak freely.</p>\n<p>They described Bondarenko's death, the removed photographs, rocket explosions on the pad, and the deaths that were already public, such as Vladimir Komarov in 1967 and the crew of Soyuz 11 in 1971.</p>\n<p><mark>They did not describe any secret flight that killed a cosmonaut in space.</mark> The American historian James Oberg, who spent years investigating Soviet cover-ups, came to the same conclusion.</p>",
+			"marginNote": "Failures, accidents, cover-ups: all there. Lost cosmonauts: none.",
+			"showsRadioHint": false,
+			"sortOrder": 15,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "The files are opened",
+					"text": "Secret documents and memoirs, read at last.",
+					"dateLabel": "1991",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "No secret deaths in space"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Yuri_Gagarin_(1961)_-_Restoration.jpg?width=800",
+					"title": "Yuri Gagarin",
+					"caption": "Gagarin in 1961. Every early cosmonaut is accounted for in the records.",
+					"credit": "Arto Jousi, Finnish Museum of Photography. Public domain.",
+					"text": "every cosmonaut accounted for",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The truth",
+			"tabLabel": "Every cosmonaut counted",
+			"title": "Every cosmonaut counted",
+			"place": "The first group of twenty",
+			"dateLabel": "1960 onwards",
+			"summary": "In the end, the strongest evidence was simple.",
+			"body": "<p>In the end, the strongest evidence was simple. The first Soviet cosmonaut group had twenty men, and once the archives opened, every one of them could be followed.</p>\n<p>Twelve flew in space. <mark>One, Valentin Bondarenko, died in the training fire. The other seven left the programme for health or discipline</mark>, Nelyubov among them, and lived on in ordinary life.</p>\n<p>Nobody from the group disappeared. There was no room in the record for a secret cosmonaut lost in space.</p>",
+			"marginNote": "Twenty men, twenty stories.",
+			"showsRadioHint": false,
+			"sortOrder": 16,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The group of 1960",
+					"data": {
+						"rows": [
+							[
+								"In the group",
+								"20"
+							],
+							[
+								"Flew in space",
+								"12"
+							],
+							[
+								"Died in training",
+								"1, Bondarenko"
+							],
+							[
+								"Left the group",
+								"7"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "bondarenko"
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "nelyubov"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The truth",
+			"tabLabel": "The verdict",
+			"title": "The verdict",
+			"place": "Today",
+			"dateLabel": null,
+			"summary": "The case is closed: nobody was secretly lost in space.",
+			"body": "<p>The case is closed: <mark>nobody was secretly lost in space.</mark> The recordings do not match any real flight, and every early cosmonaut has been accounted for.</p>\n<p>But the rumours were not foolish. They grew out of real secrecy, a real hidden death and real faces removed from photographs. When information is hidden, people fill the gaps with stories, and some of those stories are hard to kill.</p>\n<p>The lesson is not only about space. It is about why openness matters.</p>",
+			"marginNote": "Closed. But the questions made sense.",
+			"showsRadioHint": false,
+			"sortOrder": 17,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Note",
+					"title": "Note",
+					"text": "Verdict: debunked.\nThe secrecy was real. The lost cosmonauts were not.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Bondarenko_crater_AS15-M-0106.jpg?width=900",
+					"title": "A crater with his name",
+					"caption": "Bondarenko crater, on the far side of the Moon, named after the cosmonaut who died in training.",
+					"credit": "James Stuby, from a NASA Apollo 15 image. Public domain.",
+					"text": "Bondarenko crater",
+					"style": null
+				}
+			],
+			"explanations": []
+		}
+	]
+}

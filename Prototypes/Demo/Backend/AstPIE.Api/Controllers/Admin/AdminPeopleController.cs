@@ -26,6 +26,7 @@ namespace AstPIE.Api.Controllers.Admin
 				select new PersonAdminDto
 				{
 					Id = p.Id,
+					PhotoCredit = p.PhotoCredit,
 					FullName = p.FullName,
 					Nationality = p.Nationality,
 					BirthDate = p.BirthDate,
@@ -45,6 +46,7 @@ namespace AstPIE.Api.Controllers.Admin
 				select new PersonAdminDto
 				{
 					Id = p.Id,
+					PhotoCredit = p.PhotoCredit,
 					FullName = p.FullName,
 					Nationality = p.Nationality,
 					BirthDate = p.BirthDate,
@@ -146,6 +148,7 @@ namespace AstPIE.Api.Controllers.Admin
 			person.DeathDate = input.DeathDate;
 			person.PhotoUrl = TextOrEmpty(input.PhotoUrl);
 			person.Bio = input.Bio.Trim();
+			person.PhotoCredit = Optional(input.PhotoCredit);
 		}
 	}
 }

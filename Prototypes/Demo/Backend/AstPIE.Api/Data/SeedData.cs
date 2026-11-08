@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using System.Linq;
 using AstPIE.Api.Models;
 
 namespace AstPIE.Api.Data
 {
 	// First content of the site. Runs at startup and only fills empty tables.
-	// The long texts are files in Data/Content, read by SeedContent.
+	// The content itself is in the JSON files in Data/Content, read by SeedContent.
 	public static class SeedData
 	{
 		// The simulations are served locally for now. Later this becomes the CDN address.
@@ -14,17 +15,23 @@ namespace AstPIE.Api.Data
 		// Each part only fills its own tables, and only when they are empty
 		public static void Run(AppDbContext db)
 		{
+			if (!db.KeyWords.Any())
+			{
+				AddKeyWords(db);
+				db.SaveChanges();
+			}
+
 			if (!db.Topics.Any())
 			{
-				db.Topics.Add(FirstLaw());
-				db.Topics.Add(SecondLaw());
-				db.Topics.Add(ThirdLaw());
+				AddTopics(db);
 				db.SaveChanges();
 			}
 
 			if (!db.Entries.Any())
 			{
 				ExploreSeedData.AddEntries(db);
+				db.SaveChanges();
+				LinkTopicsToCases(db);
 				db.SaveChanges();
 			}
 
@@ -35,82 +42,119 @@ namespace AstPIE.Api.Data
 			}
 		}
 
-		private static Topic FirstLaw()
+		private static void AddKeyWords(AppDbContext db)
 		{
-			Topic topic = new Topic();
-			topic.Slug = "newtons-first-law";
-			topic.Title = "Newton's First Law";
-			topic.Branch = "Classical mechanics";
-			topic.Summary = "Things keep doing what they are already doing. Why a puck keeps sliding on ice, why you lurch forward when a bus brakes, and how Voyager 1 has travelled for decades without fuel.";
-			topic.SortOrder = 1;
-			topic.IsPublished = true;
-			topic.Content = SeedContent.Read("topics", "newtons-first-law.md");
-
-			Simulation simulation = new Simulation();
-			simulation.Slug = "newtons-first-law";
-			simulation.Title = "A box on a frictionless field";
-			simulation.Engine = SimulationEngine.Godot2D;
-			simulation.Version = "0.1";
-			simulation.Status = SimulationStatus.Published;
-			simulation.BuildUrl = SimulationsUrl + "?sim=newtons-first-law";
-			simulation.ThumbnailUrl = SimulationsUrl + simulation.Slug + ".webp";
-			simulation.LearningGoal = "See that with zero net force the velocity does not change.";
-			simulation.SourceUrl = SourceUrl + "NewtonsFirstLaw";
-			topic.Simulations.Add(simulation);
-
-			return topic;
+			List<KeyWord> words = SeedContent.Read<List<KeyWord>>("learn", "keywords.json");
+			foreach (KeyWord word in words)
+			{
+				db.KeyWords.Add(word);
+			}
 		}
 
-		private static Topic SecondLaw()
+		private static void AddTopics(AppDbContext db)
 		{
-			Topic topic = new Topic();
-			topic.Slug = "newtons-second-law";
-			topic.Title = "Newton's Second Law";
-			topic.Branch = "Classical mechanics";
-			topic.Summary = "The harder you push, the faster it speeds up. Why the same push sends a ball flying but barely moves a boulder, and how engineers work out the force a rocket needs to leave the ground.";
-			topic.SortOrder = 2;
-			topic.IsPublished = true;
-			topic.Content = SeedContent.Read("topics", "newtons-second-law.md");
+			List<SeedContent.TopicFile> files = SeedContent.Read<List<SeedContent.TopicFile>>("learn", "topics.json");
 
-			Simulation simulation = new Simulation();
-			simulation.Slug = "newtons-second-law";
-			simulation.Title = "Two boxes, the same force";
-			simulation.Engine = SimulationEngine.Godot2D;
-			simulation.Version = "0.1";
-			simulation.Status = SimulationStatus.Published;
-			simulation.BuildUrl = SimulationsUrl + "?sim=newtons-second-law";
-			simulation.ThumbnailUrl = SimulationsUrl + simulation.Slug + ".webp";
-			simulation.LearningGoal = "Compare how the same force accelerates a light and a heavy body.";
-			simulation.SourceUrl = SourceUrl + "NewtonsSecondLaw";
-			topic.Simulations.Add(simulation);
+			foreach (SeedContent.TopicFile file in files)
+			{
+				Topic topic = new Topic();
+				topic.Slug = file.Slug;
+				topic.Title = file.Title;
+				topic.Question = file.Question;
+				topic.Branch = file.Branch;
+				topic.Summary = file.Summary;
+				topic.SortOrder = file.SortOrder;
+				topic.Content = file.Content;
+				topic.PredictQuestion = file.PredictQuestion;
+				topic.PredictOptions = file.PredictOptions;
+				topic.PredictAnswer = file.PredictAnswer;
+				topic.LawStatement = file.LawStatement;
+				topic.LawEquation = file.LawEquation;
+				topic.ReadAloud = file.ReadAloud;
+				topic.RecapPoints = file.RecapPoints;
+				topic.ExploreLine = file.ExploreLine;
+				topic.IsPublished = true;
 
-			return topic;
+				int sortOrder = 1;
+				foreach (TopicSymbol symbol in file.Symbols)
+				{
+					symbol.SortOrder = sortOrder;
+					topic.Symbols.Add(symbol);
+					sortOrder++;
+				}
+
+				sortOrder = 1;
+				foreach (CheckQuestion question in file.CheckQuestions)
+				{
+					question.SortOrder = sortOrder;
+					topic.CheckQuestions.Add(question);
+					sortOrder++;
+				}
+
+				foreach (string slug in file.KeyWords)
+				{
+					TopicKeyWord link = new TopicKeyWord();
+					link.KeyWord = (from word in db.KeyWords where word.Slug == slug select word).First();
+					topic.KeyWords.Add(link);
+				}
+
+				topic.Simulations.Add(NewSimulation(file.Simulation));
+				db.Topics.Add(topic);
+			}
 		}
 
-		private static Topic ThirdLaw()
+		private static Simulation NewSimulation(SeedContent.SimulationFile file)
 		{
-			Topic topic = new Topic();
-			topic.Slug = "newtons-third-law";
-			topic.Title = "Newton's Third Law";
-			topic.Branch = "Classical mechanics";
-			topic.Summary = "Every push pushes back. Why two astronauts drift apart when they push each other, and how a rocket moves forward in empty space by throwing gas backwards.";
-			topic.SortOrder = 3;
-			topic.IsPublished = true;
-			topic.Content = SeedContent.Read("topics", "newtons-third-law.md");
-
 			Simulation simulation = new Simulation();
-			simulation.Slug = "newtons-third-law";
-			simulation.Title = "Two boxes pushing apart";
+			simulation.Slug = file.Slug;
+			simulation.Title = file.Title;
 			simulation.Engine = SimulationEngine.Godot2D;
 			simulation.Version = "0.1";
 			simulation.Status = SimulationStatus.Published;
-			simulation.BuildUrl = SimulationsUrl + "?sim=newtons-third-law";
-			simulation.ThumbnailUrl = SimulationsUrl + simulation.Slug + ".webp";
-			simulation.LearningGoal = "See that the push and the push back are equal, and that the total momentum is kept.";
-			simulation.SourceUrl = SourceUrl + "NewtonsThirdLaw";
-			topic.Simulations.Add(simulation);
+			simulation.BuildUrl = SimulationsUrl + "?sim=" + file.Slug;
+			simulation.ThumbnailUrl = SimulationsUrl + file.Slug + ".webp";
+			simulation.LearningGoal = file.LearningGoal;
+			simulation.SourceUrl = SourceUrl + FolderName(file.Slug);
+			simulation.LabIntro = file.LabIntro;
+			simulation.ModelText = file.ModelText;
+			simulation.Limits = file.Limits;
+			simulation.StepCode = file.StepCode;
 
-			return topic;
+			int sortOrder = 1;
+			foreach (LabTask task in file.LabTasks)
+			{
+				task.SortOrder = sortOrder;
+				simulation.LabTasks.Add(task);
+				sortOrder++;
+			}
+			return simulation;
+		}
+
+		// "newtons-first-law" -> "NewtonsFirstLaw", the simulation's folder in the repository
+		private static string FolderName(string slug)
+		{
+			string name = "";
+			foreach (string part in slug.Split('-'))
+			{
+				name += char.ToUpper(part[0]) + part.Substring(1);
+			}
+			return name;
+		}
+
+		// "See it at work in Explore": set once the cases exist
+		private static void LinkTopicsToCases(AppDbContext db)
+		{
+			List<SeedContent.TopicFile> files = SeedContent.Read<List<SeedContent.TopicFile>>("learn", "topics.json");
+
+			foreach (SeedContent.TopicFile file in files)
+			{
+				Topic topic = (from t in db.Topics where t.Slug == file.Slug select t).FirstOrDefault();
+				Entry entry = (from e in db.Entries where e.Slug == file.ExploreSlug select e).FirstOrDefault();
+				if (topic != null && entry != null)
+				{
+					topic.ExploreEntry = entry;
+				}
+			}
 		}
 	}
 }

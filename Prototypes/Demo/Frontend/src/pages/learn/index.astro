@@ -1,62 +1,118 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CradleArt from '../../components/art/CradleArt.astro';
+// The Learn page, like a book's contents: how each topic is set out, then each branch as one topic
+// that opens to show its concepts, numbered in reading order.
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import LearnHeader from '../../components/learn/LearnHeader.astro';
+import LearnFooter from '../../components/learn/LearnFooter.astro';
+import { getTopic, getTopics } from '../../lib/api';
+import type { Topic } from '../../lib/api';
+import { buildTopicPage, lowerFirst } from '../../lib/learn';
+import { branchDescription, branchId } from '../../lib/branches';
 import { t } from '../../i18n/t';
-import { getTopics } from '../../lib/api';
-import type { TopicListItem } from '../../lib/api';
-import { branchDescription } from '../../lib/branches';
+import '../../styles/learn.css';
+
+const list = await getTopics();
+
+// The full topics, for each concept's lab line and the key words it uses
+const topics: Topic[] = [];
+for (const item of list)
+{
+	const topic = await getTopic(item.slug);
+	if (topic !== null)
+	{
+		topics.push(topic);
+	}
+}
+
+interface Concept
+{
+	topic: Topic;
+	lab: string;
+	keyWords: string[];
+}
 
 interface Branch
 {
 	name: string;
-	topics: TopicListItem[];
+	concepts: Concept[];
 }
 
-const topics = await getTopics();
-
-// Group the topics by branch. The API already sorts them by branch and order.
 const branches: Branch[] = [];
 for (const topic of topics)
 {
 	let branch = branches.find((b) => b.name === topic.branch);
 	if (branch === undefined)
 	{
-		branch = { name: topic.branch, topics: [] };
+		branch = { name: topic.branch, concepts: [] };
 		branches.push(branch);
 	}
-	branch.topics.push(topic);
+	let lab = '';
+	if (topic.simulations.length > 0 && topic.simulations[0].labIntro !== null)
+	{
+		lab = lowerFirst(String(topic.simulations[0].labIntro));
+	}
+	const page = buildTopicPage(topic.content, topic.keyWords);
+	branch.concepts.push({ topic: topic, lab: lab, keyWords: page.keyWords.map((word) => word.name) });
 }
 ---
 
-<BaseLayout title={t('learn.title')} theme="learn" bodyClass="">
-	<div class="wrap top">
-		<h1 class="t-page">{t('learn.title')}</h1>
-		<p class="intro">{t('learn.intro')}</p>
-	</div>
+<SiteLayout title={t('nav.learn')} bodyClass="learn-page">
+	<meta slot="head" name="description" content={t('learn.lead')} />
+	<LearnHeader inLearn={true} />
+	<main class="learn3">
+		<h1>{t('nav.learn')}</h1>
+		<p class="lead">{t('learn.lead')}</p>
 
-	{topics.length === 0 && <div class="wrap"><p class="intro">{t('learn.empty')}</p></div>}
+		<section class="howto">
+			<h2>{t('learn.howTitle')}</h2>
+			<div class="howgrid">
+				<p class="withbar" set:html={t('learn.howKeyIdeas')} />
+				<p set:html={t('learn.howKeyWords')} />
+				<p>{t('learn.howPredict')} <span class="circled">b<svg viewBox="0 0 30 30" aria-hidden="true"><path d="M21 4 C 15 1, 4 3, 3 13 C 2 23, 12 27, 20 25 C 28 23, 29 12, 24 7 C 22 5, 19 3, 16 3" /></svg></span></p>
+				<p>{t('learn.howAnswers1')} <span class="ansbtn demo">{t('learn.showAnswer')}</span> {t('learn.howAnswers2')}</p>
+				<p><span class="swatch" aria-hidden="true"></span>{t('learn.howLab')}</p>
+				<p>{t('learn.howLaw')}</p>
+				<p>{t('learn.howSimulation')}</p>
+			</div>
+		</section>
 
-	{branches.map((branch) => (
-		<div class="wrap branch">
-			<aside class="branch-card">
-				{branch.name === 'Classical mechanics' && <div class="ill"><CradleArt /></div>}
-				<h2>{branch.name}</h2>
-				<p>{branchDescription(branch.name)}</p>
-			</aside>
-			<ul class="topics">
-				{branch.topics.map((topic) => (
-					<li>
-						<a href={'/learn/' + topic.slug}>
-							<div>
-								<h3>{topic.title}</h3>
-								<p>{topic.summary}</p>
-								<span class="sim-tag"><i></i>{t('learn.endsWithSim')}</span>
-							</div>
-							<span class="arr"><svg><use href="#i-arrow" /></svg></span>
-						</a>
-					</li>
-				))}
-			</ul>
-		</div>
-	))}
-</BaseLayout>
+		{branches.map((branch) => (
+			<section class="part3 branch3" id={branchId(branch.name)}>
+				<button class="branchbtn" type="button" aria-expanded="false" aria-controls={branchId(branch.name) + '-concepts'}>
+					<span class="bt"><span class="bname">{branch.name}</span><span class="bdesc">{branchDescription(branch.name)}</span></span>
+					<span class="pm" aria-hidden="true"></span>
+				</button>
+				<div class="branchbody" id={branchId(branch.name) + '-concepts'}>
+					<div>
+						<ol class="toc3">
+							{branch.concepts.map((concept, i) => (
+								<li data-slug={concept.topic.slug}>
+									<span class="mk" aria-hidden="true" title={t('learn.startHere')}>{i === 0 && '☞'}</span>
+									<a class="entry" href={'/learn/' + concept.topic.slug}><span class="n">{i + 1}</span><span class="t">{concept.topic.question} – {concept.topic.title}</span></a>
+									<p class="sub">
+										{concept.lab !== '' && <span class="labline">{t('learn.labLine')} {concept.lab}</span>}
+										{' '}
+										<span class="kws">{t('learn.keyWordsLine')} {concept.keyWords.map((word, k) => (
+											<Fragment>{k > 0 && ', '}<i>{word}</i></Fragment>
+										))}.</span>
+									</p>
+								</li>
+							))}
+						</ol>
+					</div>
+				</div>
+			</section>
+		))}
+	</main>
+	<LearnFooter />
+</SiteLayout>
+
+<script>
+	import { setUpLearnPage } from '../../scripts/learn';
+	import { setUpLogoName } from '../../scripts/logoName';
+	import { setUpLeaving } from '../../scripts/leaving';
+
+	setUpLogoName();
+	setUpLeaving();
+	setUpLearnPage();
+</script>

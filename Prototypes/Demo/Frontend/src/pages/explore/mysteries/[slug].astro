@@ -1,7 +1,8 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import EntryPage from '../../../components/EntryPage.astro';
-import { getEntry } from '../../../lib/api';
+// A mystery, opened on the evidence board of the mystery desk
+import DeskPage from '../../../components/explore/DeskPage.astro';
+import { getEntry, getTopic } from '../../../lib/api';
+import { toDeskCase } from '../../../lib/desk';
 
 const entry = await getEntry(String(Astro.params.slug));
 
@@ -10,8 +11,12 @@ if (entry === null || entry.kind !== 'Mystery')
 {
 	return Astro.rewrite('/404');
 }
+
+let topic = null;
+if (entry.relatedTopic !== null)
+{
+	topic = await getTopic(entry.relatedTopic.slug);
+}
 ---
 
-<BaseLayout title={entry.title} theme="mysteries" bodyClass="">
-	<EntryPage entry={entry} />
-</BaseLayout>
+<DeskPage title={entry.title} description={entry.tagline || entry.title} mode="case" data={toDeskCase(entry, topic)} />

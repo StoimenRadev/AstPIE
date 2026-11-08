@@ -1,0 +1,23 @@
+---
+// Explore: a black hole, its disc in crisp bands with moving streaks
+---
+
+<svg aria-hidden="true" viewBox="0 0 1400 800">
+				<defs>
+					<radialGradient id="void"><stop offset="0" stop-color="#05030a"/><stop offset=".72" stop-color="#110a1c"/><stop offset="1" stop-color="#3a2050"/></radialGradient>
+					<clipPath id="front"><rect x="-400" y="400" width="2200" height="800"/></clipPath>
+				</defs>
+				<g transform="rotate(-9 950 400)"><g id="disc"><defs><mask id="discCut" maskUnits="userSpaceOnUse" x="-400" y="-400" width="2800" height="1600"><rect x="-400" y="-400" width="2800" height="1600" fill="#fff"/><ellipse cx="950" cy="400" rx="304" ry="60.8" fill="#000"/></mask></defs><g mask="url(#discCut)"><ellipse cx="950" cy="400" rx="773.0" ry="154.6" fill="#3f2d55"/><ellipse cx="950" cy="400" rx="744.0" ry="148.8" fill="#5a3d6a"/><ellipse cx="950" cy="400" rx="713.0" ry="142.6" fill="#80598a"/><ellipse cx="950" cy="400" rx="684.0" ry="136.8" fill="#9a5a7a"/><ellipse cx="950" cy="400" rx="656.0" ry="131.2" fill="#a9503c"/><ellipse cx="950" cy="400" rx="627.0" ry="125.4" fill="#c76a3a"/><ellipse cx="950" cy="400" rx="596.0" ry="119.2" fill="#e08d45"/><ellipse cx="950" cy="400" rx="563.0" ry="112.6" fill="#e3a24b"/><ellipse cx="950" cy="400" rx="528.0" ry="105.6" fill="#f0bd62"/><ellipse cx="950" cy="400" rx="491.0" ry="98.2" fill="#f6d48a"/><ellipse cx="950" cy="400" rx="452.0" ry="90.4" fill="#fbe7bd"/><ellipse cx="950" cy="400" rx="411.0" ry="82.2" fill="#fff4dc"/><ellipse cx="950" cy="400" rx="369.0" ry="73.8" fill="#fbe7bd"/><ellipse cx="950" cy="400" rx="330.0" ry="66.0" fill="#f6d48a"/></g><ellipse class="flow f-slow" cx="950" cy="400" rx="744" ry="148.8" fill="none" stroke="#c7a6d9" stroke-width="3" stroke-dasharray="60 34 12 34" stroke-linecap="round"/><ellipse class="flow f-slow f-rev" cx="950" cy="400" rx="656" ry="131.2" fill="none" stroke="#e8b4a0" stroke-width="3" stroke-dasharray="30 40" stroke-linecap="round"/><ellipse class="flow " cx="950" cy="400" rx="596" ry="119.2" fill="none" stroke="#fbe7bd" stroke-width="4" stroke-dasharray="110 30 24 30" stroke-linecap="round"/><ellipse class="flow f-fast" cx="950" cy="400" rx="528" ry="105.6" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="80 24 14 24" stroke-linecap="round"/><ellipse class="flow f-fast f-rev" cx="950" cy="400" rx="452" ry="90.4" fill="none" stroke="#c76a3a" stroke-width="4" stroke-dasharray="26 44" stroke-linecap="round"/><ellipse class="flow f-fast" cx="950" cy="400" rx="410" ry="82.0" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="140 22 30 22" stroke-linecap="round"/><ellipse class="flow f-fast" cx="950" cy="400" rx="330" ry="66.0" fill="none" stroke="#e08d45" stroke-width="3" stroke-dasharray="50 30" stroke-linecap="round"/></g></g>
+				<!-- the halo: light from the far side of the disc, bent all the way round the hole -->
+				<circle cx="950" cy="400" r="239" fill="#80598a" opacity=".6"/>
+				<circle cx="950" cy="400" r="229" fill="#a9503c"/>
+				<circle cx="950" cy="400" r="218" fill="#e3a24b"/>
+				<circle cx="950" cy="400" r="204" fill="#fbe7bd"/>
+				<circle cx="950" cy="400" r="189" fill="#ffffff"/>
+				<circle class="flow f-fast" cx="950" cy="400" r="204" fill="none" stroke="#ffffff" stroke-width="3" stroke-dasharray="46 22 10 22" stroke-linecap="round"/>
+				<circle class="flow f-slow f-rev" cx="950" cy="400" r="230" fill="none" stroke="#c7a6d9" stroke-width="2" stroke-dasharray="18 30" stroke-linecap="round"/>
+				<circle cx="950" cy="400" r="175" fill="url(#void)"/>
+				<circle cx="950" cy="400" r="175" fill="none" stroke="#6d4a7f" stroke-width="4"/>
+				<!-- the near side of the disc passes in front of the hole -->
+				<g transform="rotate(-9 950 400)" clip-path="url(#front)"><use href="#disc"/></g>
+			</svg>

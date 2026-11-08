@@ -3,6 +3,11 @@
 	--sim-ink: #1a2033;
 	--sim-cream: #f2e8d5;
 	--sim-teal: #4f8a8b;
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 1rem;
+	--space-4: 1.5rem;
+	--color-muted: #6b665c;
 	margin: var(--space-4) 0;
 }
 
@@ -42,69 +47,19 @@
 	outline-offset: 3px;
 }
 
-/* Dark fade at the bottom behind the text */
-.simulation-thumb::after {
-	content: '';
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(to top, rgba(26, 32, 51, 0.9) 0%, rgba(26, 32, 51, 0) 55%);
-}
-
-.thumb-text {
+/* "Run the simulation" in the middle of the picture */
+.thumb-run {
 	position: absolute;
 	z-index: 1;
-	left: var(--space-4);
-	right: var(--space-4);
-	bottom: var(--space-4);
-}
-
-.thumb-title {
-	display: block;
-	font-size: 1.5rem;
-	font-weight: 700;
-	line-height: 1.2;
-}
-
-.thumb-goal {
-	display: block;
-	margin-top: var(--space-1);
-	max-width: 34rem;
-	opacity: 0.9;
-}
-
-/* Round play button in the middle */
-.thumb-play {
-	position: absolute;
-	z-index: 1;
-	top: 50%;
 	left: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 4.5rem;
-	height: 4.5rem;
-	margin: -2.25rem 0 0 -2.25rem;
-	padding-left: 0.3rem;
-	border-radius: 50%;
-	background: var(--sim-cream);
-	color: var(--sim-ink);
-	font-size: 1.5rem;
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-	transition: transform 0.2s ease;
-}
-
-.simulation-thumb:hover .thumb-play {
-	transform: scale(1.08);
-}
-
-/* The triangle inside the play button */
-.thumb-play-icon {
-	display: inline-block;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 0.6em 0 0.6em 1em;
-	border-color: transparent transparent transparent currentColor;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding: 10px 22px;
+	border-radius: 3px;
+	background: var(--sim-ink);
+	color: var(--sim-cream);
+	white-space: nowrap;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 /* ---------- Running simulation ---------- */
@@ -249,36 +204,4 @@
 	margin-top: var(--space-2);
 	color: var(--color-muted);
 	font-size: 0.875rem;
-}
-
-/* ---------- Narrow screens ---------- */
-
-.simulation-narrow {
-	display: none;
-	margin: var(--space-2) 0 0;
-	color: var(--color-muted);
-	font-size: 0.875rem;
-}
-
-@media (max-width: 767px) {
-	.simulation-narrow {
-		display: block;
-	}
-
-	.thumb-title {
-		font-size: 1.125rem;
-	}
-
-	.thumb-goal {
-		display: none;
-	}
-
-	/* On phones Expand uses the whole screen */
-	.is-expanded .simulation-frame {
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100dvh;
-		border-radius: 0;
-	}
 }

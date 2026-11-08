@@ -1,0 +1,275 @@
+{
+	"slug": "sagittarius-a-star",
+	"name": "Sagittarius A*",
+	"otherNames": "Sgr A*",
+	"type": "BlackHole",
+	"typeLabel": "Black hole (supermassive)",
+	"constellation": "Sagittarius",
+	"rightAscension": 17.761,
+	"declination": -29.008,
+	"distanceLy": 26670,
+	"massKg": 8.55e+36,
+	"radiusKm": 12700000,
+	"apparentMagnitude": null,
+	"discoveredBy": "Bruce Balick and Robert Brown",
+	"discoveryYear": 1974,
+	"summary": "The black hole at the centre of our galaxy: four million times as heavy as the Sun, squeezed into a space smaller than Mercury's orbit, 26 670 light years away.",
+	"description": "<p>The black hole at the centre of our galaxy: <mark>four million times as heavy as the Sun, squeezed into a space smaller than Mercury's orbit.</mark> In 2022 we saw its shadow for the first time.</p>",
+	"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/EHT_Sagittarius_A_black_hole.tif?width=1600",
+	"imageCaption": "The first image of Sagittarius A*, made by the Event Horizon Telescope, a network of radio dishes around the world.",
+	"imageCredit": "EHT Collaboration. CC BY 4.0",
+	"imageIsDark": true,
+	"facts": [
+		{
+			"label": "Distance",
+			"value": "about 26 670 light-years"
+		},
+		{
+			"label": "Mass",
+			"value": "about 4.3 million times the Sun"
+		},
+		{
+			"label": "Size",
+			"value": "event horizon about 18 times wider than the Sun"
+		},
+		{
+			"label": "Where",
+			"value": "the centre of our galaxy"
+		},
+		{
+			"label": "Seen by eye",
+			"value": "no, hidden behind dust"
+		},
+		{
+			"label": "Found",
+			"value": "1974, Bruce Balick and Robert Brown"
+		}
+	],
+	"logEntries": [
+		{
+			"dateLabel": "1931 to 1933",
+			"title": "Radio hiss from Sagittarius",
+			"summary": "Karl Jansky, an engineer at Bell Labs, builds a rotating antenna and hears a steady hiss coming from the direction of Sagittarius: the first radio waves from space.",
+			"place": "Bell Telephone Laboratories, Holmdel, New Jersey · 1931 to 1933",
+			"body": [
+				"Karl Jansky was not looking at the sky. His job at Bell Labs was to find out what caused the crackling noise on radio telephone calls across the Atlantic. He built a large antenna on wheels, nicknamed the merry-go-round, that turned around once every twenty minutes.",
+				"He recorded crackles from nearby and distant thunderstorms. He also heard a faint, steady hiss that rose and fell once a day. <mark>Then he noticed that it repeated every 23 hours and 56 minutes, the length of a day measured by the stars, not the Sun.</mark>",
+				"The hiss came from beyond the Solar System. It was strongest towards the constellation Sagittarius, where the centre of our galaxy lies hidden behind dust. In 1933 the discovery made the front page of the New York Times.",
+				"Jansky had started radio astronomy. The unit astronomers use to measure the strength of radio waves from space is called the jansky in his honour."
+			],
+			"facts": [
+				"Who: Karl Jansky",
+				"Antenna: on wheels, turning",
+				"Repeated every: 23 h 56 min",
+				"Strongest towards: Sagittarius"
+			],
+			"note": null,
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Janksy_Karl_radio_telescope.jpg?width=1400",
+			"plateTitle": "Jansky's antenna",
+			"plateCaption": "A full-size copy of the antenna Karl Jansky built, now at the Green Bank Observatory.",
+			"plateCredit": "Astrochemist. Public domain.",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 1
+		},
+		{
+			"dateLabel": "Feb. 1974",
+			"title": "A tiny, bright point",
+			"summary": "Bruce Balick and Robert Brown find a very compact, bright source of radio waves at the exact centre of the galaxy.",
+			"place": "National Radio Astronomy Observatory, Green Bank · February 1974",
+			"body": [
+				"By the 1970s astronomers knew that the centre of the galaxy was full of radio sources. Some suspected that a massive black hole might sit there, and that it would show up as a tiny, very bright point.",
+				"Bruce Balick and Robert Brown linked radio dishes at Green Bank with a smaller dish about 35 kilometres away, so that together they could see much finer detail than any single telescope. <mark>In February 1974 they found a source of radio waves so compact that they could not measure its size.</mark>",
+				"It sat at the dynamical centre of the galaxy, the point that everything else seems to circle. No ordinary star shines like that in radio waves.",
+				"Nobody could yet prove what it was. It would take another thirty years of watching the stars around it."
+			],
+			"facts": [
+				"Found by: Balick and Brown",
+				"Telescopes: dishes 35 km apart",
+				"Size: too small to measure",
+				"Where: the exact centre"
+			],
+			"note": null,
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Looking_into_the_Milky_Way%E2%80%99s_heart_%E2%80%94_ISAAC_observes_the_Galactic_Centre_(potw1047a).jpg?width=1400",
+			"plateTitle": "The centre of the galaxy",
+			"plateCaption": "The crowded centre of the Milky Way in infrared light, which passes through the dust that hides it from our eyes.",
+			"plateCredit": "ESO, R. Schödel. CC BY 4.0",
+			"plateIsDark": true,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 2
+		},
+		{
+			"dateLabel": "1982",
+			"title": "Named Sagittarius A*",
+			"summary": "Robert Brown adds the star to the name, borrowed from the way physicists mark an excited atom: it was the exciting part.",
+			"place": "Astronomy papers · 1982",
+			"body": [
+				"The bright radio region at the centre of the galaxy had long been called Sagittarius A, the brightest radio source in the constellation. It turned out to hold several different things: clouds of gas, the remains of an exploded star, and the tiny point.",
+				"The point needed a name of its own. In 1982 Robert Brown called it Sagittarius A*, with a star at the end. <mark>In atomic physics a star marks an atom in an excited state, and he said it was the exciting part.</mark>",
+				"Astronomers say \"Sagittarius A star\", and often shorten it to Sgr A*.",
+				"The name stuck before anyone knew for sure what it named."
+			],
+			"facts": [
+				"Named: 1982",
+				"By: Robert Brown",
+				"Said: Sagittarius A star",
+				"Short: Sgr A*"
+			],
+			"note": "the name",
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/85-3_Radio_Telescope_at_Green_Bank_NRAO.jpg?width=1400",
+			"plateTitle": "Green Bank",
+			"plateCaption": "One of the radio telescopes at Green Bank, West Virginia, where Balick and Brown found the source in 1974.",
+			"plateCredit": "Z22. CC BY-SA 4.0",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 3
+		},
+		{
+			"dateLabel": "1995 to 2002",
+			"title": "Stars racing around nothing",
+			"summary": "Teams led by Reinhard Genzel and Andrea Ghez track stars near the centre. They orbit something invisible and enormously heavy. The star S2 goes around once every 16 years.",
+			"place": "Very Large Telescope, Chile, and Keck Observatory, Hawaii · 1992 to 2002",
+			"body": [
+				"Dust hides the centre of the galaxy from ordinary light, but infrared light passes through. Two teams, one led by Reinhard Genzel in Germany and one by Andrea Ghez in California, began photographing the stars there in infrared, year after year.",
+				"The Earth's air blurs starlight, so both teams used new tricks to sharpen their pictures, including mirrors that bend hundreds of times a second to undo the twinkling. <mark>The stars near the centre were moving fast, along curved paths, around a point where nothing could be seen.</mark>",
+				"One star, S2, was followed all the way around. In 2002 it swept past the centre at about 5 000 kilometres per second, passing only about four times as far from it as Neptune is from the Sun.",
+				"Its orbit showed that about four million suns of mass sat in a space smaller than our Solar System. Only one known thing is that heavy, that small and that dark: a black hole."
+			],
+			"facts": [
+				"Teams: Genzel and Ghez",
+				"Light used: infrared",
+				"Star S2: one lap in 16 years",
+				"Mass inside: about 4 million suns"
+			],
+			"note": null,
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Keck-UCLA_Galactic_Center_Group_Sagittarius_A*_2022.gif?width=600",
+			"plateTitle": "Stars orbiting Sgr A*",
+			"plateCaption": "Positions of stars around the centre, measured year after year from 1995 to 2022.",
+			"plateCredit": "Andrea Ghez and the UCLA Galactic Center Group, W. M. Keck Observatory. CC BY-SA 4.0",
+			"plateIsDark": true,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 4
+		},
+		{
+			"dateLabel": "May 2018",
+			"title": "Gravity stretches the light",
+			"summary": "As S2 swings closest, the GRAVITY instrument sees its light stretched to redder colours by the black hole's gravity, just as Einstein predicted.",
+			"place": "GRAVITY instrument, Very Large Telescope, Chile · May 2018",
+			"body": [
+				"Einstein's general relativity predicts that light climbing out of a strong gravitational field loses energy and is stretched to redder colours. Near a black hole the effect should be measurable.",
+				"In May 2018 the star S2 made its closest pass again, at about two and a half percent of the speed of light. The GRAVITY instrument combined the four large telescopes of the Very Large Telescope so that they worked like one giant one. <mark>It measured the star's light shifting towards red exactly as much as Einstein predicted.</mark>",
+				"Two years later the same team showed that S2's orbit slowly turns, tracing a rosette shape over many laps, another prediction of relativity.",
+				"A star racing around an invisible point had become one of the best laboratories for testing gravity."
+			],
+			"facts": [
+				"Star: S2",
+				"Speed: about 2.5 percent of light",
+				"Seen: light stretched to red",
+				"Matches: Einstein"
+			],
+			"note": null,
+			"plateKind": "Chart",
+			"plateUrl": null,
+			"plateTitle": "The orbit of the star S2",
+			"plateCaption": "A sketch of S2's orbit around Sgr A*, which sits at one focus of the ellipse. One lap takes about 16 years.",
+			"plateCredit": "Sketch drawn by AstPIE.",
+			"plateIsDark": false,
+			"plateChartKey": "s2",
+			"platePosterUrl": null,
+			"sortOrder": 5
+		},
+		{
+			"dateLabel": "Oct. 2020",
+			"title": "Nobel Prize in Physics",
+			"summary": "Genzel and Ghez share the prize for finding the supermassive object at the centre of our galaxy, together with Roger Penrose.",
+			"place": "Stockholm · Announced 6 October 2020",
+			"body": [
+				"The Nobel Prize in Physics 2020 was shared in two halves. One half went to Roger Penrose, who had shown in 1965 that black holes are a natural result of Einstein's theory, not a mathematical oddity.",
+				"The other half went to Reinhard Genzel and Andrea Ghez, <mark>for the discovery of a supermassive compact object at the centre of our galaxy.</mark> Their teams had raced each other for almost thirty years, checking each other's results.",
+				"Andrea Ghez became only the fourth woman ever to win the Nobel Prize in Physics.",
+				"The prize did not use the word black hole for Sgr A*. Scientists are careful: the evidence was overwhelming, but they had not yet seen it."
+			],
+			"facts": [
+				"Prize: Physics, 2020",
+				"Half: Roger Penrose",
+				"Half: Genzel and Ghez",
+				"Ghez: fourth woman in physics"
+			],
+			"note": "Nobel Prize",
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Andrea_Ghez_(geminiann19004a).jpg?width=1400",
+			"plateTitle": "Andrea Ghez",
+			"plateCaption": "Andrea Ghez, who shared the 2020 Nobel Prize in Physics with Reinhard Genzel and Roger Penrose.",
+			"plateCredit": "International Gemini Observatory/NOIRLab/NSF/AURA. CC BY 4.0",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 6
+		},
+		{
+			"dateLabel": "May 2022",
+			"title": "Its shadow, seen",
+			"summary": "The Event Horizon Telescope, radio dishes across the Earth working as one, shows the ring of glowing gas around the black hole's shadow.",
+			"place": "Event Horizon Telescope · Announced 12 May 2022",
+			"body": [
+				"A black hole gives off no light. But the gas swirling around it glows, and the black hole casts a dark shadow on that glow. To see a shadow that small from so far away, you would need a telescope the size of the Earth.",
+				"The Event Horizon Telescope is just that: radio dishes in Hawaii, Arizona, Chile, Mexico, Spain and the South Pole, all recording at the same instant with atomic clocks. Computers later combine their data as if from one dish. <mark>It is like seeing a doughnut lying on the surface of the Moon.</mark>",
+				"Sgr A* was harder than the first black hole the team imaged, in the galaxy M87, because gas circles it in minutes and the picture changes while you look. The team combined thousands of images from observations made in April 2017.",
+				"On 12 May 2022 they showed the result: a glowing ring around a dark centre, the size Einstein's theory predicted. For the first time, the black hole at the centre of our own galaxy had been seen."
+			],
+			"facts": [
+				"Announced: 12 May 2022",
+				"Data from: April 2017",
+				"Telescope: dishes across the Earth",
+				"Saw: a ring and a shadow"
+			],
+			"note": null,
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/EHT_Sagittarius_A_black_hole.tif?width=1600",
+			"plateTitle": "The shadow of Sgr A*",
+			"plateCaption": "The first image of Sagittarius A*.",
+			"plateCredit": "EHT Collaboration. CC BY 4.0",
+			"plateIsDark": true,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 7
+		}
+	],
+	"instruments": [
+		{
+			"name": "Jansky's antenna",
+			"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Janksy_Karl_radio_telescope.jpg?width=400",
+			"photoCredit": null,
+			"photoIsDark": false,
+			"description": "A rotating antenna on wheels built by Karl Jansky at Bell Labs. It started radio astronomy.",
+			"role": "first radio waves from the centre, 1932",
+			"sortOrder": 1
+		},
+		{
+			"name": "Very Large Telescope, Chile",
+			"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/VLT_and_the_Milky_Way_(antu_galactic_center).jpg?width=400",
+			"photoCredit": null,
+			"photoIsDark": false,
+			"description": "Four large telescopes in the Atacama desert. Genzel's team used them, and the GRAVITY instrument, to follow star S2.",
+			"role": "tracked the stars around it",
+			"sortOrder": 2
+		},
+		{
+			"name": "Keck Observatory, Hawaii",
+			"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/SubaruKecksAndIRTF02.png?width=400",
+			"photoCredit": null,
+			"photoIsDark": false,
+			"description": "Andrea Ghez's team used the twin Keck telescopes on Mauna Kea to follow the stars at the centre for more than 25 years.",
+			"role": "tracked the stars around it",
+			"sortOrder": 3
+		}
+	]
+}

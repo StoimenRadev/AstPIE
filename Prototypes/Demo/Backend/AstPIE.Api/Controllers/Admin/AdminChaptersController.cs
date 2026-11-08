@@ -27,6 +27,11 @@ namespace AstPIE.Api.Controllers.Admin
 				select new ChapterAdminDto
 				{
 					Id = c.Id,
+					Section = c.Section,
+					TabLabel = c.TabLabel,
+					Place = c.Place,
+					MarginNote = c.MarginNote,
+					ShowsRadioHint = c.ShowsRadioHint,
 					EntryId = c.EntryId,
 					Title = c.Title,
 					DateLabel = c.DateLabel,
@@ -46,6 +51,11 @@ namespace AstPIE.Api.Controllers.Admin
 				select new ChapterAdminDto
 				{
 					Id = c.Id,
+					Section = c.Section,
+					TabLabel = c.TabLabel,
+					Place = c.Place,
+					MarginNote = c.MarginNote,
+					ShowsRadioHint = c.ShowsRadioHint,
 					EntryId = c.EntryId,
 					Title = c.Title,
 					DateLabel = c.DateLabel,
@@ -124,6 +134,11 @@ namespace AstPIE.Api.Controllers.Admin
 			chapter.Summary = input.Summary.Trim();
 			chapter.Body = input.Body;
 			chapter.SortOrder = input.SortOrder;
+			chapter.Section = input.Section.Trim();
+			chapter.TabLabel = input.TabLabel.Trim();
+			chapter.Place = Optional(input.Place);
+			chapter.MarginNote = Optional(input.MarginNote);
+			chapter.ShowsRadioHint = input.ShowsRadioHint;
 		}
 	}
 }

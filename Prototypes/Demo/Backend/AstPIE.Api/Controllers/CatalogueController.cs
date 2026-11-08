@@ -116,10 +116,12 @@ namespace AstPIE.Api.Controllers
 					Slug = item.Slug,
 					Name = item.Name,
 					Type = item.Type,
+					TypeLabel = item.TypeLabel,
 					Constellation = item.Constellation,
 					DistanceLy = item.DistanceLy,
 					ImageUrl = item.ImageUrl,
-					Summary = item.Summary
+					Summary = item.Summary,
+					LogCount = item.LogEntries.Count()
 				};
 
 			CataloguePageDto result = new CataloguePageDto();
@@ -189,6 +191,60 @@ namespace AstPIE.Api.Controllers
 			result.Summary = item.Summary;
 			result.Description = item.Description;
 			result.ImageUrl = item.ImageUrl;
+			result.ImageCaption = item.ImageCaption;
+			result.ImageCredit = item.ImageCredit;
+			result.ImageIsDark = item.ImageIsDark;
+			result.TypeLabel = item.TypeLabel;
+			result.RightAscension = item.RightAscension;
+			result.Declination = item.Declination;
+
+			result.Facts = await (
+				from fact in db.CatalogueFacts
+				where fact.CatalogueObjectId == item.Id
+				orderby fact.SortOrder
+				select new FactDto
+				{
+					Label = fact.Label,
+					Value = fact.Value
+				}).ToListAsync();
+
+			result.LogEntries = await (
+				from log in db.ObservationLogEntries
+				where log.CatalogueObjectId == item.Id
+				orderby log.SortOrder
+				select new LogEntryDto
+				{
+					DateLabel = log.DateLabel,
+					Title = log.Title,
+					Summary = log.Summary,
+					Place = log.Place,
+					Body = log.Body,
+					Facts = log.Facts,
+					Note = log.Note,
+					PlateKind = log.PlateKind,
+					PlateUrl = log.PlateUrl,
+					PlateChartKey = log.PlateChartKey,
+					PlatePosterUrl = log.PlatePosterUrl,
+					PlateTitle = log.PlateTitle,
+					PlateCaption = log.PlateCaption,
+					PlateCredit = log.PlateCredit,
+					PlateIsDark = log.PlateIsDark
+				}).ToListAsync();
+
+			result.Instruments = await (
+				from link in db.CatalogueObjectInstruments
+				join instrument in db.Instruments on link.InstrumentId equals instrument.Id
+				where link.CatalogueObjectId == item.Id
+				orderby link.SortOrder
+				select new InstrumentDto
+				{
+					Name = instrument.Name,
+					PhotoUrl = instrument.PhotoUrl,
+					PhotoCredit = instrument.PhotoCredit,
+					PhotoIsDark = instrument.PhotoIsDark,
+					Description = instrument.Description,
+					Role = link.Role
+				}).ToListAsync();
 
 			if (item.RelatedTopicId != null)
 			{

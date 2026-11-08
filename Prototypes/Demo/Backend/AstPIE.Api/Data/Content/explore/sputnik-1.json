@@ -1,0 +1,1705 @@
+{
+	"slug": "sputnik-1",
+	"kind": "Mission",
+	"title": "Sputnik 1",
+	"tagline": "The first object people put into orbit",
+	"summary": "A polished metal ball, 58 centimetres across, with four long antennas. It became the first object people ever put into orbit, and <mark>for three weeks the whole planet listened to it beep.</mark>",
+	"coverImageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9F%D0%B5%D1%80%D0%B2%D1%8B%D0%B9_%D0%B2_%D0%BC%D0%B8%D1%80%D0%B5_%D0%B8%D1%81%D0%BA%D1%83%D1%81%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%81%D0%BF%D1%83%D1%82%D0%BD%D0%B8%D0%BA_%D0%97%D0%B5%D0%BC%D0%BB%D0%B8.jpg?width=700",
+	"coverCaption": "PS-1, a full-size copy",
+	"coverCredit": "Andrey Butko, CC BY-SA 3.0",
+	"country": "Soviet Union",
+	"desk": "Soviet",
+	"startDate": "1957-10-04",
+	"endDate": "1958-01-04",
+	"agency": "USSR",
+	"missionOutcome": "Success",
+	"evidenceStatus": null,
+	"statusNote": null,
+	"radioMinMHz": null,
+	"radioMaxMHz": null,
+	"relatedTopic": "newtons-first-law",
+	"facts": [
+		{
+			"label": "Country",
+			"value": "Soviet Union"
+		},
+		{
+			"label": "Launched",
+			"value": "4 October 1957, Tyuratam (today Baikonur)"
+		},
+		{
+			"label": "Rocket",
+			"value": "R-7, version 8K71PS"
+		},
+		{
+			"label": "Weight",
+			"value": "83.6 kg"
+		},
+		{
+			"label": "Ended",
+			"value": "4 January 1958, burned up in the air"
+		}
+	],
+	"people": [
+		{
+			"person": "korolev",
+			"role": "Chief designer",
+			"isCrew": false,
+			"sortOrder": 1
+		},
+		{
+			"person": "tikhonravov",
+			"role": "Led the design of the satellite",
+			"isCrew": false,
+			"sortOrder": 2
+		},
+		{
+			"person": "guier",
+			"role": "Worked out the orbit from the beep",
+			"isCrew": false,
+			"sortOrder": 3
+		},
+		{
+			"person": "weiffenbach",
+			"role": "Built the receiver that heard Sputnik",
+			"isCrew": false,
+			"sortOrder": 4
+		},
+		{
+			"person": "lovellb",
+			"role": "Jodrell Bank telescope",
+			"isCrew": false,
+			"sortOrder": 5
+		}
+	],
+	"media": [
+		{
+			"sortOrder": 1,
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik_asm.jpg?width=900",
+			"title": "Sputnik 1",
+			"caption": "A copy of Sputnik 1, the first object people put into orbit.",
+			"credit": "NSSDC, NASA. Public domain.",
+			"text": "PS-1, as it looked in orbit",
+			"style": null
+		},
+		{
+			"sortOrder": 2,
+			"type": "Note",
+			"title": "Note",
+			"text": "Case opened.\nFollow the tabs in order, or jump to any part.",
+			"style": "yellow"
+		},
+		{
+			"type": "Audio",
+			"url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Sputnik_beep.ogg",
+			"title": "Sputnik signal, Oct. 1957",
+			"credit": "Recording: NASA, public domain",
+			"lengthLabel": "4.4",
+			"sortOrder": 3
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik_rocket.jpg?width=700",
+			"title": "The Sputnik rocket",
+			"caption": "A model of the R-7 version that launched Sputnik.",
+			"credit": "SoM33. Public domain.",
+			"style": "folder",
+			"sortOrder": 4
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Photograph_of_Sputnik_2_taken_from_Patrick_AFB_in_March_1958.jpg?width=900",
+			"title": "Sputnik 2 crossing the sky",
+			"caption": "Sputnik 2 and its rocket photographed from Florida, March 1958.",
+			"credit": "U.S. Air Force. Public domain.",
+			"style": "folder",
+			"sortOrder": 5
+		}
+	],
+	"explanations": [],
+	"chapters": [
+		{
+			"section": "Story",
+			"tabLabel": "Dreams of space",
+			"title": "Dreams of space",
+			"place": "Kaluga and Moscow",
+			"dateLabel": "1903 to 1933",
+			"summary": "Long before anyone could build one, a deaf schoolteacher in the small Russian town of Kaluga worked out how a rocket could reach space.",
+			"body": "<p>Long before anyone could build one, a deaf schoolteacher in the small Russian town of Kaluga worked out how a rocket could reach space. In 1903 Konstantin Tsiolkovsky published the equation that still tells engineers how much fuel a rocket needs to reach a given speed.</p>\n<p>He imagined rockets built in several stages, liquid fuels, stations in orbit and people living in space. <mark>Almost nobody took him seriously while he was alive.</mark></p>\n<p>His books inspired a generation of young engineers. In 1933 one of their groups in Moscow, called GIRD, launched one of the first Soviet rockets to burn liquid oxygen. One of its leaders was a 26-year-old engineer named Sergei Korolev.</p>",
+			"marginNote": "A schoolteacher worked it out first.",
+			"showsRadioHint": false,
+			"sortOrder": 1,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Konstantin_Tsiolkovsky_with_a_mirror_(cleaned).jpg?width=700",
+					"title": "Konstantin Tsiolkovsky",
+					"caption": "Konstantin Tsiolkovsky, the schoolteacher from Kaluga who worked out the mathematics of spaceflight.",
+					"credit": "Probably A. V. Assonov. Public domain.",
+					"text": "Tsiolkovsky, Kaluga",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "A planet is the cradle of the mind, but one cannot live in the cradle forever.",
+					"author": "Konstantin Tsiolkovsky, in a letter",
+					"dateLabel": "1911"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Monument_to_GIRD-09_rocket_2018.jpg?width=800",
+					"title": "GIRD-09",
+					"caption": "A monument to GIRD-09, the rocket launched by Korolev's group in August 1933.",
+					"credit": "Rapetrov1976. CC BY-SA 4.0",
+					"text": "GIRD-09, 1933",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "The Chief Designer",
+			"title": "The Chief Designer",
+			"place": "Moscow and Kolyma",
+			"dateLabel": "1938 to 1944",
+			"summary": "In June 1938, during Stalin's purges, Korolev was arrested and accused of sabotage.",
+			"body": "<p>In June 1938, during Stalin's purges, Korolev was arrested and accused of sabotage. He was beaten during questioning, sentenced to ten years and sent to a gold mine in Kolyma, in the far north-east, where many prisoners died of cold and hunger.</p>\n<p>He survived, but lost teeth to scurvy. In 1940 he was moved to a prison design bureau in Moscow, where arrested engineers worked on aircraft under guard. <mark>He was released in 1944, but officially cleared only in 1957, the year of Sputnik.</mark></p>\n<p>After the war he led the bureau that built the Soviet Union's rockets. His name became a state secret. In public he was only ever called the Chief Designer.</p>",
+			"marginNote": "A prisoner in 1940. The Chief Designer in 1957.",
+			"showsRadioHint": false,
+			"sortOrder": 2,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "korolev"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Sergei Korolev",
+					"data": {
+						"rows": [
+							[
+								"Born",
+								"1907, Zhytomyr"
+							],
+							[
+								"Arrested",
+								"June 1938"
+							],
+							[
+								"Released",
+								"1944"
+							],
+							[
+								"Cleared",
+								"1957"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Name kept secret\nuntil the day he died.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Rockets from Germany",
+			"title": "Rockets from Germany",
+			"place": "Germany and the Soviet Union",
+			"dateLabel": "1945 to 1953",
+			"summary": "At the end of the Second World War, both the Americans and the Soviets raced to collect Germany's V-2, the first large liquid-fuel missile.",
+			"body": "<p>At the end of the Second World War, both the Americans and the Soviets raced to collect Germany's V-2, the first large liquid-fuel missile. The Americans took Wernher von Braun and most of his team. The Soviets took factories, parts and a few hundred German engineers.</p>\n<p>Korolev was sent to Germany in 1945 to study the V-2. <mark>His first rocket at home, the R-1 of 1948, was a close copy of it.</mark> Each new rocket went further: the R-2, then the R-5, a later version of which carried a nuclear warhead.</p>\n<p>Then came the leap to the R-7, many times bigger than anything before it.</p>",
+			"marginNote": "Copy first. Then go further.",
+			"showsRadioHint": false,
+			"sortOrder": 3,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/A-4_(V-2)_rocket_replica_at_the_Peenem%C3%BCnde_Historical_Technical_Museum.jpg?width=700",
+					"title": "A V-2",
+					"caption": "A copy of the German V-2 at the museum in Peenemünde, where it was developed.",
+					"credit": "Siarhei Besarab. CC BY-SA 4.0",
+					"text": "the V-2, Peenemünde",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/R-1_R-2_R-5_R-7.jpg?width=700",
+					"title": "From R-1 to R-7",
+					"caption": "Korolev's rockets side by side, from the R-1 to the R-7.",
+					"credit": "VladimirPF. CC BY-SA 4.0",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "each one bigger"
+							}
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Permission to build",
+			"title": "Permission to build",
+			"place": "Moscow",
+			"dateLabel": "1954 to 1956",
+			"summary": "For years Mikhail Tikhonravov had been studying how to put a satellite into orbit, with little support.",
+			"body": "<p>For years Mikhail Tikhonravov had been studying how to put a satellite into orbit, with little support. On 26 May 1954 Korolev sent his report to the government, with a letter saying that the new rocket would make it possible.</p>\n<p>Nobody was in a hurry. Then, in July 1955, the Americans announced their own satellite. <mark>On 30 January 1956 the Soviet government finally approved one</mark>: the big laboratory that became Object D, to fly in 1957 or 1958.</p>\n<p>Korolev had his permission. What he did not have was time.</p>",
+			"marginNote": "A report, a letter, and two years of waiting.",
+			"showsRadioHint": false,
+			"sortOrder": 4,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "tikhonravov"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The road to approval",
+					"data": {
+						"rows": [
+							[
+								"Report sent",
+								"26 May 1954"
+							],
+							[
+								"US announcement",
+								"29 July 1955"
+							],
+							[
+								"Soviet approval",
+								"30 January 1956"
+							],
+							[
+								"Planned",
+								"Object D"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "The Americans announced first.\nThe Soviets approved after.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "The race",
+			"title": "The race",
+			"place": "Moscow and Washington",
+			"dateLabel": "1955 to 1957",
+			"summary": "In 1955 both the United States and the Soviet Union announced that they would launch the first artificial satellite during the International Geophysical Year, eighteen months in 1957 and 1958 when sixty-seven countries studied the Earth together.",
+			"body": "<p>In 1955 both the United States and the Soviet Union announced that they would launch the first artificial satellite during the International Geophysical Year, eighteen months in 1957 and 1958 when sixty-seven countries studied the Earth together.</p>\n<p>Few people in the West took the Soviet promise seriously. The American plan, Vanguard, was public and run by civilian scientists. The Soviet plan was secret, and it was led by a man whose name the world would not learn for another decade: <mark>Sergei Korolev, the Chief Designer.</mark></p>\n<p>Korolev's team had built the R-7, the first rocket able to throw a warhead to the other side of the planet. Korolev and his colleague Mikhail Tikhonravov saw that it could do something else: throw a small ball fast enough to go all the way around the Earth, and keep going.</p>\n<p>The approved satellite, a heavy laboratory called Object D, was running late. In January 1957 Korolev proposed a shortcut: a tiny satellite with no scientific instruments at all, only a radio. It was called PS-1, from the Russian for \"the simplest satellite\".</p>",
+			"marginNote": "Sputnik means \"travelling companion\" in Russian.",
+			"showsRadioHint": false,
+			"sortOrder": 5,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Roket_Launcher_R-7.svg?width=1200",
+					"title": "The R-7 family",
+					"caption": "The R-7 missile and the space rockets that grew out of it, drawn side by side.",
+					"credit": "NASA, Peter Gorin, Emmanuel Dissais. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"x": 12,
+								"y": 18,
+								"text": "the missile itself"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Object D: too heavy, too late.\nPS-1: a ball and a radio, built in weeks.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "korolev"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "A rocket built for war",
+			"title": "A rocket built for war",
+			"place": "Tyuratam and Kamchatka",
+			"dateLabel": "Summer 1957",
+			"summary": "The R-7 was never meant to carry satellites.",
+			"body": "<p>The R-7 was never meant to carry satellites. It was built to carry a nuclear warhead from the Soviet Union to the United States, more than 7 000 kilometres away. That made it far bigger and more powerful than any rocket before it.</p>\n<p>The first launches in the spring and summer of 1957 failed. Then, on 21 August, an R-7 flew about 6 000 kilometres to the target area on the Kamchatka peninsula, although its dummy warhead broke up on the way down. <mark>A few days later the Soviet news agency announced that the country had a rocket able to reach any point on Earth.</mark></p>\n<p>Few people in the West believed it. Korolev saw his chance: with a rocket that strong, a small satellite was only a matter of weeks.</p>",
+			"marginNote": "Built for war. Used for space.",
+			"showsRadioHint": false,
+			"sortOrder": 6,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Semyorka_Rocket_R7_by_Sergei_Korolyov_in_VDNH_Ostankino_RAF0540.jpg?width=900",
+					"title": "An R-7 in Moscow",
+					"caption": "A full-size R-7, the rocket family that launched Sputnik, at the VDNKh exhibition park in Moscow.",
+					"credit": "Sergei Arssenev. CC BY-SA 4.0",
+					"text": "the R-7, full size",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "R-7",
+					"data": {
+						"rows": [
+							[
+								"Built to carry",
+								"a nuclear warhead"
+							],
+							[
+								"First full flight",
+								"21 August 1957"
+							],
+							[
+								"Flew",
+								"about 6 000 km"
+							],
+							[
+								"Engines",
+								"five, all lit on the ground"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Late August 1957:\n\"a rocket able to reach\nany point on Earth\"",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The simplest satellite",
+			"title": "The simplest satellite",
+			"place": "OKB-1, near Moscow",
+			"dateLabel": "Winter 1956 to 1957",
+			"summary": "The first Soviet satellite was supposed to be a flying laboratory, called Object D: more than a tonne of instruments to measure the air, the Sun and the radiation around the Earth.",
+			"body": "<p>The first Soviet satellite was supposed to be a flying laboratory, called Object D: more than a tonne of instruments to measure the air, the Sun and the radiation around the Earth. By the end of 1956 it was badly behind schedule, and the American Vanguard was getting closer.</p>\n<p>Mikhail Tikhonravov and his engineers proposed something much smaller, which they could finish in weeks: a ball with a radio. Its official name was PS, short for <mark>prosteishiy sputnik, \"the simplest satellite\".</mark> It would carry no science at all. Its only job was to get there first and be heard.</p>\n<p>Object D flew later, in May 1958, as Sputnik 3.</p>",
+			"marginNote": "First, not best.",
+			"showsRadioHint": false,
+			"sortOrder": 7,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik-3_in_Kaluga_2.jpg?width=900",
+					"title": "Object D, as Sputnik 3",
+					"caption": "A copy of Sputnik 3 in the museum in Kaluga. This was the satellite first planned to go up before PS-1.",
+					"credit": "Stolbovsky. CC BY 4.0",
+					"text": "the one planned first",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Two satellites",
+					"data": {
+						"rows": [
+							[
+								"PS-1",
+								"83.6 kg, a radio"
+							],
+							[
+								"Object D",
+								"about 1 300 kg, a laboratory"
+							],
+							[
+								"PS-1 flew",
+								"October 1957"
+							],
+							[
+								"Object D flew",
+								"May 1958"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "tikhonravov"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "Building the ball",
+			"title": "Building the ball",
+			"place": "OKB-1, near Moscow",
+			"dateLabel": "Early 1957",
+			"summary": "PS-1 was a sphere 58 centimetres across.",
+			"body": "<p>PS-1 was a sphere 58 centimetres across. Its shell was two halves of aluminium alloy, 2 millimetres thick, joined by 36 bolts and polished like a mirror, so it would reflect sunlight and stay cool inside.</p>\n<p>A ball has no front and no back. Nobody could control which way it pointed in orbit, so <mark>four antennas, 2.4 and 2.9 metres long, sent the signal in every direction at once.</mark></p>\n<p>Most of the weight, about 51 of its 83.6 kilograms, was batteries. They powered a one-watt radio, about as much power as a small torch bulb, and a fan that moved nitrogen gas around inside.</p>\n<p>One trick made even the simplest satellite useful. If the temperature or the pressure inside went wrong, the length of the beeps would change, so engineers on the ground could tell whether it was still healthy just by listening.</p>",
+			"marginNote": "Polished on purpose: a mirror stays cool in sunlight.",
+			"showsRadioHint": false,
+			"sortOrder": 8,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik1_schema.jpg?width=1000",
+					"title": "PS-1 taken apart",
+					"caption": "An exploded drawing: the two halves of the shell, the batteries and radio inside, and the four antennas.",
+					"credit": "Mikaël Restoux, CC BY-SA 3.0",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"x": 62,
+								"y": 10,
+								"text": "58 cm across"
+							},
+							{
+								"x": 4,
+								"y": 82,
+								"text": "antennas 2.4 m and 2.9 m"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik_1_at_the_National_Air_and_Space_Museum%2C_Dec_2017.jpg?width=900",
+					"title": "A copy in Washington",
+					"caption": "A copy of PS-1 at the National Air and Space Museum.",
+					"credit": "Mys 721tx, CC BY-SA 3.0",
+					"text": "museum copy, Washington",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "PS-1",
+					"data": {
+						"rows": [
+							[
+								"Shape",
+								"sphere, 58 cm"
+							],
+							[
+								"Weight",
+								"83.6 kg"
+							],
+							[
+								"Batteries",
+								"about 51 kg"
+							],
+							[
+								"Radio",
+								"1 watt"
+							],
+							[
+								"Frequencies",
+								"20.005 and 40.002 MHz"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The radio",
+			"title": "The radio",
+			"place": "Moscow",
+			"dateLabel": "1957",
+			"summary": "The radio inside PS-1 was built by a team led by the engineer Vyacheslav Lappo.",
+			"body": "<p>The radio inside PS-1 was built by a team led by the engineer Vyacheslav Lappo. It had two transmitters, each sending about one watt: one on 20.005 megahertz and one on 40.002.</p>\n<p>The frequencies were chosen on purpose. <mark>They were low enough for ordinary radio amateurs around the world to pick up</mark>, and the way the two signals bent and faded on their way through the upper atmosphere told scientists about the layers of charged gas up there.</p>\n<p>The signal itself was as simple as possible: short pulses, like a telegraph key pressed again and again. That simplicity is why so many people heard it.</p>",
+			"marginNote": "Built to be heard by anyone.",
+			"showsRadioHint": false,
+			"sortOrder": 9,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik_1_satellite_replica.png?width=800",
+					"title": "PS-1, a copy",
+					"caption": "A copy of PS-1. The radio and its batteries filled the inside of the ball.",
+					"credit": "Soyuz235. Public domain.",
+					"text": "the radio inside",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The radio",
+					"data": {
+						"rows": [
+							[
+								"Transmitters",
+								"two"
+							],
+							[
+								"Power",
+								"about 1 W each"
+							],
+							[
+								"Frequencies",
+								"20.005 and 40.002 MHz"
+							],
+							[
+								"Signal",
+								"short pulses"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "A lighter rocket",
+			"title": "A lighter rocket",
+			"place": "OKB-1",
+			"dateLabel": "Summer 1957",
+			"summary": "The rocket that launched Sputnik was not quite the missile.",
+			"body": "<p>The rocket that launched Sputnik was not quite the missile. Engineers made it lighter, removing everything the satellite did not need, including the warhead and some of the equipment for aiming it.</p>\n<p>In place of the warhead, a cone-shaped cover protected the little ball on its way up through the air. <mark>Every kilogram saved meant a higher orbit</mark>, and a higher orbit meant more time before the thin air pulled the satellite down.</p>\n<p>The new version was called 8K71PS. The letters PS are the same as in the satellite's name.</p>",
+			"marginNote": "Every kilogram counts.",
+			"showsRadioHint": false,
+			"sortOrder": 10,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik_rocket.jpg?width=700",
+					"title": "The Sputnik rocket",
+					"caption": "A model of the R-7 version that launched Sputnik.",
+					"credit": "SoM33. Public domain.",
+					"text": "the 8K71PS",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The satellite version",
+					"data": {
+						"rows": [
+							[
+								"Missile",
+								"R-7, 8K71"
+							],
+							[
+								"For Sputnik",
+								"8K71PS"
+							],
+							[
+								"Taken out",
+								"the warhead and more"
+							],
+							[
+								"Added",
+								"a cover for the ball"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Baikonur",
+			"title": "Baikonur",
+			"place": "Tyuratam, Kazakh SSR",
+			"dateLabel": "From 1955",
+			"summary": "The R-7 needed a launch site far from cities and far from the eyes of the West, with a long empty stretch under its flight path.",
+			"body": "<p>The R-7 needed a launch site far from cities and far from the eyes of the West, with a long empty stretch under its flight path. In 1955 soldiers and builders began work in the dry steppe of Kazakhstan, near the railway stop of Tyuratam.</p>\n<p>To confuse foreign intelligence, the Soviet Union later named the site after Baikonur, a small mining town about 300 kilometres away. <mark>The real launch site carried the name of a place it was not.</mark> The name stuck, and today the whole town around the cosmodrome is called Baikonur.</p>\n<p>The concrete pad built for the R-7 launched Sputnik, then Gagarin, and stayed in use for more than sixty years. It is known as Gagarin's Start.</p>",
+			"marginNote": "A false name on every map.",
+			"showsRadioHint": false,
+			"sortOrder": 11,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Baikonur_Cosmodrome_-_Baikonur-Kosmodrom_(Satellite_picture).jpg?width=1000",
+					"title": "Baikonur from space",
+					"caption": "The cosmodrome photographed from the International Space Station by the astronaut Alexander Gerst.",
+					"credit": "Alexander Gerst. CC BY-SA 2.0",
+					"text": "seen from orbit",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The launch site",
+					"data": {
+						"rows": [
+							[
+								"Real place",
+								"Tyuratam"
+							],
+							[
+								"Name used",
+								"Baikonur"
+							],
+							[
+								"The real Baikonur",
+								"about 300 km away"
+							],
+							[
+								"Building began",
+								"1955"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "To the pad",
+			"title": "To the pad",
+			"place": "Tyuratam",
+			"dateLabel": "3 October 1957",
+			"summary": "Soviet rockets were put together lying down, in a long hall near the pad.",
+			"body": "<p>Soviet rockets were put together lying down, in a long hall near the pad. On the morning before the launch, the R-7 with PS-1 on top was rolled out on a railway car and raised upright over a deep pit in the concrete that would carry the flames away.</p>\n<p>Steel arms held the rocket by its waist. <mark>At lift-off they swung back like the petals of an opening flower</mark>, so the launch system was nicknamed the Tulip.</p>\n<p>The same way of working, by train, lying down and then lifted upright, is still used for Soyuz rockets today.</p>",
+			"marginNote": "Lying down, then lifted up.",
+			"showsRadioHint": false,
+			"sortOrder": 12,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Soyuz_TMA-03M_rollout_in_Baikonur_03.jpg?width=1000",
+					"title": "Rolled out by train",
+					"caption": "A Soyuz rocket, a descendant of the R-7, rolled out to the pad at Baikonur by train in 2011.",
+					"credit": "NASA / Carla Cioffi. Public domain.",
+					"text": "still done this way",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "The Tulip:\narms that open\nat lift-off.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Launch night",
+			"title": "Launch night",
+			"place": "Tyuratam, Kazakh SSR",
+			"dateLabel": "4 October 1957, 22:28 Moscow time",
+			"summary": "The R-7 stood on its pad in the steppe of Soviet Kazakhstan with PS-1 tucked inside a cone on top.",
+			"body": "<p>The R-7 stood on its pad in the steppe of Soviet Kazakhstan with PS-1 tucked inside a cone on top. At 22:28 Moscow time its engines ignited.</p>\n<p>Instead of stages stacked on top of each other, the R-7 had a core with four boosters around it, like the petals of a flower. All five lit on the ground. After about two minutes the boosters fell away. Close to five minutes after lift-off the core shut down and the ball separated, moving at about 8 kilometres per second.</p>\n<p>The flight was not perfect, and the orbit came out lower than planned. It did not matter. <mark>About an hour and a half later the ball came back over the launch site, and the team heard its signal.</mark> Only then did they celebrate.</p>\n<p>The next morning the official newspaper reported the launch in a short, dry article, not even at the top of its front page. Within days the Soviet leaders understood what they had done.</p>",
+			"marginNote": "One trip around the Earth: about 96 minutes.",
+			"showsRadioHint": false,
+			"sortOrder": 13,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Baikonur_Cosmodrome_Soyuz_launch_pad.jpg?width=1000",
+					"title": "Gagarin's Start",
+					"caption": "The pad Sputnik left from, photographed in 2008 before a Soyuz launch.",
+					"credit": "NASA, Bill Ingalls. Public domain.",
+					"text": "the same pad, 2008",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gagarin's_Start%2C_Kazakhstan_by_Planet_Labs.jpg?width=900",
+					"title": "The pad from orbit",
+					"caption": "Gagarin's Start seen by a satellite in 2016.",
+					"credit": "Planet Labs, Inc. CC BY-SA 4.0",
+					"text": "seen from space, 2016",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Released at about 8 km/s.\nFirst signal heard about 96 minutes later.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "A close call",
+			"title": "A close call",
+			"place": "The first five minutes",
+			"dateLabel": "4 October 1957",
+			"summary": "From the ground the launch looked perfect.",
+			"body": "<p>From the ground the launch looked perfect. The recordings told another story. One of the boosters was slow to reach full power, and the central engine shut down a little earlier than planned.</p>\n<p><mark>A little less speed meant a much lower orbit.</mark> Sputnik's highest point came out at about 950 kilometres instead of the planned 1 450, so it would fall back sooner.</p>\n<p>The engineers only found out when they studied the data afterwards. On the night itself, all that mattered was the beep.</p>",
+			"marginNote": "Nearly did not make it.",
+			"showsRadioHint": false,
+			"sortOrder": 14,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Soyuz_TMA-9_launch.jpg?width=800",
+					"title": "Lift-off, R-7 style",
+					"caption": "A Soyuz rocket lifting off from Baikonur. Like the R-7 in 1957, all five engines light on the ground.",
+					"credit": "NASA / Bill Ingalls. Public domain.",
+					"text": "five engines lit",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The orbit it got",
+					"data": {
+						"rows": [
+							[
+								"Planned highest point",
+								"about 1 450 km"
+							],
+							[
+								"Real highest point",
+								"about 950 km"
+							],
+							[
+								"Lowest point",
+								"about 215 km"
+							],
+							[
+								"Result",
+								"a shorter life"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "A small item in Pravda",
+			"title": "A small item in Pravda",
+			"place": "Moscow",
+			"dateLabel": "5 and 6 October 1957",
+			"summary": "The Soviet news agency TASS announced the launch in a calm, technical report.",
+			"body": "<p>The Soviet news agency TASS announced the launch in a calm, technical report. On the morning of 5 October the Communist Party newspaper Pravda printed it on the front page, but not as the main story.</p>\n<p>Then the rest of the world reacted. <mark>Within a day Sputnik was the biggest news on the planet</mark>, and on 6 October Pravda gave it a headline across the whole page.</p>\n<p>Even the Soviet leaders seem to have been surprised by how much a small beeping ball could mean to the rest of the world.</p>",
+			"marginNote": "Small news, then the biggest news.",
+			"showsRadioHint": false,
+			"sortOrder": 15,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "TASS report",
+					"text": "A calm, technical item on the front page of Pravda.",
+					"dateLabel": "5 October 1957",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "The next day: the main headline"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "5 October: a small report.\n6 October: across the page.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "The beep",
+			"title": "The beep",
+			"place": "Around the world",
+			"dateLabel": "4 to 26 October 1957",
+			"summary": "Sputnik sent its signal on two frequencies, 20.005 and 40.002 megahertz, chosen so that ordinary radio amateurs could receive it at home.",
+			"body": "<p>Sputnik sent its signal on two frequencies, 20.005 and 40.002 megahertz, chosen so that ordinary radio amateurs could receive it at home. <mark>Beep, pause, beep: each pulse lasted about three tenths of a second.</mark></p>\n<p>Within hours, radio stations on every continent were picking it up. People stood in their gardens at dawn and dusk to watch for a moving point of light, though most of them saw the much larger rocket stage that followed it around the Earth.</p>\n<p>At Johns Hopkins University two young physicists, William Guier and George Weiffenbach, noticed that the pitch of the beep rose as Sputnik came closer and fell as it moved away. From that change alone they worked out its whole orbit. Turned around, the same idea became the first satellite navigation system, the ancestor of the location in every phone today.</p>",
+			"marginNote": "Play the tape on the radio: that is the real 1957 recording.",
+			"showsRadioHint": true,
+			"sortOrder": 16,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Printout",
+					"chartKey": "doppler",
+					"title": "Why the beep changed its pitch",
+					"caption": "As Sputnik came closer the beep sounded higher; as it moved away, lower. The shape of this curve gives away the whole orbit.",
+					"credit": "Chart drawn by AstPIE from the Doppler formula."
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "guier"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "The tape next to the radio is the real 1957 recording.\nBeep, pause, beep.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 4,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "weiffenbach"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "Heard around the world",
+			"title": "Heard around the world",
+			"place": "Radio stations and back gardens",
+			"dateLabel": "From 5 October 1957",
+			"summary": "In the United States the first recording was made by an RCA receiving station on Long Island in the early hours of 5 October.",
+			"body": "<p>In the United States the first recording was made by an RCA receiving station on Long Island in the early hours of 5 October. Within hours NBC radio played it to the whole country.</p>\n<p><mark>Millions of people heard an object made by people talking to them from space.</mark> Radio amateurs everywhere tuned in, recorded the beeps and sent their tapes and notes to scientists.</p>\n<p>The tape by the radio is one of those recordings. Play it.</p>",
+			"marginNote": "Beep, pause, beep.",
+			"showsRadioHint": true,
+			"sortOrder": 17,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "Listen now for the sound which forevermore separates the old from the new.",
+					"author": "NBC radio, introducing the signal",
+					"dateLabel": "October 1957"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Who heard it",
+					"data": {
+						"rows": [
+							[
+								"First in the US",
+								"RCA, Long Island"
+							],
+							[
+								"On air",
+								"NBC radio"
+							],
+							[
+								"Also",
+								"radio amateurs worldwide"
+							],
+							[
+								"Frequencies",
+								"20 and 40 MHz"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "Play the tape\nby the radio.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "The orbit",
+			"title": "The orbit",
+			"place": "Around the Earth",
+			"dateLabel": "October 1957",
+			"summary": "Sputnik went around the Earth once every 96 minutes, about fifteen times a day.",
+			"body": "<p>Sputnik went around the Earth once every 96 minutes, about fifteen times a day. Its path was an oval: about 215 kilometres up at its lowest point and about 940 at its highest.</p>\n<p>The orbit was tilted at 65 degrees to the equator, so Sputnik passed over most of the places where people live. As the Earth turned beneath it, each pass crossed a different part of the globe.</p>\n<p>Drawn to scale, the orbit hugs the Earth like a thin ring. <mark>Space starts surprisingly close: closer than Moscow is to Saint Petersburg.</mark></p>",
+			"marginNote": "Fifteen times around a day.",
+			"showsRadioHint": false,
+			"sortOrder": 18,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"chartKey": "sketch:sputnikorbit",
+					"title": "The orbit, to scale",
+					"caption": "Sputnik's orbit drawn to the same scale as the Earth. The oval is so slight it looks almost like a circle.",
+					"credit": "Drawing by AstPIE."
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The orbit",
+					"data": {
+						"rows": [
+							[
+								"Once around",
+								"about 96 minutes"
+							],
+							[
+								"Lowest point",
+								"about 215 km"
+							],
+							[
+								"Highest point",
+								"about 940 km"
+							],
+							[
+								"Tilt",
+								"65 degrees"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "Watching the sky",
+			"title": "Watching the sky",
+			"place": "Back gardens and rooftops",
+			"dateLabel": "October 1957",
+			"summary": "Long before Sputnik, scientists had prepared volunteers to track satellites by eye.",
+			"body": "<p>Long before Sputnik, scientists had prepared volunteers to track satellites by eye. In the United States the Smithsonian ran Operation Moonwatch: teams of amateurs with small telescopes, lined up in rows, ready to call out the moment something crossed their part of the sky.</p>\n<p>They expected an American satellite. They got a Soviet one. Teams around the world reported its passes, and newspapers printed the times when it could be seen.</p>\n<p><mark>What most people saw was not the ball but the rocket's core stage</mark>, much bigger and brighter, which reached orbit too and followed Sputnik around the Earth until it fell back in early December.</p>",
+			"marginNote": "Look up at dawn or dusk.",
+			"showsRadioHint": false,
+			"sortOrder": 19,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Operation_Moonwatch_Event%2C_Biloxi%2C_Mississippi_(8722704077).jpg?width=1000",
+					"title": "Moonwatch volunteers",
+					"caption": "A Moonwatch team in Biloxi, Mississippi, with their telescopes.",
+					"credit": "Smithsonian Institution. No known copyright restrictions.",
+					"text": "Moonwatch, Mississippi",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "The bright dot crossing the sky:\nthe rocket stage, not the ball.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "Jodrell Bank",
+			"title": "Jodrell Bank",
+			"place": "Jodrell Bank, England",
+			"dateLabel": "October 1957",
+			"summary": "In England, Bernard Lovell's giant radio telescope at Jodrell Bank, 76 metres across, had only just been finished.",
+			"body": "<p>In England, Bernard Lovell's giant radio telescope at Jodrell Bank, 76 metres across, had only just been finished. It had cost far more than planned, and its builders were in serious trouble over the debt.</p>\n<p><mark>It turned out to be the only instrument in the West able to track Sputnik's rocket by radar</mark>, bouncing radio waves off the core stage as it crossed the sky.</p>\n<p>Overnight the telescope became famous. The attention helped Lovell save it, and the dish still works today, named the Lovell Telescope.</p>",
+			"marginNote": "Saved by Sputnik.",
+			"showsRadioHint": false,
+			"sortOrder": 20,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lovell_Telescope_6.jpg?width=1000",
+					"title": "The Lovell Telescope",
+					"caption": "The 76-metre dish at Jodrell Bank, which tracked Sputnik's rocket by radar in 1957.",
+					"credit": "Mike Peel; Jodrell Bank Centre for Astrophysics, University of Manchester. CC BY-SA 4.0",
+					"text": "Jodrell Bank",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Jodrell Bank",
+					"data": {
+						"rows": [
+							[
+								"Dish",
+								"76 m across"
+							],
+							[
+								"Finished",
+								"1957"
+							],
+							[
+								"Tracked",
+								"the rocket, by radar"
+							],
+							[
+								"Today",
+								"the Lovell Telescope"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "What it measured",
+			"title": "What it measured",
+			"place": "Laboratories around the world",
+			"dateLabel": "1957 and 1958",
+			"summary": "Sputnik carried no scientific instruments, but scientists still learned from it.",
+			"body": "<p>Sputnik carried no scientific instruments, but scientists still learned from it. Its two radio signals, bending and fading as they crossed the upper atmosphere, showed how the layers of charged gas up there, the ionosphere, change with height and time of day.</p>\n<p>Its sinking orbit was a measurement too. <mark>The faster an orbit shrinks, the thicker the air it passes through.</mark> Sputnik and its rocket stage showed that the air a few hundred kilometres up was denser than many had expected.</p>\n<p>It was the first time a satellite was used to study the Earth. Today thousands do it every day.</p>",
+			"marginNote": "Even a beep is data.",
+			"showsRadioHint": false,
+			"sortOrder": 21,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/1_atmosphere_layers.png?width=900",
+					"title": "The layers of the air",
+					"caption": "The layers of the Earth's atmosphere. Sputnik flew through the thin top layers.",
+					"credit": "NASA Goddard. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "Sputnik flew up here"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "What scientists got",
+					"data": {
+						"rows": [
+							[
+								"From the radio",
+								"the ionosphere"
+							],
+							[
+								"From the orbit",
+								"the density of the air"
+							],
+							[
+								"Instruments on board",
+								"none"
+							],
+							[
+								"Satellites today",
+								"thousands"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "In orbit",
+			"tabLabel": "Silence and fall",
+			"title": "Silence and fall",
+			"place": "In orbit",
+			"dateLabel": "26 October 1957 to 4 January 1958",
+			"summary": "On 26 October, after twenty-two days, the batteries ran out and the beep stopped.",
+			"body": "<p>On 26 October, after twenty-two days, the batteries ran out and the beep stopped. Sputnik itself did not stop. It kept circling the Earth in silence, as the first law of motion says it should.</p>\n<p>Even at 215 kilometres there is still a trace of air. Each pass through the lowest point of the orbit took away a little speed, so the highest point slowly came down and the oval became rounder and lower.</p>\n<p><mark>On 4 January 1958, after about 1,440 trips around the Earth, Sputnik 1 plunged into the thicker air and burned up.</mark> Nothing of it survived.</p>",
+			"marginNote": "92 days in orbit, 22 of them beeping.",
+			"showsRadioHint": false,
+			"sortOrder": 22,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Printout",
+					"chartKey": "decay",
+					"title": "The orbit shrinking",
+					"caption": "The highest and lowest points of the orbit from October 1957 to January 1958. A simplified sketch, not measured data.",
+					"credit": "Sketch drawn by AstPIE."
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sputnik-1_full_scale_model.jpg?width=1000",
+					"title": "Batteries inside",
+					"caption": "A full-size model. Batteries filled much of the ball; when they ran out on 26 October, the beep stopped.",
+					"credit": "Steve Jurvetson. CC BY 2.0",
+					"text": "silent after 22 days",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "DayGrid",
+					"title": "Every day in orbit",
+					"caption": "One dot per day. Red: the days it was still beeping.",
+					"data": {
+						"from": "1957-10-04",
+						"to": "1958-01-04",
+						"loud": 22,
+						"weekly": false
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The world",
+			"tabLabel": "The world reacts",
+			"title": "The world reacts",
+			"place": "Washington and Cape Canaveral",
+			"dateLabel": "October 1957 to October 1958",
+			"summary": "In the Soviet Union the launch became a matter of enormous pride.",
+			"body": "<p>In the Soviet Union the launch became a matter of enormous pride. In the United States the reaction was closer to shock, because <mark>a rocket that could put a ball into orbit could also put a warhead anywhere on Earth.</mark></p>\n<p>A month later Sputnik 2 carried the dog Laika into orbit. On 6 December 1957, live on television, the first American attempt with a Vanguard rocket rose about a metre, lost power and exploded.</p>\n<p>The United States recovered quickly. Explorer 1 reached orbit on 31 January 1958. NASA was created that summer, and new money poured into teaching science in American schools. The space race had begun.</p>",
+			"marginNote": "Pride on one side, shock on the other.",
+			"showsRadioHint": false,
+			"sortOrder": 23,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Document",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Soviet_Union_1957_CPA_2093_stamp_(Launching_of_First_Artificial_Earth_Satellite._Sputnik_1_encircling_Globe)_1200dpi_another.jpg?width=700",
+					"title": "A stamp for the first satellite",
+					"caption": "Within weeks the launch was on Soviet postage stamps.",
+					"credit": "USSR Post, design by E. Gundobin. Public domain."
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vanguard_rocket_explodes.jpg?width=800",
+					"title": "Vanguard explodes",
+					"caption": "The first American attempt to launch a satellite, 6 December 1957.",
+					"credit": "U.S. Navy. Public domain.",
+					"text": "6 Dec. 1957, live on TV",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Replica_of_Sputnik-2.jpg?width=700",
+					"title": "Sputnik 2",
+					"caption": "A copy of Sputnik 2, which carried the dog Laika into orbit on 3 November 1957.",
+					"credit": "Stolbovsky, CC BY 4.0",
+					"text": "Sputnik 2, with Laika",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The world",
+			"tabLabel": "Shock in America",
+			"title": "Shock in America",
+			"place": "Washington",
+			"dateLabel": "October to December 1957",
+			"summary": "President Eisenhower tried to calm the country.",
+			"body": "<p>President Eisenhower tried to calm the country. At a press conference on 9 October he said that the satellite itself did not worry him at all.</p>\n<p>Many Americans did not agree. If the Soviets could put a ball into orbit, their rockets could reach American cities. Newspapers wrote about a missile gap, and <mark>the Senate, led by Lyndon Johnson, began hearings into how the United States had fallen behind.</mark></p>\n<p>The mood grew worse in December, when the first American attempt exploded on its pad in front of the cameras.</p>",
+			"marginNote": "Calm words, worried country.",
+			"showsRadioHint": false,
+			"sortOrder": 24,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dwight_D._Eisenhower%2C_official_photo_portrait%2C_May_29%2C_1959.jpg?width=700",
+					"title": "Dwight D. Eisenhower",
+					"caption": "President Eisenhower, who tried to play down the shock of Sputnik.",
+					"credit": "White House. Public domain.",
+					"text": "Eisenhower",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "So far as the satellite itself is concerned, that does not raise my apprehensions, not one iota.",
+					"author": "Dwight D. Eisenhower, press conference",
+					"dateLabel": "Washington, 9 October 1957"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The world",
+			"tabLabel": "A new word",
+			"title": "A new word",
+			"place": "Newspapers everywhere",
+			"dateLabel": "From October 1957",
+			"summary": "In Russian, sputnik means a travelling companion, and so also a satellite.",
+			"body": "<p>In Russian, sputnik means a travelling companion, and so also a satellite. Within days the word was in newspapers in every language.</p>\n<p>It started a fashion. Shops sold Sputnik toys, lamps and music boxes. <mark>In 1958 the San Francisco columnist Herb Caen borrowed its ending to invent the word beatnik.</mark></p>\n<p>In the Soviet Union it became a symbol, printed on stamps, posters, badges and sweet wrappers for years.</p>",
+			"marginNote": "Sputnik: a fellow traveller.",
+			"showsRadioHint": false,
+			"sortOrder": 25,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Music_Box%2C_Sputnik_Model_-_DPLA_-_831a9d22f4bcbd458cc062008a115b23_(page_1).jpg?width=800",
+					"title": "A Sputnik music box",
+					"caption": "A toy music box shaped like Sputnik, one of many Sputnik souvenirs of the late 1950s.",
+					"credit": "Digital Public Library of America. CC0",
+					"text": "a Sputnik toy",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The word",
+					"data": {
+						"rows": [
+							[
+								"Russian",
+								"спутник, sputnik"
+							],
+							[
+								"Means",
+								"travelling companion"
+							],
+							[
+								"Taken up by",
+								"newspapers worldwide"
+							],
+							[
+								"Also led to",
+								"beatnik, 1958"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The world",
+			"tabLabel": "Laika",
+			"title": "Laika",
+			"place": "Tyuratam",
+			"dateLabel": "3 November 1957",
+			"summary": "One month after Sputnik, the Soviet leader Nikita Khrushchev wanted another success in time for the anniversary of the revolution.",
+			"body": "<p>One month after Sputnik, the Soviet leader Nikita Khrushchev wanted another success in time for the anniversary of the revolution. Korolev's team built Sputnik 2 in about four weeks. It weighed 508 kilograms and carried a passenger: Laika, a small stray dog found on the streets of Moscow.</p>\n<p>Nobody could yet bring a spacecraft back, so Laika was never meant to return. For decades the official story said she lived for several days. <mark>In 2002 it was revealed that she died within hours, as the cabin overheated.</mark></p>\n<p>Her flight showed that a living creature could survive the launch and weightlessness. Sputnik 2 fell back into the atmosphere in April 1958.</p>",
+			"marginNote": "The first living being in orbit.",
+			"showsRadioHint": false,
+			"sortOrder": 26,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Laika_ac_Sputnik_2_Replica_(6995685051).jpg?width=800",
+					"title": "Sputnik 2, a copy",
+					"caption": "A copy of Sputnik 2. Laika rode in the cylinder at the bottom.",
+					"credit": "Laika ac. CC BY-SA 2.0",
+					"text": "Sputnik 2",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Stamp_of_Albania_-_1962_-_Colnect_197184_-_Space_Dog_Laika_Canis_lupus_familiaris_Sputnik_2.jpeg?width=700",
+					"title": "Laika on a stamp",
+					"caption": "Many countries put Laika on their stamps. This one is from Albania, 1962.",
+					"credit": "Post of Albania. Public domain.",
+					"text": "Albania, 1962",
+					"style": "photo"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Sputnik 2",
+					"data": {
+						"rows": [
+							[
+								"Launched",
+								"3 November 1957"
+							],
+							[
+								"Mass",
+								"508 kg"
+							],
+							[
+								"Passenger",
+								"Laika"
+							],
+							[
+								"Fell back",
+								"April 1958"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The world",
+			"tabLabel": "Back to school",
+			"title": "Back to school",
+			"place": "Washington and American schools",
+			"dateLabel": "1958",
+			"summary": "Many Americans decided that the real race was being lost in the classroom.",
+			"body": "<p>Many Americans decided that the real race was being lost in the classroom. In September 1958 Eisenhower signed the National Defense Education Act.</p>\n<p>It paid for science, mathematics and foreign languages in schools, and lent money to students at universities. <mark>A whole generation of engineers and scientists studied with its help</mark>, and many of them later worked on Apollo.</p>\n<p>The same year the government created NASA, a civilian agency for space. Both were direct answers to a small beeping ball.</p>",
+			"marginNote": "The race moved into schools.",
+			"showsRadioHint": false,
+			"sortOrder": 27,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Clipping",
+					"title": "National Defense Education Act",
+					"text": "Money for science, maths and languages.",
+					"dateLabel": "September 1958",
+					"url": null,
+					"caption": null,
+					"credit": null,
+					"data": {
+						"outcome": "A generation of engineers"
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Dwight_D._Eisenhower%2C_White_House_photo_portrait%2C_February_1959_(cropped).png?width=700",
+					"title": "Eisenhower in 1959",
+					"caption": "President Eisenhower, who signed the National Defense Education Act in September 1958.",
+					"credit": "White House. Public domain.",
+					"text": "he signed it",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Answers to Sputnik",
+					"data": {
+						"rows": [
+							[
+								"NASA created",
+								"July 1958"
+							],
+							[
+								"Education act",
+								"September 1958"
+							],
+							[
+								"Paid for",
+								"science and maths"
+							],
+							[
+								"Also",
+								"student loans"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "Turning it around",
+			"title": "Turning it around",
+			"place": "Applied Physics Laboratory, Maryland",
+			"dateLabel": "1958 to 1996",
+			"summary": "Guier and Weiffenbach had worked out where Sputnik was from a place they knew, their own laboratory.",
+			"body": "<p>Guier and Weiffenbach had worked out where Sputnik was from a place they knew, their own laboratory. Their director, Frank McClure, asked the opposite question: if you know exactly where the satellite is, can you work out where you are?</p>\n<p>The answer was yes. The laboratory built Transit, the first satellite navigation system, for the US Navy's submarines. The first satellite worked in 1960, and from 1964 ships could find their position anywhere at sea.</p>\n<p><mark>Transit was the direct ancestor of GPS</mark>, and it was born from two physicists listening to a Soviet beep.</p>",
+			"marginNote": "From \"where is it?\" to \"where am I?\"",
+			"showsRadioHint": false,
+			"sortOrder": 28,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Transit_1B_(cropped).jpg?width=800",
+					"title": "Transit 1B",
+					"caption": "Transit 1B, the first navigation satellite to work in orbit, 1960.",
+					"credit": "National Museum of the U.S. Navy. Public domain.",
+					"text": "Transit 1B, 1960",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Transit",
+					"data": {
+						"rows": [
+							[
+								"Idea",
+								"1958"
+							],
+							[
+								"First success",
+								"1960"
+							],
+							[
+								"In service",
+								"1964 to 1996"
+							],
+							[
+								"Followed by",
+								"GPS"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "weiffenbach"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "Korolev named at last",
+			"title": "Korolev named at last",
+			"place": "Moscow",
+			"dateLabel": "January 1966",
+			"summary": "Korolev never saw his own name in a newspaper.",
+			"body": "<p>Korolev never saw his own name in a newspaper. He kept working: Gagarin, the first spacewalk, plans for the Moon.</p>\n<p>On 14 January 1966 he died during an operation, aged 59. <mark>Only then did Pravda print his name, his photograph and what he had done.</mark> He was buried in the Kremlin Wall on Red Square.</p>\n<p>Crews flying from Baikonur still lay flowers there before their flights. A town near Moscow and a crater on the Moon carry his name.</p>",
+			"marginNote": "Famous only after he died.",
+			"showsRadioHint": false,
+			"sortOrder": 29,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "korolev"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Soyuz_TMA-06M_crew_at_the_Kremlin_Wall.jpg?width=900",
+					"title": "At the Kremlin Wall",
+					"caption": "A Soyuz crew laying flowers at the Kremlin Wall, where Korolev and Gagarin are buried, before their flight.",
+					"credit": "NASA. Public domain.",
+					"text": "flowers before a flight",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Remembered",
+					"data": {
+						"rows": [
+							[
+								"Died",
+								"14 January 1966"
+							],
+							[
+								"Buried",
+								"Kremlin Wall"
+							],
+							[
+								"Town",
+								"Korolyov, near Moscow"
+							],
+							[
+								"On the Moon",
+								"Korolev crater"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "The R-7 family",
+			"title": "The R-7 family",
+			"place": "Baikonur",
+			"dateLabel": "1957 to today",
+			"summary": "The rocket that launched Sputnik never stopped flying.",
+			"body": "<p>The rocket that launched Sputnik never stopped flying. Its descendants launched Gagarin, the Luna probes and, under the name Soyuz, every Russian crew since the 1960s.</p>\n<p><mark>With more than 1 900 launches, the R-7 family has flown more often than any other rocket in history.</mark></p>\n<p>The design is still easy to recognise: a core with four boosters around it, all lit on the ground, just as on the night of 4 October 1957.</p>",
+			"marginNote": "The most-flown rocket ever.",
+			"showsRadioHint": false,
+			"sortOrder": 30,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Soyuz_TMA-5_launch.jpg?width=800",
+					"title": "A Soyuz lifts off",
+					"caption": "A Soyuz rocket launching a crew from Baikonur. It is a direct descendant of the R-7.",
+					"credit": "NASA / Bill Ingalls. Public domain.",
+					"text": "Soyuz, a grandchild",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The family",
+					"data": {
+						"rows": [
+							[
+								"1957",
+								"Sputnik"
+							],
+							[
+								"1961",
+								"Vostok, Gagarin"
+							],
+							[
+								"Since the 1960s",
+								"Soyuz"
+							],
+							[
+								"Launches",
+								"more than 1 900"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "A crowded sky",
+			"title": "A crowded sky",
+			"place": "Earth orbit",
+			"dateLabel": "Today",
+			"summary": "In 1957 there was one satellite.",
+			"body": "<p>In 1957 there was one satellite. Today there are more than ten thousand working ones, and many more dead satellites, spent rocket stages and fragments.</p>\n<p>Radar networks track tens of thousands of objects bigger than a fist. <mark>One collision can break a satellite into thousands of pieces</mark>, each moving fast enough to destroy another.</p>\n<p>Space agencies now plan how to bring old satellites down safely. Sputnik, at least, left nothing behind: it burned up completely.</p>",
+			"marginNote": "From one to tens of thousands.",
+			"showsRadioHint": false,
+			"sortOrder": 31,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Space_Debris_Low_Earth_Orbit.png?width=900",
+					"title": "Objects around the Earth",
+					"caption": "A picture of the objects tracked in low Earth orbit, from NASA's Orbital Debris Program Office. The dots are not to scale.",
+					"credit": "NASA Orbital Debris Program Office. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "every dot is tracked"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Then and now",
+					"data": {
+						"rows": [
+							[
+								"1957",
+								"one satellite"
+							],
+							[
+								"Today",
+								"over 10 000 working"
+							],
+							[
+								"Tracked objects",
+								"tens of thousands"
+							],
+							[
+								"Sputnik left",
+								"nothing"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Legacy",
+			"tabLabel": "What it changed",
+			"title": "What it changed",
+			"place": "Everywhere above us",
+			"dateLabel": "1957 to today",
+			"summary": "Sputnik carried no camera, no instruments and no passengers.",
+			"body": "<p>Sputnik carried no camera, no instruments and no passengers. It proved one thing: people could build something that stays in space. Within four years the same family of rockets carried Yuri Gagarin around the Earth. Within twelve, astronauts walked on the Moon.</p>\n<p><mark>Today more than ten thousand working satellites circle the Earth.</mark> They forecast the weather, carry television and internet signals and tell your phone where you are.</p>\n<p>The Soyuz rockets that still fly from Baikonur are direct descendants of the R-7 that lifted a polished metal ball into orbit on an October night in 1957.</p>",
+			"marginNote": "Everything in orbit today starts here.",
+			"showsRadioHint": false,
+			"sortOrder": 32,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/International_Space_Station_after_undocking_of_STS-132.jpg?width=1000",
+					"title": "The International Space Station",
+					"caption": "Photographed from the Space Shuttle Atlantis in 2010.",
+					"credit": "NASA, crew of STS-132. Public domain.",
+					"text": "the ISS, 2010",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "4 years later: Gagarin.\n12 years later: the Moon.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Try it yourself",
+			"tabLabel": "Try it yourself",
+			"title": "Why didn't it fall?",
+			"place": "The physics behind this case",
+			"dateLabel": null,
+			"summary": "It did fall, all the time.",
+			"body": "<p>It did fall, all the time. It just kept missing the ground.</p>\n<p>Imagine throwing a ball sideways from a very tall mountain. Throw it faster and it lands further away. <mark>Throw it fast enough, and the Earth curves away beneath it as quickly as it falls.</mark> It never lands. That is an orbit.</p>\n<p>Two rules work together. Newton's first law says a moving object keeps going in a straight line at the same speed. Gravity keeps bending that line towards the Earth. Without gravity Sputnik would have flown off in a straight line. Without its speed, it would have fallen straight down.</p>\n<p>On the monitor: give a box a push on a field with no friction, and see that it keeps its speed for ever.</p>",
+			"marginNote": null,
+			"showsRadioHint": false,
+			"sortOrder": 33,
+			"media": [
+				{
+					"type": "Simulation",
+					"title": "Why didn't it fall?",
+					"sortOrder": 1
+				}
+			],
+			"explanations": []
+		}
+	]
+}

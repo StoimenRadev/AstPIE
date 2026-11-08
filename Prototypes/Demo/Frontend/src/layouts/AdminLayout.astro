@@ -17,9 +17,10 @@ const path = Astro.url.pathname;
 
 // Each group lists table keys from lib/admin/config.ts, with the colour of its section
 const GROUPS = [
-	{ title: 'Learn', colour: 'var(--blue)', keys: ['topics', 'simulations'] },
-	{ title: 'Explore', colour: 'var(--orange)', keys: ['entries', 'chapters', 'catalogue'] },
-	{ title: 'Used by many pages', colour: '#C3CAD8', keys: ['people', 'entry-people', 'media'] }
+	{ title: 'Learn', colour: 'var(--blue)', keys: ['topics', 'simulations', 'key-words'] },
+	{ title: 'Explore', colour: 'var(--orange)', keys: ['entries', 'chapters', 'media', 'explanations'] },
+	{ title: 'Catalogue', colour: 'var(--yellow)', keys: ['catalogue', 'log-entries', 'instruments'] },
+	{ title: 'Used by many pages', colour: '#C3CAD8', keys: ['people', 'entry-people'] }
 ];
 
 const groups = GROUPS.map((group) =>
@@ -40,7 +41,6 @@ const groups = GROUPS.map((group) =>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex, nofollow" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,7 +51,7 @@ const groups = GROUPS.map((group) =>
 		<div class:list={['adm', { solo: !showMenu }]}>
 			{showMenu && (
 				<aside class="a-side">
-					<a class="logo" href="/admin"><Logo /><span>AstPIE</span> <em>Admin</em></a>
+					<a class="logo" href="/admin"><Logo id="adminLogo" /><span>AstPIE</span> <em>Admin</em></a>
 					<div class="a-grp"><a href="/admin" class:list={{ on: path === '/admin' || path === '/admin/' }}><i style="--c:var(--navy)"></i>Overview</a></div>
 					{groups.map((group) => (
 						<div class="a-grp">

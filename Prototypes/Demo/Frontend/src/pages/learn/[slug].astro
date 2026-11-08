@@ -1,125 +1,172 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Parts from '../../components/Parts.astro';
-import SimulationPlayer from '../../components/SimulationPlayer';
-import { simulationLabels } from '../../i18n/simulationLabels';
-import { t } from '../../i18n/t';
+// One concept page, set like a printed textbook: the question, a prediction, numbered sections with
+// key ideas and key words, questions with hidden answers, the law, a figure and a graph, the lab sheet
+// with the simulation, and a short summary. Every number on the page starts from 1.
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import LearnHeader from '../../components/learn/LearnHeader.astro';
+import LearnFooter from '../../components/learn/LearnFooter.astro';
+import LawBlock from '../../components/learn/LawBlock.astro';
+import KeyWordsPanel from '../../components/learn/KeyWordsPanel.astro';
+import LabSheet from '../../components/learn/LabSheet.astro';
+import LawFigure, { LAW_FIGURE_TEXTS } from '../../components/learn/LawFigure';
+import ForceGraph, { FORCE_GRAPH_TEXTS } from '../../components/learn/ForceGraph';
+import CollisionGraph, { COLLISION_GRAPH_TEXTS } from '../../components/learn/CollisionGraph';
 import { getTopic, getTopics } from '../../lib/api';
-import { hasSimulation, simulationLast, splitMarkdown } from '../../lib/chapters';
-import 'katex/dist/katex.min.css';
+import { buildTopicPage, caseHref, shortName } from '../../lib/learn';
+import { branchId } from '../../lib/branches';
+import { fill, t, texts } from '../../i18n/t';
+import '../../styles/learn.css';
 
-const topic = await getTopic(String(Astro.params.slug));
+const slug = String(Astro.params.slug);
+const topic = await getTopic(slug);
 if (topic === null)
 {
 	return Astro.rewrite('/404');
 }
 
-// The text before the first chapter is the law in one sentence.
-// The chapter with the simulation always comes last.
-const content = splitMarkdown(topic.content);
-const chapters = simulationLast(content.chapters);
-const labels = simulationLabels();
+// The other concepts of the same branch, for the line above the title and the links at the end
+const branch = (await getTopics()).filter((item) => item.branch === topic.branch);
+const index = branch.findIndex((item) => item.slug === topic.slug);
+let previous = null;
+if (index > 0)
+{
+	previous = branch[index - 1];
+}
+let next = null;
+if (index >= 0 && index < branch.length - 1)
+{
+	next = branch[index + 1];
+}
 
-// The other topics of the same branch, for the side menu and the end of the page
-const branchTopics = (await getTopics()).filter((other) => other.branch === topic.branch);
-const others = branchTopics.filter((other) => other.slug !== topic.slug);
+const page = buildTopicPage(topic.content, topic.keyWords);
+const LETTERS = ['a', 'b', 'c', 'd'];
+let simulation = null;
+if (topic.simulations.length > 0)
+{
+	simulation = topic.simulations[0];
+}
+const labNumber = page.sections.length + 1;
+let summaryNumber = labNumber;
+if (simulation !== null)
+{
+	summaryNumber = labNumber + 1;
+}
+
+// The question answered by the first lab task, for "You chose ..." (see scripts/learn.ts)
+// What the page script needs to answer the prediction, with its texts (the script does not get the text file)
+const predict = {
+	options: topic.predictOptions,
+	right: topic.predictAnswer,
+	theAnswerIs: t('learn.theAnswerIs'),
+	thatIsRight: t('learn.thatIsRight'),
+	youChose: t('learn.youChose')
+};
+const ideaCount = page.sections.filter((s) => s.kind === 'idea').length;
 ---
 
-<BaseLayout title={topic.title} theme="learn" bodyClass="has-after">
-	<div class="wrap doc" data-toc>
-		<aside class="side">
-			<a class="br" href="/learn">{topic.branch}</a>
-			<ul>
-				{branchTopics.map((item) => (
-					<li class:list={{ cur: item.slug === topic.slug }}>
-						<a href={'/learn/' + item.slug}>{item.title}</a>
-						{item.slug === topic.slug && chapters.length > 0 && (
-							<div class="subs">
-								{chapters.map((chapter) => (
-									<a href={'#' + chapter.id} class:list={{ sim: hasSimulation(chapter) }}>{chapter.title}</a>
-								))}
+<SiteLayout title={topic.title + ' · ' + t('nav.learn')} bodyClass="learn-page">
+	<meta slot="head" name="description" content={topic.summary} />
+	<LearnHeader inLearn={true} />
+	<main class="page3">
+		<article data-predict={JSON.stringify(predict)}>
+			<div class="opener">
+				<p class="running">
+					<a class="br" href={"/learn#" + branchId(topic.branch)}>{topic.branch}</a>:{' '}
+					{branch.map((item, i) => (
+						<Fragment>
+							{i > 0 && ' · '}
+							<a href={'/learn/' + item.slug} class:list={[{ now: item.slug === topic.slug }]} aria-current={item.slug === topic.slug && 'page'}>{shortName(item.title)}</a>
+						</Fragment>
+					))}
+				</p>
+				<h1>{topic.question}</h1>
+				<p class="lead">{topic.summary}</p>
+				<p class="byline">{topic.title}</p>
+			</div>
+
+			<div class="ask predict">
+				<p><span class="lbl">{t('learn.predict')}</span> {topic.predictQuestion}</p>
+				<ol class="opts3">
+					{topic.predictOptions.map((option, i) => (
+						<li>
+							<button class="choice" type="button">
+								<span class="let">{LETTERS[i]}<svg viewBox="0 0 38 34" aria-hidden="true"><path pathLength="1" d="M27 5 C 20 1, 6 3, 4 14 C 2 26, 14 32, 24 30 C 34 28, 37 17, 32 9 C 30 6, 26 3, 21 3" /></svg></span>
+								<span>{option}</span>
+							</button>
+						</li>
+					))}
+				</ol>
+				<p class="kept">{t('learn.predictKept')}</p>
+			</div>
+
+			{page.sections.map((section, sectionIndex) => (
+				<Fragment>
+					{section.kind === 'idea' && (
+						<section class="idea">
+							<h2 id={section.id}><span class="secno">{section.number}</span>{section.title}</h2>
+							<Fragment set:html={section.html} />
+						</section>
+					)}
+					{section.kind === 'law' && (
+						<section>
+							<h2 id="law"><span class="secno">{section.number}</span>{section.title}</h2>
+							<LawBlock statement={topic.lawStatement} equation={topic.lawEquation} symbols={topic.symbols} readAloud={topic.readAloud} where={section.where} />
+							<Fragment set:html={section.html} />
+							{section.figure !== null && <LawFigure client:visible kind={section.figure.name} caption={section.figure.caption} texts={texts(LAW_FIGURE_TEXTS)} />}
+						</section>
+					)}
+					{section.kind === 'graph' && section.figure !== null && (
+						<section>
+							<h2 id="graph"><span class="secno">{section.number}</span>{section.title}</h2>
+							<Fragment set:html={section.html} />
+							{section.figure.name === 'linked' && <ForceGraph client:visible caption={section.figure.caption} after={section.after} texts={texts(FORCE_GRAPH_TEXTS)} />}
+							{section.figure.name === 'pair' && <CollisionGraph client:visible caption={section.figure.caption} after={section.after} texts={texts(COLLISION_GRAPH_TEXTS)} />}
+						</section>
+					)}
+					{section.kind === 'idea' && sectionIndex < ideaCount && topic.checkQuestions.map((question, i) => (
+						question.afterSection === sectionIndex + 1 && (
+							<div class="question check">
+								<p><span class="qno">{fill(t('learn.question'), { n: String(i + 1) })}</span> {question.question}</p>
+								<button class="ansbtn" type="button" data-open="answer" data-hide={t('learn.hideAnswer')}>{t('learn.showAnswer')}</button>
+								<div class="open-ans answer"><div><p><span class="al">{t('learn.answer')}</span> {question.answer}</p></div></div>
 							</div>
-						)}
-					</li>
-				))}
-			</ul>
-		</aside>
-
-		<article>
-			<h1 class="t-page">{topic.title}</h1>
-			{chapters.length > 0 && (
-				<div class="law"><small>{t('learn.inOneSentence')}</small><Fragment set:html={content.intro} /></div>
-			)}
-			{chapters.length === 0 && <div class="read" set:html={content.intro} />}
-
-			{chapters.map((chapter) => (
-				<section class="part" id={chapter.id}>
-					<h2>{chapter.title}</h2>
-					{chapter.summary !== '' && <p class="sum">{chapter.summary}</p>}
-					<Parts parts={chapter.parts} simulations={topic.simulations} />
-				</section>
+						)
+					))}
+				</Fragment>
 			))}
 
-			{chapters.length === 0 && topic.simulations.length > 0 && (
-				<section class="part" id="try">
-					<h2>{t('learn.try')}</h2>
-					{topic.simulations.map((simulation) => (
-						<SimulationPlayer
-							client:load
-							title={simulation.title}
-							learningGoal={simulation.learningGoal}
-							buildUrl={simulation.buildUrl}
-							thumbnailUrl={simulation.thumbnailUrl}
-							labels={labels}
-						/>
-					))}
-				</section>
-			)}
-		</article>
-	</div>
+			{simulation !== null && <LabSheet simulation={simulation} number={labNumber} />}
 
-	{others.length > 0 && (
-		<section class="after-topic">
-			<div class="wrap">
-				<h2>{t('learn.otherTopics')} {topic.branch}</h2>
-				<p class="muted">{t('learn.otherTopicsText')}</p>
-				<ul class="topics">
-					{others.map((other) => (
-						<li><a href={'/learn/' + other.slug}><div><h3>{other.title}</h3><p>{other.summary}</p><span class="sim-tag"><i></i>{t('learn.endsWithSim')}</span></div><span class="arr"><svg><use href="#i-arrow" /></svg></span></a></li>
-					))}
-				</ul>
-			</div>
-		</section>
-	)}
-</BaseLayout>
+			<section>
+				<h2 id="summary"><span class="secno">{summaryNumber}</span>{t('learn.inShort')}</h2>
+				<ol class="inshort">
+					{topic.recapPoints.map((point) => <li>{point}</li>)}
+				</ol>
+			</section>
+
+			{topic.explore !== null && (
+				<p class="seenin"><span class="hand" aria-hidden="true" style="color:var(--teal)">☞</span> {t('learn.seeItInExplore')} <a href={caseHref(topic.explore.kind, topic.explore.slug)} data-leave="#140d09">{topic.explore.title}</a>. {topic.explore.line}</p>
+			)}
+
+			<nav class="pager">
+				{previous !== null && <a href={'/learn/' + previous.slug}><small>{t('learn.previousTopic')}</small><b>{previous.title}</b></a>}
+				{previous === null && <a href="/learn"><small>{t('learn.backTo')}</small><b>{t('learn.allTopics')}</b></a>}
+				{next !== null && <a class="next" href={'/learn/' + next.slug}><small>{t('learn.nextTopic')}</small><b>{next.title}</b></a>}
+				{next === null && <a class="next" href="/learn"><small>{t('learn.next')}</small><b>{t('learn.backToAll')}</b></a>}
+			</nav>
+		</article>
+		<KeyWordsPanel words={page.keyWords} />
+		<svg class="wires" aria-hidden="true"></svg>
+	</main>
+	<LearnFooter />
+</SiteLayout>
 
 <script>
-	// Underline the part of the topic you are reading in the side menu
-	const box = document.querySelector('[data-toc]');
-	if (box !== null)
-	{
-		const links = box.querySelectorAll<HTMLAnchorElement>('.subs a');
-		const watcher = new IntersectionObserver((seen) =>
-		{
-			for (const item of seen)
-			{
-				if (item.isIntersecting)
-				{
-					for (const link of links)
-					{
-						link.classList.toggle('on', link.getAttribute('href') === '#' + item.target.id);
-					}
-				}
-			}
-		}, { rootMargin: '-30% 0px -60% 0px' });
-		for (const part of box.querySelectorAll('.part'))
-		{
-			watcher.observe(part);
-		}
-	}
-</script>
+	import { setUpLearnPage } from '../../scripts/learn';
+	import { setUpLogoName } from '../../scripts/logoName';
+	import { setUpLeaving } from '../../scripts/leaving';
 
-<style is:global>
-	.has-after .foot { margin-top: 0; }
-	.law p { margin: 0; }
-</style>
+	setUpLogoName();
+	setUpLeaving();
+	setUpLearnPage();
+</script>

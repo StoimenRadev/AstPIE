@@ -1,0 +1,71 @@
+---
+// The blue lab sheet at the end of a topic: the simulation, the tasks to tick off (each with a hint
+// and an answer under buttons), and "How the simulation works" for anyone who wants the details.
+import SimulationPlayer from '../SimulationPlayer';
+import MethodComparison, { METHOD_COMPARISON_TEXTS } from './MethodComparison';
+import type { Simulation } from '../../lib/api';
+import { simulationLabels } from '../../i18n/simulationLabels';
+import { fill, t, texts } from '../../i18n/t';
+
+interface Props
+{
+	simulation: Simulation;
+	number: number;
+}
+
+const { simulation, number } = Astro.props;
+
+// The C# of one step, with the comment lines in their own colour
+function codeHtml(code: string): string
+{
+	const escaped = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	return escaped.replace(/^(\s*\/\/.*)$/gm, '<span class="c">$1</span>');
+}
+---
+
+<section class="lab" id="experiment">
+	<h2 id="lab"><span class="secno">{number}</span>{t('learn.labTitle')}</h2>
+	<p>{simulation.labIntro} {t('learn.labHowTo')}</p>
+	<SimulationPlayer
+		client:visible
+		title={simulation.title}
+		buildUrl={simulation.buildUrl}
+		thumbnailUrl={simulation.thumbnailUrl}
+		labels={simulationLabels()}
+	/>
+	<ol class="labtasks">
+		{simulation.labTasks.map((task, i) => (
+			<li class="task">
+				<button class="tick" type="button" aria-label={fill(t('learn.markTask'), { n: String(i + 1) })} aria-pressed="false"></button>
+				<div>
+					<h3>{fill(t('learn.taskTitle'), { n: String(i + 1), title: task.title })}</h3>
+					<p>{task.task}</p>
+					<div class="btnrow">
+						<button class="ansbtn hintbtn" type="button" data-open="hint" data-hide={t('learn.hideHint')}>{t('learn.showHint')}</button>
+						<button class="ansbtn" type="button" data-open="answer" data-hide={t('learn.hideAnswer')}>{t('learn.showAnswer')}</button>
+					</div>
+					<div class="open-ans hint"><div><p><span class="al">{t('learn.hint')}</span> {task.hint}</p></div></div>
+					<div class="open-ans answer"><div><p>{task.answersPredict && <span class="echo"></span>}<span class="al">{t('learn.answer')}</span> {task.answer}</p></div></div>
+				</div>
+			</li>
+		))}
+	</ol>
+	<details class="appendix">
+		<summary>{t('learn.howItWorks')}</summary>
+		<div class="appbody">
+			<h3>{t('learn.theModel')}</h3>
+			<Fragment set:html={simulation.modelText} />
+			<h3>{t('learn.theMethod')}</h3>
+			<p>{t('learn.method1')}</p>
+			<p>{t('learn.method2')}</p>
+			{simulation.stepCode !== null && <pre class="code" set:html={codeHtml(simulation.stepCode)} />}
+			<h3>{t('learn.compareTitle')}</h3>
+			<p>{t('compare.intro')}</p>
+			<MethodComparison client:visible texts={texts(METHOD_COMPARISON_TEXTS)} />
+			<h3>{t('learn.limits')}</h3>
+			<ul>
+				{simulation.limits.map((limit) => <li>{limit}</li>)}
+			</ul>
+		</div>
+	</details>
+</section>

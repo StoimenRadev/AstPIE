@@ -1,0 +1,38 @@
+---
+// The law between two rules: the statement, the equation with its number, every symbol read out
+// one by one, the equation said aloud, and the "where ..." line. Pointing at a symbol lights up
+// its row, and the other way round (see scripts/learn.ts).
+import type { TopicSymbol } from '../../lib/api';
+import { t } from '../../i18n/t';
+
+interface Props
+{
+	statement: string;
+	// HTML: symbols are <span class="sym" data-k="f">F</span>
+	equation: string;
+	symbols: TopicSymbol[];
+	readAloud: string;
+	// HTML: <p class="where">...</p>
+	where: string;
+}
+
+const { statement, equation, symbols, readAloud, where } = Astro.props;
+---
+
+<div class="lawblock">
+	<p class="stmt">{statement}</p>
+	<div class="eqrow"><div class="eq" set:html={equation} /><span class="eqno">(1)</span></div>
+	<div class="symread">
+		<p class="sh">{t('learn.symbolBySymbol')}</p>
+		<dl class="symlist">
+			{symbols.map((s) => (
+				<div data-k={s.equationPart}>
+					<dt>{s.symbol}</dt>
+					<dd><b>{s.name}.</b> {s.meaning}{s.unit !== null && <Fragment> <span class="u">{s.unit}</span></Fragment>}</dd>
+				</div>
+			))}
+		</dl>
+		<p class="readas"><i>{t('learn.readAloud')}</i> “{readAloud}”</p>
+	</div>
+	<Fragment set:html={where} />
+</div>

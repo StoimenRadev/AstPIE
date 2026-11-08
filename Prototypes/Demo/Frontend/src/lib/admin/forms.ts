@@ -11,7 +11,13 @@ export interface Choice
 const LABEL_FIELDS: Record<string, string> = {
 	topics: 'title',
 	entries: 'title',
-	people: 'fullName'
+	people: 'fullName',
+	chapters: 'title',
+	simulations: 'title',
+	catalogue: 'name',
+	'key-words': 'name',
+	instruments: 'name',
+	media: 'title'
 };
 
 // Loads the rows of every table the given fields point to: { topics: [...], entries: [...] }
@@ -43,6 +49,10 @@ export function displayValue(f: FieldConfig, value: unknown, choices: Record<str
 	if (value === null || value === undefined || value === '')
 	{
 		return '—';
+	}
+	if (Array.isArray(value))
+	{
+		return value.join(', ');
 	}
 	if (f.type === 'checkbox')
 	{
@@ -98,6 +108,15 @@ export async function readForm(key: string, table: TableConfig, form: FormData):
 		}
 
 		result.values[f.name] = text;
+
+		// A list: one item per line, empty lines left out
+		if (f.type === 'lines')
+		{
+			const items = text.split('\n').map((line) => line.trim()).filter((line) => line !== '');
+			result.body[f.name] = items;
+			result.values[f.name] = items;
+			continue;
+		}
 
 		if (f.type === 'file')
 		{

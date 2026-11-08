@@ -1,0 +1,342 @@
+[
+	{
+		"key": "korolev",
+		"fullName": "Sergei Korolev",
+		"nationality": "Soviet Union",
+		"birthDate": "1907-01-12",
+		"deathDate": "1966-01-14",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%9D%D0%B8%D0%BD%D0%B0_%D0%B8_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9_%D0%9A%D0%BE%D1%80%D0%BE%D0%BB%D0%B5%D0%B2%D1%8B_(cropped).jpg?width=500",
+		"photoCredit": null,
+		"bio": "Trained as an aircraft engineer, he was arrested in 1938 during Stalin's purges and spent six years in prison camps and a prison design bureau. After the war he led the design bureau OKB-1, which built the R-7 rocket, Sputnik and Vostok. His name was kept secret until he died: the world knew him only as the Chief Designer."
+	},
+	{
+		"key": "tikhonravov",
+		"fullName": "Mikhail Tikhonravov",
+		"nationality": "Soviet Union",
+		"birthDate": "1900-07-29",
+		"deathDate": "1974-03-04",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Mikhail_Tikhonravov.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A rocket pioneer who argued in the early 1950s, at first almost alone, that a rocket could put a satellite into orbit. In Korolev's design bureau he led the group that designed Sputnik."
+	},
+	{
+		"key": "guier",
+		"fullName": "William Guier",
+		"nationality": "United States",
+		"birthDate": null,
+		"deathDate": null,
+		"photoUrl": "/images/people/guier.jpg",
+		"photoCredit": "Johns Hopkins University Applied Physics Laboratory, Technical Digest. Used here for the mockup only; permission needed before publishing.",
+		"bio": "A physicist and mathematician at the Applied Physics Laboratory of Johns Hopkins University. With George Weiffenbach he listened to Sputnik and worked out its whole orbit from the change in the pitch of its beep. The method became the basis of Transit, the first satellite navigation system."
+	},
+	{
+		"key": "weiffenbach",
+		"fullName": "George Weiffenbach",
+		"nationality": "United States",
+		"birthDate": null,
+		"deathDate": null,
+		"photoUrl": "/images/people/weiffenbach.jpg",
+		"photoCredit": "Johns Hopkins University Applied Physics Laboratory, Technical Digest. Used here for the mockup only; permission needed before publishing.",
+		"bio": "A physicist at the Applied Physics Laboratory who knew radio receivers well. On the weekend after the launch he set up the equipment that recorded Sputnik's signal, and with William Guier turned the change in its pitch into a full orbit."
+	},
+	{
+		"key": "vonbraun",
+		"fullName": "Wernher von Braun",
+		"nationality": "Germany, later United States",
+		"birthDate": "1912-03-23",
+		"deathDate": "1977-06-16",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Wernher_von_Braun_1960.jpg?width=500",
+		"photoCredit": null,
+		"bio": "He led the Army rocket team in Huntsville, Alabama, that built the Jupiter-C, and later the Saturn V that carried astronauts to the Moon."
+	},
+	{
+		"key": "pickering",
+		"fullName": "William Pickering",
+		"nationality": "New Zealand, later United States",
+		"birthDate": "1910-12-24",
+		"deathDate": "2004-03-15",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Bill_Pickering_1964_(cropped).jpg?width=500",
+		"photoCredit": null,
+		"bio": "Director of the Jet Propulsion Laboratory in California, which built Explorer 1 and its upper stages, and later the first probes to the Moon and the planets."
+	},
+	{
+		"key": "vanallen",
+		"fullName": "James Van Allen",
+		"nationality": "United States",
+		"birthDate": "1914-09-07",
+		"deathDate": "2006-08-09",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/James_van_Allen.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A physicist at the University of Iowa. His cosmic ray detector flew on Explorer 1, and he and his students worked out that its strange readings meant the Earth is surrounded by belts of radiation, now named after him."
+	},
+	{
+		"key": "shklovsky",
+		"fullName": "Iosif Shklovsky",
+		"nationality": "Soviet Union",
+		"birthDate": "1916-07-01",
+		"deathDate": "1985-03-03",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Iosif_Shklovsky.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A Soviet astrophysicist known for his work in radio astronomy and for asking whether there is life elsewhere in the universe. He suggested releasing a cloud of sodium from the Moon probes, so that astronomers on the ground could see where they were."
+	},
+	{
+		"key": "gagarin",
+		"fullName": "Yuri Gagarin",
+		"nationality": "Soviet Union",
+		"birthDate": "1934-03-09",
+		"deathDate": "1968-03-27",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Yuri_Gagarin_(1961)_-_Restoration.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A Soviet fighter pilot who became the first person in space on 12 April 1961. The son of a carpenter, he was chosen from twenty candidates for his calm, his skill and his friendly manner. He died aged 34, when his jet trainer crashed during a training flight."
+	},
+	{
+		"key": "titov",
+		"fullName": "Gherman Titov",
+		"nationality": "Soviet Union",
+		"birthDate": "1935-09-11",
+		"deathDate": "2000-09-20",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gherman_Titov_1961_(cropped).jpg?width=500",
+		"photoCredit": null,
+		"bio": "Gagarin's backup for Vostok 1. Four months later he flew Vostok 2 for a whole day, orbiting the Earth seventeen times. He was the first person to sleep in space, and at 25 he is still the youngest person ever to fly in space."
+	},
+	{
+		"key": "armstrong",
+		"fullName": "Neil Armstrong",
+		"nationality": "United States",
+		"birthDate": "1930-08-05",
+		"deathDate": "2012-08-25",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Neil_Armstrong_pose.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A test pilot and engineer, and the commander of Apollo 11. He flew Eagle to a landing by hand, avoiding a field of boulders with little fuel left, and became the first person to walk on the Moon. After NASA he taught engineering and avoided fame."
+	},
+	{
+		"key": "aldrin",
+		"fullName": "Buzz Aldrin",
+		"nationality": "United States",
+		"birthDate": "1930-01-20",
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Buzz_Aldrin.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A fighter pilot with a doctorate in orbital mechanics. He became the second person to walk on the Moon, about twenty minutes after Armstrong, and fixed a broken switch with a felt-tip pen for the trip home."
+	},
+	{
+		"key": "collins",
+		"fullName": "Michael Collins",
+		"nationality": "United States",
+		"birthDate": "1930-10-31",
+		"deathDate": "2021-04-28",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Michael_Collins_(S69-31742%2C_restoration).jpg?width=500",
+		"photoCredit": null,
+		"bio": "He flew Columbia around the Moon alone, cut off from all radio contact each time he passed behind it. He later became the first director of the National Air and Space Museum and wrote Carrying the Fire."
+	},
+	{
+		"key": "stone",
+		"fullName": "Edward C. Stone",
+		"nationality": "United States",
+		"birthDate": "1936-01-23",
+		"deathDate": "2024-06-09",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Stone_Voyager_4c.jpg?width=500",
+		"photoCredit": null,
+		"bio": "The project scientist of Voyager for fifty years, from 1972 to 2022. He led the scientists who turned the flybys into discoveries, and followed Voyager 1 into interstellar space. He also directed the Jet Propulsion Laboratory from 1991 to 2001."
+	},
+	{
+		"key": "sagan",
+		"fullName": "Carl Sagan",
+		"nationality": "United States",
+		"birthDate": "1934-11-09",
+		"deathDate": "1996-12-20",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl_Sagan_Planetary_Society.JPG?width=500",
+		"photoCredit": null,
+		"bio": "An astronomer and one of the best-known science communicators of his time. He led the committee that chose the Golden Record, and persuaded NASA to turn Voyager 1 around in 1990 to photograph the Earth."
+	},
+	{
+		"key": "ehman",
+		"fullName": "Jerry R. Ehman",
+		"nationality": "United States",
+		"birthDate": null,
+		"deathDate": null,
+		"photoUrl": "/images/people/ehman.jpg",
+		"photoCredit": "daviddarling.info. Used here for the mockup only; permission needed before publishing.",
+		"bio": "An astronomer who volunteered for Ohio State University's search for signals from other civilisations. Going through Big Ear's printouts by hand, he found the reading of 15 August 1977, circled it in red and wrote \"Wow!\" next to it."
+	},
+	{
+		"key": "kraus",
+		"fullName": "John Kraus",
+		"nationality": "United States",
+		"birthDate": "1910-06-28",
+		"deathDate": "2004-07-18",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/John_Kraus.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A radio astronomer and engineer, known for inventing the helical antenna. He designed Big Ear and built it with his students at Ohio State University between 1956 and 1961."
+	},
+	{
+		"key": "gray",
+		"fullName": "Robert H. Gray",
+		"nationality": "United States",
+		"birthDate": null,
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Robert_H_Gray_2012.jpg?width=500",
+		"photoCredit": "Wikimedia Commons. CC BY-SA 3.0",
+		"bio": "He spent years trying to catch the signal again, with telescopes at Harvard, the Very Large Array in New Mexico and a dish in Tasmania, and wrote a book about the search."
+	},
+	{
+		"key": "mendez",
+		"fullName": "Abel Méndez",
+		"nationality": "Puerto Rico",
+		"birthDate": null,
+		"deathDate": null,
+		"photoUrl": "/images/people/mendez.jpg",
+		"photoCredit": "Gladys Serrano, El País, 2024, via the Planetary Habitability Laboratory. Used here for the mockup only; permission needed before publishing.",
+		"bio": "In 2024 he and his colleagues proposed that a cold cloud of hydrogen suddenly flared, after finding similar but weaker signals in old Arecibo data."
+	},
+	{
+		"key": "drake",
+		"fullName": "Frank Drake",
+		"nationality": "United States",
+		"birthDate": "1930-05-28",
+		"deathDate": "2022-09-02",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Frank_Drake_at_Cornell%2C_October_2017_(cropped).jpg?width=500",
+		"photoCredit": null,
+		"bio": "An American radio astronomer. In 1960 he made the first search for signals from other civilisations, Project Ozma, and in 1961 he wrote down the Drake equation, a way of estimating how many civilisations might exist in our galaxy."
+	},
+	{
+		"key": "judicacordiglia",
+		"fullName": "Achille and Gian Battista Judica-Cordiglia",
+		"nationality": "Italy",
+		"birthDate": null,
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Judica-cordiglia-brothers.jpg?width=500",
+		"photoCredit": null,
+		"bio": "Two brothers, Achille (1933–2015) and Gian Battista (1939–2024), who ran a listening station near Turin and recorded signals from many satellites. They said they had also recorded secret Soviet flights that went wrong. Their recordings were played on radio and television in Italy and abroad, and they always stood by them."
+	},
+	{
+		"key": "bondarenko",
+		"fullName": "Valentin Bondarenko",
+		"nationality": "Soviet Union",
+		"birthDate": "1937-02-16",
+		"deathDate": "1961-03-23",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Valentin_Bondarenko.jpg?width=500",
+		"photoCredit": null,
+		"bio": "The youngest of the first group of cosmonauts. He died after a fire in an oxygen-rich test chamber, less than three weeks before Gagarin's flight. His death was kept secret until 1986."
+	},
+	{
+		"key": "nelyubov",
+		"fullName": "Grigori Nelyubov",
+		"nationality": "Soviet Union",
+		"birthDate": "1934-03-31",
+		"deathDate": "1966-02-18",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Grigory_Nelyubov.jpg?width=500",
+		"photoCredit": null,
+		"bio": "One of the six candidates for the first flight. Dismissed in 1963 after an argument with a military patrol, he was later painted out of official photographs of the cosmonaut group."
+	},
+	{
+		"key": "hamilton",
+		"fullName": "Margaret Hamilton",
+		"nationality": "United States",
+		"birthDate": "1936-08-17",
+		"deathDate": "2026-09-30",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Margaret_Hamilton_1995.jpg?width=500",
+		"photoCredit": "Daphne Weld Nichols. CC BY-SA 3.0.",
+		"bio": "A computer scientist at MIT who led the team that wrote the software for the Apollo guidance computers. During the landing her software kept doing the important jobs when the alarms went off."
+	},
+	{
+		"key": "duke",
+		"fullName": "Charlie Duke",
+		"nationality": "United States",
+		"birthDate": "1935-10-03",
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Official_NASA_portrait_Charles_Moss_Duke_Jr.jpg?width=500",
+		"photoCredit": null,
+		"bio": "The capsule communicator in Mission Control who talked to Apollo 11 during the landing. In 1972 he walked on the Moon himself with Apollo 16."
+	},
+	{
+		"key": "jackking",
+		"fullName": "Jack King",
+		"nationality": "United States",
+		"birthDate": "1897-09-06",
+		"deathDate": "1983-08-23",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Jack_King_(Apollo_12).jpg?width=500",
+		"photoCredit": null,
+		"bio": "NASA's chief of public information at the launch centre in Florida. His was the voice of the countdown and lift-off of Apollo 11 heard around the world."
+	},
+	{
+		"key": "bales",
+		"fullName": "Steve Bales",
+		"nationality": "United States",
+		"birthDate": "1942-10-07",
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Steve_bales.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A guidance officer in Mission Control. When alarms went off during the Apollo 11 landing, he judged that it was safe to go on."
+	},
+	{
+		"key": "ludwig",
+		"fullName": "George Ludwig",
+		"nationality": "United States",
+		"birthDate": "1927-11-13",
+		"deathDate": "2013-01-22",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Explorer_1%E2%80%99s_First_Journey.jpg?width=500",
+		"photoCredit": null,
+		"bio": "James Van Allen's graduate student. He built the radiation counter that flew on Explorer 1, in a few weeks."
+	},
+	{
+		"key": "oberg",
+		"fullName": "James Oberg",
+		"nationality": "United States",
+		"birthDate": "1944-11-07",
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/ObergTrainer.jpg?width=500",
+		"photoCredit": "Roberto Tenore. CC BY-SA 4.0.",
+		"bio": "An American space engineer and historian who spent years checking the stories of lost cosmonauts against Soviet records."
+	},
+	{
+		"key": "keldysh",
+		"fullName": "Mstislav Keldysh",
+		"nationality": "Soviet Union",
+		"birthDate": "1911-02-10",
+		"deathDate": "1978-06-24",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/MVKeldish.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A mathematician who led the calculations of the paths of Soviet spacecraft, and later the Soviet Academy of Sciences."
+	},
+	{
+		"key": "lovellb",
+		"fullName": "Bernard Lovell",
+		"nationality": "United Kingdom",
+		"birthDate": "1913-08-31",
+		"deathDate": "2012-08-06",
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/BernardLovell.jpg?width=500",
+		"photoCredit": "Unknown author. Attribution licence (see the file page).",
+		"bio": "A British radio astronomer who built the giant telescope at Jodrell Bank. Finished just in time, it tracked the rocket that carried Sputnik into orbit."
+	},
+	{
+		"key": "flandro",
+		"fullName": "Gary Flandro",
+		"nationality": "United States",
+		"birthDate": "1934-03-30",
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gary_Flandro.jpg?width=500",
+		"photoCredit": null,
+		"bio": "A JPL engineer who noticed in 1965 that the four giant planets would line up in the late 1970s, so one spacecraft could visit them all."
+	},
+	{
+		"key": "morabito",
+		"fullName": "Linda Morabito",
+		"nationality": "United States",
+		"birthDate": "1953-11-21",
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Linda_Morabito_Now.jpg?width=500",
+		"photoCredit": "ViewWikiped. CC BY-SA 3.0.",
+		"bio": "A JPL engineer who in March 1979 spotted a plume rising from Io, the first active volcano found beyond the Earth."
+	},
+	{
+		"key": "caballero",
+		"fullName": "Alberto Caballero",
+		"nationality": "Spain",
+		"birthDate": null,
+		"deathDate": null,
+		"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Alberto_caballero.png?width=500",
+		"photoCredit": "María Valencia Ferrán. CC BY-SA 4.0.",
+		"bio": "An amateur astronomer who in 2022 found a star like our Sun in the part of the sky the signal came from."
+	}
+]

@@ -1,0 +1,1565 @@
+{
+	"slug": "voyager-1",
+	"kind": "Mission",
+	"title": "Voyager 1",
+	"tagline": "Still travelling between the stars",
+	"summary": "Launched to visit Jupiter and Saturn, it found volcanoes on another world, photographed the Earth as a tiny dot, and <mark>is now travelling between the stars, still sending data home.</mark>",
+	"coverImageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_spacecraft_model.png?width=700",
+	"coverCaption": "Voyager, model",
+	"coverCredit": "NASA. Public domain.",
+	"country": "United States",
+	"desk": "American",
+	"startDate": "1977-09-05",
+	"endDate": null,
+	"agency": "NASA (JPL)",
+	"missionOutcome": "Ongoing",
+	"evidenceStatus": null,
+	"statusNote": null,
+	"radioMinMHz": null,
+	"radioMaxMHz": null,
+	"relatedTopic": "newtons-first-law",
+	"facts": [
+		{
+			"label": "Country",
+			"value": "United States"
+		},
+		{
+			"label": "Launched",
+			"value": "5 September 1977, Cape Canaveral"
+		},
+		{
+			"label": "Rocket",
+			"value": "Titan IIIE with Centaur"
+		},
+		{
+			"label": "Visited",
+			"value": "Jupiter 1979, Saturn 1980"
+		},
+		{
+			"label": "Since 2012",
+			"value": "in interstellar space"
+		},
+		{
+			"label": "Weight",
+			"value": "about 825 kg"
+		}
+	],
+	"people": [
+		{
+			"person": "stone",
+			"role": "Project scientist",
+			"isCrew": false,
+			"sortOrder": 1
+		},
+		{
+			"person": "sagan",
+			"role": "Golden Record and Pale Blue Dot",
+			"isCrew": false,
+			"sortOrder": 2
+		},
+		{
+			"person": "flandro",
+			"role": "Found the Grand Tour",
+			"isCrew": false,
+			"sortOrder": 3
+		},
+		{
+			"person": "morabito",
+			"role": "Found Io's volcano",
+			"isCrew": false,
+			"sortOrder": 4
+		}
+	],
+	"media": [
+		{
+			"sortOrder": 1,
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pale_Blue_Dot_from_Voyager_1_-_PIA23645.png?width=900",
+			"title": "The Pale Blue Dot",
+			"caption": "The Earth, the small speck in the band of light, seen from about six billion kilometres.",
+			"credit": "NASA, JPL-Caltech. Public domain.",
+			"text": "the Earth, from 6 billion km",
+			"style": null
+		},
+		{
+			"sortOrder": 2,
+			"type": "Note",
+			"title": "Note",
+			"text": "Case still open.\nVoyager 1 is still flying.",
+			"style": "yellow"
+		},
+		{
+			"type": "Audio",
+			"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Voyager_Captures_Sounds_of_Interstellar_Space.webm/Voyager_Captures_Sounds_of_Interstellar_Space.webm.240p.vp9.webm",
+			"title": "Interstellar space",
+			"credit": "Real data from Voyager 1's plasma wave instrument, turned into sound by NASA. Public domain.",
+			"lengthLabel": null,
+			"sortOrder": 3
+		},
+		{
+			"type": "Image",
+			"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chuck_Berry_and_Carl_Sagan.jpg?width=1000",
+			"title": "Sagan and Chuck Berry",
+			"caption": "Carl Sagan with Chuck Berry, whose Johnny B. Goode is on the Golden Record, at JPL in August 1989.",
+			"credit": "NASA/JPL. Public domain.",
+			"style": "folder",
+			"sortOrder": 4,
+			"people": [
+				"sagan"
+			]
+		}
+	],
+	"explanations": [],
+	"chapters": [
+		{
+			"section": "Story",
+			"tabLabel": "A rare chance",
+			"title": "A once-in-175-years chance",
+			"place": "Jet Propulsion Laboratory, Pasadena",
+			"dateLabel": "1960s to 1972",
+			"summary": "Engineers noticed something rare.",
+			"body": "<p>Engineers noticed something rare. In the late 1970s Jupiter, Saturn, Uranus and Neptune would all be on the same side of the Sun, in an arc. <mark>That alignment comes around about once every 175 years.</mark></p>\n<p>A spacecraft could swing around one planet and steal a little of its speed to reach the next. This gravity assist cut a trip to Neptune from thirty years to about twelve.</p>\n<p>A plan to visit all four was too expensive, so in 1972 NASA approved two spacecraft for Jupiter and Saturn. Quietly, the engineers built them to last much longer.</p>",
+			"marginNote": "Once every 175 years.",
+			"showsRadioHint": false,
+			"sortOrder": 1,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "stone"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Gravity assist:\nNeptune in 12 years instead of 30.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Borrowing speed",
+			"title": "Borrowing speed",
+			"place": "Jet Propulsion Laboratory",
+			"dateLabel": "1961 to 1965",
+			"summary": "In 1961 a student working at JPL, Michael Minovitch, used the laboratory's computers to show something surprising: a spacecraft flying close behind a planet can steal a little of the planet's speed around the Sun.",
+			"body": "<p>In 1961 a student working at JPL, Michael Minovitch, used the laboratory's computers to show something surprising: a spacecraft flying close behind a planet can steal a little of the planet's speed around the Sun.</p>\n<p>The planet slows down by an amount far too small to measure. The spacecraft is flung onwards much faster, without burning any fuel. <mark>This trick is called a gravity assist.</mark></p>\n<p>In 1965 another young engineer, Gary Flandro, noticed that in the late 1970s the four giant planets would line up so that one spacecraft could bounce from each to the next.</p>",
+			"marginNote": "Free speed, stolen from a planet.",
+			"showsRadioHint": false,
+			"sortOrder": 2,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gary_Flandro.jpg?width=900",
+					"title": "Gary Flandro",
+					"caption": "Gary Flandro, who found the rare line-up of the outer planets in 1965, photographed in 2017.",
+					"credit": "NASA / Aubrey Gemignani. Public domain.",
+					"text": "Gary Flandro",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Gravity assist",
+					"data": {
+						"rows": [
+							[
+								"Worked out",
+								"1961, Michael Minovitch"
+							],
+							[
+								"Line-up found",
+								"1965, Gary Flandro"
+							],
+							[
+								"Fuel needed",
+								"none"
+							],
+							[
+								"Comes around",
+								"about every 175 years"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "Pioneers went first",
+			"title": "Pioneers went first",
+			"place": "Jupiter and Saturn",
+			"dateLabel": "1972 to 1979",
+			"summary": "Before the Voyagers, two smaller NASA probes scouted the way.",
+			"body": "<p>Before the Voyagers, two smaller NASA probes scouted the way. Pioneer 10, launched in March 1972, was the first spacecraft to cross the asteroid belt and, in December 1973, to fly past Jupiter.</p>\n<p>It found Jupiter's radiation far stronger than expected, strong enough to damage electronics. <mark>The Voyagers were redesigned with extra shielding because of it.</mark> Pioneer 11 followed, flying past Jupiter and then, in 1979, Saturn.</p>\n<p>Each Pioneer carried a metal plaque with a drawing of a man and a woman and a map showing where the Earth is.</p>",
+			"marginNote": "Scouts for the Voyagers.",
+			"showsRadioHint": false,
+			"sortOrder": 3,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/An_artist's_impression_of_a_Pioneer_spacecraft_on_its_way_to_interstellar_space.jpg?width=1000",
+					"title": "A Pioneer on its way",
+					"caption": "A painting of a Pioneer spacecraft heading out of the Solar System.",
+					"credit": "NASA / Don Davis. Public domain.",
+					"text": "Pioneer, painted",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pioneer10-plaque.jpg?width=900",
+					"title": "The Pioneer plaque",
+					"caption": "The plaque carried by Pioneer 10 and 11, designed by Carl Sagan and Frank Drake.",
+					"credit": "NASA. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "a message before the record"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "The Pioneers",
+					"data": {
+						"rows": [
+							[
+								"Pioneer 10",
+								"launched March 1972"
+							],
+							[
+								"At Jupiter",
+								"December 1973"
+							],
+							[
+								"Pioneer 11",
+								"Jupiter, then Saturn 1979"
+							],
+							[
+								"Found",
+								"fierce radiation"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Story",
+			"tabLabel": "From Mariner to Voyager",
+			"title": "From Mariner to Voyager",
+			"place": "Pasadena",
+			"dateLabel": "1972 to 1977",
+			"summary": "The project was approved in 1972 under a plain name: Mariner Jupiter-Saturn 1977, after the family of Mariner probes that JPL had sent to Mars, Venus and Mercury.",
+			"body": "<p>The project was approved in 1972 under a plain name: Mariner Jupiter-Saturn 1977, after the family of Mariner probes that JPL had sent to Mars, Venus and Mercury.</p>\n<p>The spacecraft grew into something much bigger than a Mariner. <mark>In March 1977, a few months before launch, NASA gave the mission a new name: Voyager.</mark></p>\n<p>Officially the twins were only going to Jupiter and Saturn. Their builders made them strong enough to go much further.</p>",
+			"marginNote": "MJS77, renamed.",
+			"showsRadioHint": false,
+			"sortOrder": 4,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/P-15704Ac%2C_Mariner-Jupiter-Saturn_1977_Spacecraft_Artwork%2C_1975.jpg?width=1000",
+					"title": "Mariner Jupiter-Saturn",
+					"caption": "A 1975 painting of the spacecraft, from when it was still called Mariner Jupiter-Saturn 1977.",
+					"credit": "NASA / JPL Archives. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "still called MJS77"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Names",
+					"data": {
+						"rows": [
+							[
+								"Approved",
+								"1972"
+							],
+							[
+								"First name",
+								"Mariner Jupiter-Saturn 1977"
+							],
+							[
+								"Renamed",
+								"March 1977"
+							],
+							[
+								"New name",
+								"Voyager"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The spacecraft",
+			"title": "The spacecraft",
+			"place": "Pasadena",
+			"dateLabel": "1972 to 1977",
+			"summary": "Each Voyager is about the size of a small car, about 825 kilograms.",
+			"body": "<p>Each Voyager is about the size of a small car, about 825 kilograms. A white dish 3.7 metres across always points back at the Earth. Below it a ten-sided box holds the computers, the radio and fuel for small thrusters.</p>\n<p>Solar panels would be useless so far from the Sun. <mark>Instead three nuclear batteries turn the heat of decaying plutonium into electricity:</mark> about 470 watts at launch, a few watts less every year.</p>\n<p>Its computers have less memory than a simple modern calculator. They are still running.</p>",
+			"marginNote": "No solar panels. Plutonium heat instead.",
+			"showsRadioHint": false,
+			"sortOrder": 5,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_spacecraft_structure.jpg?width=900",
+					"title": "Voyager, part by part",
+					"caption": "The structure of the Voyager spacecraft and its instruments.",
+					"credit": "NASA. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "dish 3.7 m"
+							},
+							{
+								"text": "nuclear batteries on a boom"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Voyager",
+					"data": {
+						"rows": [
+							[
+								"Mass",
+								"about 825 kg"
+							],
+							[
+								"Dish",
+								"3.7 m"
+							],
+							[
+								"Power at launch",
+								"about 470 W"
+							],
+							[
+								"Source",
+								"three nuclear batteries"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "Power from plutonium",
+			"title": "Power from plutonium",
+			"place": "On the spacecraft",
+			"dateLabel": "1977 to today",
+			"summary": "At Jupiter the Sun gives only a twenty-fifth of the light it gives at the Earth.",
+			"body": "<p>At Jupiter the Sun gives only a twenty-fifth of the light it gives at the Earth. Further out, solar panels would be useless.</p>\n<p>So each Voyager carries three radioisotope thermoelectric generators on a long arm. Inside, balls of plutonium oxide stay hot as they slowly decay. <mark>Rows of thermocouples turn that heat straight into electricity, with no moving parts.</mark></p>\n<p>The plutonium loses half its power every 88 years, and the thermocouples wear out, so the power drops a little every year.</p>",
+			"marginNote": "Heat into electricity, for half a century.",
+			"showsRadioHint": false,
+			"sortOrder": 6,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_Program_-_RTG_diagram_1.png?width=800",
+					"title": "A generator",
+					"caption": "One of Voyager's radioisotope thermoelectric generators, cut open.",
+					"credit": "NASA / JPL. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "no moving parts"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The generators",
+					"data": {
+						"rows": [
+							[
+								"Number",
+								"three"
+							],
+							[
+								"Fuel",
+								"plutonium oxide"
+							],
+							[
+								"Power at launch",
+								"about 470 W"
+							],
+							[
+								"Moving parts",
+								"none"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "Built to last",
+			"title": "Built to last",
+			"place": "Jet Propulsion Laboratory",
+			"dateLabel": "1972 to 1977",
+			"summary": "Nobody could fix a Voyager once it left.",
+			"body": "<p>Nobody could fix a Voyager once it left. So everything important was built in pairs, and the spacecraft was given the ability to look after itself.</p>\n<p>If something failed, its computers could switch to a backup and wait safely for instructions. <mark>Every part was shaken, heated, frozen and blasted with radiation before launch.</mark></p>\n<p>The mission was planned to last about five years. It has lasted almost fifty.</p>",
+			"marginNote": "Planned for five years. Still going.",
+			"showsRadioHint": false,
+			"sortOrder": 7,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_Spacecraft_During_Vibration_Testing_-_GPN-2003-000008.jpg?width=800",
+					"title": "Shaken before launch",
+					"caption": "A Voyager spacecraft during vibration testing at JPL.",
+					"credit": "NASA. Public domain.",
+					"text": "vibration test",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Built to last",
+					"data": {
+						"rows": [
+							[
+								"Important parts",
+								"in pairs"
+							],
+							[
+								"If something fails",
+								"switch to backup"
+							],
+							[
+								"Planned life",
+								"about five years"
+							],
+							[
+								"Real life",
+								"almost fifty"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "The instruments",
+			"title": "The instruments",
+			"place": "On the spacecraft",
+			"dateLabel": "1977",
+			"summary": "Voyager carries about ten scientific instruments.",
+			"body": "<p>Voyager carries about ten scientific instruments. Some measure magnetic fields, charged particles and radio waves around it. Others look at things far away.</p>\n<p>The cameras and the instruments that study light sit on a scan platform at the end of a boom. <mark>It turns to point them at a planet or a moon while the rest of the spacecraft keeps its dish aimed at the Earth.</mark></p>\n<p>Each Voyager has two cameras: a wide-angle one and a narrow-angle one, like a zoom lens.</p>",
+			"marginNote": "Eyes on a swivel.",
+			"showsRadioHint": false,
+			"sortOrder": 8,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_scan-platform.jpg?width=800",
+					"title": "The scan platform",
+					"caption": "Voyager's scan platform, carrying the cameras and other instruments that look at planets.",
+					"credit": "NASA. Public domain.",
+					"text": "the scan platform",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "On board",
+					"data": {
+						"rows": [
+							[
+								"Instruments",
+								"about ten"
+							],
+							[
+								"Cameras",
+								"wide and narrow"
+							],
+							[
+								"Also",
+								"magnetic fields, particles"
+							],
+							[
+								"Still working",
+								"only a few"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "A message in a bottle",
+			"title": "A message in a bottle",
+			"place": "Cornell and Pasadena",
+			"dateLabel": "1977",
+			"summary": "Both Voyagers will leave the Solar System, so a committee led by Carl Sagan chose a message for anyone who might find one: a gold-plated copper record with instructions engraved on the cover.",
+			"body": "<p>Both Voyagers will leave the Solar System, so a committee led by Carl Sagan chose a message for anyone who might find one: a gold-plated copper record with instructions engraved on the cover.</p>\n<p><mark>It holds greetings in 55 languages, sounds of the Earth, music from Bach to Chuck Berry, and 116 pictures encoded as sound.</mark> The cover shows how to play it and where the Earth is, using pulsars as a map.</p>\n<p>Voyager 1 will not come close to another star for about 40 000 years. The record is a picture of humanity in 1977, sent out on purpose.</p>",
+			"marginNote": "55 languages. 116 pictures. A map made of pulsars.",
+			"showsRadioHint": false,
+			"sortOrder": 9,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Document",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Sounds_of_Earth_Record_Cover_-_GPN-2000-001978.jpg?width=900",
+					"title": "The Golden Record",
+					"caption": "The cover of the Golden Record, with engraved instructions for playing it and finding the Earth.",
+					"credit": "NASA, JPL. Public domain."
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "sagan"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Design",
+			"tabLabel": "What is on the record",
+			"title": "What is on the record",
+			"place": "The Golden Record",
+			"dateLabel": "1977",
+			"summary": "The committee had only a few months to choose what should speak for the whole Earth.",
+			"body": "<p>The committee had only a few months to choose what should speak for the whole Earth. They settled on greetings, sounds, music and pictures.</p>\n<p>The greetings are in 55 languages, from Akkadian, spoken five thousand years ago, to Wu, a dialect of modern Chinese. The sounds include wind, thunder, birds, whales, a kiss, footsteps, laughter and a mother with her baby. <mark>The music runs for about ninety minutes</mark>: Bach, Beethoven and Stravinsky, Chuck Berry's Johnny B. Goode, Navajo night chant, a Peruvian wedding song, Indian raga and Georgian choir.</p>\n<p>The 116 pictures, stored as sound, show the human body, families, cities, food and the planets.</p>",
+			"marginNote": "A kiss, a heartbeat, Johnny B. Goode.",
+			"showsRadioHint": false,
+			"sortOrder": 10,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_Golden_Record_01.jpg?width=900",
+					"title": "The Golden Record",
+					"caption": "A copy of the Golden Record. The cover shows how to play it.",
+					"credit": "Huhu Uet. CC BY-SA 3.0",
+					"text": "gold-plated copper",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "On the record",
+					"data": {
+						"rows": [
+							[
+								"Greetings",
+								"55 languages"
+							],
+							[
+								"Sounds of Earth",
+								"about 12 minutes"
+							],
+							[
+								"Music",
+								"about 90 minutes"
+							],
+							[
+								"Pictures",
+								"116"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 3,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "sagan"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Voyager 2 goes first",
+			"title": "Voyager 2 goes first",
+			"place": "Cape Canaveral",
+			"dateLabel": "20 August 1977",
+			"summary": "The twins were numbered by the order in which they would reach Jupiter, not the order of launch.",
+			"body": "<p>The twins were numbered by the order in which they would reach Jupiter, not the order of launch. Voyager 2 went first, on 20 August 1977, on a slower path that kept the way open to Uranus and Neptune.</p>\n<p>Its first days were worrying. <mark>The shaking of launch confused its computer, which kept switching between backup systems</mark>, and one boom seemed not to have locked open.</p>\n<p>The engineers sorted it out. Two weeks later its twin was ready.</p>",
+			"marginNote": "Number two launched first.",
+			"showsRadioHint": false,
+			"sortOrder": 11,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Titan_3E_Centaur_launches_Voyager_2.jpg?width=800",
+					"title": "Voyager 2 lifts off",
+					"caption": "A Titan IIIE-Centaur launches Voyager 2 on 20 August 1977.",
+					"credit": "NASA / MSFC. Public domain.",
+					"text": "20 August 1977",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The twins",
+					"data": {
+						"rows": [
+							[
+								"Voyager 2",
+								"launched 20 August"
+							],
+							[
+								"Voyager 1",
+								"launched 5 September"
+							],
+							[
+								"Faster",
+								"Voyager 1"
+							],
+							[
+								"Numbered by",
+								"arrival at Jupiter"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Launch",
+			"title": "Launch",
+			"place": "Cape Canaveral, Florida",
+			"dateLabel": "5 September 1977",
+			"summary": "Voyager 2 left first, on 20 August 1977.",
+			"body": "<p>Voyager 2 left first, on 20 August 1977. Voyager 1 followed on 5 September, on a faster path, and by December it had overtaken its twin.</p>\n<p><mark>On 18 September 1977 it turned back and took the first picture of the Earth and the Moon together,</mark> two crescents in the dark.</p>",
+			"marginNote": "Second to leave, first to arrive.",
+			"showsRadioHint": false,
+			"sortOrder": 12,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Titan_3E_with_Voyager_1.jpg?width=800",
+					"title": "Titan IIIE",
+					"caption": "The Titan IIIE rocket with Voyager 1, Cape Canaveral.",
+					"credit": "NASA. Public domain.",
+					"text": "Titan IIIE, 1977",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/First_Picture_of_the_Earth_and_Moon_in_a_Single_Frame_-_GPN-2002-000202.jpg?width=800",
+					"title": "Earth and Moon together",
+					"caption": "The first picture of the Earth and the Moon in one frame, 18 September 1977.",
+					"credit": "NASA. Public domain.",
+					"text": "Earth and Moon, 1977",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Video",
+					"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e2/JPL-19770905-VOYAGEf-0001-AVC2002151_Voyager_1_Launches.webm/JPL-19770905-VOYAGEf-0001-AVC2002151_Voyager_1_Launches.webm.480p.vp9.webm",
+					"posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/JPL-19770905-VOYAGEf-0001-AVC2002151_Voyager_1_Launches.webm/960px--JPL-19770905-VOYAGEf-0001-AVC2002151_Voyager_1_Launches.webm.jpg",
+					"title": "Voyager 1 launches",
+					"caption": "Film of the launch of Voyager 1 on a Titan IIIE rocket, 5 September 1977.",
+					"credit": "NASA / JPL. Public domain.",
+					"lengthLabel": "about 1 min"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Launch",
+			"tabLabel": "Close to empty",
+			"title": "Close to empty",
+			"place": "Above Florida",
+			"dateLabel": "5 September 1977",
+			"summary": "Voyager 1's launch looked perfect from the ground.",
+			"body": "<p>Voyager 1's launch looked perfect from the ground. In fact the second stage of the Titan rocket shut down early, leaving the spacecraft short of speed.</p>\n<p>The Centaur upper stage noticed and burned longer to make up the difference. <mark>When it finally shut down, it had only about three and a half seconds of fuel left.</mark></p>\n<p>It was the closest call of the whole mission, and it was over in a few minutes, long before anyone on the ground understood it.</p>",
+			"marginNote": "Three and a half seconds of fuel.",
+			"showsRadioHint": false,
+			"sortOrder": 13,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_1_Launch.jpg?width=800",
+					"title": "Voyager 1 lifts off",
+					"caption": "The launch of Voyager 1 on 5 September 1977.",
+					"credit": "NASA. Public domain.",
+					"text": "5 September 1977",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Centaur fuel left:\nabout 3.5 seconds.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The planets",
+			"tabLabel": "Jupiter",
+			"title": "Jupiter",
+			"place": "Jupiter",
+			"dateLabel": "March 1979",
+			"summary": "Voyager 1 passed closest to Jupiter on 5 March 1979.",
+			"body": "<p>Voyager 1 passed closest to Jupiter on 5 March 1979. Its pictures showed the storms in astonishing detail, including the Great Red Spot, a storm bigger than the Earth.</p>\n<p><mark>On 9 March the engineer Linda Morabito noticed a strange bright crescent at the edge of the moon Io.</mark> It was a plume from a volcano, rising hundreds of kilometres. Io turned out to be the most volcanic place in the Solar System: the first active volcanoes seen anywhere except the Earth.</p>",
+			"marginNote": "A volcano on another world.",
+			"showsRadioHint": false,
+			"sortOrder": 14,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jupiter's_Great_Red_Spot_mosaic_from_Voyager_1_(cropped).jpg?width=1000",
+					"title": "The Great Red Spot",
+					"caption": "Jupiter's Great Red Spot from Voyager 1.",
+					"credit": "NASA, JPL, Björn Jónsson. Public domain.",
+					"text": "the Great Red Spot",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Io_with_Loki_Plume_on_Bright_Limb_(cropped).jpg?width=800",
+					"title": "A volcano on Io",
+					"caption": "The plume of the volcano Loki at the edge of Io.",
+					"credit": "NASA, JPL, USGS. Public domain.",
+					"text": "Io, a plume at the edge",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Note",
+					"title": "Note",
+					"text": "9 March 1979:\nLinda Morabito spots the plume.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The planets",
+			"tabLabel": "Volcanoes on Io",
+			"title": "Volcanoes on Io",
+			"place": "Io",
+			"dateLabel": "March 1979",
+			"summary": "Just days before Voyager 1 reached Jupiter, three scientists published a prediction: Jupiter's pull squeezes the moon Io back and forth so strongly that its inside must be melting.",
+			"body": "<p>Just days before Voyager 1 reached Jupiter, three scientists published a prediction: Jupiter's pull squeezes the moon Io back and forth so strongly that its inside must be melting. There might be volcanoes.</p>\n<p>They were right. <mark>Voyager 1 found nine erupting volcanoes on Io</mark>, throwing sulphur hundreds of kilometres into space. Its surface, yellow, orange and black, is the youngest in the Solar System, covered again and again by lava.</p>\n<p>It was the first time active volcanoes had been seen anywhere except the Earth.</p>",
+			"marginNote": "Predicted, then seen.",
+			"showsRadioHint": false,
+			"sortOrder": 15,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/IO_Over_Jupiter_-_NASA's_Voyager_1_-_1979_(54159934196).png?width=900",
+					"title": "Io over Jupiter",
+					"caption": "Io passing in front of Jupiter, from Voyager 1 pictures of 1979.",
+					"credit": "NASA, processed by Andrea Luck. CC BY 2.0",
+					"text": "Io, 1979",
+					"style": "dark"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Io",
+					"data": {
+						"rows": [
+							[
+								"Volcanoes seen",
+								"nine erupting"
+							],
+							[
+								"Heated by",
+								"Jupiter's pull"
+							],
+							[
+								"Prediction",
+								"published days before"
+							],
+							[
+								"Found by",
+								"Linda Morabito"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The planets",
+			"tabLabel": "A ring around Jupiter",
+			"title": "A ring around Jupiter",
+			"place": "Jupiter",
+			"dateLabel": "4 March 1979",
+			"summary": "Saturn's rings had been known for centuries.",
+			"body": "<p>Saturn's rings had been known for centuries. Most scientists did not expect Jupiter to have any.</p>\n<p>Voyager 1 took a long-exposure picture just in case, as it crossed the plane where a ring would be. <mark>It found a faint, thin ring of dust.</mark></p>\n<p>Voyager 2 photographed it more clearly a few months later. We now know that all four giant planets have rings.</p>",
+			"marginNote": "Looked for just in case.",
+			"showsRadioHint": false,
+			"sortOrder": 16,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jupiter_Ring.png?width=700",
+					"title": "Jupiter's ring",
+					"caption": "Jupiter's faint ring, photographed by Voyager 2 in 1979.",
+					"credit": "NASA / Voyager 2. Public domain.",
+					"text": "a ring nobody expected",
+					"style": "dark"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Saturn: rings.\nJupiter: rings.\nUranus, Neptune: rings.",
+					"style": "white"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The planets",
+			"tabLabel": "The four big moons",
+			"title": "The four big moons",
+			"place": "Jupiter's moons",
+			"dateLabel": "March 1979",
+			"summary": "Galileo found Jupiter's four largest moons in 1610.",
+			"body": "<p>Galileo found Jupiter's four largest moons in 1610. For more than 360 years they were just points of light. Voyager turned them into worlds.</p>\n<p>Io had volcanoes. Europa was smooth ice covered in long cracks, perhaps floating on a hidden ocean. <mark>Ganymede, the biggest moon in the Solar System, is larger than the planet Mercury.</mark> Callisto is battered by craters all over.</p>\n<p>Europa's ocean is now one of the best places to look for life beyond the Earth.</p>",
+			"marginNote": "Four points of light, four worlds.",
+			"showsRadioHint": false,
+			"sortOrder": 17,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_1_Image_of_Jupiter_with_Io_and_Europa.jpg?width=900",
+					"title": "Jupiter with Io and Europa",
+					"caption": "Jupiter with its moons Io and Europa in front of it, photographed by Voyager 1.",
+					"credit": "NASA / JPL / Björn Jónsson. Public domain.",
+					"text": "Io and Europa",
+					"style": "dark"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_1_Image_of_Ganymede_-_GPN-2003-000007.jpg?width=700",
+					"title": "Ganymede",
+					"caption": "Ganymede, the largest moon in the Solar System, seen by Voyager 1.",
+					"credit": "NASA. Public domain.",
+					"text": "Ganymede",
+					"style": "dark"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Card",
+					"title": "Galileo's moons",
+					"data": {
+						"rows": [
+							[
+								"Io",
+								"volcanoes"
+							],
+							[
+								"Europa",
+								"cracked ice"
+							],
+							[
+								"Ganymede",
+								"bigger than Mercury"
+							],
+							[
+								"Callisto",
+								"covered in craters"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The planets",
+			"tabLabel": "Saturn and Titan",
+			"title": "Saturn and Titan",
+			"place": "Saturn",
+			"dateLabel": "November 1980",
+			"summary": "At Saturn, Voyager 1 showed that the rings are thousands of narrow ringlets, with dark \"spokes\" that come and go and thin rings kept in shape by tiny moons.",
+			"body": "<p>At Saturn, Voyager 1 showed that the rings are thousands of narrow ringlets, with dark \"spokes\" that come and go and thin rings kept in shape by tiny moons.</p>\n<p>To pass close to Titan, the only moon with a thick atmosphere, it had to take a path out of the plane of the planets, and could never reach Uranus or Neptune. <mark>The scientists chose Titan.</mark> It found air thicker than the Earth's, wrapped in an orange haze.</p>\n<p>Voyager 2 went on to Uranus and Neptune. Voyager 1 headed out of the Solar System.</p>",
+			"marginNote": "Titan, or Uranus and Neptune. They chose Titan.",
+			"showsRadioHint": false,
+			"sortOrder": 18,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Crescent_Saturn_as_seen_from_Voyager_1.jpg?width=1000",
+					"title": "Saturn, looking back",
+					"caption": "A crescent Saturn, seen by Voyager 1 as it left.",
+					"credit": "NASA. Public domain.",
+					"text": "Saturn, leaving",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Saturn's_ring_system_-_Voyager_1.jpg?width=800",
+					"title": "The rings",
+					"caption": "Saturn's rings, made of thousands of narrow ringlets.",
+					"credit": "NASA, JPL. Public domain.",
+					"text": "thousands of ringlets",
+					"style": null
+				},
+				{
+					"sortOrder": 3,
+					"type": "Video",
+					"url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/22/JPL-19801112-VOYAGEf-0001-AVC2002151_Voyager_1_at_Saturn.webm/JPL-19801112-VOYAGEf-0001-AVC2002151_Voyager_1_at_Saturn.webm.480p.vp9.webm",
+					"posterUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/JPL-19801112-VOYAGEf-0001-AVC2002151_Voyager_1_at_Saturn.webm/960px--JPL-19801112-VOYAGEf-0001-AVC2002151_Voyager_1_at_Saturn.webm.jpg",
+					"title": "Voyager 1 at Saturn",
+					"caption": "A JPL film from November 1980 about Voyager 1's flight past Saturn.",
+					"credit": "NASA / JPL. Public domain.",
+					"lengthLabel": "about 3 min"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The planets",
+			"tabLabel": "Spokes and shepherds",
+			"title": "Spokes and shepherds",
+			"place": "Saturn's rings",
+			"dateLabel": "November 1980",
+			"summary": "Close up, Saturn's rings were stranger than anyone had imagined.",
+			"body": "<p>Close up, Saturn's rings were stranger than anyone had imagined. Dark streaks, called spokes, stretched across them, came and went, and turned with the planet instead of with the rings.</p>\n<p>The thin outer F ring looked twisted and braided. <mark>Voyager 1 found two small moons, Prometheus and Pandora, one on each side of it, whose gravity keeps the ring narrow.</mark> They are called shepherd moons.</p>\n<p>The spokes are thought to be fine dust lifted above the rings by electric charges. They are still not fully understood.</p>",
+			"marginNote": "Two moons herding a ring.",
+			"showsRadioHint": false,
+			"sortOrder": 19,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_2_-_Saturn_Rings_-_3085_7800_2.png?width=800",
+					"title": "Saturn's rings",
+					"caption": "Saturn's rings close up, photographed by Voyager 2.",
+					"credit": "NASA / JPL. Public domain.",
+					"text": "thousands of ringlets",
+					"style": "dark"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "In the rings",
+					"data": {
+						"rows": [
+							[
+								"Spokes",
+								"dark streaks that come and go"
+							],
+							[
+								"F ring",
+								"thin and twisted"
+							],
+							[
+								"Shepherds",
+								"Prometheus, Pandora"
+							],
+							[
+								"Found by",
+								"Voyager 1"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "The planets",
+			"tabLabel": "Voyager 2 goes on",
+			"title": "Voyager 2 goes on",
+			"place": "Uranus and Neptune",
+			"dateLabel": "1986 and 1989",
+			"summary": "Because Voyager 1 chose Titan, only its twin could continue the Grand Tour.",
+			"body": "<p>Because Voyager 1 chose Titan, only its twin could continue the Grand Tour. Voyager 2 passed Jupiter and Saturn and then flew on to Uranus in January 1986 and Neptune in August 1989.</p>\n<p>It found new moons and faint rings at both. At Neptune it saw a dark storm the size of the Earth and, on the moon Triton, geysers of dark material. <mark>It is still the only spacecraft ever to visit Uranus and Neptune.</mark></p>\n<p>In November 2018 Voyager 2 also crossed into interstellar space.</p>",
+			"marginNote": "The only visitor so far.",
+			"showsRadioHint": false,
+			"sortOrder": 20,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Neptune_Full.jpg?width=900",
+					"title": "Neptune",
+					"caption": "Neptune photographed by Voyager 2 in August 1989, with its Great Dark Spot.",
+					"credit": "NASA / JPL. Public domain.",
+					"text": "Neptune, 1989",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Voyager 2",
+					"data": {
+						"rows": [
+							[
+								"Jupiter",
+								"July 1979"
+							],
+							[
+								"Saturn",
+								"August 1981"
+							],
+							[
+								"Uranus",
+								"January 1986"
+							],
+							[
+								"Neptune",
+								"August 1989"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Looking back",
+			"tabLabel": "Why it nearly did not happen",
+			"title": "Why it nearly did not happen",
+			"place": "Pasadena and Washington",
+			"dateLabel": "1981 to 1990",
+			"summary": "After Saturn, Carl Sagan began asking for one more picture: turn the cameras back and photograph the whole family of planets from outside.",
+			"body": "<p>After Saturn, Carl Sagan began asking for one more picture: turn the cameras back and photograph the whole family of planets from outside.</p>\n<p>Many on the team said no. The pictures would have little scientific value, and <mark>pointing the cameras close to the Sun could damage them.</mark> Engineers needed time and money to plan it.</p>\n<p>Sagan kept asking for years. In 1989 NASA's new head, Richard Truly, approved it. By then Voyager 1 was far beyond Neptune.</p>",
+			"marginNote": "Years of asking.",
+			"showsRadioHint": false,
+			"sortOrder": 21,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/View_of_the_Sun%2C_Earth_and_Venus_from_Voyager_1.png?width=900",
+					"title": "Close to the Sun",
+					"caption": "Part of the family portrait near the Sun, with the Earth and Venus. The bright glare is why many feared for the cameras.",
+					"credit": "NASA / JPL. Public domain.",
+					"text": "near the glare",
+					"style": "dark"
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "sagan"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Looking back",
+			"tabLabel": "The family portrait",
+			"title": "The family portrait",
+			"place": "About six billion kilometres from the Sun",
+			"dateLabel": "14 February 1990",
+			"summary": "The pale blue dot is one frame of a larger picture.",
+			"body": "<p>The pale blue dot is one frame of a larger picture. Voyager 1 took sixty images in a sweep across the sky to make a family portrait of the Solar System, seen from outside.</p>\n<p>Six planets appear: Venus, the Earth, Jupiter, Saturn, Uranus and Neptune. <mark>Three are missing.</mark> Mercury was too close to the glare of the Sun, Mars was lost in scattered light, and Pluto was too small and dark.</p>\n<p>They were the last pictures Voyager 1 ever took. Its cameras were switched off to save power for the long journey ahead.</p>",
+			"marginNote": "The last pictures it ever took.",
+			"showsRadioHint": false,
+			"sortOrder": 22,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Family_portrait_(Voyager_1).png?width=1400",
+					"title": "The family portrait",
+					"caption": "The mosaic of the Solar System taken by Voyager 1 on 14 February 1990.",
+					"credit": "NASA / JPL. Public domain.",
+					"text": "six planets, from outside",
+					"style": "dark"
+				},
+				{
+					"sortOrder": 2,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_Portrait_Family_diagram.jpg?width=900",
+					"title": "Where the planets were",
+					"caption": "Where each planet appeared in the sixty frames.",
+					"credit": "NASA. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "Mercury, Mars, Pluto: not visible"
+							}
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Looking back",
+			"tabLabel": "A pale blue dot",
+			"title": "A pale blue dot",
+			"place": "About six billion kilometres from the Sun",
+			"dateLabel": "14 February 1990",
+			"summary": "Carl Sagan had argued for one more picture: turn around and photograph the planets from the outside.",
+			"body": "<p>Carl Sagan had argued for one more picture: turn around and photograph the planets from the outside. On 14 February 1990 Voyager 1 took sixty pictures. Then its cameras were switched off for good.</p>\n<p><mark>In one frame the Earth is a single tiny dot, less than a pixel, caught in a beam of sunlight.</mark> Sagan called it the pale blue dot: every person who ever lived, lived there.</p>",
+			"marginNote": "Less than a pixel. Everyone, ever.",
+			"showsRadioHint": false,
+			"sortOrder": 23,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pale_Blue_Dot_from_Voyager_1_-_PIA23645.png?width=900",
+					"title": "The Pale Blue Dot",
+					"caption": "The Earth, the speck inside the band of light, from about six billion kilometres.",
+					"credit": "NASA, JPL-Caltech. Public domain.",
+					"text": "the Earth, a speck",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "PersonFile",
+					"title": "Personnel file",
+					"person": "sagan"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Quote",
+					"title": "Quote",
+					"text": "Look again at that dot. That's here. That's home. That's us.",
+					"author": "Carl Sagan, Pale Blue Dot",
+					"dateLabel": "1994"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Interstellar",
+			"tabLabel": "The edge of the bubble",
+			"title": "The edge of the bubble",
+			"place": "About 94 times the Earth's distance from the Sun",
+			"dateLabel": "December 2004",
+			"summary": "The solar wind blows outward at hundreds of kilometres per second.",
+			"body": "<p>The solar wind blows outward at hundreds of kilometres per second. Far out, it meets the thin gas between the stars and has to slow down.</p>\n<p>Where it suddenly drops below the speed of sound, there is a kind of shock wave, called the termination shock. <mark>Voyager 1 crossed it in December 2004</mark>, about 94 times further from the Sun than the Earth.</p>\n<p>Beyond it lies the heliosheath, a slow, turbulent zone between the solar wind and interstellar space.</p>",
+			"marginNote": "Where the wind slows down.",
+			"showsRadioHint": false,
+			"sortOrder": 24,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyagers_in_the_Heliosheath.jpg?width=1000",
+					"title": "The Voyagers in the heliosheath",
+					"caption": "An illustration of the two Voyagers in the heliosheath, the outer layer of the Sun's bubble.",
+					"credit": "NASA / JPL-Caltech. Public domain.",
+					"text": "the outer layer",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The termination shock",
+					"data": {
+						"rows": [
+							[
+								"Crossed",
+								"December 2004"
+							],
+							[
+								"Distance",
+								"about 94 times Earth's"
+							],
+							[
+								"There",
+								"the solar wind slows"
+							],
+							[
+								"Beyond",
+								"the heliosheath"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Interstellar",
+			"tabLabel": "Interstellar space",
+			"title": "Into interstellar space",
+			"place": "About one light-day away",
+			"dateLabel": "1998 to today",
+			"summary": "In 1998 Voyager 1 became the most distant human-made object.",
+			"body": "<p>In 1998 Voyager 1 became the most distant human-made object. <mark>On 25 August 2012 it left the bubble of the solar wind and entered interstellar space,</mark> the first spacecraft ever to do so.</p>\n<p>Its radio is about as powerful as a refrigerator light. In late 2026 it is close to one light-day away: a command takes almost a full day to arrive.</p>\n<p>In 2023 it started sending nonsense. The team traced it to one broken memory chip and, in 2024, moved the code by radio from 24 billion kilometres away. It worked.</p>",
+			"marginNote": "Play the tape: interstellar space, turned into sound.",
+			"showsRadioHint": true,
+			"sortOrder": 25,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "Voyager 1 today",
+					"data": {
+						"rows": [
+							[
+								"Speed",
+								"about 17 km/s"
+							],
+							[
+								"Interstellar since",
+								"25 Aug. 2012"
+							],
+							[
+								"Distance",
+								"about 1 light-day"
+							],
+							[
+								"Radio",
+								"like a fridge light"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "One broken chip.\nFixed by radio from 24 billion km.",
+					"style": "yellow"
+				},
+				{
+					"sortOrder": 3,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Voyager_1_entering_heliosheath_region.jpg?width=1000",
+					"title": "The edge of the Sun's bubble",
+					"caption": "An illustration of the bubble the Sun blows around itself, and Voyager 1 crossing its edge.",
+					"credit": "NASA/Walt Feimer. Public domain.",
+					"text": "leaving the bubble",
+					"style": null
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Interstellar",
+			"tabLabel": "Listening to space",
+			"title": "Listening to space",
+			"place": "Interstellar space",
+			"dateLabel": "2012 and 2013",
+			"summary": "How do you know when you have left the Sun's bubble?",
+			"body": "<p>How do you know when you have left the Sun's bubble? Voyager 1's instrument for measuring the density of the gas had stopped working long ago.</p>\n<p>The answer came from the Sun itself. In 2012 a blast from the Sun reached the spacecraft and made the gas around it vibrate. <mark>Voyager's plasma wave instrument picked up the vibration, and its pitch showed that the gas was about forty times denser than inside the bubble.</mark></p>\n<p>That density could only belong to interstellar space. NASA turned the measurement into sound. It is on the tape by the radio.</p>",
+			"marginNote": "The pitch gave it away.",
+			"showsRadioHint": true,
+			"sortOrder": 26,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Card",
+					"title": "The proof",
+					"data": {
+						"rows": [
+							[
+								"Instrument",
+								"plasma wave"
+							],
+							[
+								"Set off by",
+								"a blast from the Sun"
+							],
+							[
+								"Gas density",
+								"about 40 times higher"
+							],
+							[
+								"Announced",
+								"September 2013"
+							]
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Note",
+					"title": "Note",
+					"text": "Play the tape by the radio:\nthe sound of interstellar gas.",
+					"style": "yellow"
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Interstellar",
+			"tabLabel": "Talking across the dark",
+			"title": "Talking across the dark",
+			"place": "Goldstone, Madrid and Canberra",
+			"dateLabel": "Today",
+			"summary": "Voyager 1 talks to the Earth through the Deep Space Network: three groups of giant dishes in California, Spain and Australia, spread around the globe so that one of them can always see the spacecraft.",
+			"body": "<p>Voyager 1 talks to the Earth through the Deep Space Network: three groups of giant dishes in California, Spain and Australia, spread around the globe so that one of them can always see the spacecraft.</p>\n<p>Its transmitter has only about 23 watts. By the time the signal reaches the Earth it is unimaginably faint, and <mark>only the largest dishes, 70 metres across, can still hear it.</mark> The data arrives at about 160 bits per second, slower than the oldest dial-up modem.</p>\n<p>Every command sent to it takes almost a day to arrive, and the answer takes another day to come back.</p>",
+			"marginNote": "A whisper from the edge.",
+			"showsRadioHint": false,
+			"sortOrder": 27,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Canberra_Deep_Space_Communication_Complex_-_general_view_(2174403243).jpg?width=1000",
+					"title": "The dishes at Canberra",
+					"caption": "The Canberra Deep Space Communication Complex in Australia, one of the three stations of the Deep Space Network.",
+					"credit": "Ryan Wick. CC BY 2.0",
+					"text": "Canberra, Australia",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The Deep Space Network",
+					"data": {
+						"rows": [
+							[
+								"Stations",
+								"California, Spain, Australia"
+							],
+							[
+								"Largest dishes",
+								"70 m"
+							],
+							[
+								"Voyager's data",
+								"about 160 bits a second"
+							],
+							[
+								"One-way delay",
+								"almost a day"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Interstellar",
+			"tabLabel": "A broken chip",
+			"title": "A broken chip",
+			"place": "Interstellar space",
+			"dateLabel": "November 2023 to June 2024",
+			"summary": "In November 2023 Voyager 1 stopped sending readable data.",
+			"body": "<p>In November 2023 Voyager 1 stopped sending readable data. Its signal still arrived, but it carried nonsense.</p>\n<p>The team worked out that one memory chip in a computer had failed, taking with it part of the software. Nobody could replace it. <mark>So they split the code into pieces and moved them, one by one, into other parts of the memory, by radio.</mark></p>\n<p>Each test took almost two days for the command to arrive and the answer to come back. By June 2024 all the instruments were sending science again.</p>",
+			"marginNote": "A repair at 24 billion kilometres.",
+			"showsRadioHint": false,
+			"sortOrder": 28,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/70_m_Antenna_in_Goldstone.jpg?width=900",
+					"title": "The dish at Goldstone",
+					"caption": "The 70-metre dish at Goldstone, California, one of the antennas used to talk to Voyager 1.",
+					"credit": "NASA / JPL. Public domain.",
+					"text": "Goldstone, 70 m",
+					"style": null
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "The repair",
+					"data": {
+						"rows": [
+							[
+								"Problem",
+								"November 2023"
+							],
+							[
+								"Cause",
+								"one memory chip"
+							],
+							[
+								"Fix",
+								"code moved by radio"
+							],
+							[
+								"Science back",
+								"June 2024"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Interstellar",
+			"tabLabel": "The last years",
+			"title": "The last years",
+			"place": "Interstellar space",
+			"dateLabel": "The 2020s and 2030s",
+			"summary": "Voyager 1's nuclear batteries lose a few watts every year.",
+			"body": "<p>Voyager 1's nuclear batteries lose a few watts every year. To keep it going, the team has been switching off heaters and instruments one at a time, deciding each year what it can live without.</p>\n<p>Some time in the 2030s there will not be enough power to run any instrument, and then not even the radio. <mark>When Voyager 1 falls silent it will not stop.</mark> It will keep moving at about 17 kilometres per second, with nothing to slow it down.</p>\n<p>In about 40 000 years it will pass within about 1.6 light-years of a faint star called Gliese 445. It will still be carrying the Golden Record.</p>",
+			"marginNote": "Silent, but still moving.",
+			"showsRadioHint": false,
+			"sortOrder": 29,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Image",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/Ed_stone_voyager_press_conference_1990.png?width=900",
+					"title": "The Voyager team",
+					"caption": "Ed Stone, the mission's chief scientist, at a press conference in 1990.",
+					"credit": "NASA / JPL-Caltech. Public domain.",
+					"text": "Ed Stone, 1990",
+					"style": null,
+					"people": [
+						"stone"
+					]
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "Running down",
+					"data": {
+						"rows": [
+							[
+								"Power at launch",
+								"about 470 W"
+							],
+							[
+								"Power lost",
+								"a few watts a year"
+							],
+							[
+								"Speed",
+								"about 17 km/s"
+							],
+							[
+								"Next star",
+								"in about 40 000 years"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Interstellar",
+			"tabLabel": "One light-day",
+			"title": "One light-day",
+			"place": "About 26 billion kilometres from the Earth",
+			"dateLabel": "November 2026",
+			"summary": "Light from the Sun reaches the Earth in about eight minutes.",
+			"body": "<p>Light from the Sun reaches the Earth in about eight minutes. Light from Voyager 1 now takes a whole day.</p>\n<p>In November 2026 Voyager 1 is about 26 billion kilometres away, the distance light travels in 24 hours. <mark>It is the first object made by people to be one light-day from home.</mark></p>\n<p>Even so, the nearest star is still more than four light-years away. Voyager 1 has barely started.</p>",
+			"marginNote": "A day for light. Four years to the next star.",
+			"showsRadioHint": false,
+			"sortOrder": 30,
+			"media": [
+				{
+					"sortOrder": 1,
+					"type": "Drawing",
+					"url": "https://commons.wikimedia.org/wiki/Special:FilePath/PIA22566-VoyagerProgram%26Heliosphere-Chart-20181003.jpg?width=1000",
+					"title": "Where the Voyagers are",
+					"caption": "A NASA chart of the two Voyagers and the Sun's bubble.",
+					"credit": "NASA / JPL-Caltech. Public domain.",
+					"style": null,
+					"data": {
+						"notes": [
+							{
+								"text": "further every second"
+							}
+						]
+					}
+				},
+				{
+					"sortOrder": 2,
+					"type": "Card",
+					"title": "One light-day",
+					"data": {
+						"rows": [
+							[
+								"Distance",
+								"about 26 billion km"
+							],
+							[
+								"Light takes",
+								"24 hours"
+							],
+							[
+								"Reached",
+								"November 2026"
+							],
+							[
+								"Next star",
+								"more than 4 light-years"
+							]
+						]
+					}
+				}
+			],
+			"explanations": []
+		},
+		{
+			"section": "Try it yourself",
+			"tabLabel": "Try it yourself",
+			"title": "Why it never stops",
+			"place": "The physics behind this case",
+			"dateLabel": null,
+			"summary": "Voyager 1 has not fired its main engines for almost fifty years.",
+			"body": "<p>Voyager 1 has not fired its main engines for almost fifty years. <mark>It does not need fuel to keep going. It would need fuel to stop.</mark></p>\n<p>Out between the stars there is almost nothing to slow it down. Newton's first law says a moving object keeps its speed and direction until a force changes them.</p>\n<p>On the monitor: push a box on a field with no friction, and watch it keep going.</p>",
+			"marginNote": null,
+			"showsRadioHint": false,
+			"sortOrder": 31,
+			"media": [
+				{
+					"type": "Simulation",
+					"title": "Why it never stops",
+					"sortOrder": 1
+				}
+			],
+			"explanations": []
+		}
+	]
+}

@@ -1,0 +1,20 @@
+---
+// The icon and "AstPIE". Pointing at it opens the name out of the letters:
+// Ast-rophysics P-latform for I-nteractive E-ducation (see scripts/logoName.ts).
+import Logo from './Logo.astro';
+import { t } from '../i18n/t';
+
+interface Props
+{
+	// Each copy of the icon on a page needs its own id
+	id: string;
+	href: string;
+}
+
+const { id, href } = Astro.props;
+---
+
+<a class="logo" href={href} aria-label={t('site.name') + ', ' + t('site.fullName')}>
+	<Logo id={id} />
+	<span class="name"><span class="ab">{t('logo.ast')}</span><span class="x">{t('logo.astRest')}&nbsp;</span><b>{t('logo.p')}</b><span class="x">{t('logo.pRest')}&nbsp;</span><b>{t('logo.i')}</b><span class="x">{t('logo.iRest')}&nbsp;</span><b>{t('logo.e')}</b><span class="x">{t('logo.eRest')}</span></span>
+</a>

@@ -1,0 +1,316 @@
+{
+	"slug": "k2-18b",
+	"name": "K2-18b",
+	"otherNames": "EPIC 201912552 b",
+	"type": "Planet",
+	"typeLabel": "Planet (a sub-Neptune)",
+	"constellation": "Leo",
+	"rightAscension": 11.5027,
+	"declination": 7.588,
+	"distanceLy": 124,
+	"massKg": 5.15e+25,
+	"radiusKm": 16600,
+	"apparentMagnitude": null,
+	"discoveredBy": "Kepler space telescope (K2 mission)",
+	"discoveryYear": 2015,
+	"summary": "A planet 2.6 times wider than Earth, circling a small red star 124 light years away.",
+	"description": "<p>A planet 2.6 times wider than Earth, circling a small red star. <mark>It might be covered by a deep, warm ocean under a sky of hydrogen. Or it might not.</mark></p>",
+	"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Exoplanet_K2-18_b_(Illustration).jpg?width=1600",
+	"imageCaption": "An illustration based on the Webb data. The planet itself has never been photographed.",
+	"imageCredit": "NASA, ESA, CSA, Joseph Olmsted (STScI). Public domain.",
+	"imageIsDark": false,
+	"facts": [
+		{
+			"label": "Distance",
+			"value": "about 124 light-years"
+		},
+		{
+			"label": "Mass",
+			"value": "about 8.6 times the Earth"
+		},
+		{
+			"label": "Width",
+			"value": "about 2.6 times the Earth"
+		},
+		{
+			"label": "Year",
+			"value": "33 days"
+		},
+		{
+			"label": "Its star",
+			"value": "K2-18, a red dwarf"
+		},
+		{
+			"label": "Seen by eye",
+			"value": "no, its star is far too faint"
+		},
+		{
+			"label": "Found",
+			"value": "2015, Kepler space telescope (K2)"
+		}
+	],
+	"logEntries": [
+		{
+			"dateLabel": "Mar. 2009",
+			"title": "Kepler is launched",
+			"summary": "NASA's Kepler space telescope starts staring at 150 000 stars, waiting for tiny dips in their light.",
+			"place": "Cape Canaveral, Florida · 7 March 2009",
+			"body": [
+				"Most planets around other stars are far too faint to photograph. Kepler was built to find them another way: by watching stars very carefully and waiting for a planet to pass in front of one, blocking a tiny part of its light.",
+				"The telescope was launched on 7 March 2009 into an orbit around the Sun, trailing behind the Earth. Its camera, the largest ever sent into space at the time, stared without a break at one patch of sky in the constellations Cygnus and Lyra, measuring the brightness of about 150 000 stars every half hour.",
+				"<mark>A single dip in a star's light could be anything. Three dips of the same depth, evenly spaced, are a planet</mark>: the time between them is its year, and the depth tells how big it is compared with its star.",
+				"Over nine years Kepler found more planets than all other telescopes before it put together, and showed that planets are common: most stars in the sky have at least one."
+			],
+			"facts": [
+				"Launched: 7 March 2009",
+				"Method: dips in starlight",
+				"Stars watched: about 150 000",
+				"Planets found: thousands"
+			],
+			"note": null,
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Kepler_space_telescope_seen_fom_downside.jpg?width=1600",
+			"plateTitle": "Kepler before launch",
+			"plateCaption": "The Kepler space telescope in Florida, a few weeks before launch.",
+			"plateCredit": "NASA, Troy Cryder. Public domain.",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 1
+		},
+		{
+			"dateLabel": "Summer 2014",
+			"title": "A star that dims every 33 days",
+			"summary": "Broken but rescued as the K2 mission, Kepler watches K2-18 and sees its light drop by about 0.3 percent, again and again.",
+			"place": "Constellation Leo · May to August 2014",
+			"body": [
+				"In 2013 the second of Kepler's four reaction wheels, the spinning wheels that held it steady, broke. It could no longer stare at the same stars. Many thought the mission was over.",
+				"Engineers found a clever fix. By pointing the telescope so that the gentle pressure of sunlight pushed on it evenly, they could balance it with only two wheels. <mark>The new mission, K2, looked at a different field along the path of the planets every few months.</mark>",
+				"In its first full field, in the constellation Leo, K2 watched a small red star called K2-18. Twice its light dropped by about 0.3 percent, for less than three hours, 33 days apart.",
+				"A drop that small means the object passing in front is only a few times wider than the Earth. The star is a red dwarf, smaller and cooler than the Sun, so a planet on a 33-day orbit around it could be at just the right distance for liquid water."
+			],
+			"facts": [
+				"Mission: K2",
+				"Dip in light: about 0.3 percent",
+				"Each dip lasts: under three hours",
+				"Repeats: every 33 days"
+			],
+			"note": null,
+			"plateKind": "Chart",
+			"plateUrl": null,
+			"plateTitle": "The dips in starlight",
+			"plateCaption": "Brightness of K2-18 over about three months. Each dip is about 0.3 percent deep and lasts less than three hours, so the dips are drawn wider here.",
+			"plateCredit": "Chart drawn by AstPIE.",
+			"plateIsDark": false,
+			"plateChartKey": "transit",
+			"platePosterUrl": null,
+			"sortOrder": 2
+		},
+		{
+			"dateLabel": "2015",
+			"title": "The planet is announced",
+			"summary": "Repeating dips of the same depth mean a planet. NASA's Spitzer telescope catches another one and confirms it.",
+			"place": "Spitzer Space Telescope and the K2 team · 2015 to 2017",
+			"body": [
+				"Two dips are a promise, not a proof. They might come from two different planets, or from a planet with a 66-day year whose other dips fell in a gap in the data.",
+				"Astronomers used NASA's Spitzer Space Telescope to watch K2-18 at the exact moment a third dip should come. <mark>It came on time.</mark> The planet was real, and its year was 33 days long.",
+				"The new planet, K2-18b, was about 2.6 times wider than the Earth. It orbits in its star's habitable zone and receives about as much starlight as the Earth gets from the Sun.",
+				"Planets of that size, between the Earth and Neptune, are the most common kind in the galaxy, and there is none in our Solar System. Nobody knew what one would be like."
+			],
+			"facts": [
+				"Confirmed by: Spitzer",
+				"Width: about 2.6 Earths",
+				"Starlight: about as much as Earth",
+				"Kind: between Earth and Neptune"
+			],
+			"note": null,
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/K2-18_system.jpg?width=1400",
+			"plateTitle": "The K2-18 system",
+			"plateCaption": "The orbits of the planets and the star's habitable zone. Sizes are not to scale.",
+			"plateCredit": "NASA Exoplanet Exploration Program, JPL. Public domain.",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 3
+		},
+		{
+			"dateLabel": "2017",
+			"title": "Weighed from Chile",
+			"summary": "The HARPS instrument measures how the planet tugs its star: about 8.6 Earth masses, too light to be rock all the way through.",
+			"place": "La Silla Observatory, Chile · 2017",
+			"body": [
+				"Knowing a planet's width is not enough. To know what it is made of, you also need its mass. A planet cannot be put on scales, but it pulls on its star as it orbits, and the star wobbles a little in return.",
+				"The HARPS instrument in Chile splits starlight into a rainbow so fine that it can see the colours shift as the star moves towards us and away. <mark>K2-18 wobbles at about three metres per second, a walking pace, seen from 124 light-years away.</mark>",
+				"The wobble gave K2-18b a mass of about eight times the Earth's, later refined to about 8.6. The same data revealed a second planet, K2-18c, closer to the star, which does not pass in front of it.",
+				"Mass and width together give density. K2-18b is too light to be solid rock and iron like the Earth. It must hold a lot of water, a thick blanket of gas, or both."
+			],
+			"facts": [
+				"Method: the star's wobble",
+				"Wobble: about 3 m/s",
+				"Mass: about 8.6 Earths",
+				"Bonus: a second planet, K2-18c"
+			],
+			"note": null,
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Milky_Way_and_Alpha_and_Beta_Centauri_behind_the_ESO_3_6-metre_telescope_at_La_Silla_(eso1241c).jpg?width=1600",
+			"plateTitle": "The ESO 3.6-metre telescope",
+			"plateCaption": "The telescope at La Silla, Chile, that carries the HARPS instrument.",
+			"plateCredit": "S. Brunier, ESO. CC BY 4.0",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 4
+		},
+		{
+			"dateLabel": "2019",
+			"title": "Water vapour reported",
+			"summary": "Two teams find signs of water vapour in old Hubble data: a first for a planet in a habitable zone. Later work makes the picture less certain.",
+			"place": "Hubble Space Telescope · Announced September 2019",
+			"body": [
+				"When a planet passes in front of its star, a little starlight shines through the edge of its atmosphere. Each gas in the air absorbs its own particular colours, so the starlight carries a faint fingerprint of the air.",
+				"Two teams went back to Hubble's observations of eight passes of K2-18b. Both reported the same thing in September 2019: <mark>a dip at the colour where water vapour absorbs light.</mark>",
+				"It was the first time water vapour had been reported in the air of a planet in a habitable zone. The news went around the world, often with the words \"a second Earth\", which K2-18b certainly is not.",
+				"Later studies showed the signal could also come from methane, which absorbs at almost the same colour. The question needed a bigger telescope."
+			],
+			"facts": [
+				"Telescope: Hubble",
+				"Passes studied: eight",
+				"Reported: water vapour",
+				"Later doubt: might be methane"
+			],
+			"note": null,
+			"plateKind": "Video",
+			"plateUrl": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/ff/K2-18_Star_System_Video.webm/K2-18_Star_System_Video.webm.480p.vp9.webm",
+			"plateTitle": "K2-18b and its star",
+			"plateCaption": "An artist's animation from 2019. Everything we know comes from the starlight.",
+			"plateCredit": "ESA/Hubble. CC BY 3.0",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Esa-hubble-k2-18a_impression.jpg?width=1600",
+			"sortOrder": 5
+		},
+		{
+			"dateLabel": "Sept. 2023",
+			"title": "Webb reads its air",
+			"summary": "The James Webb Space Telescope finds methane and carbon dioxide, and almost no ammonia. A faint hint of dimethyl sulfide is reported.",
+			"place": "James Webb Space Telescope · Announced September 2023",
+			"body": [
+				"The James Webb Space Telescope collects more than five times as much light as Hubble and sees further into the infrared, where many gases leave their marks. In 2023 it watched K2-18b pass in front of its star.",
+				"The result was clear. <mark>The air contains methane and carbon dioxide, and almost no ammonia.</mark> The planet seems to have an atmosphere rich in hydrogen.",
+				"One explanation is a hycean world: a planet covered by a deep ocean of water under a hydrogen sky, a kind of planet that has never been seen. Other scientists think the same data fit a mini-Neptune with a thick, hot layer of gas and no surface ocean at all.",
+				"The team also reported a weak hint of dimethyl sulfide, a gas that on Earth comes almost only from living things. They said themselves that it was not yet convincing."
+			],
+			"facts": [
+				"Found: methane, carbon dioxide",
+				"Almost none: ammonia",
+				"Possible: a hycean world",
+				"Or: a mini-Neptune"
+			],
+			"note": null,
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Spectra_of_exoplanet_K2-18_b_(weic2321b).jpg?width=1600",
+			"plateTitle": "The fingerprint of its air",
+			"plateCaption": "Starlight that passed through the planet's atmosphere, measured by Webb. The bumps show methane and carbon dioxide.",
+			"plateCredit": "NASA, CSA, ESA, J. Olmsted (STScI), N. Madhusudhan (Cambridge University). CC BY 4.0",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 6
+		},
+		{
+			"dateLabel": "Apr. 2025",
+			"title": "A stronger claim, still debated",
+			"summary": "A new claim of dimethyl sulfide, a gas made on Earth almost only by life. Other teams who check the data find the evidence much weaker.",
+			"place": "Webb's MIRI instrument · Announced April 2025",
+			"body": [
+				"In April 2025 the same team published new observations from a different Webb instrument, MIRI, which sees longer infrared colours. They reported a stronger signal of dimethyl sulfide, or a similar gas.",
+				"The story made headlines as \"the strongest hint of life beyond the Earth\". On Earth, dimethyl sulfide is made mainly by tiny plankton in the sea. <mark>But in 2024 it had also been found on a comet, where nothing lives</mark>, so it can form without life too.",
+				"Other teams analysed the same data with different methods. Most found the evidence much weaker, and some found that other gases could explain it just as well.",
+				"For now the case is open. Settling it will take many more hours of Webb's time and careful tests of every explanation, exactly as science should work with an extraordinary claim."
+			],
+			"facts": [
+				"Instrument: MIRI on Webb",
+				"Claimed: dimethyl sulfide",
+				"Made on Earth by: mostly sea plankton",
+				"Status: not confirmed"
+			],
+			"note": "not confirmed",
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/JWST_MIRI.jpg?width=1200",
+			"plateTitle": "MIRI",
+			"plateCaption": "The mid-infrared instrument of the Webb telescope, which took the data for the 2025 claim.",
+			"plateCredit": "NASA. Public domain.",
+			"plateIsDark": false,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 7
+		},
+		{
+			"dateLabel": "2029, planned",
+			"title": "Ariel",
+			"summary": "The European Space Agency plans a telescope built to study the air of about a thousand planets around other stars.",
+			"place": "European Space Agency · Launch planned for 2029",
+			"body": [
+				"Telescopes like Webb are shared by thousands of astronomers, so each planet gets only a few hours. To understand planets like K2-18b, scientists need to study many of them in the same way.",
+				"Ariel is a European telescope built for exactly that. <mark>Over four years it plans to read the atmospheres of about a thousand planets around other stars</mark>, from hot giants to small worlds like K2-18b.",
+				"It will work from a quiet point in space about 1.5 million kilometres from the Earth, the same region where Webb orbits, with a mirror about a metre across, cooled so that its own warmth does not blur the infrared light.",
+				"By comparing a thousand atmospheres, scientists hope to learn how planets form and change, and to find out whether worlds like K2-18b are oceans, gas giants in miniature, or something nobody has imagined yet."
+			],
+			"facts": [
+				"Built by: European Space Agency",
+				"Launch: planned for 2029",
+				"Planets to study: about a thousand",
+				"Mirror: about a metre"
+			],
+			"note": "planned",
+			"plateKind": "Photo",
+			"plateUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Ariel_ESA_(cropped).jpg?width=1400",
+			"plateTitle": "Ariel",
+			"plateCaption": "How the European Space Agency pictures Ariel, planned for launch in 2029.",
+			"plateCredit": "European Space Agency. CC BY-SA 3.0 IGO",
+			"plateIsDark": true,
+			"plateChartKey": null,
+			"platePosterUrl": null,
+			"sortOrder": 8
+		}
+	],
+	"instruments": [
+		{
+			"name": "Kepler space telescope",
+			"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Kepler_Space_Telescope_spacecraft_model_2.png?width=400",
+			"photoCredit": null,
+			"photoIsDark": true,
+			"description": "Launched in 2009 to find planets by the dips they cause in starlight. After a fault in 2013 it carried on as the K2 mission, which found K2-18b.",
+			"role": "found it, 2014 to 2015",
+			"sortOrder": 1
+		},
+		{
+			"name": "HARPS, La Silla",
+			"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Milky_Way_and_Alpha_and_Beta_Centauri_behind_the_ESO_3_6-metre_telescope_at_La_Silla_(eso1241c).jpg?width=400",
+			"photoCredit": null,
+			"photoIsDark": false,
+			"description": "An instrument on a 3.6-metre telescope in Chile that measures tiny wobbles of stars, and so the masses of their planets.",
+			"role": "weighed it, 2017",
+			"sortOrder": 2
+		},
+		{
+			"name": "Hubble Space Telescope",
+			"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/HST-SM4.jpeg?width=400",
+			"photoCredit": null,
+			"photoIsDark": true,
+			"description": "Its older observations of K2-18b gave the first hint of water vapour.",
+			"role": "first look at its air, 2019",
+			"sortOrder": 3
+		},
+		{
+			"name": "James Webb Space Telescope",
+			"photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/JWST_spacecraft_model_2.png?width=400",
+			"photoCredit": null,
+			"photoIsDark": true,
+			"description": "Its large gold mirror collects enough infrared light to read the air of planets like K2-18b.",
+			"role": "methane and carbon dioxide, 2023",
+			"sortOrder": 4
+		}
+	]
+}

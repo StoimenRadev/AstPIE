@@ -26,6 +26,10 @@ namespace AstPIE.Api.Controllers.Admin
 				select new SimulationAdminDto
 				{
 					Id = s.Id,
+					LabIntro = s.LabIntro,
+					ModelText = s.ModelText,
+					Limits = s.Limits,
+					StepCode = s.StepCode,
 					TopicId = s.TopicId,
 					Slug = s.Slug,
 					Title = s.Title,
@@ -49,6 +53,10 @@ namespace AstPIE.Api.Controllers.Admin
 				select new SimulationAdminDto
 				{
 					Id = s.Id,
+					LabIntro = s.LabIntro,
+					ModelText = s.ModelText,
+					Limits = s.Limits,
+					StepCode = s.StepCode,
 					TopicId = s.TopicId,
 					Slug = s.Slug,
 					Title = s.Title,
@@ -150,6 +158,10 @@ namespace AstPIE.Api.Controllers.Admin
 			simulation.ThumbnailUrl = TextOrEmpty(input.ThumbnailUrl);
 			simulation.LearningGoal = input.LearningGoal.Trim();
 			simulation.SourceUrl = TextOrEmpty(input.SourceUrl);
+			simulation.LabIntro = Optional(input.LabIntro);
+			simulation.ModelText = Optional(input.ModelText);
+			simulation.Limits = CleanList(input.Limits);
+			simulation.StepCode = Optional(input.StepCode);
 		}
 	}
 }

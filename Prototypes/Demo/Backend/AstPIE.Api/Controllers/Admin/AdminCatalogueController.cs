@@ -26,6 +26,12 @@ namespace AstPIE.Api.Controllers.Admin
 				select new CatalogueObjectAdminDto
 				{
 					Id = o.Id,
+					TypeLabel = o.TypeLabel,
+					RightAscension = o.RightAscension,
+					Declination = o.Declination,
+					ImageCaption = o.ImageCaption,
+					ImageCredit = o.ImageCredit,
+					ImageIsDark = o.ImageIsDark,
 					Slug = o.Slug,
 					Name = o.Name,
 					OtherNames = o.OtherNames,
@@ -55,6 +61,12 @@ namespace AstPIE.Api.Controllers.Admin
 				select new CatalogueObjectAdminDto
 				{
 					Id = o.Id,
+					TypeLabel = o.TypeLabel,
+					RightAscension = o.RightAscension,
+					Declination = o.Declination,
+					ImageCaption = o.ImageCaption,
+					ImageCredit = o.ImageCredit,
+					ImageIsDark = o.ImageIsDark,
 					Slug = o.Slug,
 					Name = o.Name,
 					OtherNames = o.OtherNames,
@@ -171,6 +183,12 @@ namespace AstPIE.Api.Controllers.Admin
 			item.ImageUrl = TextOrEmpty(input.ImageUrl);
 			item.RelatedTopicId = input.RelatedTopicId;
 			item.IsPublished = input.IsPublished;
+			item.TypeLabel = Optional(input.TypeLabel);
+			item.RightAscension = input.RightAscension;
+			item.Declination = input.Declination;
+			item.ImageCaption = Optional(input.ImageCaption);
+			item.ImageCredit = Optional(input.ImageCredit);
+			item.ImageIsDark = input.ImageIsDark;
 		}
 	}
 }

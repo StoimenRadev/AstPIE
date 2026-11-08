@@ -1,57 +1,180 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import MysteryBoard from '../../components/MysteryBoard.astro';
-import Slot from '../../components/Slot.astro';
-import YearLine from '../../components/YearLine.astro';
-import { t } from '../../i18n/t';
+// The Explore entrance: a wood-panelled archive room. A filing cabinet with three closed drawers
+// (Missions, Mysteries, Catalogue) under a hanging lamp; a drawer opens into its case folders,
+// and each folder leads to its case on the desk.
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Logo from '../../components/Logo.astro';
+import ArchiveLamp from '../../components/explore/ArchiveLamp.astro';
 import { getAllCatalogue, getEntries } from '../../lib/api';
-import { objectTypeLabel } from '../../lib/format';
+import { longDate, thumbnail } from '../../lib/desk';
+import { fill, t } from '../../i18n/t';
+import type { TextKey } from '../../i18n/t';
+import '../../styles/archive.css';
+
+interface Folder
+{
+	href: string;
+	title: string;
+	line: string;
+	text: string;
+	image: string;
+	stamp: string;
+	stampColour: string;
+	foot: string;
+}
+
+interface Drawer
+{
+	key: string;
+	name: string;
+	colour: string;
+	count: string;
+	sub: string;
+	folders: Folder[];
+}
 
 const missions = await getEntries('Mission');
 const mysteries = await getEntries('Mystery');
-const objects = (await getAllCatalogue()).items.slice(0, 4);
+const catalogue = (await getAllCatalogue()).items;
+
+// "Soviet Union · 4 October 1957"
+function lineOf(country: string | null, date: string | null): string
+{
+	const parts: string[] = [];
+	if (country !== null)
+	{
+		parts.push(country);
+	}
+	if (date !== null)
+	{
+		parts.push(longDate(date));
+	}
+	return parts.join(' · ');
+}
+
+const OUTCOME_STAMPS: Record<string, { text: TextKey; colour: string }> = {
+	Success: { text: 'archive.stamp.Success', colour: '#2f6b48' },
+	PartialSuccess: { text: 'archive.stamp.PartialSuccess', colour: '#a8641e' },
+	Ongoing: { text: 'archive.stamp.Ongoing', colour: '#2d6a86' },
+	Failure: { text: 'archive.stamp.Failure', colour: '#6a4a2a' }
+};
+
+function stampOf(outcome: string | null): { text: string; colour: string }
+{
+	if (outcome !== null && outcome in OUTCOME_STAMPS)
+	{
+		return { text: t(OUTCOME_STAMPS[outcome].text), colour: OUTCOME_STAMPS[outcome].colour };
+	}
+	return { text: '', colour: '#6a4a2a' };
+}
+
+const drawers: Drawer[] = [
+	{
+		key: 'missions',
+		name: t('nav.missions'),
+		colour: '#3b7a86',
+		count: fill(t('archive.cases'), { n: String(missions.length) }),
+		sub: t('archive.missionsSub'),
+		folders: missions.map((entry) =>
+		{
+			const stamp = stampOf(entry.missionOutcome);
+			return { href: '/explore/missions/' + entry.slug, title: entry.title, line: lineOf(entry.country, entry.startDate), text: String(entry.tagline), image: entry.coverImageUrl, stamp: stamp.text, stampColour: stamp.colour, foot: fill(t('archive.pages'), { n: String(entry.pageCount) }) };
+		})
+	},
+	{
+		key: 'mysteries',
+		name: t('nav.mysteries'),
+		colour: '#a9503c',
+		count: fill(t('archive.cases'), { n: String(mysteries.length) }),
+		sub: t('archive.mysteriesSub'),
+		folders: mysteries.map((entry) =>
+		{
+			let colour = '#46505a';
+			if (entry.evidenceStatus === 'Unexplained')
+			{
+				colour = '#9c2a20';
+			}
+			return { href: '/explore/mysteries/' + entry.slug, title: entry.title, line: lineOf(entry.country, entry.startDate), text: String(entry.tagline), image: entry.coverImageUrl, stamp: t(('status.' + entry.evidenceStatus) as TextKey), stampColour: colour, foot: fill(t('archive.pages'), { n: String(entry.pageCount) }) };
+		})
+	},
+	{
+		key: 'catalogue',
+		name: t('nav.catalogue'),
+		colour: '#d9a440',
+		count: fill(t('archive.objects'), { n: String(catalogue.length) }),
+		sub: t('archive.catalogueSub'),
+		folders: catalogue.map((item) =>
+		{
+			return { href: '/explore/catalogue/' + item.slug, title: item.name, line: fill(t('archive.inConstellation'), { place: String(item.constellation) }), text: String(item.typeLabel), image: thumbnail(item.imageUrl), stamp: t(('objectType.' + item.type) as TextKey), stampColour: '#2d4f86', foot: fill(t('archive.logEntries'), { n: String(item.logCount) }) };
+		})
+	}
+];
+
+// Each folder lies slightly turned, never two the same way side by side
+const TILTS = [-1.2, .8, -.4, 1.1, -.9, .5];
 ---
 
-<BaseLayout title={t('explore.title')} theme="home" bodyClass="">
-	<div class="wrap top">
-		<h1 class="t-page">{t('explore.title')}</h1>
-		<p class="intro">{t('explore.intro')}</p>
-	</div>
-
-	<section class="band m">
-		<div class="wrap">
-			<div class="hd"><div><h2>{t('missions.title')}</h2><p>{t('explore.missionsText')}</p></div><a class="go" href="/explore/missions">{t('entry.allMissions')} <svg><use href="#i-arrow" /></svg></a></div>
-			<YearLine missions={missions} />
+<SiteLayout title={t('archive.title')} bodyClass="">
+	<meta slot="head" name="description" content={t('archive.intro')} />
+	<div class="room" aria-hidden="true"><div class="rail-wall"></div><div class="panels"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="floor"></div></div>
+	<header>
+		<a class="logo" href="/" data-leave="#141a35"><Logo id="arcLogo" /><span>{t('logo.ast')}<b>{t('logo.pie')}</b></span></a>
+		<nav>
+			<a href="/" data-leave="#141a35">{t('nav.home')}</a>
+			<a href="/learn" data-leave="#fbf9f4">{t('nav.learn')}</a>
+			<a class="on" href="/explore">{t('nav.explore')}</a>
+		</nav>
+	</header>
+	<main class="stage">
+		<div class="intro">
+			<div class="kicker">{t('nav.explore')}</div>
+			<h1>{t('archive.title')}</h1>
+			<p>{t('archive.intro')}</p>
 		</div>
-	</section>
-
-	<section class="band n">
-		<div class="wrap">
-			<div class="hd"><div><h2>{t('mysteries.title')}</h2><p>{t('explore.mysteriesText')}</p></div><a class="go" href="/explore/mysteries">{t('entry.allMysteries')} <svg><use href="#i-arrow" /></svg></a></div>
-			<MysteryBoard mysteries={mysteries} headings={false} />
+		<div class="right">
+			<div class="unit">
+				<ArchiveLamp />
+				<div class="cabinet">
+					<span class="label-top">{t('archive.cabinetLabel')}</span>
+					{drawers.map((drawer, i) => (
+						<button class="drawer" data-drawer={drawer.key} style={'--c:' + drawer.colour + ';--i:' + i} aria-label={fill(t('archive.openDrawer'), { name: drawer.name })}>
+							<span class="slot"></span>
+							<span class="front">
+								<span class="holder"><span class="card"><i class="code"></i><b>{drawer.name}</b><small>{drawer.count}</small></span></span>
+								<span class="handle"><i></i></span>
+							</span>
+						</button>
+					))}
+				</div>
+			</div>
 		</div>
-	</section>
+	</main>
 
-	<section class="band y">
-		<div class="wrap">
-			<div class="hd"><div><h2>{t('catalogue.title')}</h2><p>{t('explore.catalogueText')}</p></div><a class="go" href="/explore/catalogue">{t('entry.allObjects')} <svg><use href="#i-arrow" /></svg></a></div>
-			<form class="search" action="/explore/catalogue" method="get" style="margin:0 0 26px">
-				<input type="search" name="q" placeholder={t('catalogue.searchHint')} aria-label={t('catalogue.search')} />
-				<button class="btn" type="submit">{t('catalogue.search')}</button>
-			</form>
-			<div class="objs">
-				{objects.map((item) => (
-					<a href={'/explore/catalogue/' + item.slug}>
-						<Slot src={item.imageUrl} ratio="1 / 1" empty={t('common.noImage')} className="" />
-						<b>{item.name}</b>
-						<span>{objectTypeLabel(item.type)}{item.constellation !== null && ' · ' + item.constellation}</span>
+	{drawers.map((drawer) => (
+		<section class="view" id={'view-' + drawer.key} data-drawer={drawer.key} style={'--c:' + drawer.colour} aria-hidden="true">
+			<div class="rail l"></div><div class="rail r"></div>
+			<div class="vhead">
+				<button class="back" type="button"><span>&larr;</span> {t('archive.backToCabinet')}</button>
+				<span class="holder big"><span class="card"><i class="code"></i><b>{drawer.name}</b><small>{drawer.count}</small></span></span>
+				<p class="vsub">{drawer.sub}</p>
+			</div>
+			<div class={'grid n' + drawer.folders.length}>
+				{drawer.folders.map((folder, j) => (
+					<a class="folder" href={folder.href} style={'--r:' + TILTS[j % 6] + 'deg;--j:' + j}>
+						<span class="tab"><i></i><span>{folder.title}</span></span>
+						<span class="photo"><img src={folder.image} alt="" loading="lazy" /><span class="clip"></span></span>
+						<span class="body"><b>{folder.title}</b><em>{folder.line}</em><span class="text">{folder.text}</span></span>
+						<span class="foot"><span class="stamp" style={'--s:' + folder.stampColour}>{folder.stamp}</span><span class="pages">{folder.foot}</span></span>
 					</a>
 				))}
 			</div>
-		</div>
-	</section>
-</BaseLayout>
+		</section>
+	))}
+	<div class="veil"></div>
+</SiteLayout>
 
-<style is:global>
-	main:has(.band.y) + .foot { margin-top: 0; }
-</style>
+<script>
+	import { setUpArchive } from '../../scripts/archive';
+
+	setUpArchive();
+</script>

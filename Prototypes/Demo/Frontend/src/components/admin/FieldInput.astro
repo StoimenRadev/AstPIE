@@ -16,7 +16,12 @@ interface Props
 const { field, value, error, choices, locked } = Astro.props;
 
 let text = '';
-if (value !== null && value !== undefined)
+if (Array.isArray(value))
+{
+	// A list is edited one item per line
+	text = value.join('\n');
+}
+else if (value !== null && value !== undefined)
 {
 	text = String(value);
 }
@@ -36,6 +41,10 @@ let rows = 3;
 if (field.type === 'markdown')
 {
 	rows = 14;
+}
+if (field.type === 'lines')
+{
+	rows = 6;
 }
 ---
 
@@ -65,7 +74,7 @@ if (field.type === 'markdown')
 		<input id={id} type="text" name={field.name} value={text} />
 	)}
 
-	{!locked && (field.type === 'textarea' || field.type === 'markdown') && (
+	{!locked && (field.type === 'textarea' || field.type === 'markdown' || field.type === 'lines') && (
 		<textarea id={id} name={field.name} rows={rows} class:list={{ markdown: field.type === 'markdown' }}>{text}</textarea>
 	)}
 
