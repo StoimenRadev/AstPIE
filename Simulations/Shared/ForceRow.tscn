@@ -1,0 +1,34 @@
+[gd_scene format=3]
+
+[node name="ForceRow" type="HBoxContainer"]
+theme_override_constants/separation = 6
+
+[node name="NameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+text = "F1"
+
+[node name="XLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "x"
+
+[node name="XBox" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="YLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "y"
+
+[node name="YBox" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+text = "0"
+editable = false
+
+[node name="RemoveButton" type="Button" parent="."]
+layout_mode = 2
+text = "Remove"
