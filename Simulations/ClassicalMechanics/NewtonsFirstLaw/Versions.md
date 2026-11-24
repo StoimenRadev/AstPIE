@@ -19,3 +19,23 @@ This version establishes the core physics and the structure of the Godot simulat
 
 ### Differences from the Octave version:
 The values come from the panel instead of fixed numbers, Velocity Verlet replaces semi-implicit Euler, and any number of forces can be added instead of two.
+
+### v1.1 — Input Checks and Formatted Results
+
+Every value from the panel is checked before the simulation can start, and every result is shown with its unit and three decimals.
+
+### Implemented:
+* A message that names the first box without a number, for example: "Mass" must contain a number.
+* Mass more than 0 kg, time step dt more than 0 s and total time T more than 0 s
+* The time step dt can't be longer than the total time T
+* At most 100000 time steps in one run
+* The box can't go more than 50 km from the 0 m mark (worked out before Start with x = x0 + v0*t + 0.5*a*t^2, also at the point where the box turns back)
+* The name of a wrong box turns coral
+* Results with units and three decimals, as in the Octave prototype: time (s), position (m), velocity (m/s), acceleration (m/s²) and net force (N), with no -0.000
+* New result: distance moved (m)
+
+### Purpose:
+This version makes the simulation safe for any value typed into the panel and makes the results clear and readable, while the physics from v1.0 stays the same.
+
+### Differences from the Octave version:
+The console input of the Octave v1.1 was already replaced by the panel in v1.0, so this version adds the checks a panel needs, which the Octave prototype added in later versions.

@@ -5,7 +5,7 @@ using Godot;
 
 public partial class NewtonsFirstLaw : Node2D
 {
-	public const string Version = "1.0";
+	public const string Version = "1.1";
 
 	private enum RunState
 	{
@@ -22,8 +22,14 @@ public partial class NewtonsFirstLaw : Node2D
 	private const int MaxForces = 100;
 	private const int MaxStepsPerFrame = 12;
 
+	// Limits that keep a browser tab safe: the number of steps in one run, and how far the box can go
+	// from the 0 m mark (Godot draws with float, so farther away the picture can't place the box exactly)
+	private const int MaxSteps = 100000;
+	private const double MaxDistance = 50000;
+
 	// Colours from the AstPIE palette
 	private static readonly Color Cream = new Color("F2E8D5");
+	private static readonly Color Coral = new Color("D9725B");
 
 	// Panel nodes
 	private Control panel;
@@ -31,14 +37,19 @@ public partial class NewtonsFirstLaw : Node2D
 	private Button hideButton;
 	private ScrollContainer scroll;
 	private Control inputs;
+	private Label massLabel;
 	private LineEdit massBox;
+	private Label positionLabel;
 	private LineEdit positionXBox;
 	private LineEdit positionYBox;
+	private Label velocityLabel;
 	private LineEdit velocityXBox;
 	private LineEdit velocityYBox;
 	private VBoxContainer forceList;
 	private Button addForceButton;
+	private Label timeStepLabel;
 	private LineEdit timeStepBox;
+	private Label totalTimeLabel;
 	private LineEdit totalTimeBox;
 	private Button startButton;
 	private Button pauseButton;
@@ -48,6 +59,7 @@ public partial class NewtonsFirstLaw : Node2D
 	private Label velocityValue;
 	private Label accelerationValue;
 	private Label netForceValue;
+	private Label distanceValue;
 
 	// World nodes
 	private Sprite2D box;
@@ -77,14 +89,19 @@ public partial class NewtonsFirstLaw : Node2D
 		hideButton = GetNode<Button>("%HideButton");
 		scroll = GetNode<ScrollContainer>("%Scroll");
 		inputs = GetNode<Control>("%Inputs");
+		massLabel = GetNode<Label>("%MassLabel");
 		massBox = GetNode<LineEdit>("%MassBox");
+		positionLabel = GetNode<Label>("%PositionLabel");
 		positionXBox = GetNode<LineEdit>("%PositionXBox");
 		positionYBox = GetNode<LineEdit>("%PositionYBox");
+		velocityLabel = GetNode<Label>("%VelocityLabel");
 		velocityXBox = GetNode<LineEdit>("%VelocityXBox");
 		velocityYBox = GetNode<LineEdit>("%VelocityYBox");
 		forceList = GetNode<VBoxContainer>("%ForceList");
 		addForceButton = GetNode<Button>("%AddForceButton");
+		timeStepLabel = GetNode<Label>("%TimeStepLabel");
 		timeStepBox = GetNode<LineEdit>("%TimeStepBox");
+		totalTimeLabel = GetNode<Label>("%TotalTimeLabel");
 		totalTimeBox = GetNode<LineEdit>("%TotalTimeBox");
 		startButton = GetNode<Button>("%StartButton");
 		pauseButton = GetNode<Button>("%PauseButton");
@@ -94,6 +111,7 @@ public partial class NewtonsFirstLaw : Node2D
 		velocityValue = GetNode<Label>("%VelocityValue");
 		accelerationValue = GetNode<Label>("%AccelerationValue");
 		netForceValue = GetNode<Label>("%NetForceValue");
+		distanceValue = GetNode<Label>("%DistanceValue");
 		box = GetNode<Sprite2D>("%Box");
 		camera = GetNode<Camera2D>("%Camera");
 
@@ -279,9 +297,18 @@ public partial class NewtonsFirstLaw : Node2D
 		}
 	}
 
-	// Reads the boxes. Returns false and shows a message if a value is wrong.
+	// Reads the boxes. Returns false, shows what is wrong and marks the wrong box if a value is wrong.
 	private bool ReadInputs()
 	{
+		ClearMarks();
+
+		string emptyBox = FirstEmptyBox();
+		if (emptyBox != "")
+		{
+			ShowMessage("\"" + emptyBox + "\" must contain a number.");
+			return false;
+		}
+
 		double newMass = ReadNumber(massBox);
 		Vector2D newPosition = ReadVector(positionXBox, positionYBox);
 		Vector2D newVelocity = ReadVector(velocityXBox, velocityYBox);
@@ -289,25 +316,52 @@ public partial class NewtonsFirstLaw : Node2D
 		double newTotalTime = ReadNumber(totalTimeBox);
 
 		List<Vector2D> newForces = new List<Vector2D>();
-		bool forcesAreNumbers = true;
+		Vector2D newNetForce = new Vector2D(0, 0);
 		foreach (HBoxContainer row in GetForceRows())
 		{
 			Vector2D force = ReadVector(row.GetNode<LineEdit>("XBox"), row.GetNode<LineEdit>("YBox"));
-			if (IsNaN(force))
-			{
-				forcesAreNumbers = false;
-			}
 			newForces.Add(force);
+			newNetForce = newNetForce + force;
 		}
 
-		if (double.IsNaN(newMass) || IsNaN(newPosition) || IsNaN(newVelocity) || double.IsNaN(newTimeStep) || double.IsNaN(newTotalTime) || !forcesAreNumbers)
+		if (newMass <= 0)
 		{
-			ShowMessage("Every box must contain a number.");
+			MarkWrong(massLabel);
+			ShowMessage("The mass must be more than 0 kg.");
 			return false;
 		}
-		if (newMass <= 0 || newTimeStep <= 0 || newTotalTime <= 0)
+		if (newTimeStep <= 0)
 		{
-			ShowMessage("Mass, time step and total time must be more than 0.");
+			MarkWrong(timeStepLabel);
+			ShowMessage("The time step dt must be more than 0 s.");
+			return false;
+		}
+		if (newTotalTime <= 0)
+		{
+			MarkWrong(totalTimeLabel);
+			ShowMessage("The total time T must be more than 0 s.");
+			return false;
+		}
+		if (newTimeStep > newTotalTime)
+		{
+			MarkWrong(timeStepLabel);
+			MarkWrong(totalTimeLabel);
+			ShowMessage("The time step dt can't be longer than the total time T.");
+			return false;
+		}
+
+		double steps = Math.Floor(newTotalTime / newTimeStep + 1e-9);
+		if (steps > MaxSteps)
+		{
+			MarkWrong(timeStepLabel);
+			MarkWrong(totalTimeLabel);
+			ShowMessage("That is more than " + MaxSteps + " steps: make dt bigger or T shorter.");
+			return false;
+		}
+
+		if (FarthestDistance(newPosition, newVelocity, newNetForce / newMass, newTotalTime) > MaxDistance)
+		{
+			ShowMessage("The box would go more than 50 km from the 0 m mark. Use a smaller start position, velocity, force or time.");
 			return false;
 		}
 
@@ -316,9 +370,94 @@ public partial class NewtonsFirstLaw : Node2D
 		startVelocity = newVelocity;
 		forces = newForces;
 		timeStep = newTimeStep;
-		totalSteps = (int)Math.Floor(newTotalTime / newTimeStep + 1e-9);
+		totalSteps = (int)steps;
 		ShowMessage("");
 		return true;
+	}
+
+	// The name of the first box (in the order of the panel) that doesn't contain a number, or "" if they
+	// all do. The name of that box turns coral.
+	private string FirstEmptyBox()
+	{
+		if (double.IsNaN(ReadNumber(massBox)))
+		{
+			MarkWrong(massLabel);
+			return "Mass";
+		}
+		if (IsNaN(ReadVector(positionXBox, positionYBox)))
+		{
+			MarkWrong(positionLabel);
+			return "Start position";
+		}
+		if (IsNaN(ReadVector(velocityXBox, velocityYBox)))
+		{
+			MarkWrong(velocityLabel);
+			return "Start velocity";
+		}
+
+		List<HBoxContainer> rows = GetForceRows();
+		for (int i = 0; i < rows.Count; i++)
+		{
+			if (IsNaN(ReadVector(rows[i].GetNode<LineEdit>("XBox"), rows[i].GetNode<LineEdit>("YBox"))))
+			{
+				MarkWrong(rows[i].GetNode<Label>("NameLabel"));
+				return "F" + (i + 1);
+			}
+		}
+
+		if (double.IsNaN(ReadNumber(timeStepBox)))
+		{
+			MarkWrong(timeStepLabel);
+			return "Time step dt";
+		}
+		if (double.IsNaN(ReadNumber(totalTimeBox)))
+		{
+			MarkWrong(totalTimeLabel);
+			return "Total time T";
+		}
+		return "";
+	}
+
+	// The farthest the box gets from the 0 m mark during the run: at the start, at the end, or where it
+	// turns back. The forces are constant, so x = x0 + v0*t + 0.5*a*t^2.
+	private static double FarthestDistance(Vector2D x0, Vector2D v0, Vector2D a, double totalTime)
+	{
+		double farthest = Math.Max(x0.Length(), PositionAt(x0, v0, a, totalTime).Length());
+
+		if (a.X != 0)
+		{
+			double turnTime = -v0.X / a.X;
+			if (turnTime > 0 && turnTime < totalTime)
+			{
+				farthest = Math.Max(farthest, PositionAt(x0, v0, a, turnTime).Length());
+			}
+		}
+		return farthest;
+	}
+
+	private static Vector2D PositionAt(Vector2D x0, Vector2D v0, Vector2D a, double t)
+	{
+		return x0 + v0 * t + a * (0.5 * t * t);
+	}
+
+	// Turns the name of a wrong box coral
+	private static void MarkWrong(Label label)
+	{
+		label.AddThemeColorOverride("font_color", Coral);
+	}
+
+	private void ClearMarks()
+	{
+		massLabel.RemoveThemeColorOverride("font_color");
+		positionLabel.RemoveThemeColorOverride("font_color");
+		velocityLabel.RemoveThemeColorOverride("font_color");
+		timeStepLabel.RemoveThemeColorOverride("font_color");
+		totalTimeLabel.RemoveThemeColorOverride("font_color");
+
+		foreach (HBoxContainer row in GetForceRows())
+		{
+			row.GetNode<Label>("NameLabel").RemoveThemeColorOverride("font_color");
+		}
 	}
 
 	// Returns the number in the box, or NaN if it is not a number. Accepts both 0.5 and 0,5.
@@ -430,23 +569,33 @@ public partial class NewtonsFirstLaw : Node2D
 
 	private void UpdateResults()
 	{
-		timeValue.Text = Show(stepCount * timeStep);
-		positionValue.Text = Show(position);
-		velocityValue.Text = Show(velocity);
-		accelerationValue.Text = Show(acceleration);
-		netForceValue.Text = Show(netForce);
+		timeValue.Text = Scalar(stepCount * timeStep, "s");
+		positionValue.Text = Vector(position, "m");
+		velocityValue.Text = Vector(velocity, "m/s");
+		accelerationValue.Text = Vector(acceleration, "m/s²");
+		netForceValue.Text = Vector(netForce, "N");
+		distanceValue.Text = Scalar((position - startPosition).Length(), "m");
 	}
 
-	// A number rounded to 3 decimals, always written as 0.5 and not 0,5
-	private static string Show(double value)
+	// Results as the Octave prototype printed them: three decimals, always written as 0.5 and not 0,5
+	private static string Number(double value)
 	{
-		return Math.Round(value, 3).ToString(CultureInfo.InvariantCulture);
+		double rounded = Math.Round(value, 3);
+		if (rounded == 0)
+		{
+			rounded = 0; // no "-0.000"
+		}
+		return rounded.ToString("0.000", CultureInfo.InvariantCulture);
 	}
 
-	// A vector as (x, y), rounded to 3 decimals
-	private static string Show(Vector2D vector)
+	private static string Scalar(double value, string unit)
 	{
-		return "(" + Show(vector.X) + ", " + Show(vector.Y) + ")";
+		return Number(value) + " " + unit;
+	}
+
+	private static string Vector(Vector2D vector, string unit)
+	{
+		return "(" + Number(vector.X) + ", " + Number(vector.Y) + ") " + unit;
 	}
 
 	// Drawing (in world pixels: x to the right, the ground is at y = 0, up is negative y)

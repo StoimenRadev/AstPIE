@@ -90,6 +90,7 @@ layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="MassLabel" type="Label" parent="UI/Panel/Layout/Content/Scroll/Margin/Inputs/MassRow" unique_id=712944535]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Mass (kg)"
@@ -104,6 +105,7 @@ layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="PositionLabel" type="Label" parent="UI/Panel/Layout/Content/Scroll/Margin/Inputs/PositionRow" unique_id=1006890002]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Start position (m)"
@@ -136,6 +138,7 @@ layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="VelocityLabel" type="Label" parent="UI/Panel/Layout/Content/Scroll/Margin/Inputs/VelocityRow" unique_id=324545269]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Start velocity (m/s)"
@@ -190,6 +193,7 @@ layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="TimeStepLabel" type="Label" parent="UI/Panel/Layout/Content/Scroll/Margin/Inputs/TimeStepRow" unique_id=379390763]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Time step dt (s)"
@@ -204,6 +208,7 @@ layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="TotalTimeLabel" type="Label" parent="UI/Panel/Layout/Content/Scroll/Margin/Inputs/TotalTimeRow" unique_id=2118614505]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Total time T (s)"
@@ -313,6 +318,18 @@ text = "Net force"
 unique_name_in_owner = true
 layout_mode = 2
 text = "(0, 0)"
+horizontal_alignment = 2
+
+[node name="DistanceName" type="Label" parent="UI/Panel/Layout/Content/Results" unique_id=610653083]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.949, 0.91, 0.835, 0.7)
+text = "Distance moved"
+
+[node name="DistanceValue" type="Label" parent="UI/Panel/Layout/Content/Results" unique_id=579827294]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
 horizontal_alignment = 2
 
 [node name="VersionLabel" type="Label" parent="UI/Panel/Layout/Content" unique_id=1949205718]
