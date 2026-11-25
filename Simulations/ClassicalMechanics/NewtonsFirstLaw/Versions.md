@@ -39,3 +39,24 @@ This version makes the simulation safe for any value typed into the panel and ma
 
 ### Differences from the Octave version:
 The console input of the Octave v1.1 was already replaced by the panel in v1.0, so this version adds the checks a panel needs, which the Octave prototype added in later versions.
+
+### v1.2 — Simulation Time Handling
+
+Improved the simulation's time handling and state storage.
+
+### Implemented:
+* The state is stored at every time index: time, position, velocity, acceleration and net force
+* Index 0 holds the starting state (t = 0), index i the state after step i, so the initial state is separated from the calculated states
+* The history lists get their full size at the start of the run, like the preallocated arrays in Octave
+* The time is always i*dt, never dt added up again and again, so it can't drift
+* T must be a whole number of time steps (T = n*dt); the message gives the two nearest totals that work
+* Final simulation time check: the results show "Final time reached" when the run ends exactly at T
+* Step button: one step forward while the simulation is paused
+* Speed buttons 0.25x, 0.5x, 1x, 2x and 4x, which change only how fast the steps are taken, never the steps
+* A message when the device can't keep up (more than 12 steps due in one frame)
+
+### Purpose:
+This version makes sure that every stored state belongs to the right simulation time and that the run ends exactly at T, and it lets the motion be followed step by step or faster.
+
+### Differences from the Octave version:
+The Octave v1.2 also allowed time steps that don't divide T exactly; here T must be a whole number of time steps, as in the final Octave version. Step by step and the speed buttons are new, because a live simulation needs them.

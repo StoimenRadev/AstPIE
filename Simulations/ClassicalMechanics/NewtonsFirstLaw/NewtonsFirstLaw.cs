@@ -5,7 +5,7 @@ using Godot;
 
 public partial class NewtonsFirstLaw : Node2D
 {
-	public const string Version = "1.1";
+	public const string Version = "1.2";
 
 	private enum RunState
 	{
@@ -53,6 +53,7 @@ public partial class NewtonsFirstLaw : Node2D
 	private LineEdit totalTimeBox;
 	private Button startButton;
 	private Button pauseButton;
+	private Button stepButton;
 	private Label messageLabel;
 	private Label timeValue;
 	private Label positionValue;
@@ -60,6 +61,8 @@ public partial class NewtonsFirstLaw : Node2D
 	private Label accelerationValue;
 	private Label netForceValue;
 	private Label distanceValue;
+	private Label finalTimeName;
+	private Label finalTimeValue;
 
 	// World nodes
 	private Sprite2D box;
@@ -71,6 +74,7 @@ public partial class NewtonsFirstLaw : Node2D
 	private Vector2D startVelocity;
 	private List<Vector2D> forces = new List<Vector2D>();
 	private double timeStep;
+	private double totalTime;
 	private int totalSteps;
 
 	// Simulation
@@ -80,7 +84,16 @@ public partial class NewtonsFirstLaw : Node2D
 	private Vector2D velocity;
 	private int stepCount;
 	private double timeAccumulator;
+	private double speed = 1;
+	private int slowFrames;
 	private RunState state = RunState.Setup;
+
+	// History of the run: index 0 is the start (t = 0), index i is the state after step i (t = i*dt)
+	private List<double> timeHistory = new List<double>();
+	private List<Vector2D> positionHistory = new List<Vector2D>();
+	private List<Vector2D> velocityHistory = new List<Vector2D>();
+	private List<Vector2D> accelerationHistory = new List<Vector2D>();
+	private List<Vector2D> netForceHistory = new List<Vector2D>();
 
 	public override void _Ready()
 	{
@@ -105,6 +118,7 @@ public partial class NewtonsFirstLaw : Node2D
 		totalTimeBox = GetNode<LineEdit>("%TotalTimeBox");
 		startButton = GetNode<Button>("%StartButton");
 		pauseButton = GetNode<Button>("%PauseButton");
+		stepButton = GetNode<Button>("%StepButton");
 		messageLabel = GetNode<Label>("%MessageLabel");
 		timeValue = GetNode<Label>("%TimeValue");
 		positionValue = GetNode<Label>("%PositionValue");
@@ -112,6 +126,8 @@ public partial class NewtonsFirstLaw : Node2D
 		accelerationValue = GetNode<Label>("%AccelerationValue");
 		netForceValue = GetNode<Label>("%NetForceValue");
 		distanceValue = GetNode<Label>("%DistanceValue");
+		finalTimeName = GetNode<Label>("%FinalTimeName");
+		finalTimeValue = GetNode<Label>("%FinalTimeValue");
 		box = GetNode<Sprite2D>("%Box");
 		camera = GetNode<Camera2D>("%Camera");
 
@@ -217,6 +233,8 @@ public partial class NewtonsFirstLaw : Node2D
 		if (ReadInputs())
 		{
 			Restart();
+			StartHistory();
+			ShowFinalTime(false);
 			state = RunState.Running;
 			UpdateButtons();
 		}
@@ -235,9 +253,30 @@ public partial class NewtonsFirstLaw : Node2D
 		UpdateButtons();
 	}
 
+	// One step forward while paused, to follow the run step by step
+	private void OnStepPressed()
+	{
+		if (state == RunState.Paused)
+		{
+			Step();
+			timeAccumulator = 0;
+			if (stepCount >= totalSteps)
+			{
+				Finish();
+			}
+		}
+	}
+
+	// 0.25x to 4x: only how fast the steps are taken changes, never the steps themselves
+	private void OnSpeedPressed(double newSpeed)
+	{
+		speed = newSpeed;
+	}
+
 	private void OnResetPressed()
 	{
 		state = RunState.Setup;
+		ShowFinalTime(false);
 		ShowStartingState();
 		UpdateButtons();
 	}
@@ -286,6 +325,7 @@ public partial class NewtonsFirstLaw : Node2D
 		addForceButton.Disabled = !editing || GetForceRows().Count >= MaxForces;
 		startButton.Disabled = !editing;
 		pauseButton.Disabled = state == RunState.Setup || state == RunState.Finished;
+		stepButton.Disabled = state != RunState.Paused;
 
 		if (state == RunState.Paused)
 		{
@@ -350,12 +390,23 @@ public partial class NewtonsFirstLaw : Node2D
 			return false;
 		}
 
-		double steps = Math.Floor(newTotalTime / newTimeStep + 1e-9);
-		if (steps > MaxSteps)
+		double steps = newTotalTime / newTimeStep;
+		if (Math.Round(steps) > MaxSteps)
 		{
 			MarkWrong(timeStepLabel);
 			MarkWrong(totalTimeLabel);
 			ShowMessage("That is more than " + MaxSteps + " steps: make dt bigger or T shorter.");
+			return false;
+		}
+
+		// The run must end exactly at T, so T must be a whole number of time steps (T = n*dt).
+		// The message gives the two nearest totals that work.
+		if (Math.Abs(steps - Math.Round(steps)) > 1e-9)
+		{
+			MarkWrong(totalTimeLabel);
+			double below = Math.Floor(steps) * newTimeStep;
+			double above = Math.Ceiling(steps) * newTimeStep;
+			ShowMessage("T must be a whole number of time steps. With dt = " + Plain(newTimeStep) + " s, use T = " + Plain(below) + " s or " + Plain(above) + " s.");
 			return false;
 		}
 
@@ -370,7 +421,9 @@ public partial class NewtonsFirstLaw : Node2D
 		startVelocity = newVelocity;
 		forces = newForces;
 		timeStep = newTimeStep;
-		totalSteps = (int)steps;
+		totalTime = newTotalTime;
+		// Rounded, because for example 0.3 / 0.1 is 2.9999999999999996 in floating point
+		totalSteps = (int)Math.Round(steps);
 		ShowMessage("");
 		return true;
 	}
@@ -515,6 +568,30 @@ public partial class NewtonsFirstLaw : Node2D
 		velocity = startVelocity;
 		stepCount = 0;
 		timeAccumulator = 0;
+		slowFrames = 0;
+	}
+
+	// The history gets its full size at the start of the run (like the preallocated arrays in Octave),
+	// so the lists never grow during the run. Index 0 is the starting state.
+	private void StartHistory()
+	{
+		timeHistory = new List<double>(totalSteps + 1);
+		positionHistory = new List<Vector2D>(totalSteps + 1);
+		velocityHistory = new List<Vector2D>(totalSteps + 1);
+		accelerationHistory = new List<Vector2D>(totalSteps + 1);
+		netForceHistory = new List<Vector2D>(totalSteps + 1);
+		Record();
+	}
+
+	// Stores the state after the current step. The time is always i*dt (never dt added up again and
+	// again), so it can't drift.
+	private void Record()
+	{
+		timeHistory.Add(stepCount * timeStep);
+		positionHistory.Add(position);
+		velocityHistory.Add(velocity);
+		accelerationHistory.Add(acceleration);
+		netForceHistory.Add(netForce);
 	}
 
 	public override void _Process(double delta)
@@ -523,7 +600,7 @@ public partial class NewtonsFirstLaw : Node2D
 		{
 			// The physics always moves in steps of exactly dt, no matter how fast the screen updates.
 			// At most 12 steps a frame: on a slow device the simulation runs slower instead of freezing.
-			timeAccumulator += delta;
+			timeAccumulator += delta * speed;
 			int steps = 0;
 			while (timeAccumulator >= timeStep && stepCount < totalSteps && steps < MaxStepsPerFrame)
 			{
@@ -531,16 +608,26 @@ public partial class NewtonsFirstLaw : Node2D
 				timeAccumulator -= timeStep;
 				steps++;
 			}
-			if (timeAccumulator >= timeStep)
+
+			// More than 12 steps were due in this frame: the rest of the time is dropped. When that
+			// happens for half a second, the user is told that the run is slower than real time.
+			if (timeAccumulator >= timeStep && stepCount < totalSteps)
 			{
 				timeAccumulator = 0;
+				slowFrames++;
+				if (slowFrames == 30)
+				{
+					ShowMessage("Running slower than real time: dt is very small for this device.");
+				}
+			}
+			else
+			{
+				slowFrames = 0;
 			}
 
 			if (stepCount >= totalSteps)
 			{
-				state = RunState.Finished;
-				timeAccumulator = 0;
-				UpdateButtons();
+				Finish();
 			}
 		}
 
@@ -565,6 +652,32 @@ public partial class NewtonsFirstLaw : Node2D
 		position = position + velocity * timeStep + acceleration * (0.5 * timeStep * timeStep);
 		velocity = velocity + acceleration * timeStep;
 		stepCount++;
+		Record();
+	}
+
+	// The last step is done: check that the run ended exactly at T
+	private void Finish()
+	{
+		state = RunState.Finished;
+		timeAccumulator = 0;
+		UpdateButtons();
+
+		double finalTime = timeHistory[timeHistory.Count - 1];
+		if (Math.Abs(finalTime - totalTime) <= 1e-9 * Math.Max(1, totalTime))
+		{
+			finalTimeValue.Text = Scalar(finalTime, "s") + " (correct)";
+		}
+		else
+		{
+			finalTimeValue.Text = Scalar(finalTime, "s") + " (should be " + Scalar(totalTime, "s") + ")";
+		}
+		ShowFinalTime(true);
+	}
+
+	private void ShowFinalTime(bool show)
+	{
+		finalTimeName.Visible = show;
+		finalTimeValue.Visible = show;
 	}
 
 	private void UpdateResults()
@@ -596,6 +709,12 @@ public partial class NewtonsFirstLaw : Node2D
 	private static string Vector(Vector2D vector, string unit)
 	{
 		return "(" + Number(vector.X) + ", " + Number(vector.Y) + ") " + unit;
+	}
+
+	// A typed value in a message, as short as possible: 9.9 and not 9.899999999999999
+	private static string Plain(double value)
+	{
+		return Math.Round(value, 6).ToString(CultureInfo.InvariantCulture);
 	}
 
 	// Drawing (in world pixels: x to the right, the ground is at y = 0, up is negative y)
